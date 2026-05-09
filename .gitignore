@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.streamlit/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite
+*.sqlite3
+*.db
+app_state.sqlite
+exports/dashboard/*.parquet
+!exports/dashboard/.gitkeep
+
+.pycache_tmp/
