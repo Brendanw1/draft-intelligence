@@ -1,0 +1,8 @@
+record_type,section,label,value_num,value_text,role,player_uid,player_name
+metric,freshness,Export Timestamp,NA,2026-05-08 21:25:59 UTC,NA,NA,NA
+metric,coverage,Current Season,2026,NA,NA,NA,NA
+metric,coverage,Hitters on Board,3436,NA,hitters,NA,NA
+metric,coverage,Pitchers on Board,745,NA,pitchers,NA,NA
+metric,coverage,ACC/SEC Benchmarks Available,1,Yes,NA,NA,NA
+metric,mapping,Unmapped Batter Teams,0,NA,NA,NA,NA
+metric,mapping,Unmapped Pitcher Teams,0,NA,NA,NA,NA
