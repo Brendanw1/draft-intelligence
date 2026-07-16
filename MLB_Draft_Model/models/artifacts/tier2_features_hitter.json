@@ -1,0 +1,203 @@
+{
+  "model_type": "tier2_hitter",
+  "features": [
+    "fg_Age",
+    "fg_G",
+    "fg_AB",
+    "fg_PA",
+    "fg_H",
+    "fg_1B",
+    "fg_2B",
+    "fg_3B",
+    "fg_HR",
+    "fg_R",
+    "fg_RBI",
+    "fg_BB",
+    "fg_SO",
+    "fg_HBP",
+    "fg_SF",
+    "fg_SH",
+    "fg_SB",
+    "fg_CS",
+    "fg_GDP",
+    "fg_AVG",
+    "fg_BB_pct",
+    "fg_K_pct",
+    "fg_OBP",
+    "fg_SLG",
+    "fg_OPS",
+    "fg_ISO",
+    "fg_Spd",
+    "fg_BABIP",
+    "fg_wOBA",
+    "fg_wRC_plus",
+    "fg_wRC",
+    "fg_wRAA",
+    "fg_wBsR",
+    "fg_BB/K",
+    "height_inches",
+    "bmi",
+    "conference_tier"
+  ],
+  "n_train": 732,
+  "n_features": 37,
+  "n_reached_mlb": 85,
+  "auc_base": 0.6289592760180995,
+  "brier_base": 0.12173900868773602,
+  "auc_platt": 0.9995475113122172,
+  "brier_platt": 0.06199884460837869,
+  "auc_isotonic": 1.0,
+  "brier_isotonic": 0.03637142355780602,
+  "feature_importance": [
+    {
+      "feature": "fg_Age",
+      "importance": 0.04815534129738808
+    },
+    {
+      "feature": "fg_wRC_plus",
+      "importance": 0.04530821368098259
+    },
+    {
+      "feature": "fg_CS",
+      "importance": 0.040198832750320435
+    },
+    {
+      "feature": "fg_AVG",
+      "importance": 0.037079524248838425
+    },
+    {
+      "feature": "fg_OBP",
+      "importance": 0.034643691033124924
+    },
+    {
+      "feature": "fg_BABIP",
+      "importance": 0.03436044976115227
+    },
+    {
+      "feature": "fg_OPS",
+      "importance": 0.03392370045185089
+    },
+    {
+      "feature": "fg_1B",
+      "importance": 0.03355161473155022
+    },
+    {
+      "feature": "fg_BB/K",
+      "importance": 0.03355003520846367
+    },
+    {
+      "feature": "fg_AB",
+      "importance": 0.03223371133208275
+    },
+    {
+      "feature": "fg_wRAA",
+      "importance": 0.030721718445420265
+    },
+    {
+      "feature": "fg_K_pct",
+      "importance": 0.030419033020734787
+    },
+    {
+      "feature": "fg_2B",
+      "importance": 0.030022911727428436
+    },
+    {
+      "feature": "fg_RBI",
+      "importance": 0.029960373416543007
+    },
+    {
+      "feature": "fg_G",
+      "importance": 0.029505016282200813
+    },
+    {
+      "feature": "fg_SO",
+      "importance": 0.029423363506793976
+    },
+    {
+      "feature": "fg_H",
+      "importance": 0.028275657445192337
+    },
+    {
+      "feature": "fg_GDP",
+      "importance": 0.02813424915075302
+    },
+    {
+      "feature": "fg_SB",
+      "importance": 0.026604624465107918
+    },
+    {
+      "feature": "fg_3B",
+      "importance": 0.02608221024274826
+    },
+    {
+      "feature": "fg_HBP",
+      "importance": 0.023238379508256912
+    },
+    {
+      "feature": "bmi",
+      "importance": 0.02316943183541298
+    },
+    {
+      "feature": "fg_wOBA",
+      "importance": 0.023157242685556412
+    },
+    {
+      "feature": "fg_Spd",
+      "importance": 0.02242821268737316
+    },
+    {
+      "feature": "fg_ISO",
+      "importance": 0.022346386685967445
+    },
+    {
+      "feature": "fg_PA",
+      "importance": 0.02169092558324337
+    },
+    {
+      "feature": "fg_SH",
+      "importance": 0.02138766273856163
+    },
+    {
+      "feature": "fg_SF",
+      "importance": 0.020837167277932167
+    },
+    {
+      "feature": "fg_BB_pct",
+      "importance": 0.020352957770228386
+    },
+    {
+      "feature": "fg_wBsR",
+      "importance": 0.0197713952511549
+    },
+    {
+      "feature": "fg_SLG",
+      "importance": 0.01910952478647232
+    },
+    {
+      "feature": "fg_R",
+      "importance": 0.01886947825551033
+    },
+    {
+      "feature": "height_inches",
+      "importance": 0.018286829814314842
+    },
+    {
+      "feature": "fg_wRC",
+      "importance": 0.01726115122437477
+    },
+    {
+      "feature": "fg_BB",
+      "importance": 0.01724056899547577
+    },
+    {
+      "feature": "conference_tier",
+      "importance": 0.0145752327516675
+    },
+    {
+      "feature": "fg_HR",
+      "importance": 0.014123208820819855
+    }
+  ],
+  "cv_auc_mean": 0.6032859798660073,
+  "cv_auc_std": 0.10495123729218694
+}
