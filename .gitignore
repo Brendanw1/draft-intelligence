@@ -1,3 +1,16 @@
+# deps / build
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# env — never commit credentials
+.env
+.env.*
+!.env.example
+
+# python
 .venv/
 __pycache__/
 .pytest_cache/
@@ -5,11 +18,18 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# data
 *.sqlite
 *.sqlite3
 *.db
 app_state.sqlite
+
+# exports
 exports/dashboard/*.parquet
 !exports/dashboard/.gitkeep
 
+# temp / os
 .pycache_tmp/
+.DS_Store
+.vercel
