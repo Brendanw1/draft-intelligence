@@ -105,14 +105,14 @@ def get_conf_strength(conf_strength, conf):
 
 
 # ── Feature lists ──
-# Tier 1 (position regressor) keeps original features — not retrained
+# Tier 1 (position regressor) — now retrained with conf_strength + adj + interactions
 HITTER_FEATURES_T1 = [
     "Age", "G", "AB", "PA", "H", "1B", "2B", "3B", "HR",
     "R", "RBI", "BB", "SO", "HBP", "SF", "SH", "SB", "CS", "GDP",
-    "AVG", "BB_pct", "K_pct", "OBP", "SLG", "OPS", "ISO",
-    "Spd", "BABIP", "wOBA", "wRC_plus", "wRC", "wRAA", "wBsR", "BB/K",
-    "height_inches", "bmi", "conference_tier",
-]
+    "AVG", "BB_pct", "K_pct", "OBP", "SLG", "OPS", "ISO", "Spd",
+    "BABIP", "wOBA", "wRC_plus", "wRC", "wRAA", "wBsR", "BB/K",
+    "height_inches", "bmi", "conf_strength",
+] + HITTER_ADJ + HITTER_INTERACTIONS
 PITCHER_FEATURES_T1 = [
     "Age", "G", "GS", "CG", "SHO", "SV",
     "IP", "TBF", "H", "R", "ER", "HR", "BB", "SO",
@@ -121,8 +121,8 @@ PITCHER_FEATURES_T1 = [
     "K_pct", "BB_pct", "KBB",
     "K_per_nine", "BB_per_nine", "HR_per_nine",
     "AVG", "BABIP", "LOB_pct", "K_minus_BB_pct",
-    "height_inches", "bmi", "conference_tier",
-]
+    "height_inches", "bmi", "conf_strength",
+] + PITCHER_ADJ + PITCHER_INTERACTIONS
 
 # Tier 2 uses the new conf_strength + adj stats + interactions
 HITTER_FEATURES = [
@@ -267,6 +267,47 @@ def main():
 
     season = 2026
 
+    # Load Tier 3 models (MLB arrival prediction)
+    print("\nLoading Tier 3 models...")
+    tier3_models = {}
+    tier3_nns = {}
+    for pt in ["hitter", "pitcher"]:
+        t3_path = model_dir / f"tier3_mlb_{pt}.pkl"
+        if t3_path.exists():
+            with open(t3_path, "rb") as f:
+                tier3_data = pickle.load(f)
+            tier3_models[pt] = tier3_data
+            print(f"  Tier 3 {pt}: loaded ({len(tier3_data['features'])} features)")
+
+        nn_path = model_dir / f"tier3_nn_{pt}.pkl"
+        if nn_path.exists():
+            with open(nn_path, "rb") as f:
+                tier3_nns[pt] = pickle.load(f)
+            print(f"  Tier 3 NN index {pt}: loaded")
+
+    # Pre-compute feature vectors for NN reference pool
+    print("\nPreparing NN reference pool for Tier 3...")
+    nn_ref_pool = {}
+    for pt in ["hitter", "pitcher"]:
+        if pt not in tier3_nns:
+            continue
+        nn_info = tier3_nns[pt]
+        nn_ref_pool[pt] = {
+            "nn": nn_info["nn"],
+            "scaler": nn_info["scaler"],
+            "sim_stats": nn_info["sim_stats"],
+        }
+
+    # Also load the historical drafted players for NN lookup — we need their
+    # MLB debut status stored with the NN index. The NN index was built on
+    # all_pt players, but we need to know which ones debuted.
+    # The index aligns with the player order from training.
+    # For inference-time NN, we only need the index — the 2026 players
+    # are compared to the same reference pool.
+    # Note: nn_mlb_rate is computed at training time and stored as a model coefficient.
+    # During inference, we compute it fresh for each 2026 player against the reference pool.
+    print("  Reference pools ready.")
+
     # Load conference data
     print("\nLoading conference data...")
     conf_stats = load_json(CONF_STATS_PATH) if CONF_STATS_PATH.exists() else None
@@ -279,6 +320,48 @@ def main():
 
     # ── 3. Run inference ──
     print(f"\nRunning inference on {len(enriched)} players...")
+
+    # Pre-compute player types for efficient batch processing
+    player_ptypes = [rec.get("player_type", "hitter") for rec in enriched]
+
+    # Batch NN computation: build similarity vectors for all players at once
+    print("  Computing NN mlb rates (batched)...")
+    nn_rates_by_idx = {}
+    for pt in ["hitter", "pitcher"]:
+        if pt not in tier3_models or pt not in nn_ref_pool:
+            continue
+        nn_info = nn_ref_pool[pt]
+        nn_pickled = tier3_nns[pt]
+        sim_stats = nn_info["sim_stats"]
+        scaler = nn_info["scaler"]
+        nn_model = nn_info["nn"]
+        ref_labels = nn_pickled.get("mlb_debut_labels", [])
+
+        # Get indices of this player type
+        type_indices = [i for i, t in enumerate(player_ptypes) if t == pt]
+        if not type_indices:
+            continue
+
+        # Build similarity matrix for all players of this type
+        sim_matrix = []
+        for idx in type_indices:
+            rec = enriched[idx]
+            row = [safe_float(rec.get(s, 0)) or 0 for s in sim_stats]
+            sim_matrix.append(row)
+        sim_matrix = np.array(sim_matrix)
+
+        # Batch normalize and predict
+        sim_norm = scaler.transform(sim_matrix)
+        n_neighbors = min(21, len(ref_labels))
+        distances, indices = nn_model.kneighbors(sim_norm, n_neighbors=n_neighbors)
+
+        # Compute rates and store by original index
+        for j, idx in enumerate(type_indices):
+            neighbor_labels = [ref_labels[k] for k in indices[j] if k < len(ref_labels)]
+            nn_rate = np.mean(neighbor_labels) if neighbor_labels else 0.0
+            nn_rates_by_idx[idx] = round(float(nn_rate), 4)
+
+    print(f"  Computed NN rates for {len(nn_rates_by_idx)} players")
     for i, rec in enumerate(enriched):
         ptype = rec.get("player_type", "hitter")
         name = rec.get("player_name", "")
@@ -296,8 +379,11 @@ def main():
                                       ptype=ptype)
         X_t2 = np.array([feat_row])
 
-        # Tier 1 feature vector (original features)
-        feat_row_t1 = build_feature_row(raw_fg, rec, features_t1)
+        # Tier 1 feature vector (now uses conf_strength)
+        feat_row_t1 = build_feature_row(raw_fg, rec, features_t1,
+                                         conf_stats=conf_stats,
+                                         conf_strength_data=conf_strength_data,
+                                         ptype=ptype)
         X_t1 = np.array([feat_row_t1])
 
         # Tier 2: MLB probability
@@ -331,6 +417,88 @@ def main():
         else:
             rec["projected_pick"] = rec.get("projected_pick")
             rec["projected_round"] = rec.get("projected_round")
+
+        # ── Tier 3: MLB arrival probability ──
+        t3_mlb_arrival = None
+        nn_rate = nn_rates_by_idx.get(i)
+        rec["nn_mlb_rate"] = nn_rate
+
+        if ptype in tier3_models and nn_rate is not None:
+            try:
+                t3_info = tier3_models[ptype]
+                t3_features = t3_info["features"]
+                t3_model = t3_info["model"]
+
+                # Build Tier 3 feature vector using pre-computed nn_rate
+                t3_row = []
+                for feat in t3_features:
+                    if feat == "nn_mlb_rate":
+                        t3_row.append(nn_rate)
+                    elif feat == "round_logit_prior":
+                        # Map projected_round to its empirical MLB debut logit
+                        rnd = rec.get("projected_round", 10)
+                        # Load round rates from model artifact if available (saved at training time)
+                        # For now, use a default mapping based on training data
+                        round_logit_map = {
+                            1: -0.259, 2: -0.818, 3: -1.337, 4: -2.046, 5: -1.963,
+                            6: -1.737, 7: -2.653, 8: -2.752, 9: -4.317, 10: -2.786,
+                            11: -2.159, 12: -2.364, 13: -3.227, 14: -3.714, 15: -4.159,
+                            16: -4.103, 17: -4.754, 18: -2.986, 19: -4.533, 20: -2.273,
+                        }
+                        t3_row.append(round_logit_map.get(rnd, -2.0))
+                    elif feat == "conf_strength":
+                        conf = rec.get("conference", "")
+                        t3_row.append(get_conf_strength(conf_strength_data, conf) if conf_strength_data else 1.0)
+                    elif feat == "Age":
+                        t3_row.append(safe_float(rec.get("age", 21)) or 21)
+                    elif feat == "height_inches":
+                        v = safe_float(rec.get("height_inches"))
+                        if v is None:
+                            h = rec.get("height", "")
+                            v = parse_height(h) if isinstance(h, str) else 0.0
+                        t3_row.append(v or 0.0)
+                    elif feat == "bmi":
+                        t3_row.append(safe_float(rec.get("bmi", 0)) or 0.0)
+                    elif feat.endswith("_adj"):
+                        raw_stat = ADJ_FEATURE_MAP.get(feat, feat.replace("_adj", ""))
+                        # Try raw FG first, then fall back to enriched (college_ prefixed) data
+                        raw_val = safe_float(raw_fg.get(raw_stat))
+                        if raw_val is None:
+                            raw_val = safe_float(rec.get(f"college_{raw_stat}"))
+                        if raw_val is not None and conf_stats is not None:
+                            conf = rec.get("conference", "")
+                            conf_avg = get_conf_avg(conf_stats, conf, 2026, ptype, raw_stat)
+                            t3_row.append(round(raw_val - conf_avg, 4))
+                        else:
+                            t3_row.append(0.0)
+                    elif feat.startswith("strength_x_"):
+                        # Interaction: conf_strength × adjusted stat
+                        base_adj = INTERACTION_BASE_MAP.get(feat)
+                        if base_adj and conf_stats is not None and conf_strength_data is not None:
+                            raw_stat = ADJ_FEATURE_MAP.get(base_adj, base_adj.replace("_adj", ""))
+                            raw_val = safe_float(raw_fg.get(raw_stat))
+                            if raw_val is None:
+                                raw_val = safe_float(rec.get(f"college_{raw_stat}"))
+                            if raw_val is not None:
+                                conf = rec.get("conference", "")
+                                strength = get_conf_strength(conf_strength_data, conf)
+                                conf_avg = get_conf_avg(conf_stats, conf, 2026, ptype, raw_stat)
+                                adj_val = round(raw_val - conf_avg, 4)
+                                t3_row.append(round(strength * adj_val, 4))
+                            else:
+                                t3_row.append(0.0)
+                        else:
+                            t3_row.append(0.0)
+                    else:
+                        t3_row.append(0.0)
+
+                t3_X = np.array([t3_row])
+                t3_prob = t3_model.predict_proba(t3_X)[0, 1]
+                t3_mlb_arrival = round(float(t3_prob), 4)
+            except Exception:
+                pass
+
+        rec["mlb_arrival_prob"] = t3_mlb_arrival
 
         if (i + 1) % 2000 == 0:
             print(f"  Processed {i + 1}/{len(enriched)}...")
