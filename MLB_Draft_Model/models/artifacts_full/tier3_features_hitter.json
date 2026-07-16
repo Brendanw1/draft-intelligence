@@ -1,0 +1,63 @@
+{
+  "model_type": "tier3_mlb_hitter",
+  "features": [
+    "Age",
+    "conf_strength",
+    "wOBA_adj",
+    "OPS_adj",
+    "BB_pct_adj",
+    "K_pct_adj",
+    "height_inches",
+    "bmi",
+    "round_logit_prior",
+    "nn_mlb_rate"
+  ],
+  "feature_coefficients": [
+    {
+      "feature": "round_logit_prior",
+      "coefficient": 1.0323292054578883
+    },
+    {
+      "feature": "conf_strength",
+      "coefficient": -0.3712215456212366
+    },
+    {
+      "feature": "Age",
+      "coefficient": -0.11679965622559554
+    },
+    {
+      "feature": "bmi",
+      "coefficient": 0.08619889937209278
+    },
+    {
+      "feature": "OPS_adj",
+      "coefficient": 0.024471465251946867
+    },
+    {
+      "feature": "K_pct_adj",
+      "coefficient": -0.023761282895469905
+    },
+    {
+      "feature": "height_inches",
+      "coefficient": 0.02127870283800898
+    },
+    {
+      "feature": "nn_mlb_rate",
+      "coefficient": 0.005441592633157608
+    },
+    {
+      "feature": "wOBA_adj",
+      "coefficient": 0.0
+    },
+    {
+      "feature": "BB_pct_adj",
+      "coefficient": 0.0
+    }
+  ],
+  "n_train": 549,
+  "n_positives": 94,
+  "cv_auc_mean": 0.7862026862026862,
+  "cv_auc_std": 0.04255207780018717,
+  "cv_brier": 0.11833854085679185,
+  "nn_reference_pool": 1112
+}

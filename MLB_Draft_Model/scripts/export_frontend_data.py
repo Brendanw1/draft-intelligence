@@ -330,6 +330,8 @@ def main():
         mlb_p = safe_float(rec.get("mlb_probability"))
         mlb_p_raw = safe_float(rec.get("mlb_prob_platt"))
         mlb_p_iso = safe_float(rec.get("mlb_prob_isotonic"))
+        mlb_arrival = safe_float(rec.get("mlb_arrival_prob"))
+        nn_mlb_rate = safe_float(rec.get("nn_mlb_rate"))
         composite = safe_float(rec.get("composite_score"))
         grade = rec.get("value_grade", "low")
         t1_conf = rec.get("tier1_confidence", "low")
@@ -381,6 +383,8 @@ def main():
             "mlb_p": mlb_p,
             "mlb_p_raw": mlb_p_raw,
             "mlb_p_iso": mlb_p_iso,
+            "mlb_arrival": mlb_arrival,
+            "nn_mlb_rate": nn_mlb_rate,
             "hist_rate": hist_rate,
             "composite": composite,
             "grade": grade if grade in ("elite", "high", "medium", "low") else "low",
@@ -460,6 +464,8 @@ def main():
             "mlb_p": mlb_p,
             "mlb_p_raw": mlb_p_raw,
             "mlb_p_iso": mlb_p_iso,
+            "mlb_arrival": mlb_arrival,
+            "nn_mlb_rate": nn_mlb_rate,
             "hist_rate": hist_rate,
             "composite": composite,
             "grade": grade if grade in ("elite", "high", "medium", "low") else "low",
