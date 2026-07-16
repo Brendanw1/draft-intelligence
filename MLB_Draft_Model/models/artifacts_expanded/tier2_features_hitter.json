@@ -1,0 +1,203 @@
+{
+  "model_type": "tier2_hitter",
+  "features": [
+    "Age",
+    "G",
+    "AB",
+    "PA",
+    "H",
+    "1B",
+    "2B",
+    "3B",
+    "HR",
+    "R",
+    "RBI",
+    "BB",
+    "SO",
+    "HBP",
+    "SF",
+    "SH",
+    "SB",
+    "CS",
+    "GDP",
+    "AVG",
+    "BB_pct",
+    "K_pct",
+    "OBP",
+    "SLG",
+    "OPS",
+    "ISO",
+    "Spd",
+    "BABIP",
+    "wOBA",
+    "wRC_plus",
+    "wRC",
+    "wRAA",
+    "wBsR",
+    "BB/K",
+    "height_inches",
+    "bmi",
+    "conference_tier"
+  ],
+  "n_train": 2711,
+  "n_players": 1189,
+  "cv_auc_mean": 0.6614260272180067,
+  "cv_auc_std": 0.014869428022583002,
+  "cv_auc_values": [
+    0.6646665297379771,
+    0.6556718732690816,
+    0.6364182428175864,
+    0.6698116028708134,
+    0.6805618873945749
+  ],
+  "feature_importance": [
+    {
+      "feature": "conference_tier",
+      "importance": 0.052478376775979996
+    },
+    {
+      "feature": "BB",
+      "importance": 0.048677150160074234
+    },
+    {
+      "feature": "Age",
+      "importance": 0.04350970685482025
+    },
+    {
+      "feature": "wRC",
+      "importance": 0.04218803718686104
+    },
+    {
+      "feature": "2B",
+      "importance": 0.03343125432729721
+    },
+    {
+      "feature": "OPS",
+      "importance": 0.029395103454589844
+    },
+    {
+      "feature": "bmi",
+      "importance": 0.028118470683693886
+    },
+    {
+      "feature": "RBI",
+      "importance": 0.027057059109210968
+    },
+    {
+      "feature": "R",
+      "importance": 0.026958424597978592
+    },
+    {
+      "feature": "wRAA",
+      "importance": 0.026720453053712845
+    },
+    {
+      "feature": "K_pct",
+      "importance": 0.026700327172875404
+    },
+    {
+      "feature": "ISO",
+      "importance": 0.026460787281394005
+    },
+    {
+      "feature": "SO",
+      "importance": 0.025908347219228745
+    },
+    {
+      "feature": "HR",
+      "importance": 0.025763873010873795
+    },
+    {
+      "feature": "AVG",
+      "importance": 0.025680655613541603
+    },
+    {
+      "feature": "PA",
+      "importance": 0.025475645437836647
+    },
+    {
+      "feature": "BB/K",
+      "importance": 0.025278422981500626
+    },
+    {
+      "feature": "3B",
+      "importance": 0.024839123710989952
+    },
+    {
+      "feature": "H",
+      "importance": 0.024793827906250954
+    },
+    {
+      "feature": "SB",
+      "importance": 0.024790767580270767
+    },
+    {
+      "feature": "AB",
+      "importance": 0.023924587294459343
+    },
+    {
+      "feature": "wRC_plus",
+      "importance": 0.023856889456510544
+    },
+    {
+      "feature": "height_inches",
+      "importance": 0.02355128526687622
+    },
+    {
+      "feature": "SLG",
+      "importance": 0.02346937730908394
+    },
+    {
+      "feature": "BB_pct",
+      "importance": 0.023448031395673752
+    },
+    {
+      "feature": "wBsR",
+      "importance": 0.02343798242509365
+    },
+    {
+      "feature": "Spd",
+      "importance": 0.023240162059664726
+    },
+    {
+      "feature": "1B",
+      "importance": 0.023229407146573067
+    },
+    {
+      "feature": "wOBA",
+      "importance": 0.023080715909600258
+    },
+    {
+      "feature": "G",
+      "importance": 0.023049840703606606
+    },
+    {
+      "feature": "HBP",
+      "importance": 0.02298191748559475
+    },
+    {
+      "feature": "OBP",
+      "importance": 0.02268332429230213
+    },
+    {
+      "feature": "BABIP",
+      "importance": 0.022658808156847954
+    },
+    {
+      "feature": "CS",
+      "importance": 0.022335195913910866
+    },
+    {
+      "feature": "GDP",
+      "importance": 0.021726790815591812
+    },
+    {
+      "feature": "SH",
+      "importance": 0.020801518112421036
+    },
+    {
+      "feature": "SF",
+      "importance": 0.018298320472240448
+    }
+  ]
+}
