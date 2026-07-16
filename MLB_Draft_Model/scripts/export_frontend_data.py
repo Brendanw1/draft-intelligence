@@ -327,8 +327,8 @@ def main():
         # Model outputs
         proj_pick = safe_float(rec.get("projected_pick"))
         proj_round = safe_float(rec.get("projected_round"))
-        mlb_p = safe_float(rec.get("mlb_prob_platt"))
-        mlb_p_raw = safe_float(rec.get("mlb_probability"))
+        mlb_p = safe_float(rec.get("mlb_probability"))
+        mlb_p_raw = safe_float(rec.get("mlb_prob_platt"))
         mlb_p_iso = safe_float(rec.get("mlb_prob_isotonic"))
         composite = safe_float(rec.get("composite_score"))
         grade = rec.get("value_grade", "low")

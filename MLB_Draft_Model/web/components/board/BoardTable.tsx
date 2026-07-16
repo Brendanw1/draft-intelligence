@@ -120,7 +120,7 @@ export function BoardTable({
         <div className="w-[62px] shrink-0"><Th label="Grade" align="left" title="Composite percentile tier within qualified same-type players: elite top 1%, high next 4%, medium next 15%" /></div>
         <div className="w-[64px] shrink-0"><Th label="Comp" sortKey="composite" title="Composite score 0–100" /></div>
         <div className="w-[168px] shrink-0"><Th label="Proj. Round" sortKey="pick" align="left" title="Projected round band: pick ± backtest error (~110 picks). The tick is the point estimate." /></div>
-        <div className="w-[122px] shrink-0"><Th label="MLB%" sortKey="mlb_p" title="Calibrated (Platt) probability of reaching MLB. Dashed tick = actual rate of players the model scored like this." /></div>
+        <div className="w-[122px] shrink-0"><Th label="MLB%" sortKey="mlb_p" title="Model probability of reaching MLB. Conference-adjusted raw score — not Platt-calibrated (no ceiling compression)." /></div>
         <div className="w-[44px] shrink-0"><Th label="Conf" title="Tier 1 confidence from projected pick depth" /></div>
         {statDefs.map((d) => (
           <div key={d.key} className="w-[64px] shrink-0">
