@@ -1,35 +1,26 @@
-# deps / build
-node_modules/
-.next/
-out/
-*.tsbuildinfo
-next-env.d.ts
-
-# env — never commit credentials
-.env
-.env.*
-!.env.example
-
-# python
-.venv/
-__pycache__/
-.pytest_cache/
-.streamlit/
-*.pyc
-*.pyo
-*.pyd
-
-# data
-*.sqlite
-*.sqlite3
-*.db
-app_state.sqlite
-
-# exports
-exports/dashboard/*.parquet
-!exports/dashboard/.gitkeep
-
-# temp / os
-.pycache_tmp/
+# OS and editor files
 .DS_Store
-.vercel
+*.swp
+*.swo
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+.playwright-mcp/
+
+# Agent files
+.agents/
+.claude/
+.kiro/
+.commandcode/
+
+# Build output
+MLB_Draft_Model/web/out/
+MLB_Draft_Model/web/.next/
+
+# Temporary analysis scripts
+MLB_Draft_Model/scripts/debug_*.py
+MLB_Draft_Model/scripts/verify_*.py
+MLB_Draft_Model/scripts/assess_*.py
+MLB_Draft_Model/scripts/inspect_*.R
+MLB_Draft_Model/scripts/inspect_ncaa_tables.R
