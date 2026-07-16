@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* ── VT Draft Intelligence tokens — field guide, not fintech ─────────────── */
+:root {
+  --paper: #f7f5f0;
+  --paper-raised: #fdfcf9;
+  --paper-sunken: #efece4;
+  --ink: #1c1a17;
+  --ink-2: #55504a;
+  --ink-3: #8c857c;
+  --rule: #ddd8ce;
+  --rule-strong: #c4bdb0;
+  --maroon: #861f41;
+  --maroon-soft: #f3e4ea;
+
+  /* grade ramp — ordinal, warm; medium/low deliberately recessive */
+  --grade-elite: #7a330b;
+  --grade-high: #b4601a;
+  --grade-medium: #a08b6b;
+  --grade-low: #b7b0a4;
+  --grade-elite-bg: #f0dfd2;
+  --grade-high-bg: #f2e6d4;
+  --grade-medium-bg: #ece7dc;
+  --grade-low-bg: #eceae4;
+
+  /* hitter / pitcher identity */
+  --hitter: #8c3b2e;
+  --pitcher: #17685a;
+  --hitter-bg: #f2e2de;
+  --pitcher-bg: #ddeae6;
+
+  /* semantics */
+  --flag: #9a6a00;
+  --flag-bg: #f4e9cf;
+  --nodata: #a39b8f;
+  --band: #c9b99b;
+  --band-strong: #8a6d3b;
+  --ref-line: #9c948a;
+
+  --shadow-drawer: -12px 0 40px rgba(28, 26, 23, 0.18);
+  --shadow-pop: 0 4px 24px rgba(28, 26, 23, 0.14);
+}
+
+[data-theme="dark"] {
+  --paper: #201d1a;
+  --paper-raised: #282420;
+  --paper-sunken: #191714;
+  --ink: #ece7de;
+  --ink-2: #b3aca1;
+  --ink-3: #7d766c;
+  --rule: #3a352f;
+  --rule-strong: #4c463e;
+  --maroon: #c26a86;
+  --maroon-soft: #3a2530;
+
+  --grade-elite: #da8434;
+  --grade-high: #c08a52;
+  --grade-medium: #8a8172;
+  --grade-low: #625c52;
+  --grade-elite-bg: #3c2c1b;
+  --grade-high-bg: #362b1d;
+  --grade-medium-bg: #2e2a22;
+  --grade-low-bg: #292620;
+
+  --hitter: #d07b5a;
+  --pitcher: #4e9a85;
+  --hitter-bg: #3a2820;
+  --pitcher-bg: #1f312c;
+
+  --flag: #d4a53a;
+  --flag-bg: #362e18;
+  --nodata: #6e675e;
+  --band: #5a4f3d;
+  --band-strong: #b08a4e;
+  --ref-line: #6e675e;
+
+  --shadow-drawer: -12px 0 40px rgba(0, 0, 0, 0.5);
+  --shadow-pop: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-paper-sunken: var(--paper-sunken);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-maroon: var(--maroon);
+  --color-maroon-soft: var(--maroon-soft);
+  --color-flag: var(--flag);
+  --color-flag-bg: var(--flag-bg);
+  --color-hitter: var(--hitter);
+  --color-pitcher: var(--pitcher);
+  --font-display: var(--font-fraunces);
+  --font-ui: var(--font-archivo);
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-archivo), sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* numbers are the product — tabular everywhere */
+* {
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: var(--maroon);
+  color: var(--paper);
+}
+
+/* thin, recessive scrollbars for the work surfaces */
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: var(--rule-strong);
+  border-radius: 4px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* focus visible, not color-alone */
+:focus-visible {
+  outline: 2px solid var(--maroon);
+  outline-offset: 1px;
+}
+
+@keyframes drawer-in {
+  from { transform: translateX(24px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.drawer-in {
+  animation: drawer-in 180ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer-in { animation: none; }
+}
