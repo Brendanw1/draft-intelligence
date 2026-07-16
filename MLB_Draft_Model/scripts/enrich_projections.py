@@ -230,16 +230,11 @@ def main():
         team_abb = (record.get("team_abb") or record.get("fg_team_abb", "")).upper()
         player_type = record.get("player_type", "")
 
-        # Default values
-        record["height"] = None
-        record["height_inches"] = None
-        record["position"] = None
-        record["class_year"] = None
-        record["bats"] = None
-        record["throws"] = None
-        record["conference"] = None
-        record["conference_tier"] = None
-        record["bmi"] = None
+        # Preserve existing fields, only set defaults for missing ones
+        for k in ["height", "height_inches", "position", "class_year",
+                   "bats", "throws", "conference", "conference_tier", "bmi"]:
+            if k not in record or record[k] is None:
+                record[k] = None
 
         # Determine roster team name via crosswalk
         roster_team_name = fg_to_roster_team.get(team_abb)
