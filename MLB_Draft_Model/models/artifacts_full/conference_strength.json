@@ -1,0 +1,302 @@
+{
+  "America East": {
+    "strength": 0.2667,
+    "draft_rate": 0.0265,
+    "global_rate": 0.0994,
+    "total": 1584,
+    "drafted": 42,
+    "avg_pick": 309.4,
+    "med_pick": 296.0,
+    "avg_bonus": 169444.0
+  },
+  "OVC": {
+    "strength": 0.2039,
+    "draft_rate": 0.0203,
+    "global_rate": 0.0994,
+    "total": 1874,
+    "drafted": 38,
+    "avg_pick": 359.7,
+    "med_pick": 382.0,
+    "avg_bonus": 229274.0
+  },
+  "MAC": {
+    "strength": 0.5652,
+    "draft_rate": 0.0562,
+    "global_rate": 0.0994,
+    "total": 1993,
+    "drafted": 112,
+    "avg_pick": 372.7,
+    "med_pick": 417.0,
+    "avg_bonus": 213669.0
+  },
+  "Horizon": {
+    "strength": 0.3938,
+    "draft_rate": 0.0392,
+    "global_rate": 0.0994,
+    "total": 1047,
+    "drafted": 41,
+    "avg_pick": 381.5,
+    "med_pick": 360.0,
+    "avg_bonus": 173429.0
+  },
+  "CUSA": {
+    "strength": 1.101,
+    "draft_rate": 0.1095,
+    "global_rate": 0.0994,
+    "total": 2914,
+    "drafted": 319,
+    "avg_pick": 294.9,
+    "med_pick": 288.0,
+    "avg_bonus": 437070.0
+  },
+  "Big West": {
+    "strength": 1.1691,
+    "draft_rate": 0.1162,
+    "global_rate": 0.0994,
+    "total": 2314,
+    "drafted": 269,
+    "avg_pick": 332.6,
+    "med_pick": 312.0,
+    "avg_bonus": 427877.0
+  },
+  "Sun Belt": {
+    "strength": 0.9095,
+    "draft_rate": 0.0904,
+    "global_rate": 0.0994,
+    "total": 3229,
+    "drafted": 292,
+    "avg_pick": 322.6,
+    "med_pick": 301.5,
+    "avg_bonus": 435020.0
+  },
+  "CAA": {
+    "strength": 0.7461,
+    "draft_rate": 0.0742,
+    "global_rate": 0.0994,
+    "total": 2305,
+    "drafted": 171,
+    "avg_pick": 294.0,
+    "med_pick": 257.0,
+    "avg_bonus": 329194.0
+  },
+  "Big East": {
+    "strength": 0.4547,
+    "draft_rate": 0.0452,
+    "global_rate": 0.0994,
+    "total": 1283,
+    "drafted": 58,
+    "avg_pick": 316.1,
+    "med_pick": 319.0,
+    "avg_bonus": 189610.0
+  },
+  "NEC": {
+    "strength": 0.2133,
+    "draft_rate": 0.0212,
+    "global_rate": 0.0994,
+    "total": 2358,
+    "drafted": 50,
+    "avg_pick": 403.1,
+    "med_pick": 422.0,
+    "avg_bonus": 244350.0
+  },
+  "SEC": {
+    "strength": 2.9758,
+    "draft_rate": 0.2959,
+    "global_rate": 0.0994,
+    "total": 4282,
+    "drafted": 1267,
+    "avg_pick": 254.7,
+    "med_pick": 233.0,
+    "avg_bonus": 807858.0
+  },
+  "Summit League": {
+    "strength": 0.3972,
+    "draft_rate": 0.0395,
+    "global_rate": 0.0994,
+    "total": 1190,
+    "drafted": 47,
+    "avg_pick": 350.5,
+    "med_pick": 388.0,
+    "avg_bonus": 249539.0
+  },
+  "Atlantic 10": {
+    "strength": 0.6335,
+    "draft_rate": 0.063,
+    "global_rate": 0.0994,
+    "total": 1778,
+    "drafted": 112,
+    "avg_pick": 335.9,
+    "med_pick": 341.0,
+    "avg_bonus": 201851.0
+  },
+  "Mountain West": {
+    "strength": 1.1343,
+    "draft_rate": 0.1128,
+    "global_rate": 0.0994,
+    "total": 1862,
+    "drafted": 210,
+    "avg_pick": 317.1,
+    "med_pick": 300.0,
+    "avg_bonus": 490407.0
+  },
+  "American": {
+    "strength": 1.1807,
+    "draft_rate": 0.1174,
+    "global_rate": 0.0994,
+    "total": 1891,
+    "drafted": 222,
+    "avg_pick": 310.7,
+    "med_pick": 296.0,
+    "avg_bonus": 455096.0
+  },
+  "MVC": {
+    "strength": 0.7568,
+    "draft_rate": 0.0753,
+    "global_rate": 0.0994,
+    "total": 1794,
+    "drafted": 135,
+    "avg_pick": 317.9,
+    "med_pick": 299.0,
+    "avg_bonus": 190030.0
+  },
+  "WCC": {
+    "strength": 0.8841,
+    "draft_rate": 0.0879,
+    "global_rate": 0.0994,
+    "total": 1695,
+    "drafted": 149,
+    "avg_pick": 338.9,
+    "med_pick": 329.0,
+    "avg_bonus": 314496.0
+  },
+  "Big Ten": {
+    "strength": 1.557,
+    "draft_rate": 0.1548,
+    "global_rate": 0.0994,
+    "total": 3656,
+    "drafted": 566,
+    "avg_pick": 290.9,
+    "med_pick": 281.0,
+    "avg_bonus": 449547.0
+  },
+  "ACC": {
+    "strength": 2.2951,
+    "draft_rate": 0.2282,
+    "global_rate": 0.0994,
+    "total": 3808,
+    "drafted": 869,
+    "avg_pick": 254.6,
+    "med_pick": 228.0,
+    "avg_bonus": 721607.0
+  },
+  "SoCon": {
+    "strength": 0.6266,
+    "draft_rate": 0.0623,
+    "global_rate": 0.0994,
+    "total": 1284,
+    "drafted": 80,
+    "avg_pick": 369.6,
+    "med_pick": 375.0,
+    "avg_bonus": 142754.0
+  },
+  "DI Independent": {
+    "strength": 3.2889,
+    "draft_rate": 0.327,
+    "global_rate": 0.0994,
+    "total": 211,
+    "drafted": 69,
+    "avg_pick": 263.0,
+    "med_pick": 256.0,
+    "avg_bonus": 942658.0
+  },
+  "Ivy League": {
+    "strength": 0.4597,
+    "draft_rate": 0.0457,
+    "global_rate": 0.0994,
+    "total": 1269,
+    "drafted": 58,
+    "avg_pick": 319.2,
+    "med_pick": 289.0,
+    "avg_bonus": 152054.0
+  },
+  "Big 12": {
+    "strength": 2.2946,
+    "draft_rate": 0.2282,
+    "global_rate": 0.0994,
+    "total": 2529,
+    "drafted": 577,
+    "avg_pick": 281.2,
+    "med_pick": 264.0,
+    "avg_bonus": 503910.0
+  },
+  "MAAC": {
+    "strength": 0.1715,
+    "draft_rate": 0.017,
+    "global_rate": 0.0994,
+    "total": 2874,
+    "drafted": 49,
+    "avg_pick": 323.5,
+    "med_pick": 309.0,
+    "avg_bonus": 341006.0
+  },
+  "WAC": {
+    "strength": 0.5507,
+    "draft_rate": 0.0548,
+    "global_rate": 0.0994,
+    "total": 1662,
+    "drafted": 91,
+    "avg_pick": 368.5,
+    "med_pick": 384.0,
+    "avg_bonus": 186039.0
+  },
+  "ASUN": {
+    "strength": 0.6666,
+    "draft_rate": 0.0663,
+    "global_rate": 0.0994,
+    "total": 2263,
+    "drafted": 150,
+    "avg_pick": 357.8,
+    "med_pick": 414.0,
+    "avg_bonus": 310902.0
+  },
+  "Southland": {
+    "strength": 0.3938,
+    "draft_rate": 0.0392,
+    "global_rate": 0.0994,
+    "total": 2886,
+    "drafted": 113,
+    "avg_pick": 360.0,
+    "med_pick": 361.0,
+    "avg_bonus": 156037.0
+  },
+  "Big South": {
+    "strength": 0.3505,
+    "draft_rate": 0.0348,
+    "global_rate": 0.0994,
+    "total": 1693,
+    "drafted": 59,
+    "avg_pick": 311.7,
+    "med_pick": 289.0,
+    "avg_bonus": 232158.0
+  },
+  "Patriot": {
+    "strength": 0.3009,
+    "draft_rate": 0.0299,
+    "global_rate": 0.0994,
+    "total": 1270,
+    "drafted": 38,
+    "avg_pick": 311.0,
+    "med_pick": 255.0,
+    "avg_bonus": 250400.0
+  },
+  "SWAC": {
+    "strength": 0.0878,
+    "draft_rate": 0.0087,
+    "global_rate": 0.0994,
+    "total": 2291,
+    "drafted": 20,
+    "avg_pick": 427.6,
+    "med_pick": 395.0,
+    "avg_bonus": 96222.0
+  }
+}

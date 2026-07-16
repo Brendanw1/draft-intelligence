@@ -3,15 +3,14 @@
 infer_2026.py — Run Tier 1 and Tier 2 model inference on 2026 prospects.
 
 Loads trained models from models/artifacts_full/ and applies them to the
-2026 FanGraphs D1 data joined with roster enrichment data. Writes updated
-projections including mlb_prob_platt, mlb_probability, mlb_prob_isotonic,
-projected_pick, projected_round, composite_score, and value_grade.
+2026 FanGraphs D1 data joined with roster enrichment data.
+
+Features: continuous conf_strength + conference-adjusted stats + interactions.
 
 Usage:
   python3 scripts/infer_2026.py
   python3 scripts/infer_2026.py --model-dir models/artifacts_full
 """
-
 import json, sys, os, pickle, warnings
 from pathlib import Path
 
@@ -26,6 +25,8 @@ ENRICHED_PATH = BASE / "data" / "training" / "projections_2026_enriched.json"
 RAW_BATTERS_PATH = BASE / "data" / "fangraphs" / "raw" / "batters_2026.json"
 RAW_PITCHERS_PATH = BASE / "data" / "fangraphs" / "raw" / "pitchers_2026.json"
 OUTPUT_PATH = BASE / "data" / "training" / "projections_2026_enriched.json"
+CONF_STATS_PATH = BASE / "models" / "artifacts_full" / "conference_stats.json"
+CONF_STRENGTH_PATH = BASE / "models" / "artifacts_full" / "conference_strength.json"
 
 
 def load_json(path):
@@ -56,16 +57,63 @@ def parse_height(height_str):
     return None
 
 
-# ── Hitter features (full-population model) ──
-HITTER_FEATURES = [
+# ── Conference-adjusted features ──
+HITTER_ADJ = ["wOBA_adj", "OPS_adj", "AVG_adj", "SLG_adj",
+              "BB_pct_adj", "K_pct_adj", "ISO_adj", "wRC_plus_adj"]
+PITCHER_ADJ = ["ERA_adj", "FIP_adj", "WHIP_adj",
+               "K_per_nine_adj", "BB_per_nine_adj", "K_pct_adj", "BB_pct_adj"]
+
+HITTER_INTERACTIONS = ["strength_x_" + s.replace("_adj", "") for s in HITTER_ADJ]
+PITCHER_INTERACTIONS = ["strength_x_" + s.replace("_adj", "") for s in PITCHER_ADJ]
+
+ADJ_FEATURE_MAP = {
+    "wOBA_adj": "wOBA", "OPS_adj": "OPS", "AVG_adj": "AVG", "SLG_adj": "SLG",
+    "BB_pct_adj": "BB_pct", "K_pct_adj": "K_pct", "ISO_adj": "ISO", "wRC_plus_adj": "wRC_plus",
+    "ERA_adj": "ERA", "FIP_adj": "FIP", "WHIP_adj": "WHIP",
+    "K_per_nine_adj": "K_per_nine", "BB_per_nine_adj": "BB_per_nine",
+}
+
+INTERACTION_BASE_MAP = {
+    "strength_x_wOBA": "wOBA_adj", "strength_x_OPS": "OPS_adj",
+    "strength_x_AVG": "AVG_adj", "strength_x_SLG": "SLG_adj",
+    "strength_x_BB_pct": "BB_pct_adj", "strength_x_K_pct": "K_pct_adj",
+    "strength_x_ISO": "ISO_adj", "strength_x_wRC_plus": "wRC_plus_adj",
+    "strength_x_ERA": "ERA_adj", "strength_x_FIP": "FIP_adj",
+    "strength_x_WHIP": "WHIP_adj",
+    "strength_x_K_per_nine": "K_per_nine_adj", "strength_x_BB_per_nine": "BB_per_nine_adj",
+}
+
+
+def get_conf_avg(conf_stats, conf, season, ptype, stat):
+    per_season = conf_stats.get("per_season", {})
+    conf_ov = conf_stats.get("conference_overall", {})
+    tier_fb = conf_stats.get("tier_fallback", {})
+    season_data = per_season.get(conf, {}).get(str(season), {})
+    if isinstance(season_data, dict):
+        ptype_data = season_data.get(ptype, {})
+        if stat in ptype_data:
+            return ptype_data[stat]
+    conf_data = conf_ov.get(conf, {}).get(ptype, {})
+    if stat in conf_data:
+        return conf_data[stat]
+    tier_data = tier_fb.get("3", {}).get(ptype, {})
+    return tier_data.get(stat, 0.0)
+
+
+def get_conf_strength(conf_strength, conf):
+    return conf_strength.get(conf, {}).get("strength", 1.0)
+
+
+# ── Feature lists ──
+# Tier 1 (position regressor) keeps original features — not retrained
+HITTER_FEATURES_T1 = [
     "Age", "G", "AB", "PA", "H", "1B", "2B", "3B", "HR",
     "R", "RBI", "BB", "SO", "HBP", "SF", "SH", "SB", "CS", "GDP",
     "AVG", "BB_pct", "K_pct", "OBP", "SLG", "OPS", "ISO",
     "Spd", "BABIP", "wOBA", "wRC_plus", "wRC", "wRAA", "wBsR", "BB/K",
     "height_inches", "bmi", "conference_tier",
 ]
-
-PITCHER_FEATURES = [
+PITCHER_FEATURES_T1 = [
     "Age", "G", "GS", "CG", "SHO", "SV",
     "IP", "TBF", "H", "R", "ER", "HR", "BB", "SO",
     "HBP", "WP", "BK", "W", "L",
@@ -76,13 +124,39 @@ PITCHER_FEATURES = [
     "height_inches", "bmi", "conference_tier",
 ]
 
+# Tier 2 uses the new conf_strength + adj stats + interactions
+HITTER_FEATURES = [
+    "Age", "G", "AB", "PA", "H", "1B", "2B", "3B", "HR",
+    "R", "RBI", "BB", "SO", "HBP", "SF", "SH", "SB", "CS", "GDP",
+    "AVG", "BB_pct", "K_pct", "OBP", "SLG", "OPS", "ISO", "Spd",
+    "BABIP", "wOBA", "wRC_plus", "wRC", "wRAA", "wBsR", "BB/K",
+    "height_inches", "bmi", "conf_strength",
+] + HITTER_ADJ + HITTER_INTERACTIONS
+
+PITCHER_FEATURES = [
+    "Age", "G", "GS", "CG", "SHO", "SV", "IP", "TBF",
+    "H", "R", "ER", "HR", "BB", "SO", "HBP", "WP", "BK",
+    "W", "L", "ERA", "WHIP", "FIP", "ERA_minus_FIP",
+    "K_pct", "BB_pct", "KBB", "K_per_nine", "BB_per_nine", "HR_per_nine",
+    "AVG", "BABIP", "LOB_pct", "K_minus_BB_pct",
+    "height_inches", "bmi", "conf_strength",
+] + PITCHER_ADJ + PITCHER_INTERACTIONS
+
 # Lower-is-better stats (for percentile direction)
 LOWER_BETTER = {"K_pct", "BB_pct", "ERA", "FIP", "WHIP", "BB_per_nine",
                 "HR_per_nine", "LOB_pct"}
 
 
-def build_feature_row(raw_fg: dict, roster: dict, features: list) -> list | None:
-    """Build a feature vector from raw FG data + roster enrichment."""
+def build_feature_row(raw_fg: dict, roster: dict, features: list,
+                       conf_stats: dict = None, conf_strength_data: dict = None,
+                       ptype: str = "hitter") -> list | None:
+    """Build a feature vector from raw FG data + roster enrichment.
+
+    Handles all feature types: raw stats, conf_strength, _adj stats, strength_x_ interactions.
+    """
+    conf = roster.get("conference", "")
+    season = roster.get("season", 2026)
+
     row = []
     for feat in features:
         if feat == "height_inches":
@@ -98,11 +172,40 @@ def build_feature_row(raw_fg: dict, roster: dict, features: list) -> list | None
                 if weight and height:
                     v = round(weight * 703 / (height ** 2), 1)
                 else:
-                    v = 0.0  # fallback
+                    v = 0.0
         elif feat == "conference_tier":
             v = safe_float(roster.get("conference_tier", 4))
+        elif feat == "conf_strength":
+            v = get_conf_strength(conf_strength_data, conf) if conf_strength_data else 1.0
         elif feat == "Age":
             v = safe_float(raw_fg.get("Age"))
+        elif feat.endswith("_adj") and not feat.startswith("strength_x_"):
+            raw_stat = ADJ_FEATURE_MAP.get(feat, feat.replace("_adj", ""))
+            raw_val = safe_float(raw_fg.get(raw_stat))
+            if raw_val is None or conf_stats is None:
+                v = 0.0
+            else:
+                conf_avg = get_conf_avg(conf_stats, conf, season, ptype, raw_stat)
+                v = round(raw_val - conf_avg, 4)
+        elif feat.startswith("strength_x_"):
+            # Interaction: conf_strength × adjusted stat
+            base_adj = INTERACTION_BASE_MAP.get(feat)
+            if base_adj and conf_strength_data:
+                strength = get_conf_strength(conf_strength_data, conf)
+                # Get the adj stat value — compute it now since we may not have precomputed it
+                if base_adj in raw_fg:
+                    adj_val = safe_float(raw_fg.get(base_adj, 0))
+                else:
+                    raw_stat = ADJ_FEATURE_MAP.get(base_adj, base_adj.replace("_adj", ""))
+                    raw_val = safe_float(raw_fg.get(raw_stat))
+                    if raw_val is not None and conf_stats is not None:
+                        conf_avg = get_conf_avg(conf_stats, conf, season, ptype, raw_stat)
+                        adj_val = round(raw_val - conf_avg, 4)
+                    else:
+                        adj_val = 0.0
+                v = round(strength * adj_val, 4)
+            else:
+                v = 0.0
         else:
             v = safe_float(raw_fg.get(feat))
         if v is None or np.isnan(v):
@@ -124,7 +227,6 @@ def main():
     raw_batters = load_json(RAW_BATTERS_PATH)["data"]
     raw_pitchers = load_json(RAW_PITCHERS_PATH)["data"]
 
-    # Index raw FG by {player_name|team_abb}
     raw_fg_idx = {}
     for rec in raw_batters + raw_pitchers:
         key = f"{rec.get('Player', '').strip().lower()}|{rec.get('team_name_abb', '').strip().lower()}"
@@ -136,10 +238,8 @@ def main():
 
     # ── 2. Load models ──
     print("\nLoading models...")
-
     models = {}
     for pt in ["hitter", "pitcher"]:
-        # Tier 2 — MLB probability (full-population)
         tier2_path = model_dir / f"tier2_full_{pt}.json"
         if not tier2_path.exists():
             tier2_path = model_dir / f"tier2_{pt}.json"
@@ -149,7 +249,6 @@ def main():
             models[f"tier2_{pt}"] = model
             print(f"  Tier 2 {pt}: loaded from {tier2_path.name}")
 
-        # Calibrators
         for cal_type in ["platt", "isotonic"]:
             cal_path = model_dir / f"calibrator_{cal_type}_{pt}.pkl"
             if cal_path.exists():
@@ -157,9 +256,7 @@ def main():
                     models[f"cal_{cal_type}_{pt}"] = pickle.load(f)
                 print(f"  Calibrator ({cal_type}) {pt}: loaded")
 
-        # Tier 1 — draft position
         t1_path = model_dir / f"fg_draft_{pt}.json"
-        # Also check the base artifacts directory
         if not t1_path.exists():
             t1_path = BASE / "models" / "artifacts" / f"fg_draft_{pt}.json"
         if t1_path.exists():
@@ -168,17 +265,20 @@ def main():
             models[f"tier1_{pt}"] = t1_model
             print(f"  Tier 1 {pt}: loaded from {t1_path.name}")
 
-    # Determine inference year and season from data
     season = 2026
+
+    # Load conference data
+    print("\nLoading conference data...")
+    conf_stats = load_json(CONF_STATS_PATH) if CONF_STATS_PATH.exists() else None
+    conf_strength_data = load_json(CONF_STRENGTH_PATH) if CONF_STRENGTH_PATH.exists() else None
+    if conf_strength_data:
+        n_conf = len(conf_strength_data)
+        print(f"  conf_strength.json: {n_conf} conferences loaded")
+    else:
+        print("  WARNING: conference_strength.json not found — strength = 1.0 default")
 
     # ── 3. Run inference ──
     print(f"\nRunning inference on {len(enriched)} players...")
-
-    hitter_raw_probs = []
-    hitter_cal_probs = []
-    pitcher_raw_probs = []
-    pitcher_cal_probs = []
-
     for i, rec in enumerate(enriched):
         ptype = rec.get("player_type", "hitter")
         name = rec.get("player_name", "")
@@ -186,43 +286,46 @@ def main():
         lookup_key = f"{name.strip().lower()}|{team_abb.strip().lower()}"
         raw_fg = raw_fg_idx.get(lookup_key, {})
 
-        features = HITTER_FEATURES if ptype == "hitter" else PITCHER_FEATURES
-        feat_row = build_feature_row(raw_fg, rec, features)
-        X = np.array([feat_row])
+        features_t2 = HITTER_FEATURES if ptype == "hitter" else PITCHER_FEATURES
+        features_t1 = HITTER_FEATURES_T1 if ptype == "hitter" else PITCHER_FEATURES_T1
 
-        # Tier 2: MLB probability (full-population)
+        # Tier 2 feature vector
+        feat_row = build_feature_row(raw_fg, rec, features_t2,
+                                      conf_stats=conf_stats,
+                                      conf_strength_data=conf_strength_data,
+                                      ptype=ptype)
+        X_t2 = np.array([feat_row])
+
+        # Tier 1 feature vector (original features)
+        feat_row_t1 = build_feature_row(raw_fg, rec, features_t1)
+        X_t1 = np.array([feat_row_t1])
+
+        # Tier 2: MLB probability
         t2_key = f"tier2_{ptype}"
         if t2_key in models:
-            raw_prob = models[t2_key].predict_proba(X)[0, 1]
+            raw_prob = models[t2_key].predict_proba(X_t2)[0, 1]
             rec["mlb_probability"] = round(float(raw_prob), 4)
 
             # Platt calibration
             cal_platt_key = f"cal_platt_{ptype}"
             if cal_platt_key in models:
-                platt_prob = models[cal_platt_key].predict_proba(X)[0, 1]
+                platt_prob = models[cal_platt_key].predict_proba(X_t2)[0, 1]
                 rec["mlb_prob_platt"] = round(float(platt_prob), 4)
             else:
                 rec["mlb_prob_platt"] = round(float(raw_prob), 4)
 
-            # Isotonic calibration
+            # Isotonic calibration (preferred — no ceiling)
             cal_iso_key = f"cal_isotonic_{ptype}"
             if cal_iso_key in models:
-                iso_prob = models[cal_iso_key].predict_proba(X)[0, 1]
+                iso_prob = models[cal_iso_key].predict_proba(X_t2)[0, 1]
                 rec["mlb_prob_isotonic"] = round(float(iso_prob), 4)
             else:
                 rec["mlb_prob_isotonic"] = round(float(raw_prob), 4)
 
-            if ptype == "hitter":
-                hitter_raw_probs.append(raw_prob)
-                hitter_cal_probs.append(rec.get("mlb_prob_platt", raw_prob))
-            else:
-                pitcher_raw_probs.append(raw_prob)
-                pitcher_cal_probs.append(rec.get("mlb_prob_platt", raw_prob))
-
         # Tier 1: Draft position
         t1_key = f"tier1_{ptype}"
         if t1_key in models:
-            proj_pick = float(models[t1_key].predict(X)[0])
+            proj_pick = float(models[t1_key].predict(X_t1)[0])
             rec["projected_pick"] = round(proj_pick, 1)
             rec["projected_round"] = max(1, min(20, int(np.ceil(proj_pick / 30.75))))
         else:
@@ -234,26 +337,19 @@ def main():
 
     # ── 4. Compute composite scores and grades ──
     print("\nComputing composites and grades...")
-
-    # Composite: 40% slot value of projected round + 60% calibrated MLB%
     for rec in enriched:
-        ptype = rec.get("player_type", "hitter")
         proj_pick = safe_float(rec.get("projected_pick"))
-        mlb_p = safe_float(rec.get("mlb_prob_platt"))
+        # Use raw probability as primary (conference-adjusted, no calibration ceiling)
+        mlb_p = safe_float(rec.get("mlb_probability")) or 0
 
-        # Slot value: pick 1 = 100, pick 600 = 0, scaled inverse-linearly
         slot_score = 0
         if proj_pick is not None and proj_pick > 0:
             slot_score = max(0, 100 - (proj_pick / 620) * 100)
 
-        # MLB% score: scale to 0-100 linearly
         mlb_score = (mlb_p or 0) * 100
-
-        # Composite: 40% slot + 60% MLB%
         composite = slot_score * 0.4 + mlb_score * 0.6
         rec["composite_score"] = round(composite, 1)
 
-        # Confidence tier for Tier 1 (based on projected pick depth)
         if proj_pick is not None:
             if proj_pick <= 150:
                 rec["tier1_confidence"] = "high"
@@ -264,27 +360,15 @@ def main():
         else:
             rec["tier1_confidence"] = "low"
 
-    # Grades: threshold-based within qualified players per type
-    qualified = [
-        r for r in enriched
-        if not (
-            r.get("player_type") == "hitter"
-            and (r.get("college_BB_pct") is not None and safe_float(r.get("college_PA", 0)) or 0 < 50)
-        )
-    ]
-    # Actually use mlb probability as a rough filter for qualified
+    # Grades
     for pt in ["hitter", "pitcher"]:
         pool = [r for r in enriched if r.get("player_type") == pt and r.get("composite_score") is not None]
         composites = sorted([r["composite_score"] for r in pool], reverse=True)
         if len(composites) < 100:
             continue
-        elite_n = max(1, len(composites) // 100)
-        high_n = max(1, len(composites) // 20)
-        medium_n = max(1, len(composites) // 5)
-        elite_th = composites[elite_n - 1]
-        high_th = composites[high_n - 1]
-        medium_th = composites[medium_n - 1]
-
+        elite_th = composites[max(1, len(composites) // 100) - 1]
+        high_th = composites[max(1, len(composites) // 20) - 1]
+        medium_th = composites[max(1, len(composites) // 5) - 1]
         for r in pool:
             if r["composite_score"] >= elite_th:
                 r["value_grade"] = "elite"
@@ -295,16 +379,15 @@ def main():
             else:
                 r["value_grade"] = "low"
 
-    # ── 5. Summary statistics ──
-    print(f"\n  Hitter: raw mean={np.mean(hitter_raw_probs):.4f}, cal mean={np.mean(hitter_cal_probs):.4f}")
-    print(f"  Pitcher: raw mean={np.mean(pitcher_raw_probs):.4f}, cal mean={np.mean(pitcher_cal_probs):.4f}")
+    # ── 5. Summary ──
+    print(f"\n  Hitter: raw mean={np.mean([p.get('mlb_probability',0) or 0 for p in enriched if p.get('player_type')=='hitter']):.4f}")
+    print(f"  Pitcher: raw mean={np.mean([p.get('mlb_probability',0) or 0 for p in enriched if p.get('player_type')=='pitcher']):.4f}")
 
     grade_counts = {"elite": 0, "high": 0, "medium": 0, "low": 0}
     for r in enriched:
         g = r.get("value_grade", "low")
         grade_counts[g] = grade_counts.get(g, 0) + 1
     print(f"  Grades: {json.dumps(grade_counts)}")
-    print(f"  Mean projected pick: {np.mean([safe_float(r.get('projected_pick', 0)) or 0 for r in enriched]):.1f}")
 
     # ── 6. Save ──
     print(f"\nSaving {len(enriched)} enriched records to {OUTPUT_PATH}...")
