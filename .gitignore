@@ -1,0 +1,14 @@
+# deps / build
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# env — never commit credentials
+.env
+.env.*
+!.env.example
+
+# os
+.DS_Store
