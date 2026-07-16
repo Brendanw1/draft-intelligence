@@ -23,13 +23,21 @@ This project builds that baseline.
 ## Architecture
 
 ```
-Public APIs & data ──→ Python/XGBoost pipeline ──→ JSON (25 MB) ──→ Next.js static site ──→ CDN
+Public APIs & data ──→ Three-Tier Model ──→ JSON (25 MB) ──→ Next.js static site ──→ CDN
 ```
 
-**Two-tier model:**
-- **Tier 1**: XGBoost regressor that predicts draft pick number from college stats, height, and conference tier
-- **Tier 2**: XGBoost classifier (trained on 63K player-seasons including 57K undrafted true negatives) + Platt-calibrated MLB probability
-- **Nearest-neighbor comps**: Euclidean distance across 10 stat dimensions finds the 5 most similar drafted players for every prospect
+**Tier 1 — Draft Position (XGBoost Regressor)**
+Predicts draft pick number from college stats + **conf_strength** (continuous, replaces broken 4-tier system) + conference-adjusted stats + interaction features.
+
+**Tier 2 — Draft Probability (XGBoost Classifier)**
+Predicts P(drafted in top 10 rounds) from same features. Retrained with conf_strength, conference-adjusted stats, and interaction features to properly discount low-conference stat inflation.
+
+**Tier 3 — MLB Arrival (Elastic Net + Nearest Neighbors)**
+Predicts P(reaches MLB | drafted) using:
+- Elastic Net logistic regression with L1/L2 regularization
+- **Round logit prior**: empirical MLB debut rate per draft round as a statistical baseline
+- **Nearest-neighbor MLB rate**: proportion of 20 most similar drafted players who reached MLB
+- Trained on 2021-2023 drafted players with verified MLB debut dates from the MLB Stats API
 
 **No server, no database, no API.** The entire pipeline generates static JSON files; the frontend is a Next.js static export deployable anywhere (Vercel, Cloudflare Pages, S3).
 
