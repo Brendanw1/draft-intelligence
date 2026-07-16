@@ -1,0 +1,198 @@
+{
+  "model_type": "tier2_pitcher",
+  "features": [
+    "fg_Age",
+    "fg_G",
+    "fg_GS",
+    "fg_CG",
+    "fg_SHO",
+    "fg_SV",
+    "fg_IP",
+    "fg_TBF",
+    "fg_H",
+    "fg_R",
+    "fg_ER",
+    "fg_HR",
+    "fg_BB",
+    "fg_SO",
+    "fg_HBP",
+    "fg_WP",
+    "fg_BK",
+    "fg_W",
+    "fg_L",
+    "fg_ERA",
+    "fg_WHIP",
+    "fg_FIP",
+    "fg_ERA_minus_FIP",
+    "fg_K_pct",
+    "fg_BB_pct",
+    "fg_KBB",
+    "fg_K_per_nine",
+    "fg_BB_per_nine",
+    "fg_HR_per_nine",
+    "fg_AVG",
+    "fg_BABIP",
+    "fg_LOB_pct",
+    "fg_K_minus_BB_pct",
+    "height_inches",
+    "bmi",
+    "conference_tier"
+  ],
+  "n_train": 817,
+  "n_features": 36,
+  "n_reached_mlb": 105,
+  "auc_base": 0.6336996336996337,
+  "brier_base": 0.13065252130157134,
+  "auc_platt": 1.0,
+  "brier_platt": 0.06442909083932279,
+  "auc_isotonic": 1.0,
+  "brier_isotonic": 0.024598362796644544,
+  "feature_importance": [
+    {
+      "feature": "fg_KBB",
+      "importance": 0.04359054937958717
+    },
+    {
+      "feature": "fg_WP",
+      "importance": 0.03938024118542671
+    },
+    {
+      "feature": "fg_GS",
+      "importance": 0.03786172345280647
+    },
+    {
+      "feature": "fg_SV",
+      "importance": 0.0372067354619503
+    },
+    {
+      "feature": "fg_HR",
+      "importance": 0.03658793866634369
+    },
+    {
+      "feature": "fg_FIP",
+      "importance": 0.03656015917658806
+    },
+    {
+      "feature": "height_inches",
+      "importance": 0.034276388585567474
+    },
+    {
+      "feature": "fg_SO",
+      "importance": 0.03286579251289368
+    },
+    {
+      "feature": "conference_tier",
+      "importance": 0.03278733789920807
+    },
+    {
+      "feature": "fg_L",
+      "importance": 0.030934736132621765
+    },
+    {
+      "feature": "fg_WHIP",
+      "importance": 0.03054005280137062
+    },
+    {
+      "feature": "fg_IP",
+      "importance": 0.030187172815203667
+    },
+    {
+      "feature": "fg_G",
+      "importance": 0.028579439967870712
+    },
+    {
+      "feature": "fg_K_per_nine",
+      "importance": 0.028238261118531227
+    },
+    {
+      "feature": "fg_R",
+      "importance": 0.028028156608343124
+    },
+    {
+      "feature": "fg_K_pct",
+      "importance": 0.027694039046764374
+    },
+    {
+      "feature": "fg_Age",
+      "importance": 0.02735135704278946
+    },
+    {
+      "feature": "fg_AVG",
+      "importance": 0.02716146968305111
+    },
+    {
+      "feature": "fg_K_minus_BB_pct",
+      "importance": 0.02633802779018879
+    },
+    {
+      "feature": "fg_BB",
+      "importance": 0.02597956731915474
+    },
+    {
+      "feature": "fg_ERA",
+      "importance": 0.02577103115618229
+    },
+    {
+      "feature": "bmi",
+      "importance": 0.025697048753499985
+    },
+    {
+      "feature": "fg_BK",
+      "importance": 0.024759391322731972
+    },
+    {
+      "feature": "fg_LOB_pct",
+      "importance": 0.0243047047406435
+    },
+    {
+      "feature": "fg_BABIP",
+      "importance": 0.023026427254080772
+    },
+    {
+      "feature": "fg_BB_pct",
+      "importance": 0.02243398129940033
+    },
+    {
+      "feature": "fg_W",
+      "importance": 0.022049183025956154
+    },
+    {
+      "feature": "fg_TBF",
+      "importance": 0.021824320778250694
+    },
+    {
+      "feature": "fg_HBP",
+      "importance": 0.0217901524156332
+    },
+    {
+      "feature": "fg_BB_per_nine",
+      "importance": 0.021752608940005302
+    },
+    {
+      "feature": "fg_ERA_minus_FIP",
+      "importance": 0.02168867737054825
+    },
+    {
+      "feature": "fg_H",
+      "importance": 0.021564440801739693
+    },
+    {
+      "feature": "fg_ER",
+      "importance": 0.021346164867281914
+    },
+    {
+      "feature": "fg_HR_per_nine",
+      "importance": 0.021041925996541977
+    },
+    {
+      "feature": "fg_CG",
+      "importance": 0.020576894283294678
+    },
+    {
+      "feature": "fg_SHO",
+      "importance": 0.018223781138658524
+    }
+  ],
+  "cv_auc_mean": 0.6506151125869436,
+  "cv_auc_std": 0.06871790327900773
+}
