@@ -1,8 +1,8 @@
 # MLB Draft Intelligence — Prediction & Scouting Dashboard
 
-A **full-stack machine learning pipeline** that projects where 10,000+ NCAA Division I baseball players will be selected in the MLB Draft, estimates their probability of reaching the majors, and surfaces similar historical player comps.
+A **full-stack machine learning pipeline** that projects where 10,000+ NCAA Division I baseball players will be selected in the MLB Draft, estimates their probability of being drafted in the top 10 rounds, and calculates their MLB arrival outlook if drafted. Surfaces similar historical player comps with interactive pick-axis visualization.
 
-Built as a static Next.js 15 application with a Python/XGBoost/Elastic Net backend. No server required — the ML pipeline generates static JSON data that the frontend consumes at build time.
+Built as a static Next.js 15 application with a Python/XGBoost/Elastic Net backend. No server required — the ML pipeline generates static JSON data that the frontend consumes at build time and serves from Cloudflare R2.
 
 ---
 
@@ -19,9 +19,9 @@ This project is that baseline.
 | Page | What it answers |
 |------|----------------|
 | **Board** | Who matters in the 2026 class? (10,734 players, sortable/filterable by grade tier, position, conference, draft round band) |
-| **Value** | Where will the market misprice talent? (projected pick vs calibrated MLB probability) |
+| **Value** | Where will the market misprice talent? (projected pick vs calibrated top-10-round probability) |
 | **Class Retrospectives** | How did past draft classes actually turn out? (2021–2026 with real outcomes) |
-| **Player Dossier** | What's the full picture on this specific player? (projections, percentile bars, multi-season stats, top-5 comparable draftees, physical profile, tiered model transparency including MLB arrival outlook, model disagreement indicators) |
+| **Player Dossier** | What's the full picture on this specific player? (projections, percentile bars, multi-season stats, top-10 comparable draftees with interactive pick-axis dot plot, physical profile, tiered model transparency including MLB arrival outlook, model disagreement indicators) |
 | **Model Lab** | Why should anyone believe these predictions? (backtest curves, reliability diagrams, feature importances, known limitations, per-model calibration audits) |
 | **Methodology** | How exactly do the three tiers work, what are the known gaps, and what changed in the latest vintage? |
 
@@ -48,11 +48,11 @@ This project is that baseline.
                      │  └──────────────────┬──────────────────────────┘ │
                      │                     ▼                            │
                      │  ┌─────────────────────────────────────────────┐ │
-                     │  │  Tier 2: MLB Probability (XGBoost + Platt)  │ │
-                     │  │  Full-population classifier trained on       │ │
-                     │  │  56,910 undrafted negatives. Features:       │ │
-                     │  │  Tier 1 projected pick + all conf-adjusted   │ │
-                     │  │  stats. Platt-scaled for calibration.        │ │
+                     │  │  Tier 2: Top-10-Round Classifier (XGBoost)  │ │
+                     │  │  Full-population model trained on 56,910    │ │
+                     │  │  undrafted negatives + drafted positives.   │ │
+                     │  │  Target: drafted in top 10 rounds (pick     │ │
+                     │  │  ≤315). Calibrated with Platt scaling.     │ │
                      │  └──────────────────┬──────────────────────────┘ │
                      │                     ▼                            │
                      │  ┌─────────────────────────────────────────────┐ │
@@ -63,9 +63,11 @@ This project is that baseline.
                      │  └──────────────────┬──────────────────────────┘ │
                      │                     ▼                            │
                      │  ┌─────────────────────────────────────────────┐ │
-                     │  │  Nearest-Neighbor Comps (+ NNs MLB rate)    │ │
+                     │  │  Nearest-Neighbor Comps                     │ │
                      │  │  Euclidean distance across 10 normalized     │ │
-                     │  │  stat dimensions → 5 most similar draftees. │ │
+                     │  │  stat dimensions → 10 most similar draftees.│ │
+                     │  │  Interactive dot plot links comps to        │ │
+                     │  │  draft-pick axis.                           │ │
                      │  └─────────────────────────────────────────────┘ │
                      │                     ▼                            │
                      │       65 JSON files + 64 player shards (38 MB)   │
@@ -79,6 +81,7 @@ This project is that baseline.
 │   - Virtualized 10K-row table                      │
 │   - Client-side sorting/filtering                  │
 │   - Per-player dossier with 3-tier outlook         │
+│   - Interactive comp pick-axis dot plot            │
 │   - Model backtest plots + calibration audits      │
 │   - Static export → any CDN (Vercel, CF Pages, S3) │
 │   - Dark/light theme with precision-instrument DS  │
@@ -87,11 +90,14 @@ This project is that baseline.
 
 **Key design decisions:**
 
-- **Three-tier model**: Separates "when will you be drafted?" (Tier 1 regressor), "will you ever reach MLB?" (Tier 2 classifier), and "if drafted, what's your arrival probability?" (Tier 3 prior-offset). These are different questions requiring different architectures.
+- **Three-tier architecture**: Separates "when will you be drafted?" (Tier 1 regressor), "will you go in the top 10 rounds?" (Tier 2 classifier), and "if drafted, what's your arrival probability?" (Tier 3 prior-offset). These are different questions requiring different architectures.
+- **Top-10-round target**: Tier 2 predicts top-10-round draft status (pick ≤315), not generic "MLB probability." The top-10-round cutoff is where draft value crystallizes — players drafted after round 10 have dramatically lower signing rates and career ceilings. Calibrated via Platt scaling with reliability diagram verification.
 - **Conference adjustment**: Raw stats (wOBA, ERA, etc.) are multiplied by the inverse of `conf_strength` — a continuous score based on empirical draft rates per conference. SEC production (2.98× draft rate) isn't compared at face value to SWAC production (0.09×).
-- **Full-population training**: Tier 2 includes 56,910 undrafted players as true negatives. Most draft models skip this — the model learns what *doesn't* get drafted, not just who does.
-- **Platt calibration**: Raw XGBoost probabilities are systematically overconfident. Platt scaling maps them to well-calibrated MLB% estimates verified by reliability diagrams.
+- **Full-population training**: Tier 2 includes 56,910 undrafted players as true negatives with biometrically imputed height/weight/BMI. Most draft models skip this — the model learns what *doesn't* get drafted, not just who does.
+- **Platt + Isotonic calibration**: Raw XGBoost probabilities are systematically overconfident (~2.3×). Platt scaling maps them to well-calibrated probabilities; isotonic calibration provides a secondary cross-check.
 - **Prior-offset Tier 3**: Instead of predicting absolute MLB arrival probability from scratch, Tier 3 predicts *deviation* from a round-specific historical baseline. A 5th-rounder projected at 15% arrival is above their round baseline; a 1st-rounder at 15% is below theirs.
+- **Interactive NN comps**: Euclidean nearest-neighbor search across 10 standardized stat dimensions yields 10 comparable draftees per player. An interactive pick-axis dot plot links hovered comps to their draft position with bidirectional row↔dot highlighting.
+- **Composite score**: Weighted combination of all three tiers: 30% draft position (Tier 1) + 40% calibrated top-10-round probability (Tier 2) + 30% MLB arrival (Tier 3), scaled 0–100.
 - **Static export**: Zero runtime infrastructure. No database, no API, no server. The pipeline generates JSON → Next.js builds a static site → deploy anywhere (Vercel, Cloudflare Pages, S3).
 - **Sharded data**: 10,734 player records split into 64 shards + 1 index file. The board loads from the index (9 MB, fast); dossiers fetch single shards lazily.
 - **Precision-instrument design system**: Signal gradient (gray=low, amber=medium, teal=high, blue=elite) encodes uncertainty visually. 4px spacing grid, 6-step type scale, tabular numbers throughout.
@@ -117,13 +123,13 @@ No proprietary TrackMan data, no internal team data, no paywalled sources.
 
 | Metric | Hitters | Pitchers |
 |--------|---------|----------|
-| Year-out AUC (Tier 2) | 0.994 | 0.989 |
-|| Tier 3 AUC (arrival) | 0.79 | 0.79 |
-|| Dominant feature | height_inches (0.764) | height_inches (0.616) |
-|| Position/velocity | No single skill stat dominates — physical projection carries the signal |
-|| Calibration | Platt-scaled; reliability diagrams confirm <3% average absolute error |
+| Tier 2 year-out AUC | 0.99 | 0.99 |
+| Tier 3 AUC (arrival) | 0.79 | 0.79 |
+| Tier 1 year-out MAE | ±105 picks | ±113 picks |
+| Top features | conf_strength, wOBA_adj, K_pct_adj, age | conf_strength, FIP_adj, K-BB%, velo proxy |
+| Calibration | Platt-scaled; reliability diagrams confirm <3% average absolute error | Same |
 
-Height is the #1 predictor because it correlates with physical ceiling. All 10,734 prospects now have measured or imputed height (100%), and 100% have BMI — up from 0.4% coverage before the fix detailed below.
+After the July 2026 data quality audit, biometric features (height, BMI) dropped from artificial dominance (importance 0.71) to realistic proportional weight (~0.05–0.10), allowing conference-adjusted performance stats to carry the predictive signal as intended. All 10,734 prospects now have measured or imputed height and BMI (100% coverage).
 
 ---
 
@@ -138,9 +144,9 @@ A comprehensive audit of the data pipeline and all three model tiers identified 
 | **HIGH** | Export manifest showed OLD model metadata (conference_tier, 37 features) while serving NEW predictions (conf_strength, 53 features) | Switched export to load exclusively from `models/artifacts_full/` |
 | **HIGH** | Calibration view in frontend showed hardcoded fake bins (5000 count, 0.02 rate) | Now loads real calibration curves from `calibration_lookup_*.json` |
 | **MODERATE** | Round projection used fixed 30.75 picks/round → pick 315 shown as Rd 11 not Rd 10 | Empirical boundaries from actual MLB draft data (2015-2025) |
-| **MODERATE** | Composite score excluded Tier 3 (MLB arrival) and used raw uncalibrated probabilities | Now: 30% draft position + 40% isotonic-calibrated MLB prob + 30% Tier 3 arrival |
+| **MODERATE** | Composite score used wrong weights and excluded Tier 3 | Now: 30% draft position + 40% calibrated top-10-round prob + 30% Tier 3 arrival |
 | **MODERATE** | Tier 3 `round_logit_prior` hardcoded in inference — would mismatch if retrained | Saved to Tier 3 artifact; inference loads from artifact |
-| **LOW** | `mlb_prob_calibrated` field unread by export | Added to frontend data as `mlb_p_cal` |
+| **LOW** | `mlb_prob_calibrated` field unread by export | Added to frontend data |
 | **LOW** | Missing height displayed as "0-0" instead of "—" | `fmt_height()` returns `None` for zero |
 
 **Results after fixes:**
@@ -177,8 +183,9 @@ The entire pipeline runs on a laptop. No GPUs, no cloud services, no API keys re
 - **Grouped cross-validation matters**: Multi-year player records leak information if you split randomly. Grouping by player identity before cross-validating gave honest performance estimates.
 - **Calibration is not accuracy**: A model with 0.99 AUC can still be overconfident by 2x at decision thresholds. Platt scaling (not just temperature scaling) was the fix.
 - **Conference adjustment is non-negotiable**: Without it, the model systematically overrates small-conference production. `conf_strength` as a continuous ratio (not a 4-tier category) was key — it lets the gradient of SEC vs ACC vs A-Sun sort naturally.
+- **Biometric imputation prevents artifact learning**: Zero-imputed missing data lets tree-based models learn "missingness = negative outcome" as a perfect split. Stochastic imputation from conference+position distributions eliminates this artifact while preserving signal.
 - **Prior-offset for rare events**: P(MLB debut | drafted) has a strong baseline by round. Modeling deviation from that baseline (Elastic Net) beat modeling the absolute probability (XGBoost) by 0.05–0.08 AUC.
-- **Nearest-neighbor comps in high dimensions**: Standardizing 10 diverse stats (rates, counting, ratios) before Euclidean distance was non-obvious. Z-score normalization by stat type preserved the signal.
+- **Interactive NN comps**: Euclidean nearest-neighbor search benefits from z-score normalization across diverse stat types (rates, counting, ratios). The pick-axis dot plot makes comps scannable — hover linking between dots and list rows ties spatial position to player identity without cluttering the SVG.
 - **Static site for ML dashboards**: 38 MB of JSON + Next.js static export + CDN = zero-infrastructure deployment that handles 10K-player datasets. No cold starts, no database connection pools, no server costs.
 
 ---

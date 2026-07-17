@@ -89,7 +89,7 @@ function VerdictRow({ p }: { p: DetailPlayer }) {
         </div>
         <div className="mt-1 text-[11px] text-ink-2">
           composite {fmtNum(p.composite, 1)}{" "}
-          <span className="text-ink-3">(40% slot · 40% top-10 · 20% arrival)</span>
+          <span className="text-ink-3">(30% slot · 40% top-10 · 30% arrival)</span>
         </div>
       </div>
     </div>
