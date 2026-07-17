@@ -165,24 +165,35 @@ def main():
     fg_historical: list[dict] = load_json(BASE / "data" / "training" / "fg_training_set.json")
     print(f"  FG historical (with fg_ prefix): {len(fg_historical)}")
 
-    # Raw FG historical (for full season lines) — index by PLAYER NAME only, not name+team
-    # Players transfer schools, so a single player can appear under different team abbs
-    hist_raw_fg: dict[str, list[dict]] = {}
+    # Raw FG historical (for full season lines) — index by (name, upid) to
+    # disambiguate different players who share the same name (e.g. "Jake Brown" at
+    # LSU vs CBU vs CMU). UPID (FanGraphs unique player ID) is stable across seasons
+    # for the same player. Fall back to name-only when UPID is missing.
+    hist_raw_fg: dict[tuple[str, str], list[dict]] = {}
     for year in [2021, 2022, 2023, 2024, 2025]:
         batters_file = BASE / "data" / "fangraphs" / "raw" / f"batters_{year}.json"
         pitchers_file = BASE / "data" / "fangraphs" / "raw" / f"pitchers_{year}.json"
         if batters_file.exists():
             for rec in load_json(batters_file).get("data", []):
                 name = rec.get('Player', '').strip().lower()
+                upid = rec.get('UPID', '') or ''
                 if name:
                     rec["Season"] = float(year)
-                    hist_raw_fg.setdefault(name, []).append(rec)
+                    key = (name, upid)
+                    hist_raw_fg.setdefault(key, []).append(rec)
+                    # Also index by name-only as fallback for players without UPID
+                    if not upid:
+                        hist_raw_fg.setdefault((name, ''), []).append(rec)
         if pitchers_file.exists():
             for rec in load_json(pitchers_file).get("data", []):
                 name = rec.get('Player', '').strip().lower()
+                upid = rec.get('UPID', '') or ''
                 if name:
                     rec["Season"] = float(year)
-                    hist_raw_fg.setdefault(name, []).append(rec)
+                    key = (name, upid)
+                    hist_raw_fg.setdefault(key, []).append(rec)
+                    if not upid:
+                        hist_raw_fg.setdefault((name, ''), []).append(rec)
     print(f"  Historical FG records indexed by name: {len(hist_raw_fg)} unique player names")
 
     # ── MiLB outcome enrichment tables ──────────────────────────────
@@ -468,9 +479,18 @@ def main():
                 season_2026["Season"] = 2026.0
             seasons.append(season_2026)
 
-        # Add historical seasons — match by player NAME only (transfers happen)
+        # Add historical seasons — match by UPID first, then name-only as fallback.
+        # UPID (FanGraphs unique player ID) disambiguates players with the same name
+        # (e.g. "Jake Brown" at LSU vs CBU vs CMU).
         name_lower = name.strip().lower()
-        hist_seasons = hist_raw_fg.get(name_lower, [])
+        upid = raw_rec.get('UPID', '') or '' if raw_rec else ''
+        hist_seasons = []
+        if upid:
+            # Try UPID-specific match first (most reliable)
+            hist_seasons = hist_raw_fg.get((name_lower, upid), [])
+        if not hist_seasons:
+            # Fall back to name-only matching (handles transfers, missing UPID)
+            hist_seasons = hist_raw_fg.get((name_lower, ''), [])
         for hs in hist_seasons:
             s = {}
             for fk in ["Season", "G", "PA", "AB", "H", "1B", "2B", "3B", "HR", "R", "RBI",
