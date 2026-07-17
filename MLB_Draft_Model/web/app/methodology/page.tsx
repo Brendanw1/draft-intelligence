@@ -10,7 +10,7 @@ const GLOSSARY: [string, string][] = [
   ["Platt calibration", "A learned correction that maps the model's raw score to an honest probability. Raw scores ran ~2.3× hot; every probability on this site is calibrated."],
   ["Isotonic calibration", "A second, non-linear correction shown in dossiers as a cross-check. When Platt and isotonic agree, trust the number more."],
   ["ECE", "Expected calibration error — the average gap between what the model predicted and what actually happened, before correction."],
-  ["Composite score", "40% projected draft slot value + 40% calibrated top-10-round probability + 20% Tier 3 MLB arrival probability, scaled 0–100. It is an opinion, not an output of either model alone."],
+  ["Composite score", "30% projected draft slot value + 40% calibrated top-10-round probability + 30% Tier 3 MLB arrival probability, scaled 0–100. It is an opinion, not an output of either model alone."],
   ["Value grade", "Composite percentile within qualified players of the same type: elite = top 1%, high = 95th–99th, medium = 80th–95th, low = the rest. Percentile tiers, because calibrated probabilities compress absolute scores."],
   ["Spearman ρ", "Rank correlation between projected and actual draft order in backtests. ~0.5 means the model orders players meaningfully but far from perfectly."],
   ["Tier 3 / MLB Arrival", "Predicts P(MLB debut | drafted) using an Elastic Net model with a round-anchored prior offset and nearest-neighbor comp rates. Only available for the 2026 projections — trained on 2021–2023 outcomes."],
