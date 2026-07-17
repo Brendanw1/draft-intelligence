@@ -27,66 +27,9 @@ This project is that baseline.
 
 ---
 
-## Technical Architecture
+## Architecture
 
-```
-                     ┌──────────────────────────────────────────────────┐
-                     │           Data Pipeline (Python)                 │
-                     │                                                  │
-                     │  MLB Stats API  ──┐                              │
-                     │  FanGraphs D1    ──┤─── Training Set (all tiers) │
-                     │  NCAA Rosters   ──┘    6,274 rows                │
-                     │  MiLB outcomes  ──┐    1,524 comp pool           │
-                     │  Draft records   ──┘                              │
-                     │                                                  │
-                     │  ┌─────────────────────────────────────────────┐ │
-                     │  │  Tier 1: Round Regressor (XGBoost)          │ │
-                     │  │  Predicts pick number from conference-      │ │
-                     │  │  adjusted stats. Features: wOBA_adj,        │ │
-                     │  │  ERA_adj, conf_strength, height, age,       │ │
-                     │  │  interaction features (strength_x_{stat}).  │ │
-                     │  └──────────────────┬──────────────────────────┘ │
-                     │                     ▼                            │
-                     │  ┌─────────────────────────────────────────────┐ │
-                     │  │  Tier 2: Top-10-Round Classifier (XGBoost)  │ │
-                     │  │  Full-population model trained on 56,910    │ │
-                     │  │  undrafted negatives + drafted positives.   │ │
-                     │  │  Target: drafted in top 10 rounds (pick     │ │
-                     │  │  ≤315). Calibrated with Platt scaling.     │ │
-                     │  └──────────────────┬──────────────────────────┘ │
-                     │                     ▼                            │
-                     │  ┌─────────────────────────────────────────────┐ │
-                     │  │  Tier 3: MLB Arrival (Prior-offset EN)      │ │
-                     │  │  Elastic Net predicting P(MLB debut|drafted) │ │
-                     │  │  anchored by round-specific historical      │ │
-                     │  │  baselines. Features: stats + NN_mlb_rate.  │ │
-                     │  └──────────────────┬──────────────────────────┘ │
-                     │                     ▼                            │
-                     │  ┌─────────────────────────────────────────────┐ │
-                     │  │  Nearest-Neighbor Comps                     │ │
-                     │  │  Euclidean distance across 10 normalized     │ │
-                     │  │  stat dimensions → 10 most similar draftees.│ │
-                     │  │  Interactive dot plot links comps to        │ │
-                     │  │  draft-pick axis.                           │ │
-                     │  └─────────────────────────────────────────────┘ │
-                     │                     ▼                            │
-                     │       65 JSON files + 64 player shards (38 MB)   │
-                     └──────────────────────┬───────────────────────────┘
-                                            │
-               ┌────────────────────────────┘
-               ▼
-┌──────────────────────────────────────────────────┐
-│         Next.js 15 Static Site (no DB)             │
-│                                                    │
-│   - Virtualized 10K-row table                      │
-│   - Client-side sorting/filtering                  │
-│   - Per-player dossier with 3-tier outlook         │
-│   - Interactive comp pick-axis dot plot            │
-│   - Model backtest plots + calibration audits      │
-│   - Static export → any CDN (Vercel, CF Pages, S3) │
-│   - Dark/light theme with precision-instrument DS  │
-└──────────────────────────────────────────────────┘
-```
+Three-tier pipeline: **XGBoost regressor** (Tier 1 → projected draft pick) → **XGBoost classifier** with Platt calibration (Tier 2 → top-10-round probability) → **prior-offset Elastic Net** (Tier 3 → MLB arrival probability if drafted). Nearest-neighbor comps provide context. All fed into a static Next.js 15 site with no runtime infrastructure.
 
 **Key design decisions:**
 
@@ -133,9 +76,9 @@ After the July 2026 data quality audit, biometric features (height, BMI) dropped
 
 ---
 
-## 2026 Draft — Prospective Validation
+## 2026 Draft — Retrospective Validation
 
-The model's 2026 projections were tested against actual draft results, demonstrating strong prospective accuracy using only public FanGraphs stats and conference adjustment — no scouting grades, no TrackMan data, no signability intel.
+The model's 2026 projections and actual outcomes can be compared now that the draft has concluded. **Note**: this is a retrospective comparison — the training set includes 2026 draft outcomes, so the numbers below reflect goodness-of-fit, not prospective predictive accuracy. A true prospective holdout test is in development.
 
 | Metric | Value |
 |--------|-------|
@@ -171,27 +114,6 @@ A comprehensive audit of the data pipeline and all three model tiers identified 
 - Height coverage in inference: **85% → 100%** (9,215 → 10,734 players)
 - Negatives biometric coverage for training: **0% → 100%** (0 → 56,910 with realistic values)
 - Frontend manifests: correct features (conf_strength + adj stats + interactions), real calibration curves, accurate round projections
-
----
-
-## Running It Yourself
-
-```bash
-# 1. Full pipeline: scrape data, train models, generate predictions
-python3 scripts/infer_2026.py
-
-# 2. Export frontend JSON bundle (player shards, comps, model cards)
-python3 scripts/export_frontend_data.py
-
-# 3. Build the static site
-cd web && npm install && npm run build
-
-# 4. Serve locally or deploy
-npm start                   # local preview at http://localhost:3000
-npx serve out               # or any static file server
-```
-
-The entire pipeline runs on a laptop. No GPUs, no cloud services, no API keys required.
 
 ---
 
