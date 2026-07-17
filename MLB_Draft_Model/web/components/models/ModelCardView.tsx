@@ -39,7 +39,7 @@ const USE_DONT: Record<
   },
   "tier2-predraft-hitter": {
     use: [
-      "Ranking hitters by probability of reaching MLB — recall 0.80",
+      "Ranking hitters by probability of top-10-round draft — recall 0.80",
       "Finding late-round profiles whose outcome odds resemble early picks",
       "Reading the calibrated (Platt) number with its historical bin rate",
     ],
@@ -55,7 +55,7 @@ const USE_DONT: Record<
       "The extremes: sub-10% and 80%+ scores were historically honest",
     ],
     dont: [
-      "Trusting absolute probabilities between 20–60% — historically ~0–9% actually reached",
+      "Trusting absolute probabilities between 20–60% — historically ~0–9% were drafted in the top 10 rounds",
       "Evaluating on the single-positive test set — use the CV number",
       "Using on any pitcher with < 20 IP",
     ],

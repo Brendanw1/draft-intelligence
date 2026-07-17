@@ -10,7 +10,7 @@ const GLOSSARY: [string, string][] = [
   ["Platt calibration", "A learned correction that maps the model's raw score to an honest probability. Raw scores ran ~2.3× hot; every probability on this site is calibrated."],
   ["Isotonic calibration", "A second, non-linear correction shown in dossiers as a cross-check. When Platt and isotonic agree, trust the number more."],
   ["ECE", "Expected calibration error — the average gap between what the model predicted and what actually happened, before correction."],
-  ["Composite score", "40% projected draft slot value + 60% calibrated MLB probability, scaled 0–100. It is an opinion, not an output of either model alone."],
+  ["Composite score", "40% projected draft slot value + 40% calibrated top-10-round probability + 20% Tier 3 MLB arrival probability, scaled 0–100. It is an opinion, not an output of either model alone."],
   ["Value grade", "Composite percentile within qualified players of the same type: elite = top 1%, high = 95th–99th, medium = 80th–95th, low = the rest. Percentile tiers, because calibrated probabilities compress absolute scores."],
   ["Spearman ρ", "Rank correlation between projected and actual draft order in backtests. ~0.5 means the model orders players meaningfully but far from perfectly."],
   ["Tier 3 / MLB Arrival", "Predicts P(MLB debut | drafted) using an Elastic Net model with a round-anchored prior offset and nearest-neighbor comp rates. Only available for the 2026 projections — trained on 2021–2023 outcomes."],
@@ -48,8 +48,8 @@ export default function MethodologyPage() {
           ERA_adj) and a continuous conference strength score (conf_strength)
           normalize for competitive level — small-conference production is
           now discounted proportionally. A regression model learns where drafted
-          stat profiles went; its projected pick feeds a second, classification
-          model trained on which drafted players actually reached MLB. Raw
+          stat profiles went; its projected pick feeds a second classification
+          model trained on top-10-round draft depth (pick ≤315). Raw
           probabilities are corrected with Platt scaling. A third tier, an
           Elastic Net with round-anchored prior, predicts P(MLB debut | drafted).
           Every 2026 D1 player with a FanGraphs line — all 10,734 — gets scored.
@@ -73,9 +73,9 @@ export default function MethodologyPage() {
             wanted to say and the 21% is what history supports.
           </li>
           <li>
-            <span className="font-semibold text-ink">The dashed tick is the receipts.</span>{" "}
+            <span className="font-semibold text-ink">The dashed tick is the receipts.</span>{' '}
             On probability bars it marks how often players with that raw score
-            actually reached MLB.
+            were actually drafted in the top 10 rounds.
           </li>
           <li>
             <span className="font-semibold text-ink">Grades are tiers, not ranks.</span>{" "}

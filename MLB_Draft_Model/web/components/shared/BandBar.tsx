@@ -1,6 +1,6 @@
 "use client";
 
-import { fmtRoundBand, pickToRound } from "@/lib/format";
+import { pickToRound } from "@/lib/format";
 
 /**
  * Projected draft position rendered as what the model actually knows:
@@ -22,11 +22,10 @@ export function BandBar({
     return <span className="text-[12px] text-ink-3">—</span>;
   const max = 620;
   const x = (v: number) => Math.min(1, Math.max(0, v / max)) * width;
-  const label = fmtRoundBand(band);
   return (
     <span
       className="inline-flex items-center gap-2"
-      title={`Projected pick ${Math.round(pick)} (R${pickToRound(pick)}). Backtest error is ±~110 picks, so read this as a round range: ${label}.`}
+      title={`Point estimate: Pick ${Math.round(pick)} (R${pickToRound(pick)}). Band shows ±~110 pick backtest error margin.`}
     >
       <svg width={width} height={14} className="shrink-0" aria-hidden>
         <line x1={0} y1={7} x2={width} y2={7} stroke="var(--rule)" strokeWidth={1} />
@@ -60,7 +59,7 @@ export function BandBar({
         />
       </svg>
       {showLabel && (
-        <span className="whitespace-nowrap text-[12px] font-medium">{label}</span>
+        <span className="whitespace-nowrap text-[12px] font-medium">R{pickToRound(pick)} · pick {Math.round(pick)}</span>
       )}
     </span>
   );

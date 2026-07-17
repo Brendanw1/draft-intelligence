@@ -23,7 +23,7 @@ export function ProbCell({
   return (
     <span
       className="inline-flex items-center gap-2"
-      title={`Calibrated MLB probability ${fmtPct(p)}${raw != null ? ` (raw model ${fmtPct(raw)})` : ""}${hist != null ? `. Players the model scored like this reached MLB ${fmtPct(hist)} of the time.` : ""}`}
+      title={`Calibrated top-10-round probability ${fmtPct(p)}${raw != null ? ` (raw model ${fmtPct(raw)})` : ""}${hist != null ? `. Players the model scored like this were drafted in the top 10 rounds ${fmtPct(hist)} of the time.` : ""}`}
     >
       <span className="w-[38px] text-right text-[13px] font-semibold">{fmtPct(p)}</span>
       <svg width={width} height={12} aria-hidden className="shrink-0">

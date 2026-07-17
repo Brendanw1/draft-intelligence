@@ -151,12 +151,12 @@ export function BoardTable({
         <div className="flex w-[200px] shrink-0 items-center">
           <Th label="Player" sortKey="name" align="left" />
         </div>
-        <div className="w-[52px] shrink-0"><Th label="Ht" sortKey="height" title="Height in inches — #1 feature in the outcome model" /></div>
-        <div className="w-[36px] shrink-0 text-center text-[10px] text-ink-3" title="Body-mass index: green ≥27 (sturdy), yellow 24–27, gray <24. Also #2 model feature.">BMI</div>
+        <div className="w-[52px] shrink-0"><Th label="Ht" sortKey="height" title="Height in inches — physical profile signal. Imputed from conference+position averages when missing." /></div>
+        <div className="w-[36px] shrink-0 text-center text-[10px] text-ink-3" title="Body-mass index: green ≥27 (sturdy), yellow 24–27, gray <24. Computed from height + draft-record weight or imputed.">BMI</div>
         <div className="w-[62px] shrink-0"><Th label="Grade" align="left" title="Composite percentile tier within qualified same-type players: elite top 1%, high next 4%, medium next 15%" /></div>
         <div className="w-[64px] shrink-0"><Th label="Comp" sortKey="composite" title="Composite score 0–100" /></div>
         <div className="w-[168px] shrink-0"><Th label="Proj. Round" sortKey="pick" align="left" title="Projected round band: pick ± backtest error (~110 picks). The tick is the point estimate." /></div>
-        <div className="w-[122px] shrink-0"><Th label="MLB%" sortKey="mlb_p" title="Model probability of reaching MLB. Conference-adjusted raw score — not Platt-calibrated (no ceiling compression)." /></div>
+        <div className="w-[122px] shrink-0"><Th label="Top 10%" sortKey="mlb_p" title="Probability of being drafted in the top 10 rounds (pick ~315). Isotonic-calibrated — the dashed tick is what history supports." /></div>
         <div className="w-[96px] shrink-0"><Th label="Arrival" sortKey="mlb_arrival" title="Tier 3: P(MLB debut | drafted). Elastic Net with round-anchored prior + nearest-neighbor comp rate." /></div>
         <div className="w-[44px] shrink-0"><Th label="Conf" title="Tier 1 confidence from projected pick depth" /></div>
         {statDefs.map((d) => (

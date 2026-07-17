@@ -24,11 +24,13 @@ function VerdictRow({ p }: { p: DetailPlayer }) {
         <div className="text-[10px] font-semibold uppercase tracking-[0.13em] text-ink-3">
           Projected
         </div>
-        <div className="text-[24px] font-semibold leading-tight">{roundBand}</div>
-        <div className="text-[11px] text-ink-2">
+        <div className="text-[24px] font-semibold leading-tight">
           {p.proj_pick != null
-            ? `point est. pick ${Math.round(p.proj_pick)} (R${pickToRound(p.proj_pick)})`
-            : "no pick estimate"}
+            ? `R${pickToRound(p.proj_pick)} · pick ${Math.round(p.proj_pick)}`
+            : NO_DATA}
+        </div>
+        <div className="text-[11px] text-ink-2">
+          {roundBand != null ? `${roundBand} range ±~110 picks` : "no round estimate"}
         </div>
         {/* band on a R1–R20 axis */}
         {p.pick_band && p.proj_pick != null && (
@@ -60,7 +62,7 @@ function VerdictRow({ p }: { p: DetailPlayer }) {
       </div>
       <div className="px-4 py-3">
         <div className="text-[10px] font-semibold uppercase tracking-[0.13em] text-ink-3">
-          MLB probability
+          Top-10-round probability
         </div>
         <div className="text-[24px] font-semibold leading-tight">{fmtPct(p.mlb_p)}</div>
         <div className="text-[11px] leading-snug text-ink-2">
@@ -87,7 +89,7 @@ function VerdictRow({ p }: { p: DetailPlayer }) {
         </div>
         <div className="mt-1 text-[11px] text-ink-2">
           composite {fmtNum(p.composite, 1)}{" "}
-          <span className="text-ink-3">(40% slot · 60% MLB%)</span>
+          <span className="text-ink-3">(40% slot · 40% top-10 · 20% arrival)</span>
         </div>
       </div>
     </div>
@@ -117,7 +119,7 @@ function TrustPanel({ p }: { p: DetailPlayer }) {
             <Link href={`/models/tier2-predraft-${t}/`} className="text-maroon underline">
               tier2_predraft_{t}
             </Link>{" "}
-            (MLB probability, Platt-calibrated), and Tier 3 Elastic Net (MLB arrival, round-anchored).
+            (top-10-round probability, Platt-calibrated), and Tier 3 Elastic Net (MLB arrival, round-anchored).
             Inputs are FanGraphs D1 stats normalized by conference strength — no
             scouting, defense, or medical signal.
           </p>
@@ -285,19 +287,19 @@ export function PlayerDossier({
                 <span className="font-semibold text-caution">Model check:</span>
                 {p.mlb_p > 0.50 && p.mlb_arrival < 0.10 ? (
                   <span className="text-text-secondary">
-                    Tier 2 is bullish ({fmtPct(p.mlb_p)} MLB%) but Tier 3 is cautious
+                    Tier 2 is bullish ({fmtPct(p.mlb_p)} top-10%) but Tier 3 is cautious
                     ({fmtPct(p.mlb_arrival)} arrival). The Tier 2 historical rate is{" "}
                     {p.hist_rate != null ? fmtPct(p.hist_rate) : "unknown"} — check the model card.
                   </span>
                 ) : p.mlb_p < 0.15 && p.mlb_arrival > 0.10 ? (
                   <span className="text-text-secondary">
-                    Tier 2 sees low MLB odds ({fmtPct(p.mlb_p)}) but Tier 3 suggests
+                    Tier 2 sees low top-10 odds ({fmtPct(p.mlb_p)}) but Tier 3 suggests
                     above-average arrival potential ({fmtPct(p.mlb_arrival)}) if drafted.
                     Worth a closer scouting look.
                   </span>
                 ) : p.mlb_p > 0.50 && p.mlb_arrival > 0.15 ? (
                   <span className="text-text-secondary">
-                    Both models agree: strong MLB probability ({fmtPct(p.mlb_p)}) and
+                    Both models agree: strong top-10 probability ({fmtPct(p.mlb_p)}) and
                     above-average arrival outlook ({fmtPct(p.mlb_arrival)}).
                   </span>
                 ) : (
@@ -354,7 +356,7 @@ export function PlayerDossier({
             </div>
             <div className="text-[11px] text-ink-2">
               {p.conference_tier != null
-                ? `conf tier ${p.conference_tier <= 2 ? "high" : p.conference_tier <= 4 ? "mid" : "low"}`
+                ? `conf tier ${p.conference_tier} (legacy — model uses continuous conf_strength)`
                 : NO_DATA}
             </div>
           </div>
