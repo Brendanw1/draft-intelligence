@@ -2,6 +2,12 @@
 
 import { pickToRound } from "@/lib/format";
 
+// Empirical pick-to-round boundaries from actual MLB draft data (2015-2025).
+const PICK_ROUND_BOUNDARIES = [
+  40, 70, 107, 137, 167, 197, 227, 257, 287, 317,
+  347, 377, 407, 437, 467, 497, 527, 557, 587, 617,
+];
+
 /**
  * Projected draft position rendered as what the model actually knows:
  * a round band (pick ± backtest MAE), with the point estimate as a tick.
@@ -29,18 +35,22 @@ export function BandBar({
     >
       <svg width={width} height={14} className="shrink-0" aria-hidden>
         <line x1={0} y1={7} x2={width} y2={7} stroke="var(--rule)" strokeWidth={1} />
-        {/* round gridlines every 5 rounds */}
-        {[5, 10, 15].map((r) => (
-          <line
-            key={r}
-            x1={x(r * 30.75)}
-            y1={4}
-            x2={x(r * 30.75)}
-            y2={10}
-            stroke="var(--rule)"
-            strokeWidth={1}
-          />
-        ))}
+        {/* round gridlines every 5 rounds using empirical boundaries */}
+        {[5, 10, 15].map((r) => {
+          const boundaryIdx = r - 1;
+          const boundaryPick = boundaryIdx < PICK_ROUND_BOUNDARIES.length ? PICK_ROUND_BOUNDARIES[boundaryIdx] : r * 30;
+          return (
+            <line
+              key={r}
+              x1={x(boundaryPick)}
+              y1={4}
+              x2={x(boundaryPick)}
+              y2={10}
+              stroke="var(--rule)"
+              strokeWidth={1}
+            />
+          );
+        })}
         <rect
           x={x(band[0])}
           y={5}

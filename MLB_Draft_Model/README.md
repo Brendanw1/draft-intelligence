@@ -66,9 +66,9 @@ No proprietary TrackMan data, no internal team data, no paywalled sources.
 
 | Metric | Hitters | Pitchers |
 |--------|---------|----------|
-| Tier 2 year-out AUC | 0.99 | 0.99 |
+| Tier 2 year-out AUC | 0.97 | 0.97 |
 | Tier 3 AUC (arrival) | 0.79 | 0.79 |
-| Tier 1 year-out MAE | ±105 picks | ±113 picks |
+| Tier 1 year-out MAE | ±111 picks | ±108 picks |
 | Top features | conf_strength, wOBA_adj, K_pct_adj, age | conf_strength, FIP_adj, K-BB%, velo proxy |
 | Calibration | Platt-scaled; reliability diagrams confirm <3% average absolute error | Same |
 
@@ -76,20 +76,22 @@ After the July 2026 data quality audit, biometric features (height, BMI) dropped
 
 ---
 
-## 2026 Draft — Retrospective Validation
+## 2026 Draft — Prospective Validation
 
-The model's 2026 projections and actual outcomes can be compared now that the draft has concluded. **Note**: this is a retrospective comparison — the training set includes 2026 draft outcomes, so the numbers below reflect goodness-of-fit, not prospective predictive accuracy. A true prospective holdout test is in development.
+The model's 2026 projections can be compared against actual draft outcomes with a clean temporal split. **Models were trained on ≤2025 data only** — no 2026 outcomes were used during training. The numbers below reflect true out-of-sample predictive accuracy.
 
 | Metric | Value |
 |--------|-------|
-| College draftees matched to model | 452 of 486 (93.0%) |
-| Within projected pick range (±~110 picks) | **94.9%** |
-| Drafted higher than projected | 1.8% |
-| Drafted lower than projected | 3.3% |
-| Round 1 hit rate | 95% |
-| Rounds 2–3 hit rate | **100%** |
+| Prospectively matchable draftees | 212 of 474 (44.7%) |
+| Mean absolute pick error | **115.7 picks** |
+| Median absolute pick error | 100.0 picks |
+| Within projected pick range (±~110 picks) | **54%** |
+| Drafted higher than projected | 19% |
+| Drafted lower than projected | 25% |
 
-Full round-by-round breakdown, biggest misses, best predictions, and unmatched player analysis in [`analysis/2026_draft_accuracy.md`](analysis/2026_draft_accuracy.md).
+The lower match rate (44.7% vs the retrospective 93%) is a function of the matching methodology — enriched projections use abbreviated school codes (`LSU`) while draft records use full school names (`Louisiana State University`). A better crosswalk would improve this. The true prospective MAE of ±116 picks validates the ±110-pick backtest estimate. Full report in [`analysis/2026_draft_accuracy_prospective.md`](analysis/2026_draft_accuracy_prospective.md).
+
+Full round-by-round breakdown, biggest misses, best predictions, and unmatched player analysis in the retrospective [`analysis/2026_draft_accuracy.md`](analysis/2026_draft_accuracy.md).
 
 ---
 

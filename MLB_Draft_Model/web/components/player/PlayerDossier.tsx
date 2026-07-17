@@ -317,7 +317,7 @@ export function PlayerDossier({
         </div>
       )}
 
-      {/* Physical profile — height/BMI are #1 and #2 model features */}
+      {/* Physical profile — height and BMI are supplementary signals (importance ~0.05–0.10 after conference-adjusted stats) */}
       <div className="border-t border-rule px-4 py-3">
         <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-ink-3">
           Physical profile
@@ -350,14 +350,12 @@ export function PlayerDossier({
             </div>
           </div>
           <div>
-            <div className="text-[10px] text-ink-3">Draftability</div>
+            <div className="text-[10px] text-ink-3">Conference</div>
             <div className="text-[18px] font-semibold leading-tight">
-              {p.draftability_score != null ? `${(p.draftability_score * 100).toFixed(1)}%` : NO_DATA}
+              {p.conference ?? NO_DATA}
             </div>
             <div className="text-[11px] text-ink-2">
-              {p.conference_tier != null
-                ? `conf tier ${p.conference_tier} (legacy — model uses continuous conf_strength)`
-                : NO_DATA}
+              adj. stats weighted by conf_strength
             </div>
           </div>
         </div>
