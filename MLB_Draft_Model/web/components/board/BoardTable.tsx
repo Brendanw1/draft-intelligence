@@ -17,6 +17,42 @@ import { BandBar } from "@/components/shared/BandBar";
 import { ProbCell } from "@/components/shared/ProbCell";
 import { ConfDot, FlagChips, GradeChip, TypeBadge } from "@/components/shared/Chips";
 
+function ArrivalCell({ p, nn }: { p: number | null; nn: number | null }) {
+  if (p == null) return <span className="text-[11px] text-nodata">—</span>;
+  const pct = (p * 100).toFixed(0);
+  const tier =
+    p > 0.20 ? "sig-elite" :
+    p > 0.10 ? "sig-high" :
+    p > 0.05 ? "sig-medium" :
+    "sig-low";
+  return (
+    <span
+      className="inline-flex items-center gap-1.5"
+      title={`Tier 3 arrival probability: ${pct}%.${nn != null ? ` Nearest-neighbor comp rate: ${(nn * 100).toFixed(1)}%.` : ""} Predicts P(MLB debut | drafted) with round-anchored prior.`}
+    >
+      <span className={`w-[32px] text-right text-[13px] font-semibold`} style={{ color: `var(--${tier})` }}>
+        {(p * 100).toFixed(0)}%
+      </span>
+      <svg width={36} height={10} className="shrink-0" aria-hidden>
+        <rect x={0} y={3.5} width={36} height={3} rx={1.5} fill="var(--surface-1)" />
+        <rect
+          x={0} y={3.5}
+          width={Math.max(2, p * 36)}
+          height={3} rx={1.5}
+          fill={`var(--${tier})`}
+        />
+        {nn != null && (
+          <line
+            x1={Math.min(1, nn) * 36}
+            y1={0.5} x2={Math.min(1, nn) * 36} y2={9.5}
+            stroke="var(--ref-line)" strokeWidth={1.5} strokeDasharray="2 1"
+          />
+        )}
+      </svg>
+    </span>
+  );
+}
+
 type Row =
   | { kind: "tier"; grade: Grade; count: number }
   | { kind: "player"; p: IndexPlayer };
@@ -121,6 +157,7 @@ export function BoardTable({
         <div className="w-[64px] shrink-0"><Th label="Comp" sortKey="composite" title="Composite score 0–100" /></div>
         <div className="w-[168px] shrink-0"><Th label="Proj. Round" sortKey="pick" align="left" title="Projected round band: pick ± backtest error (~110 picks). The tick is the point estimate." /></div>
         <div className="w-[122px] shrink-0"><Th label="MLB%" sortKey="mlb_p" title="Model probability of reaching MLB. Conference-adjusted raw score — not Platt-calibrated (no ceiling compression)." /></div>
+        <div className="w-[96px] shrink-0"><Th label="Arrival" sortKey="mlb_arrival" title="Tier 3: P(MLB debut | drafted). Elastic Net with round-anchored prior + nearest-neighbor comp rate." /></div>
         <div className="w-[44px] shrink-0"><Th label="Conf" title="Tier 1 confidence from projected pick depth" /></div>
         {statDefs.map((d) => (
           <div key={d.key} className="w-[64px] shrink-0">
@@ -215,6 +252,9 @@ export function BoardTable({
                 </div>
                 <div className="w-[122px] shrink-0 px-2">
                   <ProbCell p={p.mlb_p} raw={p.mlb_p_raw} hist={p.hist_rate} width={52} />
+                </div>
+                <div className="flex w-[96px] shrink-0 items-center px-2">
+                  <ArrivalCell p={p.mlb_arrival ?? null} nn={p.nn_mlb_rate ?? null} />
                 </div>
                 <div className="flex w-[44px] shrink-0 justify-end px-2">
                   <ConfDot level={p.t1_confidence} />

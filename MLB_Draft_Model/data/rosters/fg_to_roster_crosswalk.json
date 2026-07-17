@@ -1,0 +1,2633 @@
+{
+  "crosswalk": {
+    "LAF": {
+      "fg_abb": "LAF",
+      "fg_full_name": "Lafayette College",
+      "roster_name": "Lafayette",
+      "conference": "Patriot",
+      "team_id": 614639,
+      "match_method": "manual"
+    },
+    "MICH": {
+      "fg_abb": "MICH",
+      "fg_full_name": "University of Michigan",
+      "roster_name": "Michigan",
+      "conference": "Big Ten",
+      "team_id": 614663,
+      "match_method": "manual"
+    },
+    "IU": {
+      "fg_abb": "IU",
+      "fg_full_name": "Indiana University Bloomington",
+      "roster_name": "Indiana",
+      "conference": "Big Ten",
+      "team_id": 614627,
+      "match_method": "manual"
+    },
+    "IONA": {
+      "fg_abb": "IONA",
+      "fg_full_name": "Iona College",
+      "roster_name": "Iona",
+      "conference": "MAAC",
+      "team_id": 614629,
+      "match_method": "abb_in_name",
+      "match_score": "abb=iona in iona"
+    },
+    "KENN": {
+      "fg_abb": "KENN",
+      "fg_full_name": "Kennesaw State University",
+      "roster_name": "Kennesaw St.",
+      "conference": "CUSA",
+      "team_id": 614831,
+      "match_method": "abb_in_name",
+      "match_score": "abb=kenn in kennesaw st."
+    },
+    "MCN": {
+      "fg_abb": "MCN",
+      "fg_full_name": "McNeese State University",
+      "roster_name": "McNeese",
+      "conference": "Southland",
+      "team_id": 614657,
+      "match_method": "manual"
+    },
+    "LMU": {
+      "fg_abb": "LMU",
+      "fg_full_name": "Loyola Marymount University",
+      "roster_name": "LMU (CA)",
+      "conference": "WCC",
+      "team_id": 614648,
+      "match_method": "abb_in_name",
+      "match_score": "abb=lmu in lmu ca"
+    },
+    "TAR": {
+      "fg_abb": "TAR",
+      "fg_full_name": "Tarleton State University",
+      "roster_name": "Tarleton St.",
+      "conference": "WAC",
+      "team_id": 614761,
+      "match_method": "manual"
+    },
+    "BUCK": {
+      "fg_abb": "BUCK",
+      "fg_full_name": "Bucknell University",
+      "roster_name": "Bucknell",
+      "conference": "Patriot",
+      "team_id": 614563,
+      "match_method": "abb_in_name",
+      "match_score": "abb=buck in bucknell"
+    },
+    "CONN": {
+      "fg_abb": "CONN",
+      "fg_full_name": "University of Connecticut",
+      "roster_name": "Central Conn. St.",
+      "conference": "NEC",
+      "team_id": 614579,
+      "match_method": "abb_in_name",
+      "match_score": "abb=conn in central conn. st."
+    },
+    "FAIR": {
+      "fg_abb": "FAIR",
+      "fg_full_name": "Fairfield University",
+      "roster_name": "Fairfield",
+      "conference": "MAAC",
+      "team_id": 614601,
+      "match_method": "abb_in_name",
+      "match_score": "abb=fair in fairfield"
+    },
+    "NEB": {
+      "fg_abb": "NEB",
+      "fg_full_name": "University of Nebraska Lincoln",
+      "roster_name": "Nebraska",
+      "conference": "Big Ten",
+      "team_id": 614773,
+      "match_method": "manual"
+    },
+    "MEM": {
+      "fg_abb": "MEM",
+      "fg_full_name": "University of Memphis",
+      "roster_name": "Memphis",
+      "conference": "American",
+      "team_id": 614658,
+      "match_method": "abb_in_name",
+      "match_score": "abb=mem in memphis"
+    },
+    "VMI": {
+      "fg_abb": "VMI",
+      "fg_full_name": "Virginia Military Institute",
+      "roster_name": "VMI",
+      "conference": "SoCon",
+      "team_id": 614805,
+      "match_method": "abb_in_name",
+      "match_score": "abb=vmi in vmi"
+    },
+    "VCU": {
+      "fg_abb": "VCU",
+      "fg_full_name": "Virginia Commonwealth University",
+      "roster_name": "VCU",
+      "conference": "Atlantic 10",
+      "team_id": 614804,
+      "match_method": "abb_in_name",
+      "match_score": "abb=vcu in vcu"
+    },
+    "LSU": {
+      "fg_abb": "LSU",
+      "fg_full_name": "Louisiana State University",
+      "roster_name": "LSU",
+      "conference": "SEC",
+      "team_id": 614644,
+      "match_method": "manual"
+    },
+    "OHIO": {
+      "fg_abb": "OHIO",
+      "fg_full_name": "Ohio University",
+      "roster_name": "Ohio St.",
+      "conference": "Big Ten",
+      "team_id": 614700,
+      "match_method": "abb_in_name",
+      "match_score": "abb=ohio in ohio st."
+    },
+    "BRAD": {
+      "fg_abb": "BRAD",
+      "fg_full_name": "Bradley University",
+      "roster_name": "Bradley",
+      "conference": "MVC",
+      "team_id": 614866,
+      "match_method": "abb_in_name",
+      "match_score": "abb=brad in bradley"
+    },
+    "UNLV": {
+      "fg_abb": "UNLV",
+      "fg_full_name": "University of Nevada Las Vegas",
+      "roster_name": "UNLV",
+      "conference": "Mountain West",
+      "team_id": 614680,
+      "match_method": "abb_in_name",
+      "match_score": "abb=unlv in unlv"
+    },
+    "GT": {
+      "fg_abb": "GT",
+      "fg_full_name": "Georgia Institute of Technology",
+      "roster_name": "Georgia Tech",
+      "conference": "ACC",
+      "team_id": 614614,
+      "match_method": "manual"
+    },
+    "UTAH": {
+      "fg_abb": "UTAH",
+      "fg_full_name": "University of Utah",
+      "roster_name": "Utah Tech",
+      "conference": "WAC",
+      "team_id": 614786,
+      "match_method": "abb_in_name",
+      "match_score": "abb=utah in utah tech"
+    },
+    "TEX": {
+      "fg_abb": "TEX",
+      "fg_full_name": "University of Texas at Austin",
+      "roster_name": "Texas",
+      "conference": "SEC",
+      "team_id": 614793,
+      "match_method": "manual"
+    },
+    "RAD": {
+      "fg_abb": "RAD",
+      "fg_full_name": "Radford University",
+      "roster_name": "Radford",
+      "conference": "Big South",
+      "team_id": 614716,
+      "match_method": "abb_in_name",
+      "match_score": "abb=rad in radford"
+    },
+    "HAW": {
+      "fg_abb": "HAW",
+      "fg_full_name": "University of Hawaii Manoa",
+      "roster_name": "Hawaii",
+      "conference": "Big West",
+      "team_id": 614618,
+      "match_method": "abb_in_name",
+      "match_score": "abb=haw in hawaii"
+    },
+    "VAN": {
+      "fg_abb": "VAN",
+      "fg_full_name": "Vanderbilt University",
+      "roster_name": "Vanderbilt",
+      "conference": "SEC",
+      "team_id": 614802,
+      "match_method": "manual"
+    },
+    "RICH": {
+      "fg_abb": "RICH",
+      "fg_full_name": "University of Richmond",
+      "roster_name": "Richmond",
+      "conference": "Atlantic 10",
+      "team_id": 614719,
+      "match_method": "abb_in_name",
+      "match_score": "abb=rich in richmond"
+    },
+    "SIE": {
+      "fg_abb": "SIE",
+      "fg_full_name": "Siena College",
+      "roster_name": "Siena",
+      "conference": "MAAC",
+      "team_id": 614736,
+      "match_method": "manual"
+    },
+    "FOR": {
+      "fg_abb": "FOR",
+      "fg_full_name": "Fordham University",
+      "roster_name": "California",
+      "conference": "ACC",
+      "team_id": 614572,
+      "match_method": "abb_in_name",
+      "match_score": "abb=for in california"
+    },
+    "BRY": {
+      "fg_abb": "BRY",
+      "fg_full_name": "Bryant University",
+      "roster_name": "Bryant",
+      "conference": "America East",
+      "team_id": 614869,
+      "match_method": "abb_in_name",
+      "match_score": "abb=bry in bryant"
+    },
+    "CAL": {
+      "fg_abb": "CAL",
+      "fg_full_name": "University of California Berkeley",
+      "roster_name": "California",
+      "conference": "ACC",
+      "team_id": 614572,
+      "match_method": "manual"
+    },
+    "ELON": {
+      "fg_abb": "ELON",
+      "fg_full_name": "Elon University",
+      "roster_name": "Elon",
+      "conference": "CAA",
+      "team_id": 614828,
+      "match_method": "abb_in_name",
+      "match_score": "abb=elon in elon"
+    },
+    "NEV": {
+      "fg_abb": "NEV",
+      "fg_full_name": "University of Nevada",
+      "roster_name": "Nevada",
+      "conference": "Mountain West",
+      "team_id": 614681,
+      "match_method": "abb_in_name",
+      "match_score": "abb=nev in nevada"
+    },
+    "WOF": {
+      "fg_abb": "WOF",
+      "fg_full_name": "Wofford College",
+      "roster_name": "Wofford",
+      "conference": "SoCon",
+      "team_id": 614765,
+      "match_method": "manual"
+    },
+    "HALL": {
+      "fg_abb": "HALL",
+      "fg_full_name": "Seton Hall University",
+      "roster_name": "Marshall",
+      "conference": "Sun Belt",
+      "team_id": 614652,
+      "match_method": "abb_in_name",
+      "match_score": "abb=hall in marshall"
+    },
+    "NJIT": {
+      "fg_abb": "NJIT",
+      "fg_full_name": "New Jersey Institute of Technology",
+      "roster_name": "NJIT",
+      "conference": "America East",
+      "team_id": 614682,
+      "match_method": "abb_in_name",
+      "match_score": "abb=njit in njit"
+    },
+    "ARIZ": {
+      "fg_abb": "ARIZ",
+      "fg_full_name": "University of Arizona",
+      "roster_name": "Arizona",
+      "conference": "Big 12",
+      "team_id": 614767,
+      "match_method": "manual"
+    },
+    "TOL": {
+      "fg_abb": "TOL",
+      "fg_full_name": "University of Toledo",
+      "roster_name": "Toledo",
+      "conference": "MAC",
+      "team_id": 614795,
+      "match_method": "abb_in_name",
+      "match_score": "abb=tol in toledo"
+    },
+    "XAV": {
+      "fg_abb": "XAV",
+      "fg_full_name": "Xavier University",
+      "roster_name": "Xavier",
+      "conference": "Big East",
+      "team_id": 614822,
+      "match_method": "abb_in_name",
+      "match_score": "abb=xav in xavier"
+    },
+    "LT": {
+      "fg_abb": "LT",
+      "fg_full_name": "Louisiana Tech University",
+      "roster_name": "Vanderbilt",
+      "conference": "SEC",
+      "team_id": 614802,
+      "match_method": "abb_in_name",
+      "match_score": "abb=lt in vanderbilt"
+    },
+    "CSUN": {
+      "fg_abb": "CSUN",
+      "fg_full_name": "California State University Northridge",
+      "roster_name": "CSUN",
+      "conference": "Big West",
+      "team_id": 614569,
+      "match_method": "manual"
+    },
+    "NAVY": {
+      "fg_abb": "NAVY",
+      "fg_full_name": "U.S. Naval Academy",
+      "roster_name": "Navy",
+      "conference": "Patriot",
+      "team_id": 614799,
+      "match_method": "manual"
+    },
+    "BC": {
+      "fg_abb": "BC",
+      "fg_full_name": "Boston College",
+      "roster_name": "Boston College",
+      "conference": "ACC",
+      "team_id": 614864,
+      "match_method": "manual"
+    },
+    "TCU": {
+      "fg_abb": "TCU",
+      "fg_full_name": "Texas Christian University",
+      "roster_name": "TCU",
+      "conference": "Big 12",
+      "team_id": 614789,
+      "match_method": "manual"
+    },
+    "CAM": {
+      "fg_abb": "CAM",
+      "fg_full_name": "Campbell University",
+      "roster_name": "Campbell",
+      "conference": "CAA",
+      "team_id": 614577,
+      "match_method": "abb_in_name",
+      "match_score": "abb=cam in campbell"
+    },
+    "CREI": {
+      "fg_abb": "CREI",
+      "fg_full_name": "Creighton University",
+      "roster_name": "Creighton",
+      "conference": "Big East",
+      "team_id": 614590,
+      "match_method": "abb_in_name",
+      "match_score": "abb=crei in creighton"
+    },
+    "LIU": {
+      "fg_abb": "LIU",
+      "fg_full_name": "Long Island University Brooklyn Campus",
+      "roster_name": "LIU",
+      "conference": "NEC",
+      "team_id": 614772,
+      "match_method": "abb_in_name",
+      "match_score": "abb=liu in liu"
+    },
+    "COPP": {
+      "fg_abb": "COPP",
+      "fg_full_name": "Coppin State University",
+      "roster_name": "Coppin St.",
+      "conference": "NEC",
+      "team_id": 614588,
+      "match_method": "manual"
+    },
+    "ARK": {
+      "fg_abb": "ARK",
+      "fg_full_name": "University of Arkansas Fayetteville",
+      "roster_name": "Arkansas",
+      "conference": "SEC",
+      "team_id": 614855,
+      "match_method": "manual"
+    },
+    "CAN": {
+      "fg_abb": "CAN",
+      "fg_full_name": "Canisius College",
+      "roster_name": "Canisius",
+      "conference": "MAAC",
+      "team_id": 614578,
+      "match_method": "abb_in_name",
+      "match_score": "abb=can in canisius"
+    },
+    "LIP": {
+      "fg_abb": "LIP",
+      "fg_full_name": "Lipscomb University",
+      "roster_name": "Lipscomb",
+      "conference": "ASUN",
+      "team_id": 614840,
+      "match_method": "abb_in_name",
+      "match_score": "abb=lip in lipscomb"
+    },
+    "UMBC": {
+      "fg_abb": "UMBC",
+      "fg_full_name": "University of Maryland Baltimore County",
+      "roster_name": "UMBC",
+      "conference": "America East",
+      "team_id": 614653,
+      "match_method": "abb_in_name",
+      "match_score": "abb=umbc in umbc"
+    },
+    "PAC": {
+      "fg_abb": "PAC",
+      "fg_full_name": "University of the Pacific",
+      "roster_name": "Pacific",
+      "conference": "WCC",
+      "team_id": 614706,
+      "match_method": "abb_in_name",
+      "match_score": "abb=pac in pacific"
+    },
+    "NE": {
+      "fg_abb": "NE",
+      "fg_full_name": "Northeastern University",
+      "roster_name": "Northeastern",
+      "conference": "CAA",
+      "team_id": 614692,
+      "match_method": "manual"
+    },
+    "PEPP": {
+      "fg_abb": "PEPP",
+      "fg_full_name": "Pepperdine University",
+      "roster_name": "Pepperdine",
+      "conference": "WCC",
+      "team_id": 614709,
+      "match_method": "manual"
+    },
+    "ND": {
+      "fg_abb": "ND",
+      "fg_full_name": "University of Notre Dame",
+      "roster_name": "Indiana St.",
+      "conference": "MVC",
+      "team_id": 614626,
+      "match_method": "abb_in_name",
+      "match_score": "abb=nd in indiana st."
+    },
+    "HOF": {
+      "fg_abb": "HOF",
+      "fg_full_name": "Hofstra University",
+      "roster_name": "Hofstra",
+      "conference": "CAA",
+      "team_id": 614619,
+      "match_method": "abb_in_name",
+      "match_score": "abb=hof in hofstra"
+    },
+    "ORE": {
+      "fg_abb": "ORE",
+      "fg_full_name": "University of Oregon",
+      "roster_name": "Oregon",
+      "conference": "Big Ten",
+      "team_id": 614705,
+      "match_method": "manual"
+    },
+    "GRAM": {
+      "fg_abb": "GRAM",
+      "fg_full_name": "Grambling State University",
+      "roster_name": "Grambling",
+      "conference": "SWAC",
+      "team_id": 614771,
+      "match_method": "abb_in_name",
+      "match_score": "abb=gram in grambling"
+    },
+    "IOWA": {
+      "fg_abb": "IOWA",
+      "fg_full_name": "University of Iowa",
+      "roster_name": "Iowa",
+      "conference": "Big Ten",
+      "team_id": 614630,
+      "match_method": "abb_in_name",
+      "match_score": "abb=iowa in iowa"
+    },
+    "AKR": {
+      "fg_abb": "AKR",
+      "fg_full_name": "University of Akron",
+      "roster_name": "Akron",
+      "conference": "MAC",
+      "team_id": 614787,
+      "match_method": "abb_in_name",
+      "match_score": "abb=akr in akron"
+    },
+    "GONZ": {
+      "fg_abb": "GONZ",
+      "fg_full_name": "Gonzaga University",
+      "roster_name": "Gonzaga",
+      "conference": "WCC",
+      "team_id": 614616,
+      "match_method": "abb_in_name",
+      "match_score": "abb=gonz in gonzaga"
+    },
+    "MORE": {
+      "fg_abb": "MORE",
+      "fg_full_name": "Morehead State University",
+      "roster_name": "Morehead St.",
+      "conference": "OVC",
+      "team_id": 614671,
+      "match_method": "manual"
+    },
+    "LOU": {
+      "fg_abb": "LOU",
+      "fg_full_name": "University of Louisville",
+      "roster_name": "Louisiana Tech",
+      "conference": "CUSA",
+      "team_id": 614645,
+      "match_method": "abb_in_name",
+      "match_score": "abb=lou in louisiana tech"
+    },
+    "NIA": {
+      "fg_abb": "NIA",
+      "fg_full_name": "Niagara University",
+      "roster_name": "Niagara",
+      "conference": "MAAC",
+      "team_id": 614686,
+      "match_method": "manual"
+    },
+    "UCLA": {
+      "fg_abb": "UCLA",
+      "fg_full_name": "University of California Los Angeles",
+      "roster_name": "UCLA",
+      "conference": "Big Ten",
+      "team_id": 614575,
+      "match_method": "manual"
+    },
+    "MAN": {
+      "fg_abb": "MAN",
+      "fg_full_name": "Manhattan College",
+      "roster_name": "Manhattan",
+      "conference": "MAAC",
+      "team_id": 614650,
+      "match_method": "abb_in_name",
+      "match_score": "abb=man in manhattan"
+    },
+    "DBU": {
+      "fg_abb": "DBU",
+      "fg_full_name": "Dallas Baptist University",
+      "roster_name": "DBU",
+      "conference": "CUSA",
+      "team_id": 614764,
+      "match_method": "abb_in_name",
+      "match_score": "abb=dbu in dbu"
+    },
+    "ULM": {
+      "fg_abb": "ULM",
+      "fg_full_name": "University of Louisiana at Monroe",
+      "roster_name": "ULM",
+      "conference": "Sun Belt",
+      "team_id": 614691,
+      "match_method": "abb_in_name",
+      "match_score": "abb=ulm in ulm"
+    },
+    "LIB": {
+      "fg_abb": "LIB",
+      "fg_full_name": "Liberty University",
+      "roster_name": "Liberty",
+      "conference": "CUSA",
+      "team_id": 614642,
+      "match_method": "abb_in_name",
+      "match_score": "abb=lib in liberty"
+    },
+    "TROY": {
+      "fg_abb": "TROY",
+      "fg_full_name": "Troy University",
+      "roster_name": "Troy",
+      "conference": "Sun Belt",
+      "team_id": 614797,
+      "match_method": "abb_in_name",
+      "match_score": "abb=troy in troy"
+    },
+    "DAY": {
+      "fg_abb": "DAY",
+      "fg_full_name": "University of Dayton",
+      "roster_name": "Dayton",
+      "conference": "Atlantic 10",
+      "team_id": 614593,
+      "match_method": "abb_in_name",
+      "match_score": "abb=day in dayton"
+    },
+    "BUT": {
+      "fg_abb": "BUT",
+      "fg_full_name": "Butler University",
+      "roster_name": "Butler",
+      "conference": "Big East",
+      "team_id": 614564,
+      "match_method": "abb_in_name",
+      "match_score": "abb=but in butler"
+    },
+    "AFA": {
+      "fg_abb": "AFA",
+      "fg_full_name": "U.S. Air Force Academy",
+      "roster_name": "Air Force",
+      "conference": "Mountain West",
+      "team_id": 614798,
+      "match_method": "manual"
+    },
+    "LEH": {
+      "fg_abb": "LEH",
+      "fg_full_name": "Lehigh University",
+      "roster_name": "Lehigh",
+      "conference": "Patriot",
+      "team_id": 614641,
+      "match_method": "manual"
+    },
+    "GCU": {
+      "fg_abb": "GCU",
+      "fg_full_name": "Grand Canyon University",
+      "roster_name": "FGCU",
+      "conference": "ASUN",
+      "team_id": 614841,
+      "match_method": "abb_in_name",
+      "match_score": "abb=gcu in fgcu"
+    },
+    "FGCU": {
+      "fg_abb": "FGCU",
+      "fg_full_name": "Florida Gulf Coast University",
+      "roster_name": "FGCU",
+      "conference": "ASUN",
+      "team_id": 614841,
+      "match_method": "abb_in_name",
+      "match_score": "abb=fgcu in fgcu"
+    },
+    "MONM": {
+      "fg_abb": "MONM",
+      "fg_full_name": "Monmouth University",
+      "roster_name": "Monmouth",
+      "conference": "CAA",
+      "team_id": 614670,
+      "match_method": "abb_in_name",
+      "match_score": "abb=monm in monmouth"
+    },
+    "USC": {
+      "fg_abb": "USC",
+      "fg_full_name": "University of Southern California",
+      "roster_name": "Southern California",
+      "conference": "Big Ten",
+      "team_id": 614742,
+      "match_method": "manual"
+    },
+    "BEL": {
+      "fg_abb": "BEL",
+      "fg_full_name": "Belmont University",
+      "roster_name": "Campbell",
+      "conference": "CAA",
+      "team_id": 614577,
+      "match_method": "abb_in_name",
+      "match_score": "abb=bel in campbell"
+    },
+    "OU": {
+      "fg_abb": "OU",
+      "fg_full_name": "University of Oklahoma",
+      "roster_name": "Oklahoma",
+      "conference": "SEC",
+      "team_id": 614702,
+      "match_method": "manual"
+    },
+    "SAC": {
+      "fg_abb": "SAC",
+      "fg_full_name": "California State University Sacramento",
+      "roster_name": "Sacramento St.",
+      "conference": "WAC",
+      "team_id": 614570,
+      "match_method": "manual"
+    },
+    "STET": {
+      "fg_abb": "STET",
+      "fg_full_name": "Stetson University",
+      "roster_name": "Stetson",
+      "conference": "ASUN",
+      "team_id": 614781,
+      "match_method": "abb_in_name",
+      "match_score": "abb=stet in stetson"
+    },
+    "BELL": {
+      "fg_abb": "BELL",
+      "fg_full_name": "Bellarmine University",
+      "roster_name": "Campbell",
+      "conference": "CAA",
+      "team_id": 614577,
+      "match_method": "abb_in_name",
+      "match_score": "abb=bell in campbell"
+    },
+    "PENN": {
+      "fg_abb": "PENN",
+      "fg_full_name": "University of Pennsylvania",
+      "roster_name": "Penn",
+      "conference": "Ivy League",
+      "team_id": 614777,
+      "match_method": "manual"
+    },
+    "DUKE": {
+      "fg_abb": "DUKE",
+      "fg_full_name": "Duke University",
+      "roster_name": "Duke",
+      "conference": "ACC",
+      "team_id": 614769,
+      "match_method": "manual"
+    },
+    "KENT": {
+      "fg_abb": "KENT",
+      "fg_full_name": "Kent State University",
+      "roster_name": "Kent St.",
+      "conference": "MAC",
+      "team_id": 614637,
+      "match_method": "abb_in_name",
+      "match_score": "abb=kent in kent st."
+    },
+    "DAV": {
+      "fg_abb": "DAV",
+      "fg_full_name": "Davidson College",
+      "roster_name": "Davidson",
+      "conference": "Atlantic 10",
+      "team_id": 614592,
+      "match_method": "abb_in_name",
+      "match_score": "abb=dav in davidson"
+    },
+    "BYU": {
+      "fg_abb": "BYU",
+      "fg_full_name": "Brigham Young University",
+      "roster_name": "BYU",
+      "conference": "Big 12",
+      "team_id": 614867,
+      "match_method": "abb_in_name",
+      "match_score": "abb=byu in byu"
+    },
+    "SBU": {
+      "fg_abb": "SBU",
+      "fg_full_name": "St. Bonaventure University",
+      "roster_name": "St. Bonaventure",
+      "conference": "Atlantic 10",
+      "team_id": 614723,
+      "match_method": "manual"
+    },
+    "CIN": {
+      "fg_abb": "CIN",
+      "fg_full_name": "University of Cincinnati",
+      "roster_name": "Cincinnati",
+      "conference": "Big 12",
+      "team_id": 614582,
+      "match_method": "abb_in_name",
+      "match_score": "abb=cin in cincinnati"
+    },
+    "STAN": {
+      "fg_abb": "STAN",
+      "fg_full_name": "Stanford University",
+      "roster_name": "Stanford",
+      "conference": "ACC",
+      "team_id": 614749,
+      "match_method": "manual"
+    },
+    "OMA": {
+      "fg_abb": "OMA",
+      "fg_full_name": "University of Nebraska at Omaha",
+      "roster_name": "Omaha",
+      "conference": "Summit League",
+      "team_id": 614679,
+      "match_method": "abb_in_name",
+      "match_score": "abb=oma in omaha"
+    },
+    "UPST": {
+      "fg_abb": "UPST",
+      "fg_full_name": "University of South Carolina Upstate",
+      "roster_name": "USC Upstate",
+      "conference": "Big South",
+      "team_id": 614837,
+      "match_method": "manual"
+    },
+    "ILL": {
+      "fg_abb": "ILL",
+      "fg_full_name": "University of Illinois Urbana-Champaign",
+      "roster_name": "Illinois St.",
+      "conference": "MVC",
+      "team_id": 614623,
+      "match_method": "abb_in_name",
+      "match_score": "abb=ill in illinois st."
+    },
+    "MISS": {
+      "fg_abb": "MISS",
+      "fg_full_name": "University of Mississippi",
+      "roster_name": "Ole Miss",
+      "conference": "SEC",
+      "team_id": 614668,
+      "match_method": "manual"
+    },
+    "RGV": {
+      "fg_abb": "RGV",
+      "fg_full_name": "University of Texas Rio Grande Valley",
+      "roster_name": "UTRGV",
+      "conference": "Southland",
+      "team_id": 614707,
+      "match_method": "abb_in_name",
+      "match_score": "abb=rgv in utrgv"
+    },
+    "WIN": {
+      "fg_abb": "WIN",
+      "fg_full_name": "Winthrop University",
+      "roster_name": "Winthrop",
+      "conference": "Big South",
+      "team_id": 614819,
+      "match_method": "abb_in_name",
+      "match_score": "abb=win in winthrop"
+    },
+    "NICH": {
+      "fg_abb": "NICH",
+      "fg_full_name": "Nicholls State University",
+      "roster_name": "Nicholls",
+      "conference": "Southland",
+      "team_id": 614774,
+      "match_method": "abb_in_name",
+      "match_score": "abb=nich in nicholls"
+    },
+    "UIC": {
+      "fg_abb": "UIC",
+      "fg_full_name": "University of Illinois at Chicago",
+      "roster_name": "UIC",
+      "conference": "MVC",
+      "team_id": 614625,
+      "match_method": "abb_in_name",
+      "match_score": "abb=uic in uic"
+    },
+    "RICE": {
+      "fg_abb": "RICE",
+      "fg_full_name": "Rice University",
+      "roster_name": "Rice",
+      "conference": "American",
+      "team_id": 614718,
+      "match_method": "abb_in_name",
+      "match_score": "abb=rice in rice"
+    },
+    "DEL": {
+      "fg_abb": "DEL",
+      "fg_full_name": "University of Delaware",
+      "roster_name": "Delaware St.",
+      "conference": "NEC",
+      "team_id": 614594,
+      "match_method": "abb_in_name",
+      "match_score": "abb=del in delaware st."
+    },
+    "ETSU": {
+      "fg_abb": "ETSU",
+      "fg_full_name": "East Tennessee State University",
+      "roster_name": "ETSU",
+      "conference": "SoCon",
+      "team_id": 614597,
+      "match_method": "abb_in_name",
+      "match_score": "abb=etsu in etsu"
+    },
+    "WAKE": {
+      "fg_abb": "WAKE",
+      "fg_full_name": "Wake Forest University",
+      "roster_name": "Wake Forest",
+      "conference": "ACC",
+      "team_id": 614809,
+      "match_method": "abb_in_name",
+      "match_score": "abb=wake in wake forest"
+    },
+    "UIW": {
+      "fg_abb": "UIW",
+      "fg_full_name": "University of the Incarnate Word",
+      "roster_name": "UIW",
+      "conference": "Southland",
+      "team_id": 614836,
+      "match_method": "abb_in_name",
+      "match_score": "abb=uiw in uiw"
+    },
+    "TENN": {
+      "fg_abb": "TENN",
+      "fg_full_name": "University of Tennessee Knoxville",
+      "roster_name": "Tennessee",
+      "conference": "SEC",
+      "team_id": 614782,
+      "match_method": "manual"
+    },
+    "MUR": {
+      "fg_abb": "MUR",
+      "fg_full_name": "Murray State University",
+      "roster_name": "Murray St.",
+      "conference": "MVC",
+      "team_id": 614673,
+      "match_method": "abb_in_name",
+      "match_score": "abb=mur in murray st."
+    },
+    "MER": {
+      "fg_abb": "MER",
+      "fg_full_name": "Mercer University",
+      "roster_name": "Mercer",
+      "conference": "SoCon",
+      "team_id": 614659,
+      "match_method": "abb_in_name",
+      "match_score": "abb=mer in mercer"
+    },
+    "SIUE": {
+      "fg_abb": "SIUE",
+      "fg_full_name": "Southern Illinois University Edwardsville",
+      "roster_name": "SIUE",
+      "conference": "OVC",
+      "team_id": 614744,
+      "match_method": "manual"
+    },
+    "UTSA": {
+      "fg_abb": "UTSA",
+      "fg_full_name": "University of Texas at San Antonio",
+      "roster_name": "UTSA",
+      "conference": "American",
+      "team_id": 614794,
+      "match_method": "abb_in_name",
+      "match_score": "abb=utsa in utsa"
+    },
+    "BALL": {
+      "fg_abb": "BALL",
+      "fg_full_name": "Ball State University",
+      "roster_name": "Ball St.",
+      "conference": "MAC",
+      "team_id": 614859,
+      "match_method": "abb_in_name",
+      "match_score": "abb=ball in ball st."
+    },
+    "BAY": {
+      "fg_abb": "BAY",
+      "fg_full_name": "Baylor University",
+      "roster_name": "Baylor",
+      "conference": "Big 12",
+      "team_id": 614861,
+      "match_method": "manual"
+    },
+    "AUB": {
+      "fg_abb": "AUB",
+      "fg_full_name": "Auburn University",
+      "roster_name": "Auburn",
+      "conference": "SEC",
+      "team_id": 614857,
+      "match_method": "manual"
+    },
+    "PORT": {
+      "fg_abb": "PORT",
+      "fg_full_name": "University of Portland",
+      "roster_name": "Portland",
+      "conference": "WCC",
+      "team_id": 614711,
+      "match_method": "abb_in_name",
+      "match_score": "abb=port in portland"
+    },
+    "LAM": {
+      "fg_abb": "LAM",
+      "fg_full_name": "Lamar University",
+      "roster_name": "Lamar University",
+      "conference": "Southland",
+      "team_id": 614640,
+      "match_method": "abb_in_name",
+      "match_score": "abb=lam in lamar university"
+    },
+    "SIU": {
+      "fg_abb": "SIU",
+      "fg_full_name": "Southern Illinois University at Carbondale",
+      "roster_name": "Canisius",
+      "conference": "MAAC",
+      "team_id": 614578,
+      "match_method": "abb_in_name",
+      "match_score": "abb=siu in canisius"
+    },
+    "ARMY": {
+      "fg_abb": "ARMY",
+      "fg_full_name": "U.S. Military Academy",
+      "roster_name": "Army West Point",
+      "conference": "Patriot",
+      "team_id": 614763,
+      "match_method": "manual"
+    },
+    "FRES": {
+      "fg_abb": "FRES",
+      "fg_full_name": "California State University Fresno",
+      "roster_name": "Fresno St.",
+      "conference": "Mountain West",
+      "team_id": 614768,
+      "match_method": "manual"
+    },
+    "SC": {
+      "fg_abb": "SC",
+      "fg_full_name": "University of South Carolina Columbia",
+      "roster_name": "South Carolina",
+      "conference": "SEC",
+      "team_id": 614738,
+      "match_method": "manual"
+    },
+    "WAG": {
+      "fg_abb": "WAG",
+      "fg_full_name": "Wagner College",
+      "roster_name": "Wagner",
+      "conference": "NEC",
+      "team_id": 614808,
+      "match_method": "manual"
+    },
+    "CLEM": {
+      "fg_abb": "CLEM",
+      "fg_full_name": "Clemson University",
+      "roster_name": "Clemson",
+      "conference": "ACC",
+      "team_id": 614584,
+      "match_method": "manual"
+    },
+    "ALB": {
+      "fg_abb": "ALB",
+      "fg_full_name": "University at Albany",
+      "roster_name": "UAlbany",
+      "conference": "America East",
+      "team_id": 614850,
+      "match_method": "abb_in_name",
+      "match_score": "abb=alb in ualbany"
+    },
+    "FDU": {
+      "fg_abb": "FDU",
+      "fg_full_name": "Fairleigh Dickinson University Metropolitan",
+      "roster_name": "FDU",
+      "conference": "NEC",
+      "team_id": 614602,
+      "match_method": "abb_in_name",
+      "match_score": "abb=fdu in fdu"
+    },
+    "UCF": {
+      "fg_abb": "UCF",
+      "fg_full_name": "University of Central Florida",
+      "roster_name": "UCF",
+      "conference": "Big 12",
+      "team_id": 614580,
+      "match_method": "abb_in_name",
+      "match_score": "abb=ucf in ucf"
+    },
+    "PUR": {
+      "fg_abb": "PUR",
+      "fg_full_name": "Purdue University",
+      "roster_name": "Purdue",
+      "conference": "Big Ten",
+      "team_id": 614714,
+      "match_method": "manual"
+    },
+    "VILL": {
+      "fg_abb": "VILL",
+      "fg_full_name": "Villanova University",
+      "roster_name": "Jacksonville St.",
+      "conference": "CUSA",
+      "team_id": 614632,
+      "match_method": "abb_in_name",
+      "match_score": "abb=vill in jacksonville st."
+    },
+    "ME": {
+      "fg_abb": "ME",
+      "fg_full_name": "University of Maine Orono",
+      "roster_name": "Maine",
+      "conference": "America East",
+      "team_id": 614649,
+      "match_method": "manual"
+    },
+    "EVAN": {
+      "fg_abb": "EVAN",
+      "fg_full_name": "University of Evansville",
+      "roster_name": "Evansville",
+      "conference": "MVC",
+      "team_id": 614770,
+      "match_method": "abb_in_name",
+      "match_score": "abb=evan in evansville"
+    },
+    "QUIN": {
+      "fg_abb": "QUIN",
+      "fg_full_name": "Quinnipiac University",
+      "roster_name": "Quinnipiac",
+      "conference": "MAAC",
+      "team_id": 614715,
+      "match_method": "manual"
+    },
+    "PITT": {
+      "fg_abb": "PITT",
+      "fg_full_name": "University of Pittsburgh",
+      "roster_name": "Pittsburgh",
+      "conference": "ACC",
+      "team_id": 614710,
+      "match_method": "abb_in_name",
+      "match_score": "abb=pitt in pittsburgh"
+    },
+    "SAM": {
+      "fg_abb": "SAM",
+      "fg_full_name": "Samford University",
+      "roster_name": "Sam Houston",
+      "conference": "CUSA",
+      "team_id": 614728,
+      "match_method": "abb_in_name",
+      "match_score": "abb=sam in sam houston"
+    },
+    "URI": {
+      "fg_abb": "URI",
+      "fg_full_name": "University of Rhode Island",
+      "roster_name": "Missouri",
+      "conference": "SEC",
+      "team_id": 614669,
+      "match_method": "abb_in_name",
+      "match_score": "abb=uri in missouri"
+    },
+    "OAK": {
+      "fg_abb": "OAK",
+      "fg_full_name": "Oakland University",
+      "roster_name": "Oakland",
+      "conference": "Horizon",
+      "team_id": 614699,
+      "match_method": "abb_in_name",
+      "match_score": "abb=oak in oakland"
+    },
+    "SEA": {
+      "fg_abb": "SEA",
+      "fg_full_name": "Seattle University",
+      "roster_name": "Seattle U",
+      "conference": "WCC",
+      "team_id": 614833,
+      "match_method": "manual"
+    },
+    "SOU": {
+      "fg_abb": "SOU",
+      "fg_full_name": "Southern University Baton Rouge",
+      "roster_name": "Missouri",
+      "conference": "SEC",
+      "team_id": 614669,
+      "match_method": "abb_in_name",
+      "match_score": "abb=sou in missouri"
+    },
+    "NORF": {
+      "fg_abb": "NORF",
+      "fg_full_name": "Norfolk State University",
+      "roster_name": "Norfolk St.",
+      "conference": "NEC",
+      "team_id": 614687,
+      "match_method": "manual"
+    },
+    "SF": {
+      "fg_abb": "SF",
+      "fg_full_name": "University of San Francisco",
+      "roster_name": "SFA",
+      "conference": "Southland",
+      "team_id": 614750,
+      "match_method": "abb_in_name",
+      "match_score": "abb=sf in sfa"
+    },
+    "SFA": {
+      "fg_abb": "SFA",
+      "fg_full_name": "Stephen F. Austin State University",
+      "roster_name": "SFA",
+      "conference": "Southland",
+      "team_id": 614750,
+      "match_method": "abb_in_name",
+      "match_score": "abb=sfa in sfa"
+    },
+    "UL": {
+      "fg_abb": "UL",
+      "fg_full_name": "University of Louisiana at Lafayette",
+      "roster_name": "Louisiana",
+      "conference": "Sun Belt",
+      "team_id": 614748,
+      "match_method": "manual"
+    },
+    "NIU": {
+      "fg_abb": "NIU",
+      "fg_full_name": "Northern Illinois University",
+      "roster_name": "NIU",
+      "conference": "MAC",
+      "team_id": 614694,
+      "match_method": "abb_in_name",
+      "match_score": "abb=niu in niu"
+    },
+    "RUTG": {
+      "fg_abb": "RUTG",
+      "fg_full_name": "Rutgers State Univ of New Jersey New Brunswick",
+      "roster_name": "Rutgers",
+      "conference": "Big Ten",
+      "team_id": 614721,
+      "match_method": "abb_in_name",
+      "match_score": "abb=rutg in rutgers"
+    },
+    "UK": {
+      "fg_abb": "UK",
+      "fg_full_name": "University of Kentucky",
+      "roster_name": "Kentucky",
+      "conference": "SEC",
+      "team_id": 614638,
+      "match_method": "manual"
+    },
+    "UNCW": {
+      "fg_abb": "UNCW",
+      "fg_full_name": "University of North Carolina Wilmington",
+      "roster_name": "UNCW",
+      "conference": "CAA",
+      "team_id": 614678,
+      "match_method": "abb_in_name",
+      "match_score": "abb=uncw in uncw"
+    },
+    "LONG": {
+      "fg_abb": "LONG",
+      "fg_full_name": "Longwood University",
+      "roster_name": "Long Beach St.",
+      "conference": "Big West",
+      "team_id": 614568,
+      "match_method": "abb_in_name",
+      "match_score": "abb=long in long beach st."
+    },
+    "MINN": {
+      "fg_abb": "MINN",
+      "fg_full_name": "University of Minnesota Twin Cities",
+      "roster_name": "Minnesota",
+      "conference": "Big Ten",
+      "team_id": 614665,
+      "match_method": "abb_in_name",
+      "match_score": "abb=minn in minnesota"
+    },
+    "FIU": {
+      "fg_abb": "FIU",
+      "fg_full_name": "Florida International University",
+      "roster_name": "FIU",
+      "conference": "CUSA",
+      "team_id": 614605,
+      "match_method": "abb_in_name",
+      "match_score": "abb=fiu in fiu"
+    },
+    "WICH": {
+      "fg_abb": "WICH",
+      "fg_full_name": "Wichita State University",
+      "roster_name": "Wichita St.",
+      "conference": "American",
+      "team_id": 614817,
+      "match_method": "abb_in_name",
+      "match_score": "abb=wich in wichita st."
+    },
+    "MIA": {
+      "fg_abb": "MIA",
+      "fg_full_name": "University of Miami (Florida)",
+      "roster_name": "Miami (FL)",
+      "conference": "ACC",
+      "team_id": 614661,
+      "match_method": "manual"
+    },
+    "MASS": {
+      "fg_abb": "MASS",
+      "fg_full_name": "University of Massachusetts Amherst",
+      "roster_name": "UMass Lowell",
+      "conference": "America East",
+      "team_id": 614647,
+      "match_method": "abb_in_name",
+      "match_score": "abb=mass in umass lowell"
+    },
+    "UNC": {
+      "fg_abb": "UNC",
+      "fg_full_name": "University of North Carolina Chapel Hill",
+      "roster_name": "North Carolina",
+      "conference": "ACC",
+      "team_id": 614675,
+      "match_method": "manual"
+    },
+    "ALA": {
+      "fg_abb": "ALA",
+      "fg_full_name": "University of Alabama Tuscaloosa",
+      "roster_name": "Alabama",
+      "conference": "SEC",
+      "team_id": 614848,
+      "match_method": "manual"
+    },
+    "FLA": {
+      "fg_abb": "FLA",
+      "fg_full_name": "University of Florida",
+      "roster_name": "Florida",
+      "conference": "SEC",
+      "team_id": 614607,
+      "match_method": "manual"
+    },
+    "RID": {
+      "fg_abb": "RID",
+      "fg_full_name": "Rider University",
+      "roster_name": "Rider",
+      "conference": "MAAC",
+      "team_id": 614720,
+      "match_method": "manual"
+    },
+    "GW": {
+      "fg_abb": "GW",
+      "fg_full_name": "George Washington University",
+      "roster_name": "Longwood",
+      "conference": "Big South",
+      "team_id": 614643,
+      "match_method": "abb_in_name",
+      "match_score": "abb=gw in longwood"
+    },
+    "HOU": {
+      "fg_abb": "HOU",
+      "fg_full_name": "University of Houston",
+      "roster_name": "Houston Christian",
+      "conference": "Southland",
+      "team_id": 614621,
+      "match_method": "abb_in_name",
+      "match_score": "abb=hou in houston christian"
+    },
+    "UTA": {
+      "fg_abb": "UTA",
+      "fg_full_name": "University of Texas at Arlington",
+      "roster_name": "Utah Tech",
+      "conference": "WAC",
+      "team_id": 614786,
+      "match_method": "abb_in_name",
+      "match_score": "abb=uta in utah tech"
+    },
+    "PRES": {
+      "fg_abb": "PRES",
+      "fg_full_name": "Presbyterian College",
+      "roster_name": "Presbyterian",
+      "conference": "Big South",
+      "team_id": 614832,
+      "match_method": "abb_in_name",
+      "match_score": "abb=pres in presbyterian"
+    },
+    "TOW": {
+      "fg_abb": "TOW",
+      "fg_full_name": "Towson University",
+      "roster_name": "Georgetown",
+      "conference": "Big East",
+      "team_id": 614611,
+      "match_method": "abb_in_name",
+      "match_score": "abb=tow in georgetown"
+    },
+    "VAL": {
+      "fg_abb": "VAL",
+      "fg_full_name": "Valparaiso University",
+      "roster_name": "Valparaiso",
+      "conference": "MVC",
+      "team_id": 614801,
+      "match_method": "abb_in_name",
+      "match_score": "abb=val in valparaiso"
+    },
+    "BING": {
+      "fg_abb": "BING",
+      "fg_full_name": "State University of New York at Binghamton",
+      "roster_name": "Binghamton",
+      "conference": "America East",
+      "team_id": 614863,
+      "match_method": "manual"
+    },
+    "WASH": {
+      "fg_abb": "WASH",
+      "fg_full_name": "University of Washington",
+      "roster_name": "Washington",
+      "conference": "Big Ten",
+      "team_id": 614811,
+      "match_method": "manual"
+    },
+    "APP": {
+      "fg_abb": "APP",
+      "fg_full_name": "Appalachian State University",
+      "roster_name": "App State",
+      "conference": "Sun Belt",
+      "team_id": 614852,
+      "match_method": "abb_in_name",
+      "match_score": "abb=app in app state"
+    },
+    "MILW": {
+      "fg_abb": "MILW",
+      "fg_full_name": "University of Wisconsin Milwaukee",
+      "roster_name": "Milwaukee",
+      "conference": "Horizon",
+      "team_id": 614820,
+      "match_method": "abb_in_name",
+      "match_score": "abb=milw in milwaukee"
+    },
+    "UAB": {
+      "fg_abb": "UAB",
+      "fg_full_name": "University of Alabama at Birmingham",
+      "roster_name": "UAB",
+      "conference": "American",
+      "team_id": 614849,
+      "match_method": "abb_in_name",
+      "match_score": "abb=uab in uab"
+    },
+    "YALE": {
+      "fg_abb": "YALE",
+      "fg_full_name": "Yale University",
+      "roster_name": "Yale",
+      "conference": "Ivy League",
+      "team_id": 614823,
+      "match_method": "manual"
+    },
+    "COLU": {
+      "fg_abb": "COLU",
+      "fg_full_name": "Columbia University",
+      "roster_name": "Columbia",
+      "conference": "Ivy League",
+      "team_id": 614586,
+      "match_method": "manual"
+    },
+    "UMES": {
+      "fg_abb": "UMES",
+      "fg_full_name": "University of Maryland Eastern Shore",
+      "roster_name": "UMES",
+      "conference": "NEC",
+      "team_id": 614655,
+      "match_method": "abb_in_name",
+      "match_score": "abb=umes in umes"
+    },
+    "HARV": {
+      "fg_abb": "HARV",
+      "fg_full_name": "Harvard University",
+      "roster_name": "Harvard",
+      "conference": "Ivy League",
+      "team_id": 614617,
+      "match_method": "manual"
+    },
+    "PRIN": {
+      "fg_abb": "PRIN",
+      "fg_full_name": "Princeton University",
+      "roster_name": "Princeton",
+      "conference": "Ivy League",
+      "team_id": 614713,
+      "match_method": "manual"
+    },
+    "DART": {
+      "fg_abb": "DART",
+      "fg_full_name": "Dartmouth College",
+      "roster_name": "Dartmouth",
+      "conference": "Ivy League",
+      "team_id": 614591,
+      "match_method": "manual"
+    },
+    "COR": {
+      "fg_abb": "COR",
+      "fg_full_name": "Cornell University",
+      "roster_name": "Cornell",
+      "conference": "Ivy League",
+      "team_id": 614589,
+      "match_method": "manual"
+    },
+    "STO": {
+      "fg_abb": "STO",
+      "fg_full_name": "Stonehill College",
+      "roster_name": "Stonehill",
+      "conference": "NEC",
+      "team_id": 614759,
+      "match_method": "manual"
+    },
+    "LIN": {
+      "fg_abb": "LIN",
+      "fg_full_name": "Lindenwood University",
+      "roster_name": "Lindenwood",
+      "conference": "OVC",
+      "team_id": 614756,
+      "match_method": "manual"
+    },
+    "LEM": {
+      "fg_abb": "LEM",
+      "fg_full_name": "Le Moyne College",
+      "roster_name": "Le Moyne",
+      "conference": "NEC",
+      "team_id": 614760,
+      "match_method": "manual"
+    },
+    "WES": {
+      "fg_abb": "WES",
+      "fg_full_name": "University of West Georgia",
+      "roster_name": "West Ga.",
+      "conference": "ASUN",
+      "team_id": 614784,
+      "match_method": "manual"
+    },
+    "MERC": {
+      "fg_abb": "MERC",
+      "fg_full_name": "Mercyhurst College",
+      "roster_name": "Mercyhurst",
+      "conference": "NEC",
+      "team_id": 614783,
+      "match_method": "manual"
+    },
+    "ECU": {
+      "fg_abb": "ECU",
+      "fg_full_name": "East Carolina University",
+      "roster_name": "East Carolina",
+      "conference": "American",
+      "team_id": 614596,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'carolina', 'east'}"
+    },
+    "JOES": {
+      "fg_abb": "JOES",
+      "fg_full_name": "Saint Joseph's University",
+      "roster_name": "Saint Joseph's",
+      "conference": "Atlantic 10",
+      "team_id": 614724,
+      "match_method": "manual"
+    },
+    "SHU": {
+      "fg_abb": "SHU",
+      "fg_full_name": "Sacred Heart University",
+      "roster_name": "Sacred Heart",
+      "conference": "MAAC",
+      "team_id": 614722,
+      "match_method": "manual"
+    },
+    "ORU": {
+      "fg_abb": "ORU",
+      "fg_full_name": "Oral Roberts University",
+      "roster_name": "Oral Roberts",
+      "conference": "Summit League",
+      "team_id": 614776,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'roberts', 'oral'}"
+    },
+    "NCSU": {
+      "fg_abb": "NCSU",
+      "fg_full_name": "North Carolina State University",
+      "roster_name": "NC State",
+      "conference": "ACC",
+      "team_id": 614689,
+      "match_method": "manual"
+    },
+    "TA&M": {
+      "fg_abb": "TA&M",
+      "fg_full_name": "Texas A&M University College Station",
+      "roster_name": "Texas A&M",
+      "conference": "SEC",
+      "team_id": 614788,
+      "match_method": "manual"
+    },
+    "LR": {
+      "fg_abb": "LR",
+      "fg_full_name": "University of Arkansas Little Rock",
+      "roster_name": "Little Rock",
+      "conference": "OVC",
+      "team_id": 614856,
+      "match_method": "manual"
+    },
+    "UCSD": {
+      "fg_abb": "UCSD",
+      "fg_full_name": "University of California San Diego",
+      "roster_name": "San Diego St.",
+      "conference": "Mountain West",
+      "team_id": 614730,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'diego', 'san'}"
+    },
+    "LAS": {
+      "fg_abb": "LAS",
+      "fg_full_name": "La Salle University",
+      "roster_name": "La Salle",
+      "conference": "Atlantic 10",
+      "team_id": 621265,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'la', 'salle'}"
+    },
+    "MSM": {
+      "fg_abb": "MSM",
+      "fg_full_name": "Mount St. Mary's University",
+      "roster_name": "Mount St. Mary's",
+      "conference": "MAAC",
+      "team_id": 614672,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'marys', 'st.', 'mount'}"
+    },
+    "NDSU": {
+      "fg_abb": "NDSU",
+      "fg_full_name": "North Dakota State University",
+      "roster_name": "North Dakota St.",
+      "conference": "Summit League",
+      "team_id": 614690,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'north', 'dakota'}"
+    },
+    "SHSU": {
+      "fg_abb": "SHSU",
+      "fg_full_name": "Sam Houston State University",
+      "roster_name": "Sam Houston",
+      "conference": "CUSA",
+      "team_id": 614728,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'sam', 'houston'}"
+    },
+    "UCSB": {
+      "fg_abb": "UCSB",
+      "fg_full_name": "University of California Santa Barbara",
+      "roster_name": "UC Santa Barbara",
+      "conference": "Big West",
+      "team_id": 614571,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'barbara', 'santa'}"
+    },
+    "JMU": {
+      "fg_abb": "JMU",
+      "fg_full_name": "James Madison University",
+      "roster_name": "James Madison",
+      "conference": "Sun Belt",
+      "team_id": 614634,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'james', 'madison'}"
+    },
+    "ACU": {
+      "fg_abb": "ACU",
+      "fg_full_name": "Abilene Christian University",
+      "roster_name": "Abilene Christian",
+      "conference": "WAC",
+      "team_id": 614845,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'abilene', 'christian'}"
+    },
+    "CLT": {
+      "fg_abb": "CLT",
+      "fg_full_name": "University of North Carolina Charlotte",
+      "roster_name": "North Carolina",
+      "conference": "ACC",
+      "team_id": 614675,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'carolina', 'north'}"
+    },
+    "SJSU": {
+      "fg_abb": "SJSU",
+      "fg_full_name": "San Jose State University",
+      "roster_name": "San Jose St.",
+      "conference": "Mountain West",
+      "team_id": 614733,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'jose', 'san'}"
+    },
+    "USD": {
+      "fg_abb": "USD",
+      "fg_full_name": "University of San Diego",
+      "roster_name": "San Diego St.",
+      "conference": "Mountain West",
+      "team_id": 614730,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'diego', 'san'}"
+    },
+    "LBSU": {
+      "fg_abb": "LBSU",
+      "fg_full_name": "Long Beach State University",
+      "roster_name": "Long Beach St.",
+      "conference": "Big West",
+      "team_id": 614568,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'beach', 'long'}"
+    },
+    "UNF": {
+      "fg_abb": "UNF",
+      "fg_full_name": "University of North Florida",
+      "roster_name": "North Florida",
+      "conference": "ASUN",
+      "team_id": 614835,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'florida', 'north'}"
+    },
+    "UNM": {
+      "fg_abb": "UNM",
+      "fg_full_name": "University of New Mexico",
+      "roster_name": "New Mexico St.",
+      "conference": "CUSA",
+      "team_id": 614683,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'mexico', 'new'}"
+    },
+    "ODU": {
+      "fg_abb": "ODU",
+      "fg_full_name": "Old Dominion University",
+      "roster_name": "Old Dominion",
+      "conference": "Sun Belt",
+      "team_id": 614703,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'old', 'dominion'}"
+    },
+    "UNCA": {
+      "fg_abb": "UNCA",
+      "fg_full_name": "University of North Carolina Asheville",
+      "roster_name": "North Carolina",
+      "conference": "ACC",
+      "team_id": 614675,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'carolina', 'north'}"
+    },
+    "TTU": {
+      "fg_abb": "TTU",
+      "fg_full_name": "Texas Tech University",
+      "roster_name": "Texas Tech",
+      "conference": "Big 12",
+      "team_id": 614791,
+      "match_method": "manual"
+    },
+    "PV": {
+      "fg_abb": "PV",
+      "fg_full_name": "Prairie View A&M University",
+      "roster_name": "Prairie View",
+      "conference": "SWAC",
+      "team_id": 614712,
+      "match_method": "manual"
+    },
+    "SDST": {
+      "fg_abb": "SDST",
+      "fg_full_name": "South Dakota State University",
+      "roster_name": "South Dakota St.",
+      "conference": "Summit League",
+      "team_id": 614739,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'south', 'dakota'}"
+    },
+    "AAMU": {
+      "fg_abb": "AAMU",
+      "fg_full_name": "Alabama A&M University",
+      "roster_name": "Alabama A&M",
+      "conference": "SWAC",
+      "team_id": 614846,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'a&m', 'alabama'}"
+    },
+    "SDSU": {
+      "fg_abb": "SDSU",
+      "fg_full_name": "San Diego State University",
+      "roster_name": "San Diego St.",
+      "conference": "Mountain West",
+      "team_id": 614730,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'diego', 'san'}"
+    },
+    "TXSO": {
+      "fg_abb": "TXSO",
+      "fg_full_name": "Texas Southern University",
+      "roster_name": "Texas Southern",
+      "conference": "SWAC",
+      "team_id": 614790,
+      "match_method": "manual"
+    },
+    "NMSU": {
+      "fg_abb": "NMSU",
+      "fg_full_name": "New Mexico State University",
+      "roster_name": "New Mexico St.",
+      "conference": "CUSA",
+      "team_id": 614683,
+      "match_method": "manual"
+    },
+    "UNCG": {
+      "fg_abb": "UNCG",
+      "fg_full_name": "University of North Carolina at Greensboro",
+      "roster_name": "North Carolina",
+      "conference": "ACC",
+      "team_id": 614675,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'carolina', 'north'}"
+    },
+    "GMU": {
+      "fg_abb": "GMU",
+      "fg_full_name": "George Mason University",
+      "roster_name": "George Mason",
+      "conference": "Atlantic 10",
+      "team_id": 614609,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'george', 'mason'}"
+    },
+    "COFC": {
+      "fg_abb": "COFC",
+      "fg_full_name": "College of Charleston (South Carolina)",
+      "roster_name": "South Carolina",
+      "conference": "SEC",
+      "team_id": 614738,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'south', 'carolina'}"
+    },
+    "AMCC": {
+      "fg_abb": "AMCC",
+      "fg_full_name": "Texas A&M University Corpus Christi",
+      "roster_name": "A&M-Corpus Christi",
+      "conference": "Southland",
+      "team_id": 614839,
+      "match_method": "manual"
+    },
+    "USA": {
+      "fg_abb": "USA",
+      "fg_full_name": "University of South Alabama",
+      "roster_name": "South Alabama",
+      "conference": "Sun Belt",
+      "team_id": 614737,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'south', 'alabama'}"
+    },
+    "SMC": {
+      "fg_abb": "SMC",
+      "fg_full_name": "St. Mary's College of California",
+      "roster_name": "Saint Mary's (CA)",
+      "conference": "WCC",
+      "team_id": 614726,
+      "match_method": "manual"
+    },
+    "NCAT": {
+      "fg_abb": "NCAT",
+      "fg_full_name": "North Carolina A&T State University",
+      "roster_name": "N.C. A&T",
+      "conference": "CAA",
+      "team_id": 614688,
+      "match_method": "manual"
+    },
+    "HCU": {
+      "fg_abb": "HCU",
+      "fg_full_name": "Houston Christian University",
+      "roster_name": "Houston Christian",
+      "conference": "Southland",
+      "team_id": 614621,
+      "match_method": "manual"
+    },
+    "STBK": {
+      "fg_abb": "STBK",
+      "fg_full_name": "Stony Brook University",
+      "roster_name": "Stony Brook",
+      "conference": "CAA",
+      "team_id": 614751,
+      "match_method": "manual"
+    },
+    "UNO": {
+      "fg_abb": "UNO",
+      "fg_full_name": "University of New Orleans",
+      "roster_name": "New Orleans",
+      "conference": "Southland",
+      "team_id": 614685,
+      "match_method": "manual"
+    },
+    "CCU": {
+      "fg_abb": "CCU",
+      "fg_full_name": "Coastal Carolina University",
+      "roster_name": "Coastal Carolina",
+      "conference": "Sun Belt",
+      "team_id": 614585,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'carolina', 'coastal'}"
+    },
+    "SJU": {
+      "fg_abb": "SJU",
+      "fg_full_name": "St. John's University (New York)",
+      "roster_name": "St. John's (NY)",
+      "conference": "Big East",
+      "team_id": 614778,
+      "match_method": "manual"
+    },
+    "NCCU": {
+      "fg_abb": "NCCU",
+      "fg_full_name": "North Carolina Central University",
+      "roster_name": "North Carolina",
+      "conference": "ACC",
+      "team_id": 614675,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'carolina', 'north'}"
+    },
+    "APSU": {
+      "fg_abb": "APSU",
+      "fg_full_name": "Austin Peay State University",
+      "roster_name": "Austin Peay",
+      "conference": "ASUN",
+      "team_id": 614858,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'peay', 'austin'}"
+    },
+    "FAMU": {
+      "fg_abb": "FAMU",
+      "fg_full_name": "Florida A&M University",
+      "roster_name": "Florida A&M",
+      "conference": "SWAC",
+      "team_id": 614603,
+      "match_method": "manual"
+    },
+    "BGSU": {
+      "fg_abb": "BGSU",
+      "fg_full_name": "Bowling Green State University",
+      "roster_name": "Bowling Green",
+      "conference": "MAC",
+      "team_id": 614865,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'green', 'bowling'}"
+    },
+    "SLU": {
+      "fg_abb": "SLU",
+      "fg_full_name": "Saint Louis University",
+      "roster_name": "Saint Louis",
+      "conference": "Atlantic 10",
+      "team_id": 614725,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'louis', 'saint'}"
+    },
+    "HPU": {
+      "fg_abb": "HPU",
+      "fg_full_name": "High Point University",
+      "roster_name": "High Point",
+      "conference": "Big South",
+      "team_id": 614766,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'point', 'high'}"
+    },
+    "WVU": {
+      "fg_abb": "WVU",
+      "fg_full_name": "West Virginia University",
+      "roster_name": "West Virginia",
+      "conference": "Big 12",
+      "team_id": 614812,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'west', 'virginia'}"
+    },
+    "HC": {
+      "fg_abb": "HC",
+      "fg_full_name": "College of the Holy Cross",
+      "roster_name": "Holy Cross",
+      "conference": "Patriot",
+      "team_id": 614620,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'cross', 'holy'}"
+    },
+    "UVU": {
+      "fg_abb": "UVU",
+      "fg_full_name": "Utah Valley State College",
+      "roster_name": "Utah Valley",
+      "conference": "WAC",
+      "team_id": 614842,
+      "match_method": "manual"
+    },
+    "SCU": {
+      "fg_abb": "SCU",
+      "fg_full_name": "Santa Clara University",
+      "roster_name": "Santa Clara",
+      "conference": "WCC",
+      "team_id": 614734,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'clara', 'santa'}"
+    },
+    "W&M": {
+      "fg_abb": "W&M",
+      "fg_full_name": "College of William and Mary",
+      "roster_name": "William & Mary",
+      "conference": "CAA",
+      "team_id": 614818,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'mary', 'william'}"
+    },
+    "STMN": {
+      "fg_abb": "STMN",
+      "fg_full_name": "University of St. Thomas (Minnesota)",
+      "roster_name": "St. Thomas (MN)",
+      "conference": "Summit League",
+      "team_id": 614785,
+      "match_method": "manual"
+    },
+    "UNH": {
+      "fg_abb": "UNH",
+      "fg_full_name": "University of New Haven",
+      "roster_name": "New Haven",
+      "conference": "NEC",
+      "team_id": 615065,
+      "match_method": "name_overlap",
+      "match_score": "common_words={'new', 'haven'}"
+    },
+    "MSST": {
+      "fg_abb": "MSST",
+      "fg_full_name": "Mississippi State University",
+      "roster_name": "Mississippi St.",
+      "conference": "SEC",
+      "team_id": 614666,
+      "match_method": "manual"
+    },
+    "MIZ": {
+      "fg_abb": "MIZ",
+      "fg_full_name": "University of Missouri Columbia",
+      "roster_name": "Missouri",
+      "conference": "SEC",
+      "team_id": 614669,
+      "match_method": "manual"
+    },
+    "UGA": {
+      "fg_abb": "UGA",
+      "fg_full_name": "University of Georgia",
+      "roster_name": "Georgia",
+      "conference": "SEC",
+      "team_id": 614615,
+      "match_method": "manual"
+    },
+    "UVA": {
+      "fg_abb": "UVA",
+      "fg_full_name": "University of Virginia",
+      "roster_name": "Virginia",
+      "conference": "ACC",
+      "team_id": 614807,
+      "match_method": "manual"
+    },
+    "VT": {
+      "fg_abb": "VT",
+      "fg_full_name": "Virginia Polytechnic Institute & State University",
+      "roster_name": "Virginia Tech",
+      "conference": "ACC",
+      "team_id": 614806,
+      "match_method": "manual"
+    },
+    "FSU": {
+      "fg_abb": "FSU",
+      "fg_full_name": "Florida State University",
+      "roster_name": "Florida St.",
+      "conference": "ACC",
+      "team_id": 614606,
+      "match_method": "manual"
+    },
+    "OKST": {
+      "fg_abb": "OKST",
+      "fg_full_name": "Oklahoma State University",
+      "roster_name": "Oklahoma St.",
+      "conference": "Big 12",
+      "team_id": 614775,
+      "match_method": "manual"
+    },
+    "OSU": {
+      "fg_abb": "OSU",
+      "fg_full_name": "Ohio State University",
+      "roster_name": "Ohio St.",
+      "conference": "Big Ten",
+      "team_id": 614700,
+      "match_method": "manual"
+    },
+    "MSU": {
+      "fg_abb": "MSU",
+      "fg_full_name": "Michigan State University",
+      "roster_name": "Michigan St.",
+      "conference": "Big Ten",
+      "team_id": 614662,
+      "match_method": "manual"
+    },
+    "NU": {
+      "fg_abb": "NU",
+      "fg_full_name": "Northwestern University",
+      "roster_name": "Northwestern",
+      "conference": "Big Ten",
+      "team_id": 614697,
+      "match_method": "manual"
+    },
+    "PSU": {
+      "fg_abb": "PSU",
+      "fg_full_name": "Pennsylvania State University",
+      "roster_name": "Penn St.",
+      "conference": "Big Ten",
+      "team_id": 614708,
+      "match_method": "manual"
+    },
+    "ORST": {
+      "fg_abb": "ORST",
+      "fg_full_name": "Oregon State University",
+      "roster_name": "Oregon St.",
+      "conference": "DI Independent",
+      "team_id": 614704,
+      "match_method": "manual"
+    },
+    "WSU": {
+      "fg_abb": "WSU",
+      "fg_full_name": "Washington State University",
+      "roster_name": "Washington St.",
+      "conference": "Mountain West",
+      "team_id": 614810,
+      "match_method": "manual"
+    },
+    "ASU": {
+      "fg_abb": "ASU",
+      "fg_full_name": "Arizona State University",
+      "roster_name": "Arizona St.",
+      "conference": "Big 12",
+      "team_id": 614853,
+      "match_method": "manual"
+    },
+    "ALST": {
+      "fg_abb": "ALST",
+      "fg_full_name": "Alabama State University",
+      "roster_name": "Alabama St.",
+      "conference": "SWAC",
+      "team_id": 614847,
+      "match_method": "manual"
+    },
+    "ARST": {
+      "fg_abb": "ARST",
+      "fg_full_name": "Arkansas State University",
+      "roster_name": "Arkansas St.",
+      "conference": "Sun Belt",
+      "team_id": 614854,
+      "match_method": "manual"
+    },
+    "BCU": {
+      "fg_abb": "BCU",
+      "fg_full_name": "Bethune Cookman University",
+      "roster_name": "Bethune-Cookman",
+      "conference": "SWAC",
+      "team_id": 614862,
+      "match_method": "manual"
+    },
+    "CBU": {
+      "fg_abb": "CBU",
+      "fg_full_name": "California Babtist University",
+      "roster_name": "California Baptist",
+      "conference": "WAC",
+      "team_id": 614844,
+      "match_method": "manual"
+    },
+    "CHSO": {
+      "fg_abb": "CHSO",
+      "fg_full_name": "Charleston Southern University",
+      "roster_name": "Charleston So.",
+      "conference": "Big South",
+      "team_id": 614860,
+      "match_method": "manual"
+    },
+    "CMU": {
+      "fg_abb": "CMU",
+      "fg_full_name": "Central Michigan University",
+      "roster_name": "Central Mich.",
+      "conference": "MAC",
+      "team_id": 614581,
+      "match_method": "manual"
+    },
+    "EMU": {
+      "fg_abb": "EMU",
+      "fg_full_name": "Eastern Michigan University",
+      "roster_name": "Eastern Mich.",
+      "conference": "MAC",
+      "team_id": 614600,
+      "match_method": "manual"
+    },
+    "FAU": {
+      "fg_abb": "FAU",
+      "fg_full_name": "Florida Atlantic University",
+      "roster_name": "Fla. Atlantic",
+      "conference": "American",
+      "team_id": 614604,
+      "match_method": "manual"
+    },
+    "GASO": {
+      "fg_abb": "GASO",
+      "fg_full_name": "Georgia Southern University",
+      "roster_name": "Ga. Southern",
+      "conference": "Sun Belt",
+      "team_id": 614612,
+      "match_method": "manual"
+    },
+    "GAST": {
+      "fg_abb": "GAST",
+      "fg_full_name": "Georgia State University",
+      "roster_name": "Georgia St.",
+      "conference": "Sun Belt",
+      "team_id": 614613,
+      "match_method": "manual"
+    },
+    "GTWN": {
+      "fg_abb": "GTWN",
+      "fg_full_name": "Georgetown University",
+      "roster_name": "Georgetown",
+      "conference": "Big East",
+      "team_id": 614611,
+      "match_method": "manual"
+    },
+    "ILST": {
+      "fg_abb": "ILST",
+      "fg_full_name": "Illinois State University",
+      "roster_name": "Illinois St.",
+      "conference": "MVC",
+      "team_id": 614623,
+      "match_method": "manual"
+    },
+    "INST": {
+      "fg_abb": "INST",
+      "fg_full_name": "Indiana State University",
+      "roster_name": "Indiana St.",
+      "conference": "MVC",
+      "team_id": 614626,
+      "match_method": "manual"
+    },
+    "JAX": {
+      "fg_abb": "JAX",
+      "fg_full_name": "Jacksonville University",
+      "roster_name": "Jacksonville",
+      "conference": "ASUN",
+      "team_id": 614633,
+      "match_method": "manual"
+    },
+    "JVST": {
+      "fg_abb": "JVST",
+      "fg_full_name": "Jacksonville State University",
+      "roster_name": "Jacksonville St.",
+      "conference": "CUSA",
+      "team_id": 614632,
+      "match_method": "manual"
+    },
+    "KSU": {
+      "fg_abb": "KSU",
+      "fg_full_name": "Kansas State University",
+      "roster_name": "Kansas St.",
+      "conference": "Big 12",
+      "team_id": 614635,
+      "match_method": "manual"
+    },
+    "KU": {
+      "fg_abb": "KU",
+      "fg_full_name": "University of Kansas",
+      "roster_name": "Kansas",
+      "conference": "Big 12",
+      "team_id": 614636,
+      "match_method": "manual"
+    },
+    "MD": {
+      "fg_abb": "MD",
+      "fg_full_name": "University of Maryland College Park",
+      "roster_name": "Maryland",
+      "conference": "Big Ten",
+      "team_id": 614654,
+      "match_method": "manual"
+    },
+    "MRSH": {
+      "fg_abb": "MRSH",
+      "fg_full_name": "Marshall University",
+      "roster_name": "Marshall",
+      "conference": "Sun Belt",
+      "team_id": 614652,
+      "match_method": "manual"
+    },
+    "MTSU": {
+      "fg_abb": "MTSU",
+      "fg_full_name": "Middle Tennessee State University",
+      "roster_name": "Middle Tenn.",
+      "conference": "CUSA",
+      "team_id": 614664,
+      "match_method": "manual"
+    },
+    "NKU": {
+      "fg_abb": "NKU",
+      "fg_full_name": "Northern Kentucky University",
+      "roster_name": "Northern Ky.",
+      "conference": "Horizon",
+      "team_id": 614695,
+      "match_method": "manual"
+    },
+    "SELA": {
+      "fg_abb": "SELA",
+      "fg_full_name": "Southeastern Louisiana University",
+      "roster_name": "Southeastern La.",
+      "conference": "Southland",
+      "team_id": 614741,
+      "match_method": "manual"
+    },
+    "SEMO": {
+      "fg_abb": "SEMO",
+      "fg_full_name": "Southeast Missouri State University",
+      "roster_name": "Southeast Mo. St.",
+      "conference": "OVC",
+      "team_id": 614779,
+      "match_method": "manual"
+    },
+    "TULN": {
+      "fg_abb": "TULN",
+      "fg_full_name": "Tulane University",
+      "roster_name": "Tulane",
+      "conference": "American",
+      "team_id": 614762,
+      "match_method": "manual"
+    },
+    "TXST": {
+      "fg_abb": "TXST",
+      "fg_full_name": "Texas State University San Marcos",
+      "roster_name": "Texas St.",
+      "conference": "Sun Belt",
+      "team_id": 614747,
+      "match_method": "manual"
+    },
+    "UCD": {
+      "fg_abb": "UCD",
+      "fg_full_name": "University of California Davis",
+      "roster_name": "UC Davis",
+      "conference": "Big West",
+      "team_id": 614573,
+      "match_method": "manual"
+    },
+    "UCI": {
+      "fg_abb": "UCI",
+      "fg_full_name": "University of California Irvine",
+      "roster_name": "UC Irvine",
+      "conference": "Big West",
+      "team_id": 614574,
+      "match_method": "manual"
+    },
+    "UCR": {
+      "fg_abb": "UCR",
+      "fg_full_name": "University of California Riverside",
+      "roster_name": "UC Riverside",
+      "conference": "Big West",
+      "team_id": 614576,
+      "match_method": "manual"
+    },
+    "WCU": {
+      "fg_abb": "WCU",
+      "fg_full_name": "Western Carolina University",
+      "roster_name": "Western Caro.",
+      "conference": "SoCon",
+      "team_id": 614813,
+      "match_method": "manual"
+    },
+    "WIU": {
+      "fg_abb": "WIU",
+      "fg_full_name": "Western Illinois University",
+      "roster_name": "Western Ill.",
+      "conference": "OVC",
+      "team_id": 614814,
+      "match_method": "manual"
+    },
+    "WKU": {
+      "fg_abb": "WKU",
+      "fg_full_name": "Western Kentucky University",
+      "roster_name": "Western Ky.",
+      "conference": "CUSA",
+      "team_id": 614815,
+      "match_method": "manual"
+    },
+    "WMU": {
+      "fg_abb": "WMU",
+      "fg_full_name": "Western Michigan University",
+      "roster_name": "Western Mich.",
+      "conference": "MAC",
+      "team_id": 614816,
+      "match_method": "manual"
+    },
+    "WRST": {
+      "fg_abb": "WRST",
+      "fg_full_name": "Wright State University",
+      "roster_name": "Wright St.",
+      "conference": "Horizon",
+      "team_id": 614821,
+      "match_method": "manual"
+    },
+    "YSU": {
+      "fg_abb": "YSU",
+      "fg_full_name": "Youngstown State University",
+      "roster_name": "Youngstown St.",
+      "conference": "Horizon",
+      "team_id": 614824,
+      "match_method": "manual"
+    },
+    "USF": {
+      "fg_abb": "USF",
+      "fg_full_name": "University of South Florida",
+      "roster_name": "South Fla.",
+      "conference": "American",
+      "team_id": 614740,
+      "match_method": "manual"
+    },
+    "USM": {
+      "fg_abb": "USM",
+      "fg_full_name": "University of Southern Mississippi",
+      "roster_name": "Southern Miss.",
+      "conference": "Sun Belt",
+      "team_id": 614780,
+      "match_method": "manual"
+    },
+    "UTM": {
+      "fg_abb": "UTM",
+      "fg_full_name": "University of Tennessee at Martin",
+      "roster_name": "UT Martin",
+      "conference": "OVC",
+      "team_id": 614753,
+      "match_method": "manual"
+    },
+    "NWST": {
+      "fg_abb": "NWST",
+      "fg_full_name": "Northwestern State University",
+      "roster_name": "Northwestern St.",
+      "conference": "Southland",
+      "team_id": 614696,
+      "match_method": "manual"
+    },
+    "CP": {
+      "fg_abb": "CP",
+      "fg_full_name": "California Polytechnic State University",
+      "roster_name": "Cal Poly",
+      "conference": "Big West",
+      "team_id": 614565,
+      "match_method": "manual"
+    },
+    "CSUB": {
+      "fg_abb": "CSUB",
+      "fg_full_name": "California State University Bakersfield",
+      "roster_name": "CSU Bakersfield",
+      "conference": "Big West",
+      "team_id": 614566,
+      "match_method": "manual"
+    },
+    "CSUF": {
+      "fg_abb": "CSUF",
+      "fg_full_name": "California State University Fullerton",
+      "roster_name": "Cal St. Fullerton",
+      "conference": "Big West",
+      "team_id": 614567,
+      "match_method": "manual"
+    },
+    "UTU": {
+      "fg_abb": "UTU",
+      "fg_full_name": "Dixie State College of Utah",
+      "roster_name": "Utah Tech",
+      "conference": "WAC",
+      "team_id": 614786,
+      "match_method": "manual"
+    },
+    "GWEB": {
+      "fg_abb": "GWEB",
+      "fg_full_name": "Gardner-Webb University",
+      "roster_name": "Gardner-Webb",
+      "conference": "Big South",
+      "team_id": 614829,
+      "match_method": "manual"
+    },
+    "PFW": {
+      "fg_abb": "PFW",
+      "fg_full_name": "Indiana University-Purdue University Fort Wayne",
+      "roster_name": "Purdue",
+      "conference": "Big Ten",
+      "team_id": 614714,
+      "match_method": "manual"
+    },
+    "MRMK": {
+      "fg_abb": "MRMK",
+      "fg_full_name": "Merrimack College",
+      "roster_name": "Merrimack",
+      "conference": "MAAC",
+      "team_id": 614826,
+      "match_method": "manual"
+    },
+    "MOST": {
+      "fg_abb": "MOST",
+      "fg_full_name": "Missouri State University",
+      "roster_name": "Missouri St.",
+      "conference": "CUSA",
+      "team_id": 614746,
+      "match_method": "manual"
+    },
+    "QUC": {
+      "fg_abb": "QUC",
+      "fg_full_name": "Queens University of Charlotte",
+      "roster_name": "Queens (NC)",
+      "conference": "ASUN",
+      "team_id": 614757,
+      "match_method": "manual"
+    },
+    "USI": {
+      "fg_abb": "USI",
+      "fg_full_name": "University of Southern Indiana",
+      "roster_name": "Southern Ind.",
+      "conference": "OVC",
+      "team_id": 614758,
+      "match_method": "manual"
+    },
+    "CARK": {
+      "fg_abb": "CARK",
+      "fg_full_name": "University of Central Arkansas",
+      "roster_name": "Central Ark.",
+      "conference": "ASUN",
+      "team_id": 614825,
+      "match_method": "manual"
+    },
+    "UNA": {
+      "fg_abb": "UNA",
+      "fg_full_name": "University of North Alabama",
+      "roster_name": "North Ala.",
+      "conference": "ASUN",
+      "team_id": 614843,
+      "match_method": "manual"
+    },
+    "CCSU": {
+      "fg_abb": "CCSU",
+      "fg_full_name": "Central Connecticut State University",
+      "roster_name": "Central Conn. St.",
+      "conference": "NEC",
+      "team_id": 614579,
+      "match_method": "manual"
+    },
+    "UNCO": {
+      "fg_abb": "UNCO",
+      "fg_full_name": "University of Northern Colorado",
+      "roster_name": "Northern Colo.",
+      "conference": "Summit League",
+      "team_id": 614693,
+      "match_method": "manual"
+    },
+    "EIU": {
+      "fg_abb": "EIU",
+      "fg_full_name": "Eastern Illinois University",
+      "roster_name": "Eastern Ill.",
+      "conference": "OVC",
+      "team_id": 614598,
+      "match_method": "manual"
+    },
+    "M-OH": {
+      "fg_abb": "M-OH",
+      "fg_full_name": "Miami University (Ohio)",
+      "roster_name": "Miami (OH)",
+      "conference": "MAC",
+      "team_id": 614660,
+      "match_method": "manual"
+    },
+    "UML": {
+      "fg_abb": "UML",
+      "fg_full_name": "University of Massachusetts at Lowell",
+      "roster_name": "UMass Lowell",
+      "conference": "America East",
+      "team_id": 614647,
+      "match_method": "manual"
+    },
+    "MRST": {
+      "fg_abb": "MRST",
+      "fg_full_name": "Marist College",
+      "roster_name": "Marist",
+      "conference": "MAAC",
+      "team_id": 614651,
+      "match_method": "manual"
+    },
+    "SPU": {
+      "fg_abb": "SPU",
+      "fg_full_name": "St. Peter's College",
+      "roster_name": "Saint Peter's",
+      "conference": "MAAC",
+      "team_id": 614727,
+      "match_method": "manual"
+    },
+    "EKU": {
+      "fg_abb": "EKU",
+      "fg_full_name": "Eastern Kentucky University",
+      "roster_name": "Eastern Ky.",
+      "conference": "ASUN",
+      "team_id": 614599,
+      "match_method": "manual"
+    },
+    "TNTC": {
+      "fg_abb": "TNTC",
+      "fg_full_name": "Tennessee Technological University",
+      "roster_name": "Tennessee Tech",
+      "conference": "OVC",
+      "team_id": 614752,
+      "match_method": "manual"
+    },
+    "JKST": {
+      "fg_abb": "JKST",
+      "fg_full_name": "Jackson State University",
+      "roster_name": "Jackson St.",
+      "conference": "SWAC",
+      "team_id": 614631,
+      "match_method": "manual"
+    },
+    "ALCN": {
+      "fg_abb": "ALCN",
+      "fg_full_name": "Alcorn State University",
+      "roster_name": "Alcorn",
+      "conference": "SWAC",
+      "team_id": 614851,
+      "match_method": "manual"
+    },
+    "DSU": {
+      "fg_abb": "DSU",
+      "fg_full_name": "Delaware State University",
+      "roster_name": "Delaware St.",
+      "conference": "NEC",
+      "team_id": 614594,
+      "match_method": "manual"
+    },
+    "MVSU": {
+      "fg_abb": "MVSU",
+      "fg_full_name": "Mississippi Valley State University",
+      "roster_name": "Mississippi Val.",
+      "conference": "SWAC",
+      "team_id": 614667,
+      "match_method": "manual"
+    },
+    "UAPB": {
+      "fg_abb": "UAPB",
+      "fg_full_name": "University of Arkansas Pine Bluff",
+      "roster_name": "Ark.-Pine Bluff",
+      "conference": "SWAC",
+      "team_id": 614834,
+      "match_method": "manual"
+    },
+    "BRWN": {
+      "fg_abb": "BRWN",
+      "fg_full_name": "Brown University",
+      "roster_name": "Brown",
+      "conference": "Ivy League",
+      "team_id": 614868,
+      "match_method": "manual"
+    },
+    "CIT": {
+      "fg_abb": "CIT",
+      "fg_full_name": "The Citadel",
+      "roster_name": "The Citadel",
+      "conference": "SoCon",
+      "team_id": 614583,
+      "match_method": "manual"
+    }
+  },
+  "unmatched": {
+    "HART": "University of Hartford"
+  },
+  "summary": {
+    "total_fg_teams": 311,
+    "matched": 310,
+    "unmatched": 1,
+    "match_rate": 99.7
+  }
+}

@@ -1,0 +1,23 @@
+season,role,metric_key,benchmark_scope,benchmark_value,benchmark_label
+2026,hitters,reach_score,ACC_SEC,40.84608155380358,Reach Score
+2026,hitters,impact_score,ACC_SEC,35.313875981134366,Impact Score
+2026,hitters,contact_score,ACC_SEC,45.54029829965715,Contact Score
+2026,hitters,risk_score,ACC_SEC,35.51793452722811,Risk Score
+2026,hitters,p90_ev_wood_adj,ACC_SEC,92.34648833333334,P90 EV (Wood Adj)
+2026,hitters,avg_ev_wood_adj,ACC_SEC,85.09532249173004,Avg EV (Wood Adj)
+2026,hitters,barrel_rate_proxy_wood_adj,ACC_SEC,0.4224270353302608,Barrel Proxy
+2026,hitters,contact_rate,ACC_SEC,74.64173922308885,Contact Rate
+2026,hitters,whiff_rate,ACC_SEC,25.35826077691115,Whiff Rate
+2026,hitters,chase_rate,ACC_SEC,25.332728484492566,Chase Rate
+2026,pitchers,reach_score,ACC_SEC,51.2491973949734,Reach Score
+2026,pitchers,stuff_score,ACC_SEC,54.13456246560264,Stuff Score
+2026,pitchers,command_score,ACC_SEC,51.66024582645386,Command Score
+2026,pitchers,risk_score,ACC_SEC,38.00908090258668,Risk Score
+2026,pitchers,avg_fb_velo,ACC_SEC,91.18486464004522,Avg FB Velo
+2026,pitchers,max_fb_velo,ACC_SEC,92.94447456521739,Max FB Velo
+2026,pitchers,avg_ivb,ACC_SEC,13.562622389647926,Avg IVB
+2026,pitchers,avg_hb,ACC_SEC,2.9829992337014053,Avg HB
+2026,pitchers,extension,ACC_SEC,6.022415260084508,Extension
+2026,pitchers,csw_pct,ACC_SEC,31.028850911211762,CSW%
+2026,pitchers,whiff_pct,ACC_SEC,28.82770862352914,Whiff%
+2026,pitchers,zone_pct,ACC_SEC,47.49591356674193,Zone%

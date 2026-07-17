@@ -1,0 +1,1542 @@
+[
+  {
+    "team_name": "Boston College",
+    "conference": "ACC",
+    "team_id": 614864
+  },
+  {
+    "team_name": "California",
+    "conference": "ACC",
+    "team_id": 614572
+  },
+  {
+    "team_name": "Clemson",
+    "conference": "ACC",
+    "team_id": 614584
+  },
+  {
+    "team_name": "Duke",
+    "conference": "ACC",
+    "team_id": 614769
+  },
+  {
+    "team_name": "Florida St.",
+    "conference": "ACC",
+    "team_id": 614606
+  },
+  {
+    "team_name": "Georgia Tech",
+    "conference": "ACC",
+    "team_id": 614614
+  },
+  {
+    "team_name": "Louisville",
+    "conference": "ACC",
+    "team_id": 614646
+  },
+  {
+    "team_name": "Miami (FL)",
+    "conference": "ACC",
+    "team_id": 614661
+  },
+  {
+    "team_name": "NC State",
+    "conference": "ACC",
+    "team_id": 614689
+  },
+  {
+    "team_name": "North Carolina",
+    "conference": "ACC",
+    "team_id": 614675
+  },
+  {
+    "team_name": "Notre Dame",
+    "conference": "ACC",
+    "team_id": 614698
+  },
+  {
+    "team_name": "Pittsburgh",
+    "conference": "ACC",
+    "team_id": 614710
+  },
+  {
+    "team_name": "Stanford",
+    "conference": "ACC",
+    "team_id": 614749
+  },
+  {
+    "team_name": "Virginia",
+    "conference": "ACC",
+    "team_id": 614807
+  },
+  {
+    "team_name": "Virginia Tech",
+    "conference": "ACC",
+    "team_id": 614806
+  },
+  {
+    "team_name": "Wake Forest",
+    "conference": "ACC",
+    "team_id": 614809
+  },
+  {
+    "team_name": "Austin Peay",
+    "conference": "ASUN",
+    "team_id": 614858
+  },
+  {
+    "team_name": "Bellarmine",
+    "conference": "ASUN",
+    "team_id": 614754
+  },
+  {
+    "team_name": "Central Ark.",
+    "conference": "ASUN",
+    "team_id": 614825
+  },
+  {
+    "team_name": "Eastern Ky.",
+    "conference": "ASUN",
+    "team_id": 614599
+  },
+  {
+    "team_name": "FGCU",
+    "conference": "ASUN",
+    "team_id": 614841
+  },
+  {
+    "team_name": "Jacksonville",
+    "conference": "ASUN",
+    "team_id": 614633
+  },
+  {
+    "team_name": "Lipscomb",
+    "conference": "ASUN",
+    "team_id": 614840
+  },
+  {
+    "team_name": "North Ala.",
+    "conference": "ASUN",
+    "team_id": 614843
+  },
+  {
+    "team_name": "North Florida",
+    "conference": "ASUN",
+    "team_id": 614835
+  },
+  {
+    "team_name": "Queens (NC)",
+    "conference": "ASUN",
+    "team_id": 614757
+  },
+  {
+    "team_name": "Stetson",
+    "conference": "ASUN",
+    "team_id": 614781
+  },
+  {
+    "team_name": "West Ga.",
+    "conference": "ASUN",
+    "team_id": 614784
+  },
+  {
+    "team_name": "Binghamton",
+    "conference": "America East",
+    "team_id": 614863
+  },
+  {
+    "team_name": "Bryant",
+    "conference": "America East",
+    "team_id": 614869
+  },
+  {
+    "team_name": "Maine",
+    "conference": "America East",
+    "team_id": 614649
+  },
+  {
+    "team_name": "NJIT",
+    "conference": "America East",
+    "team_id": 614682
+  },
+  {
+    "team_name": "UAlbany",
+    "conference": "America East",
+    "team_id": 614850
+  },
+  {
+    "team_name": "UMBC",
+    "conference": "America East",
+    "team_id": 614653
+  },
+  {
+    "team_name": "UMass Lowell",
+    "conference": "America East",
+    "team_id": 614647
+  },
+  {
+    "team_name": "Charlotte",
+    "conference": "American",
+    "team_id": 614676
+  },
+  {
+    "team_name": "East Carolina",
+    "conference": "American",
+    "team_id": 614596
+  },
+  {
+    "team_name": "Fla. Atlantic",
+    "conference": "American",
+    "team_id": 614604
+  },
+  {
+    "team_name": "Memphis",
+    "conference": "American",
+    "team_id": 614658
+  },
+  {
+    "team_name": "Rice",
+    "conference": "American",
+    "team_id": 614718
+  },
+  {
+    "team_name": "South Fla.",
+    "conference": "American",
+    "team_id": 614740
+  },
+  {
+    "team_name": "Tulane",
+    "conference": "American",
+    "team_id": 614762
+  },
+  {
+    "team_name": "UAB",
+    "conference": "American",
+    "team_id": 614849
+  },
+  {
+    "team_name": "UTSA",
+    "conference": "American",
+    "team_id": 614794
+  },
+  {
+    "team_name": "Wichita St.",
+    "conference": "American",
+    "team_id": 614817
+  },
+  {
+    "team_name": "Davidson",
+    "conference": "Atlantic 10",
+    "team_id": 614592
+  },
+  {
+    "team_name": "Dayton",
+    "conference": "Atlantic 10",
+    "team_id": 614593
+  },
+  {
+    "team_name": "Fordham",
+    "conference": "Atlantic 10",
+    "team_id": 614608
+  },
+  {
+    "team_name": "George Mason",
+    "conference": "Atlantic 10",
+    "team_id": 614609
+  },
+  {
+    "team_name": "George Washington",
+    "conference": "Atlantic 10",
+    "team_id": 614610
+  },
+  {
+    "team_name": "La Salle",
+    "conference": "Atlantic 10",
+    "team_id": 621265
+  },
+  {
+    "team_name": "Rhode Island",
+    "conference": "Atlantic 10",
+    "team_id": 614717
+  },
+  {
+    "team_name": "Richmond",
+    "conference": "Atlantic 10",
+    "team_id": 614719
+  },
+  {
+    "team_name": "Saint Joseph's",
+    "conference": "Atlantic 10",
+    "team_id": 614724
+  },
+  {
+    "team_name": "Saint Louis",
+    "conference": "Atlantic 10",
+    "team_id": 614725
+  },
+  {
+    "team_name": "St. Bonaventure",
+    "conference": "Atlantic 10",
+    "team_id": 614723
+  },
+  {
+    "team_name": "VCU",
+    "conference": "Atlantic 10",
+    "team_id": 614804
+  },
+  {
+    "team_name": "Arizona",
+    "conference": "Big 12",
+    "team_id": 614767
+  },
+  {
+    "team_name": "Arizona St.",
+    "conference": "Big 12",
+    "team_id": 614853
+  },
+  {
+    "team_name": "BYU",
+    "conference": "Big 12",
+    "team_id": 614867
+  },
+  {
+    "team_name": "Baylor",
+    "conference": "Big 12",
+    "team_id": 614861
+  },
+  {
+    "team_name": "Cincinnati",
+    "conference": "Big 12",
+    "team_id": 614582
+  },
+  {
+    "team_name": "Houston",
+    "conference": "Big 12",
+    "team_id": 614622
+  },
+  {
+    "team_name": "Kansas",
+    "conference": "Big 12",
+    "team_id": 614636
+  },
+  {
+    "team_name": "Kansas St.",
+    "conference": "Big 12",
+    "team_id": 614635
+  },
+  {
+    "team_name": "Oklahoma St.",
+    "conference": "Big 12",
+    "team_id": 614775
+  },
+  {
+    "team_name": "TCU",
+    "conference": "Big 12",
+    "team_id": 614789
+  },
+  {
+    "team_name": "Texas Tech",
+    "conference": "Big 12",
+    "team_id": 614791
+  },
+  {
+    "team_name": "UCF",
+    "conference": "Big 12",
+    "team_id": 614580
+  },
+  {
+    "team_name": "Utah",
+    "conference": "Big 12",
+    "team_id": 614800
+  },
+  {
+    "team_name": "West Virginia",
+    "conference": "Big 12",
+    "team_id": 614812
+  },
+  {
+    "team_name": "Butler",
+    "conference": "Big East",
+    "team_id": 614564
+  },
+  {
+    "team_name": "Creighton",
+    "conference": "Big East",
+    "team_id": 614590
+  },
+  {
+    "team_name": "Georgetown",
+    "conference": "Big East",
+    "team_id": 614611
+  },
+  {
+    "team_name": "Seton Hall",
+    "conference": "Big East",
+    "team_id": 614735
+  },
+  {
+    "team_name": "St. John's (NY)",
+    "conference": "Big East",
+    "team_id": 614778
+  },
+  {
+    "team_name": "UConn",
+    "conference": "Big East",
+    "team_id": 614587
+  },
+  {
+    "team_name": "Villanova",
+    "conference": "Big East",
+    "team_id": 614803
+  },
+  {
+    "team_name": "Xavier",
+    "conference": "Big East",
+    "team_id": 614822
+  },
+  {
+    "team_name": "Charleston So.",
+    "conference": "Big South",
+    "team_id": 614860
+  },
+  {
+    "team_name": "Gardner-Webb",
+    "conference": "Big South",
+    "team_id": 614829
+  },
+  {
+    "team_name": "High Point",
+    "conference": "Big South",
+    "team_id": 614766
+  },
+  {
+    "team_name": "Longwood",
+    "conference": "Big South",
+    "team_id": 614643
+  },
+  {
+    "team_name": "Presbyterian",
+    "conference": "Big South",
+    "team_id": 614832
+  },
+  {
+    "team_name": "Radford",
+    "conference": "Big South",
+    "team_id": 614716
+  },
+  {
+    "team_name": "UNC Asheville",
+    "conference": "Big South",
+    "team_id": 614674
+  },
+  {
+    "team_name": "USC Upstate",
+    "conference": "Big South",
+    "team_id": 614837
+  },
+  {
+    "team_name": "Winthrop",
+    "conference": "Big South",
+    "team_id": 614819
+  },
+  {
+    "team_name": "Illinois",
+    "conference": "Big Ten",
+    "team_id": 614624
+  },
+  {
+    "team_name": "Indiana",
+    "conference": "Big Ten",
+    "team_id": 614627
+  },
+  {
+    "team_name": "Iowa",
+    "conference": "Big Ten",
+    "team_id": 614630
+  },
+  {
+    "team_name": "Maryland",
+    "conference": "Big Ten",
+    "team_id": 614654
+  },
+  {
+    "team_name": "Michigan",
+    "conference": "Big Ten",
+    "team_id": 614663
+  },
+  {
+    "team_name": "Michigan St.",
+    "conference": "Big Ten",
+    "team_id": 614662
+  },
+  {
+    "team_name": "Minnesota",
+    "conference": "Big Ten",
+    "team_id": 614665
+  },
+  {
+    "team_name": "Nebraska",
+    "conference": "Big Ten",
+    "team_id": 614773
+  },
+  {
+    "team_name": "Northwestern",
+    "conference": "Big Ten",
+    "team_id": 614697
+  },
+  {
+    "team_name": "Ohio St.",
+    "conference": "Big Ten",
+    "team_id": 614700
+  },
+  {
+    "team_name": "Oregon",
+    "conference": "Big Ten",
+    "team_id": 614705
+  },
+  {
+    "team_name": "Penn St.",
+    "conference": "Big Ten",
+    "team_id": 614708
+  },
+  {
+    "team_name": "Purdue",
+    "conference": "Big Ten",
+    "team_id": 614714
+  },
+  {
+    "team_name": "Rutgers",
+    "conference": "Big Ten",
+    "team_id": 614721
+  },
+  {
+    "team_name": "Southern California",
+    "conference": "Big Ten",
+    "team_id": 614742
+  },
+  {
+    "team_name": "UCLA",
+    "conference": "Big Ten",
+    "team_id": 614575
+  },
+  {
+    "team_name": "Washington",
+    "conference": "Big Ten",
+    "team_id": 614811
+  },
+  {
+    "team_name": "CSU Bakersfield",
+    "conference": "Big West",
+    "team_id": 614566
+  },
+  {
+    "team_name": "CSUN",
+    "conference": "Big West",
+    "team_id": 614569
+  },
+  {
+    "team_name": "Cal Poly",
+    "conference": "Big West",
+    "team_id": 614565
+  },
+  {
+    "team_name": "Cal St. Fullerton",
+    "conference": "Big West",
+    "team_id": 614567
+  },
+  {
+    "team_name": "Hawaii",
+    "conference": "Big West",
+    "team_id": 614618
+  },
+  {
+    "team_name": "Long Beach St.",
+    "conference": "Big West",
+    "team_id": 614568
+  },
+  {
+    "team_name": "UC Davis",
+    "conference": "Big West",
+    "team_id": 614573
+  },
+  {
+    "team_name": "UC Irvine",
+    "conference": "Big West",
+    "team_id": 614574
+  },
+  {
+    "team_name": "UC Riverside",
+    "conference": "Big West",
+    "team_id": 614576
+  },
+  {
+    "team_name": "UC San Diego",
+    "conference": "Big West",
+    "team_id": 614755
+  },
+  {
+    "team_name": "UC Santa Barbara",
+    "conference": "Big West",
+    "team_id": 614571
+  },
+  {
+    "team_name": "Campbell",
+    "conference": "CAA",
+    "team_id": 614577
+  },
+  {
+    "team_name": "Col. of Charleston",
+    "conference": "CAA",
+    "team_id": 614827
+  },
+  {
+    "team_name": "Elon",
+    "conference": "CAA",
+    "team_id": 614828
+  },
+  {
+    "team_name": "Hofstra",
+    "conference": "CAA",
+    "team_id": 614619
+  },
+  {
+    "team_name": "Monmouth",
+    "conference": "CAA",
+    "team_id": 614670
+  },
+  {
+    "team_name": "N.C. A&T",
+    "conference": "CAA",
+    "team_id": 614688
+  },
+  {
+    "team_name": "Northeastern",
+    "conference": "CAA",
+    "team_id": 614692
+  },
+  {
+    "team_name": "Stony Brook",
+    "conference": "CAA",
+    "team_id": 614751
+  },
+  {
+    "team_name": "Towson",
+    "conference": "CAA",
+    "team_id": 614796
+  },
+  {
+    "team_name": "UNCW",
+    "conference": "CAA",
+    "team_id": 614678
+  },
+  {
+    "team_name": "William & Mary",
+    "conference": "CAA",
+    "team_id": 614818
+  },
+  {
+    "team_name": "DBU",
+    "conference": "CUSA",
+    "team_id": 614764
+  },
+  {
+    "team_name": "Delaware",
+    "conference": "CUSA",
+    "team_id": 614595
+  },
+  {
+    "team_name": "FIU",
+    "conference": "CUSA",
+    "team_id": 614605
+  },
+  {
+    "team_name": "Jacksonville St.",
+    "conference": "CUSA",
+    "team_id": 614632
+  },
+  {
+    "team_name": "Kennesaw St.",
+    "conference": "CUSA",
+    "team_id": 614831
+  },
+  {
+    "team_name": "Liberty",
+    "conference": "CUSA",
+    "team_id": 614642
+  },
+  {
+    "team_name": "Louisiana Tech",
+    "conference": "CUSA",
+    "team_id": 614645
+  },
+  {
+    "team_name": "Middle Tenn.",
+    "conference": "CUSA",
+    "team_id": 614664
+  },
+  {
+    "team_name": "Missouri St.",
+    "conference": "CUSA",
+    "team_id": 614746
+  },
+  {
+    "team_name": "New Mexico St.",
+    "conference": "CUSA",
+    "team_id": 614683
+  },
+  {
+    "team_name": "Sam Houston",
+    "conference": "CUSA",
+    "team_id": 614728
+  },
+  {
+    "team_name": "Western Ky.",
+    "conference": "CUSA",
+    "team_id": 614815
+  },
+  {
+    "team_name": "Oregon St.",
+    "conference": "DI Independent",
+    "team_id": 614704
+  },
+  {
+    "team_name": "Milwaukee",
+    "conference": "Horizon",
+    "team_id": 614820
+  },
+  {
+    "team_name": "Northern Ky.",
+    "conference": "Horizon",
+    "team_id": 614695
+  },
+  {
+    "team_name": "Oakland",
+    "conference": "Horizon",
+    "team_id": 614699
+  },
+  {
+    "team_name": "Wright St.",
+    "conference": "Horizon",
+    "team_id": 614821
+  },
+  {
+    "team_name": "Youngstown St.",
+    "conference": "Horizon",
+    "team_id": 614824
+  },
+  {
+    "team_name": "Brown",
+    "conference": "Ivy League",
+    "team_id": 614868
+  },
+  {
+    "team_name": "Columbia",
+    "conference": "Ivy League",
+    "team_id": 614586
+  },
+  {
+    "team_name": "Cornell",
+    "conference": "Ivy League",
+    "team_id": 614589
+  },
+  {
+    "team_name": "Dartmouth",
+    "conference": "Ivy League",
+    "team_id": 614591
+  },
+  {
+    "team_name": "Harvard",
+    "conference": "Ivy League",
+    "team_id": 614617
+  },
+  {
+    "team_name": "Penn",
+    "conference": "Ivy League",
+    "team_id": 614777
+  },
+  {
+    "team_name": "Princeton",
+    "conference": "Ivy League",
+    "team_id": 614713
+  },
+  {
+    "team_name": "Yale",
+    "conference": "Ivy League",
+    "team_id": 614823
+  },
+  {
+    "team_name": "Canisius",
+    "conference": "MAAC",
+    "team_id": 614578
+  },
+  {
+    "team_name": "Fairfield",
+    "conference": "MAAC",
+    "team_id": 614601
+  },
+  {
+    "team_name": "Iona",
+    "conference": "MAAC",
+    "team_id": 614629
+  },
+  {
+    "team_name": "Manhattan",
+    "conference": "MAAC",
+    "team_id": 614650
+  },
+  {
+    "team_name": "Marist",
+    "conference": "MAAC",
+    "team_id": 614651
+  },
+  {
+    "team_name": "Merrimack",
+    "conference": "MAAC",
+    "team_id": 614826
+  },
+  {
+    "team_name": "Mount St. Mary's",
+    "conference": "MAAC",
+    "team_id": 614672
+  },
+  {
+    "team_name": "Niagara",
+    "conference": "MAAC",
+    "team_id": 614686
+  },
+  {
+    "team_name": "Quinnipiac",
+    "conference": "MAAC",
+    "team_id": 614715
+  },
+  {
+    "team_name": "Rider",
+    "conference": "MAAC",
+    "team_id": 614720
+  },
+  {
+    "team_name": "Sacred Heart",
+    "conference": "MAAC",
+    "team_id": 614722
+  },
+  {
+    "team_name": "Saint Peter's",
+    "conference": "MAAC",
+    "team_id": 614727
+  },
+  {
+    "team_name": "Siena",
+    "conference": "MAAC",
+    "team_id": 614736
+  },
+  {
+    "team_name": "Akron",
+    "conference": "MAC",
+    "team_id": 614787
+  },
+  {
+    "team_name": "Ball St.",
+    "conference": "MAC",
+    "team_id": 614859
+  },
+  {
+    "team_name": "Bowling Green",
+    "conference": "MAC",
+    "team_id": 614865
+  },
+  {
+    "team_name": "Central Mich.",
+    "conference": "MAC",
+    "team_id": 614581
+  },
+  {
+    "team_name": "Eastern Mich.",
+    "conference": "MAC",
+    "team_id": 614600
+  },
+  {
+    "team_name": "Kent St.",
+    "conference": "MAC",
+    "team_id": 614637
+  },
+  {
+    "team_name": "Massachusetts",
+    "conference": "MAC",
+    "team_id": 614656
+  },
+  {
+    "team_name": "Miami (OH)",
+    "conference": "MAC",
+    "team_id": 614660
+  },
+  {
+    "team_name": "NIU",
+    "conference": "MAC",
+    "team_id": 614694
+  },
+  {
+    "team_name": "Ohio",
+    "conference": "MAC",
+    "team_id": 614701
+  },
+  {
+    "team_name": "Toledo",
+    "conference": "MAC",
+    "team_id": 614795
+  },
+  {
+    "team_name": "Western Mich.",
+    "conference": "MAC",
+    "team_id": 614816
+  },
+  {
+    "team_name": "Belmont",
+    "conference": "MVC",
+    "team_id": 614838
+  },
+  {
+    "team_name": "Bradley",
+    "conference": "MVC",
+    "team_id": 614866
+  },
+  {
+    "team_name": "Evansville",
+    "conference": "MVC",
+    "team_id": 614770
+  },
+  {
+    "team_name": "Illinois St.",
+    "conference": "MVC",
+    "team_id": 614623
+  },
+  {
+    "team_name": "Indiana St.",
+    "conference": "MVC",
+    "team_id": 614626
+  },
+  {
+    "team_name": "Murray St.",
+    "conference": "MVC",
+    "team_id": 614673
+  },
+  {
+    "team_name": "Southern Ill.",
+    "conference": "MVC",
+    "team_id": 614743
+  },
+  {
+    "team_name": "UIC",
+    "conference": "MVC",
+    "team_id": 614625
+  },
+  {
+    "team_name": "Valparaiso",
+    "conference": "MVC",
+    "team_id": 614801
+  },
+  {
+    "team_name": "Air Force",
+    "conference": "Mountain West",
+    "team_id": 614798
+  },
+  {
+    "team_name": "Fresno St.",
+    "conference": "Mountain West",
+    "team_id": 614768
+  },
+  {
+    "team_name": "Grand Canyon",
+    "conference": "Mountain West",
+    "team_id": 614830
+  },
+  {
+    "team_name": "Nevada",
+    "conference": "Mountain West",
+    "team_id": 614681
+  },
+  {
+    "team_name": "New Mexico",
+    "conference": "Mountain West",
+    "team_id": 614684
+  },
+  {
+    "team_name": "San Diego St.",
+    "conference": "Mountain West",
+    "team_id": 614730
+  },
+  {
+    "team_name": "San Jose St.",
+    "conference": "Mountain West",
+    "team_id": 614733
+  },
+  {
+    "team_name": "UNLV",
+    "conference": "Mountain West",
+    "team_id": 614680
+  },
+  {
+    "team_name": "Washington St.",
+    "conference": "Mountain West",
+    "team_id": 614810
+  },
+  {
+    "team_name": "Central Conn. St.",
+    "conference": "NEC",
+    "team_id": 614579
+  },
+  {
+    "team_name": "Coppin St.",
+    "conference": "NEC",
+    "team_id": 614588
+  },
+  {
+    "team_name": "Delaware St.",
+    "conference": "NEC",
+    "team_id": 614594
+  },
+  {
+    "team_name": "FDU",
+    "conference": "NEC",
+    "team_id": 614602
+  },
+  {
+    "team_name": "LIU",
+    "conference": "NEC",
+    "team_id": 614772
+  },
+  {
+    "team_name": "Le Moyne",
+    "conference": "NEC",
+    "team_id": 614760
+  },
+  {
+    "team_name": "Mercyhurst",
+    "conference": "NEC",
+    "team_id": 614783
+  },
+  {
+    "team_name": "New Haven",
+    "conference": "NEC",
+    "team_id": 615065
+  },
+  {
+    "team_name": "Norfolk St.",
+    "conference": "NEC",
+    "team_id": 614687
+  },
+  {
+    "team_name": "Stonehill",
+    "conference": "NEC",
+    "team_id": 614759
+  },
+  {
+    "team_name": "UMES",
+    "conference": "NEC",
+    "team_id": 614655
+  },
+  {
+    "team_name": "Wagner",
+    "conference": "NEC",
+    "team_id": 614808
+  },
+  {
+    "team_name": "Eastern Ill.",
+    "conference": "OVC",
+    "team_id": 614598
+  },
+  {
+    "team_name": "Lindenwood",
+    "conference": "OVC",
+    "team_id": 614756
+  },
+  {
+    "team_name": "Little Rock",
+    "conference": "OVC",
+    "team_id": 614856
+  },
+  {
+    "team_name": "Morehead St.",
+    "conference": "OVC",
+    "team_id": 614671
+  },
+  {
+    "team_name": "SIUE",
+    "conference": "OVC",
+    "team_id": 614744
+  },
+  {
+    "team_name": "Southeast Mo. St.",
+    "conference": "OVC",
+    "team_id": 614779
+  },
+  {
+    "team_name": "Southern Ind.",
+    "conference": "OVC",
+    "team_id": 614758
+  },
+  {
+    "team_name": "Tennessee Tech",
+    "conference": "OVC",
+    "team_id": 614752
+  },
+  {
+    "team_name": "UT Martin",
+    "conference": "OVC",
+    "team_id": 614753
+  },
+  {
+    "team_name": "Western Ill.",
+    "conference": "OVC",
+    "team_id": 614814
+  },
+  {
+    "team_name": "Army West Point",
+    "conference": "Patriot",
+    "team_id": 614763
+  },
+  {
+    "team_name": "Bucknell",
+    "conference": "Patriot",
+    "team_id": 614563
+  },
+  {
+    "team_name": "Holy Cross",
+    "conference": "Patriot",
+    "team_id": 614620
+  },
+  {
+    "team_name": "Lafayette",
+    "conference": "Patriot",
+    "team_id": 614639
+  },
+  {
+    "team_name": "Lehigh",
+    "conference": "Patriot",
+    "team_id": 614641
+  },
+  {
+    "team_name": "Navy",
+    "conference": "Patriot",
+    "team_id": 614799
+  },
+  {
+    "team_name": "Alabama",
+    "conference": "SEC",
+    "team_id": 614848
+  },
+  {
+    "team_name": "Arkansas",
+    "conference": "SEC",
+    "team_id": 614855
+  },
+  {
+    "team_name": "Auburn",
+    "conference": "SEC",
+    "team_id": 614857
+  },
+  {
+    "team_name": "Florida",
+    "conference": "SEC",
+    "team_id": 614607
+  },
+  {
+    "team_name": "Georgia",
+    "conference": "SEC",
+    "team_id": 614615
+  },
+  {
+    "team_name": "Kentucky",
+    "conference": "SEC",
+    "team_id": 614638
+  },
+  {
+    "team_name": "LSU",
+    "conference": "SEC",
+    "team_id": 614644
+  },
+  {
+    "team_name": "Mississippi St.",
+    "conference": "SEC",
+    "team_id": 614666
+  },
+  {
+    "team_name": "Missouri",
+    "conference": "SEC",
+    "team_id": 614669
+  },
+  {
+    "team_name": "Oklahoma",
+    "conference": "SEC",
+    "team_id": 614702
+  },
+  {
+    "team_name": "Ole Miss",
+    "conference": "SEC",
+    "team_id": 614668
+  },
+  {
+    "team_name": "South Carolina",
+    "conference": "SEC",
+    "team_id": 614738
+  },
+  {
+    "team_name": "Tennessee",
+    "conference": "SEC",
+    "team_id": 614782
+  },
+  {
+    "team_name": "Texas",
+    "conference": "SEC",
+    "team_id": 614793
+  },
+  {
+    "team_name": "Texas A&M",
+    "conference": "SEC",
+    "team_id": 614788
+  },
+  {
+    "team_name": "Vanderbilt",
+    "conference": "SEC",
+    "team_id": 614802
+  },
+  {
+    "team_name": "Alabama A&M",
+    "conference": "SWAC",
+    "team_id": 614846
+  },
+  {
+    "team_name": "Alabama St.",
+    "conference": "SWAC",
+    "team_id": 614847
+  },
+  {
+    "team_name": "Alcorn",
+    "conference": "SWAC",
+    "team_id": 614851
+  },
+  {
+    "team_name": "Ark.-Pine Bluff",
+    "conference": "SWAC",
+    "team_id": 614834
+  },
+  {
+    "team_name": "Bethune-Cookman",
+    "conference": "SWAC",
+    "team_id": 614862
+  },
+  {
+    "team_name": "Florida A&M",
+    "conference": "SWAC",
+    "team_id": 614603
+  },
+  {
+    "team_name": "Grambling",
+    "conference": "SWAC",
+    "team_id": 614771
+  },
+  {
+    "team_name": "Jackson St.",
+    "conference": "SWAC",
+    "team_id": 614631
+  },
+  {
+    "team_name": "Mississippi Val.",
+    "conference": "SWAC",
+    "team_id": 614667
+  },
+  {
+    "team_name": "Prairie View",
+    "conference": "SWAC",
+    "team_id": 614712
+  },
+  {
+    "team_name": "Southern U.",
+    "conference": "SWAC",
+    "team_id": 614745
+  },
+  {
+    "team_name": "Texas Southern",
+    "conference": "SWAC",
+    "team_id": 614790
+  },
+  {
+    "team_name": "ETSU",
+    "conference": "SoCon",
+    "team_id": 614597
+  },
+  {
+    "team_name": "Mercer",
+    "conference": "SoCon",
+    "team_id": 614659
+  },
+  {
+    "team_name": "Samford",
+    "conference": "SoCon",
+    "team_id": 614729
+  },
+  {
+    "team_name": "The Citadel",
+    "conference": "SoCon",
+    "team_id": 614583
+  },
+  {
+    "team_name": "UNC Greensboro",
+    "conference": "SoCon",
+    "team_id": 614677
+  },
+  {
+    "team_name": "VMI",
+    "conference": "SoCon",
+    "team_id": 614805
+  },
+  {
+    "team_name": "Western Caro.",
+    "conference": "SoCon",
+    "team_id": 614813
+  },
+  {
+    "team_name": "Wofford",
+    "conference": "SoCon",
+    "team_id": 614765
+  },
+  {
+    "team_name": "A&M-Corpus Christi",
+    "conference": "Southland",
+    "team_id": 614839
+  },
+  {
+    "team_name": "Houston Christian",
+    "conference": "Southland",
+    "team_id": 614621
+  },
+  {
+    "team_name": "Lamar University",
+    "conference": "Southland",
+    "team_id": 614640
+  },
+  {
+    "team_name": "McNeese",
+    "conference": "Southland",
+    "team_id": 614657
+  },
+  {
+    "team_name": "New Orleans",
+    "conference": "Southland",
+    "team_id": 614685
+  },
+  {
+    "team_name": "Nicholls",
+    "conference": "Southland",
+    "team_id": 614774
+  },
+  {
+    "team_name": "Northwestern St.",
+    "conference": "Southland",
+    "team_id": 614696
+  },
+  {
+    "team_name": "SFA",
+    "conference": "Southland",
+    "team_id": 614750
+  },
+  {
+    "team_name": "Southeastern La.",
+    "conference": "Southland",
+    "team_id": 614741
+  },
+  {
+    "team_name": "UIW",
+    "conference": "Southland",
+    "team_id": 614836
+  },
+  {
+    "team_name": "UTRGV",
+    "conference": "Southland",
+    "team_id": 614707
+  },
+  {
+    "team_name": "North Dakota St.",
+    "conference": "Summit League",
+    "team_id": 614690
+  },
+  {
+    "team_name": "Northern Colo.",
+    "conference": "Summit League",
+    "team_id": 614693
+  },
+  {
+    "team_name": "Omaha",
+    "conference": "Summit League",
+    "team_id": 614679
+  },
+  {
+    "team_name": "Oral Roberts",
+    "conference": "Summit League",
+    "team_id": 614776
+  },
+  {
+    "team_name": "South Dakota St.",
+    "conference": "Summit League",
+    "team_id": 614739
+  },
+  {
+    "team_name": "St. Thomas (MN)",
+    "conference": "Summit League",
+    "team_id": 614785
+  },
+  {
+    "team_name": "App State",
+    "conference": "Sun Belt",
+    "team_id": 614852
+  },
+  {
+    "team_name": "Arkansas St.",
+    "conference": "Sun Belt",
+    "team_id": 614854
+  },
+  {
+    "team_name": "Coastal Carolina",
+    "conference": "Sun Belt",
+    "team_id": 614585
+  },
+  {
+    "team_name": "Ga. Southern",
+    "conference": "Sun Belt",
+    "team_id": 614612
+  },
+  {
+    "team_name": "Georgia St.",
+    "conference": "Sun Belt",
+    "team_id": 614613
+  },
+  {
+    "team_name": "James Madison",
+    "conference": "Sun Belt",
+    "team_id": 614634
+  },
+  {
+    "team_name": "Louisiana",
+    "conference": "Sun Belt",
+    "team_id": 614748
+  },
+  {
+    "team_name": "Marshall",
+    "conference": "Sun Belt",
+    "team_id": 614652
+  },
+  {
+    "team_name": "Old Dominion",
+    "conference": "Sun Belt",
+    "team_id": 614703
+  },
+  {
+    "team_name": "South Alabama",
+    "conference": "Sun Belt",
+    "team_id": 614737
+  },
+  {
+    "team_name": "Southern Miss.",
+    "conference": "Sun Belt",
+    "team_id": 614780
+  },
+  {
+    "team_name": "Texas St.",
+    "conference": "Sun Belt",
+    "team_id": 614747
+  },
+  {
+    "team_name": "Troy",
+    "conference": "Sun Belt",
+    "team_id": 614797
+  },
+  {
+    "team_name": "ULM",
+    "conference": "Sun Belt",
+    "team_id": 614691
+  },
+  {
+    "team_name": "Abilene Christian",
+    "conference": "WAC",
+    "team_id": 614845
+  },
+  {
+    "team_name": "California Baptist",
+    "conference": "WAC",
+    "team_id": 614844
+  },
+  {
+    "team_name": "Sacramento St.",
+    "conference": "WAC",
+    "team_id": 614570
+  },
+  {
+    "team_name": "Tarleton St.",
+    "conference": "WAC",
+    "team_id": 614761
+  },
+  {
+    "team_name": "UT Arlington",
+    "conference": "WAC",
+    "team_id": 614792
+  },
+  {
+    "team_name": "Utah Tech",
+    "conference": "WAC",
+    "team_id": 614786
+  },
+  {
+    "team_name": "Utah Valley",
+    "conference": "WAC",
+    "team_id": 614842
+  },
+  {
+    "team_name": "Gonzaga",
+    "conference": "WCC",
+    "team_id": 614616
+  },
+  {
+    "team_name": "LMU (CA)",
+    "conference": "WCC",
+    "team_id": 614648
+  },
+  {
+    "team_name": "Pacific",
+    "conference": "WCC",
+    "team_id": 614706
+  },
+  {
+    "team_name": "Pepperdine",
+    "conference": "WCC",
+    "team_id": 614709
+  },
+  {
+    "team_name": "Portland",
+    "conference": "WCC",
+    "team_id": 614711
+  },
+  {
+    "team_name": "Saint Mary's (CA)",
+    "conference": "WCC",
+    "team_id": 614726
+  },
+  {
+    "team_name": "San Diego",
+    "conference": "WCC",
+    "team_id": 614731
+  },
+  {
+    "team_name": "San Francisco",
+    "conference": "WCC",
+    "team_id": 614732
+  },
+  {
+    "team_name": "Santa Clara",
+    "conference": "WCC",
+    "team_id": 614734
+  },
+  {
+    "team_name": "Seattle U",
+    "conference": "WCC",
+    "team_id": 614833
+  }
+]

@@ -1,0 +1,7674 @@
+[
+  {
+    "person_id": 820835,
+    "player_name": "Kade Snell",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 151,
+    "draft_round": 5
+  },
+  {
+    "person_id": 804991,
+    "player_name": "Ryan Daniels",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 329,
+    "draft_round": 11
+  },
+  {
+    "person_id": 828657,
+    "player_name": "Aiden Robbins",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 92,
+    "draft_round": 3
+  },
+  {
+    "person_id": 800728,
+    "player_name": "Cameron Nickens",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 510,
+    "draft_round": 17
+  },
+  {
+    "person_id": 701136,
+    "player_name": "Kerrington Cross",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 220,
+    "draft_round": 7
+  },
+  {
+    "person_id": 702522,
+    "player_name": "Aiden Taurek",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 392,
+    "draft_round": 13
+  },
+  {
+    "person_id": 702652,
+    "player_name": "Andrew Fischer",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 20,
+    "draft_round": 1
+  },
+  {
+    "person_id": 827719,
+    "player_name": "Jake Munroe",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 109,
+    "draft_round": 4
+  },
+  {
+    "person_id": 804911,
+    "player_name": "Brendan Summerhill",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 42,
+    "draft_round": 0
+  },
+  {
+    "person_id": 807461,
+    "player_name": "Kaleb Freeman",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 466,
+    "draft_round": 16
+  },
+  {
+    "person_id": 805416,
+    "player_name": "Will Vierling",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 341,
+    "draft_round": 11
+  },
+  {
+    "person_id": 681819,
+    "player_name": "Tyler Smith",
+    "player_type": "hitter",
+    "draft_year": 2018,
+    "draft_pick": 241,
+    "draft_round": 8
+  },
+  {
+    "person_id": 800604,
+    "player_name": "Roch Cholowsky",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 1,
+    "draft_round": 1
+  },
+  {
+    "person_id": 805544,
+    "player_name": "Mark Quatrani",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 545,
+    "draft_round": 18
+  },
+  {
+    "person_id": 842049,
+    "player_name": "Grayson Fitzwater",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 375,
+    "draft_round": 13
+  },
+  {
+    "person_id": 835938,
+    "player_name": "Hayden Friese",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 607,
+    "draft_round": 20
+  },
+  {
+    "person_id": 813842,
+    "player_name": "Chase Call",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 486,
+    "draft_round": 16
+  },
+  {
+    "person_id": 806088,
+    "player_name": "AJ Gracia",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 9,
+    "draft_round": 1
+  },
+  {
+    "person_id": 806261,
+    "player_name": "Jaxon Willits",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 141,
+    "draft_round": 5
+  },
+  {
+    "person_id": 813668,
+    "player_name": "Jack Gurevitch",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 89,
+    "draft_round": 3
+  },
+  {
+    "person_id": 823779,
+    "player_name": "Ryan Sprock",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 239,
+    "draft_round": 8
+  },
+  {
+    "person_id": 695722,
+    "player_name": "Boston Smith",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 171,
+    "draft_round": 6
+  },
+  {
+    "person_id": 813314,
+    "player_name": "Logan Hughes",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 17,
+    "draft_round": 1
+  },
+  {
+    "person_id": 824713,
+    "player_name": "Andrew Williamson",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 68,
+    "draft_round": 0
+  },
+  {
+    "person_id": 800712,
+    "player_name": "Wallace Clark",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 273,
+    "draft_round": 9
+  },
+  {
+    "person_id": 805207,
+    "player_name": "Caden Bodine",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 30,
+    "draft_round": 0
+  },
+  {
+    "person_id": 832213,
+    "player_name": "Derek Cerda",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 496,
+    "draft_round": 17
+  },
+  {
+    "person_id": 832420,
+    "player_name": "Edian Espinal",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 309,
+    "draft_round": 10
+  },
+  {
+    "person_id": 702495,
+    "player_name": "Josh Tate",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 233,
+    "draft_round": 8
+  },
+  {
+    "person_id": 702619,
+    "player_name": "Luke Hill",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 132,
+    "draft_round": 4
+  },
+  {
+    "person_id": 814829,
+    "player_name": "Maddox Molony",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 187,
+    "draft_round": 6
+  },
+  {
+    "person_id": 829649,
+    "player_name": "Colin Yeaman",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 124,
+    "draft_round": 4
+  },
+  {
+    "person_id": 804946,
+    "player_name": "Tyler Howard",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 342,
+    "draft_round": 11
+  },
+  {
+    "person_id": 801563,
+    "player_name": "Austin Smith",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 292,
+    "draft_round": 10
+  },
+  {
+    "person_id": 834962,
+    "player_name": "Anthony DePino",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 196,
+    "draft_round": 7
+  },
+  {
+    "person_id": 702631,
+    "player_name": "Adonys Guzman",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 144,
+    "draft_round": 5
+  },
+  {
+    "person_id": 809143,
+    "player_name": "Kyle Walker",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 246,
+    "draft_round": 8
+  },
+  {
+    "person_id": 805127,
+    "player_name": "Devin Taylor",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 48,
+    "draft_round": 2
+  },
+  {
+    "person_id": 695601,
+    "player_name": "Chris Katz",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 266,
+    "draft_round": 9
+  },
+  {
+    "person_id": 702526,
+    "player_name": "Eric Snow",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 172,
+    "draft_round": 6
+  },
+  {
+    "person_id": 689583,
+    "player_name": "Adrian Rodriguez",
+    "player_type": "hitter",
+    "draft_year": 2019,
+    "draft_pick": 1165,
+    "draft_round": 39
+  },
+  {
+    "person_id": 663832,
+    "player_name": "Ryan McKay",
+    "player_type": "hitter",
+    "draft_year": 2015,
+    "draft_pick": 326,
+    "draft_round": 11
+  },
+  {
+    "person_id": 702265,
+    "player_name": "Paxton Kling",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 205,
+    "draft_round": 7
+  },
+  {
+    "person_id": 702500,
+    "player_name": "Anthony Silva",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 432,
+    "draft_round": 14
+  },
+  {
+    "person_id": 806027,
+    "player_name": "Eric Becker",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 58,
+    "draft_round": 2
+  },
+  {
+    "person_id": 702695,
+    "player_name": "Easton Carmichael",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 82,
+    "draft_round": 3
+  },
+  {
+    "person_id": 842160,
+    "player_name": "Owen Clyne",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 459,
+    "draft_round": 15
+  },
+  {
+    "person_id": 823795,
+    "player_name": "Nick Rodriguez",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 289,
+    "draft_round": 10
+  },
+  {
+    "person_id": 702264,
+    "player_name": "Gavin Kilen",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 13,
+    "draft_round": 1
+  },
+  {
+    "person_id": 827759,
+    "player_name": "Daniel Bucciero",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 260,
+    "draft_round": 9
+  },
+  {
+    "person_id": 687562,
+    "player_name": "Jake Bennett",
+    "player_type": "hitter",
+    "draft_year": 2019,
+    "draft_pick": 1173,
+    "draft_round": 39
+  },
+  {
+    "person_id": 805550,
+    "player_name": "Ryan Weingartner",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 240,
+    "draft_round": 8
+  },
+  {
+    "person_id": 702278,
+    "player_name": "Nolan Schubart",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 101,
+    "draft_round": 3
+  },
+  {
+    "person_id": 840332,
+    "player_name": "Joe Tiroly",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 215,
+    "draft_round": 7
+  },
+  {
+    "person_id": 823153,
+    "player_name": "Matt King",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 293,
+    "draft_round": 10
+  },
+  {
+    "person_id": 701435,
+    "player_name": "Broedy Poppell",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 386,
+    "draft_round": 13
+  },
+  {
+    "person_id": 813400,
+    "player_name": "Jack Winnay",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 388,
+    "draft_round": 13
+  },
+  {
+    "person_id": 828255,
+    "player_name": "Ethan Conrad",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 17,
+    "draft_round": 1
+  },
+  {
+    "person_id": 836055,
+    "player_name": "Zach Daudet",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 306,
+    "draft_round": 10
+  },
+  {
+    "person_id": 807461,
+    "player_name": "Kaleb Freeman",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 466,
+    "draft_round": 16
+  },
+  {
+    "person_id": 821507,
+    "player_name": "Tre Broussard",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 95,
+    "draft_round": 3
+  },
+  {
+    "person_id": 809720,
+    "player_name": "Damian Bravo",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 446,
+    "draft_round": 15
+  },
+  {
+    "person_id": 811278,
+    "player_name": "Connor Rasmussen",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 458,
+    "draft_round": 15
+  },
+  {
+    "person_id": 806165,
+    "player_name": "Noah Miller",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 571,
+    "draft_round": 19
+  },
+  {
+    "person_id": 701906,
+    "player_name": "Trevor Cohen",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 85,
+    "draft_round": 3
+  },
+  {
+    "person_id": 813832,
+    "player_name": "Colton Coates",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 484,
+    "draft_round": 16
+  },
+  {
+    "person_id": 802494,
+    "player_name": "Ty Doucette",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 294,
+    "draft_round": 10
+  },
+  {
+    "person_id": 702555,
+    "player_name": "Cannon Peebles",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 522,
+    "draft_round": 17
+  },
+  {
+    "person_id": 828075,
+    "player_name": "Cole Johnson",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 544,
+    "draft_round": 18
+  },
+  {
+    "person_id": 823807,
+    "player_name": "Kane Kepley",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 56,
+    "draft_round": 2
+  },
+  {
+    "person_id": 830239,
+    "player_name": "Aaron Walton",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 66,
+    "draft_round": 0
+  },
+  {
+    "person_id": 804560,
+    "player_name": "Charles Davalan",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 41,
+    "draft_round": 0
+  },
+  {
+    "person_id": 807231,
+    "player_name": "Ryan Wynn",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 220,
+    "draft_round": 7
+  },
+  {
+    "person_id": 813359,
+    "player_name": "Aidan Teel",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 317,
+    "draft_round": 11
+  },
+  {
+    "person_id": 827517,
+    "player_name": "Kyle Lodise",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 76,
+    "draft_round": 3
+  },
+  {
+    "person_id": 829670,
+    "player_name": "Brayden Smith",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 394,
+    "draft_round": 13
+  },
+  {
+    "person_id": 806507,
+    "player_name": "Kollin Ritchie",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 594,
+    "draft_round": 20
+  },
+  {
+    "person_id": 823775,
+    "player_name": "DJ Newman",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 456,
+    "draft_round": 15
+  },
+  {
+    "person_id": 814505,
+    "player_name": "Ace Reese",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 24,
+    "draft_round": 1
+  },
+  {
+    "person_id": 703448,
+    "player_name": "Cam Cannarella",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 43,
+    "draft_round": 0
+  },
+  {
+    "person_id": 821348,
+    "player_name": "Brent Iredale",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 203,
+    "draft_round": 7
+  },
+  {
+    "person_id": 804995,
+    "player_name": "Henry Godbout",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 75,
+    "draft_round": 0
+  },
+  {
+    "person_id": 833382,
+    "player_name": "Owen Hull",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 67,
+    "draft_round": 0
+  },
+  {
+    "person_id": 805225,
+    "player_name": "Nu'u Contrades",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 186,
+    "draft_round": 6
+  },
+  {
+    "person_id": 831492,
+    "player_name": "Trevor Lucas",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 129,
+    "draft_round": 4
+  },
+  {
+    "person_id": 806169,
+    "player_name": "Lucas Moore",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 155,
+    "draft_round": 5
+  },
+  {
+    "person_id": 806128,
+    "player_name": "Antonio Jimenez",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 102,
+    "draft_round": 3
+  },
+  {
+    "person_id": 824753,
+    "player_name": "Nick Hollifield",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 411,
+    "draft_round": 14
+  },
+  {
+    "person_id": 641468,
+    "player_name": "Gavin Collins",
+    "player_type": "hitter",
+    "draft_year": 2016,
+    "draft_pick": 392,
+    "draft_round": 13
+  },
+  {
+    "person_id": 823073,
+    "player_name": "Nolan Sailors",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 128,
+    "draft_round": 4
+  },
+  {
+    "person_id": 834681,
+    "player_name": "Matthew Miura",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 180,
+    "draft_round": 6
+  },
+  {
+    "person_id": 806039,
+    "player_name": "Drew Burress",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 8,
+    "draft_round": 1
+  },
+  {
+    "person_id": 703637,
+    "player_name": "Max Williams",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 78,
+    "draft_round": 3
+  },
+  {
+    "person_id": 702504,
+    "player_name": "Gavin Turley",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 110,
+    "draft_round": 4
+  },
+  {
+    "person_id": 809452,
+    "player_name": "Damian Ruiz",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 272,
+    "draft_round": 9
+  },
+  {
+    "person_id": 695652,
+    "player_name": "Eddie King Jr.",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 473,
+    "draft_round": 16
+  },
+  {
+    "person_id": 800712,
+    "player_name": "Wallace Clark",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 273,
+    "draft_round": 9
+  },
+  {
+    "person_id": 701326,
+    "player_name": "Luke Heyman",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 422,
+    "draft_round": 14
+  },
+  {
+    "person_id": 702524,
+    "player_name": "Logan Sauve",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 200,
+    "draft_round": 7
+  },
+  {
+    "person_id": 814097,
+    "player_name": "Ben Cleary",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 363,
+    "draft_round": 12
+  },
+  {
+    "person_id": 834966,
+    "player_name": "Dylan Grego",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 400,
+    "draft_round": 13
+  },
+  {
+    "person_id": 806053,
+    "player_name": "Dean Curley",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 64,
+    "draft_round": 2
+  },
+  {
+    "person_id": 832392,
+    "player_name": "Kade Lewis",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 123,
+    "draft_round": 4
+  },
+  {
+    "person_id": 830337,
+    "player_name": "Ben Tryon",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 511,
+    "draft_round": 17
+  },
+  {
+    "person_id": 812807,
+    "player_name": "Kyle Jones",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 102,
+    "draft_round": 3
+  },
+  {
+    "person_id": 692110,
+    "player_name": "Core Jackson",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 164,
+    "draft_round": 5
+  },
+  {
+    "person_id": 803131,
+    "player_name": "Camden Troyer",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 374,
+    "draft_round": 12
+  },
+  {
+    "person_id": 680093,
+    "player_name": "Luke Anderson",
+    "player_type": "hitter",
+    "draft_year": 2021,
+    "draft_pick": 458,
+    "draft_round": 15
+  },
+  {
+    "person_id": 669659,
+    "player_name": "Brent Gibbs",
+    "player_type": "hitter",
+    "draft_year": 2016,
+    "draft_pick": 225,
+    "draft_round": 7
+  },
+  {
+    "person_id": 702563,
+    "player_name": "Mason Neville",
+    "player_type": "hitter",
+    "draft_year": 2022,
+    "draft_pick": 543,
+    "draft_round": 18
+  },
+  {
+    "person_id": 813832,
+    "player_name": "Colton Coates",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 484,
+    "draft_round": 16
+  },
+  {
+    "person_id": 815156,
+    "player_name": "Derek Curiel",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 5,
+    "draft_round": 1
+  },
+  {
+    "person_id": 805491,
+    "player_name": "Aaron Piasecki",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 241,
+    "draft_round": 8
+  },
+  {
+    "person_id": 701333,
+    "player_name": "Colby Shelton",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 590,
+    "draft_round": 20
+  },
+  {
+    "person_id": 814822,
+    "player_name": "Henry Ford",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 191,
+    "draft_round": 6
+  },
+  {
+    "person_id": 663445,
+    "player_name": "James Nelson",
+    "player_type": "hitter",
+    "draft_year": 2015,
+    "draft_pick": 531,
+    "draft_round": 18
+  },
+  {
+    "person_id": 692218,
+    "player_name": "Hugh Pinkney",
+    "player_type": "hitter",
+    "draft_year": 2022,
+    "draft_pick": 510,
+    "draft_round": 17
+  },
+  {
+    "person_id": 836068,
+    "player_name": "Brayden Corn",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 452,
+    "draft_round": 15
+  },
+  {
+    "person_id": 809763,
+    "player_name": "Kaeden Kent",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 103,
+    "draft_round": 3
+  },
+  {
+    "person_id": 703483,
+    "player_name": "Dixon Williams",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 136,
+    "draft_round": 0
+  },
+  {
+    "person_id": 806174,
+    "player_name": "Cameron Nelson",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 138,
+    "draft_round": 5
+  },
+  {
+    "person_id": 702520,
+    "player_name": "Justin Thomas",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 336,
+    "draft_round": 11
+  },
+  {
+    "person_id": 823809,
+    "player_name": "Nick Monistere",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 126,
+    "draft_round": 4
+  },
+  {
+    "person_id": 823817,
+    "player_name": "Jake McCutcheon",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 288,
+    "draft_round": 10
+  },
+  {
+    "person_id": 807725,
+    "player_name": "Ryan Kucherak",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 455,
+    "draft_round": 15
+  },
+  {
+    "person_id": 815313,
+    "player_name": "Chase Brunson",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 42,
+    "draft_round": 2
+  },
+  {
+    "person_id": 815415,
+    "player_name": "Alex Hernandez",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 143,
+    "draft_round": 5
+  },
+  {
+    "person_id": 831004,
+    "player_name": "AJ Soldra",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 495,
+    "draft_round": 16
+  },
+  {
+    "person_id": 809686,
+    "player_name": "Cam Maldonado",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 206,
+    "draft_round": 7
+  },
+  {
+    "person_id": 806233,
+    "player_name": "Luke Stevenson",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 35,
+    "draft_round": 0
+  },
+  {
+    "person_id": 814964,
+    "player_name": "Reece Moroney",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 309,
+    "draft_round": 10
+  },
+  {
+    "person_id": 809633,
+    "player_name": "Michael Dattalo",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 270,
+    "draft_round": 9
+  },
+  {
+    "person_id": 702593,
+    "player_name": "Jace LaViolette",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 27,
+    "draft_round": 1
+  },
+  {
+    "person_id": 804053,
+    "player_name": "Brayden Dowd",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 88,
+    "draft_round": 3
+  },
+  {
+    "person_id": 811716,
+    "player_name": "Landyn Vidourek",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 104,
+    "draft_round": 3
+  },
+  {
+    "person_id": 805785,
+    "player_name": "Ryder Helfrick",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 15,
+    "draft_round": 1
+  },
+  {
+    "person_id": 800606,
+    "player_name": "Gavin Grahovac",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 81,
+    "draft_round": 3
+  },
+  {
+    "person_id": 822676,
+    "player_name": "Alex Lodise",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 60,
+    "draft_round": 2
+  },
+  {
+    "person_id": 803863,
+    "player_name": "Rylan Lujo",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 109,
+    "draft_round": 4
+  },
+  {
+    "person_id": 823768,
+    "player_name": "Lorenzo Meola",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 116,
+    "draft_round": 4
+  },
+  {
+    "person_id": 813664,
+    "player_name": "Justin DeCriscio",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 310,
+    "draft_round": 10
+  },
+  {
+    "person_id": 804562,
+    "player_name": "Daniel Cuvet",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 138,
+    "draft_round": 5
+  },
+  {
+    "person_id": 811764,
+    "player_name": "Cody Miller",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 96,
+    "draft_round": 3
+  },
+  {
+    "person_id": 806025,
+    "player_name": "Brayden Bakes",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 399,
+    "draft_round": 13
+  },
+  {
+    "person_id": 831713,
+    "player_name": "Ryan Peterson",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 71,
+    "draft_round": 0
+  },
+  {
+    "person_id": 702486,
+    "player_name": "Jaxson West",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 472,
+    "draft_round": 16
+  },
+  {
+    "person_id": 811718,
+    "player_name": "Josh Wakefield",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 426,
+    "draft_round": 14
+  },
+  {
+    "person_id": 806494,
+    "player_name": "Kam Durnin",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 121,
+    "draft_round": 4
+  },
+  {
+    "person_id": 832219,
+    "player_name": "Brady Ballinger",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 216,
+    "draft_round": 7
+  },
+  {
+    "person_id": 807721,
+    "player_name": "Ryan Cooney",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 103,
+    "draft_round": 3
+  },
+  {
+    "person_id": 703603,
+    "player_name": "Grant Jay",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 362,
+    "draft_round": 12
+  },
+  {
+    "person_id": 824429,
+    "player_name": "Tanner Griffith",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 329,
+    "draft_round": 11
+  },
+  {
+    "person_id": 815343,
+    "player_name": "Myles Bailey",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 75,
+    "draft_round": 0
+  },
+  {
+    "person_id": 823798,
+    "player_name": "Matthew Bucciero",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 285,
+    "draft_round": 10
+  },
+  {
+    "person_id": 702262,
+    "player_name": "Jared Jones",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 263,
+    "draft_round": 9
+  },
+  {
+    "person_id": 695477,
+    "player_name": "Slate Alford",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 259,
+    "draft_round": 9
+  },
+  {
+    "person_id": 809730,
+    "player_name": "Weber Neels",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 566,
+    "draft_round": 19
+  },
+  {
+    "person_id": 702600,
+    "player_name": "Matt Klein",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 167,
+    "draft_round": 6
+  },
+  {
+    "person_id": 836058,
+    "player_name": "Ely Brown",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 346,
+    "draft_round": 12
+  },
+  {
+    "person_id": 828824,
+    "player_name": "Josiah Ragsdale",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 215,
+    "draft_round": 7
+  },
+  {
+    "person_id": 814452,
+    "player_name": "Anthony Martinez",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 252,
+    "draft_round": 8
+  },
+  {
+    "person_id": 800610,
+    "player_name": "Roman Martin",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 111,
+    "draft_round": 4
+  },
+  {
+    "person_id": 832246,
+    "player_name": "Mikey Bell",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 568,
+    "draft_round": 19
+  },
+  {
+    "person_id": 702656,
+    "player_name": "Drew Faurot",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 108,
+    "draft_round": 4
+  },
+  {
+    "person_id": 826043,
+    "player_name": "Riley Nelson",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 162,
+    "draft_round": 5
+  },
+  {
+    "person_id": 825094,
+    "player_name": "Nick Dumesnil",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 249,
+    "draft_round": 8
+  },
+  {
+    "person_id": 807311,
+    "player_name": "Justin Lebron",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 18,
+    "draft_round": 1
+  },
+  {
+    "person_id": 701337,
+    "player_name": "Ethan Petry",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 49,
+    "draft_round": 2
+  },
+  {
+    "person_id": 806701,
+    "player_name": "Jake Brown",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 471,
+    "draft_round": 16
+  },
+  {
+    "person_id": 695579,
+    "player_name": "Trevor Haskins",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 450,
+    "draft_round": 15
+  },
+  {
+    "person_id": 842047,
+    "player_name": "Brayden Martin",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 342,
+    "draft_round": 11
+  },
+  {
+    "person_id": 809092,
+    "player_name": "Murf Gray",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 73,
+    "draft_round": 0
+  },
+  {
+    "person_id": 807116,
+    "player_name": "Brendan Lawson",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 561,
+    "draft_round": 19
+  },
+  {
+    "person_id": 815546,
+    "player_name": "Connor Shouse",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 610,
+    "draft_round": 20
+  },
+  {
+    "person_id": 804109,
+    "player_name": "Aiva Arquette",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 7,
+    "draft_round": 1
+  },
+  {
+    "person_id": 808852,
+    "player_name": "Gable Mitchell",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 193,
+    "draft_round": 6
+  },
+  {
+    "person_id": 623457,
+    "player_name": "Matt Rose",
+    "player_type": "hitter",
+    "draft_year": 2015,
+    "draft_pick": 323,
+    "draft_round": 11
+  },
+  {
+    "person_id": 824425,
+    "player_name": "Diego Castellanos",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 428,
+    "draft_round": 14
+  },
+  {
+    "person_id": 829643,
+    "player_name": "Jacob McCombs",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 209,
+    "draft_round": 7
+  },
+  {
+    "person_id": 801489,
+    "player_name": "Tyce Armstrong",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 578,
+    "draft_round": 19
+  },
+  {
+    "person_id": 836051,
+    "player_name": "Zach Rogacki",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 257,
+    "draft_round": 9
+  },
+  {
+    "person_id": 801954,
+    "player_name": "Beau Ankeney",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 429,
+    "draft_round": 14
+  },
+  {
+    "person_id": 702668,
+    "player_name": "Korbyn Dickerson",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 152,
+    "draft_round": 5
+  },
+  {
+    "person_id": 823050,
+    "player_name": "Mulivai Levu",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 70,
+    "draft_round": 0
+  },
+  {
+    "person_id": 663717,
+    "player_name": "Dylan King",
+    "player_type": "hitter",
+    "draft_year": 2015,
+    "draft_pick": 749,
+    "draft_round": 25
+  },
+  {
+    "person_id": 695484,
+    "player_name": "Anson Aroz",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 585,
+    "draft_round": 19
+  },
+  {
+    "person_id": 806245,
+    "player_name": "Carson Tinney",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 43,
+    "draft_round": 2
+  },
+  {
+    "person_id": 805021,
+    "player_name": "Drew Smith",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 448,
+    "draft_round": 15
+  },
+  {
+    "person_id": 670303,
+    "player_name": "Ben Miller",
+    "player_type": "hitter",
+    "draft_year": 2016,
+    "draft_pick": 975,
+    "draft_round": 32
+  },
+  {
+    "person_id": 701862,
+    "player_name": "Jacob Walsh",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 441,
+    "draft_round": 15
+  },
+  {
+    "person_id": 681159,
+    "player_name": "Ethan Wilson",
+    "player_type": "hitter",
+    "draft_year": 2021,
+    "draft_pick": 49,
+    "draft_round": 2
+  },
+  {
+    "person_id": 800632,
+    "player_name": "Dean West",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 222,
+    "draft_round": 7
+  },
+  {
+    "person_id": 806470,
+    "player_name": "Caden Bogenpohl",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 64,
+    "draft_round": 2
+  },
+  {
+    "person_id": 834404,
+    "player_name": "Jake Cook",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 81,
+    "draft_round": 3
+  },
+  {
+    "person_id": 702629,
+    "player_name": "Gage Harrelson",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 469,
+    "draft_round": 16
+  },
+  {
+    "person_id": 801413,
+    "player_name": "Jake Fitzgibbons",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 415,
+    "draft_round": 14
+  },
+  {
+    "person_id": 824558,
+    "player_name": "Alex Conover",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 134,
+    "draft_round": 0
+  },
+  {
+    "person_id": 822877,
+    "player_name": "Luke Cantwell",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 610,
+    "draft_round": 20
+  },
+  {
+    "person_id": 805182,
+    "player_name": "Isaiah Lane",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 377,
+    "draft_round": 13
+  },
+  {
+    "person_id": 815314,
+    "player_name": "Elijah Ickes",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 561,
+    "draft_round": 19
+  },
+  {
+    "person_id": 702610,
+    "player_name": "Ike Irish",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 19,
+    "draft_round": 1
+  },
+  {
+    "person_id": 812668,
+    "player_name": "Carson Kerce",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 53,
+    "draft_round": 2
+  },
+  {
+    "person_id": 805880,
+    "player_name": "Tanner Thach",
+    "player_type": "hitter",
+    "draft_year": 2022,
+    "draft_pick": 556,
+    "draft_round": 18
+  },
+  {
+    "person_id": 806261,
+    "player_name": "Jaxon Willits",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 141,
+    "draft_round": 5
+  },
+  {
+    "person_id": 689958,
+    "player_name": "Andrew Walters",
+    "player_type": "hitter",
+    "draft_year": 2022,
+    "draft_pick": 527,
+    "draft_round": 18
+  },
+  {
+    "person_id": 830984,
+    "player_name": "Brennan Hudson",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 607,
+    "draft_round": 20
+  },
+  {
+    "person_id": 835215,
+    "player_name": "Robbie Lavey",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 124,
+    "draft_round": 4
+  },
+  {
+    "person_id": 702533,
+    "player_name": "Travis Sanders",
+    "player_type": "hitter",
+    "draft_year": 2022,
+    "draft_pick": 429,
+    "draft_round": 14
+  },
+  {
+    "person_id": 807275,
+    "player_name": "Dalton Wentz",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 478,
+    "draft_round": 16
+  },
+  {
+    "person_id": 843899,
+    "player_name": "Dylan O'Connell",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 441,
+    "draft_round": 15
+  },
+  {
+    "person_id": 805365,
+    "player_name": "Isaiah Jackson",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 229,
+    "draft_round": 8
+  },
+  {
+    "person_id": 823812,
+    "player_name": "Adam Agresti",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 319,
+    "draft_round": 11
+  },
+  {
+    "person_id": 815491,
+    "player_name": "Wills Maginnis",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 334,
+    "draft_round": 11
+  },
+  {
+    "person_id": 814181,
+    "player_name": "Jarren Advincula",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 45,
+    "draft_round": 2
+  },
+  {
+    "person_id": 835219,
+    "player_name": "Anthony Potestio",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 338,
+    "draft_round": 11
+  },
+  {
+    "person_id": 831926,
+    "player_name": "Bryce Molinaro",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 501,
+    "draft_round": 17
+  },
+  {
+    "person_id": 831546,
+    "player_name": "Kyeler Thompson",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 283,
+    "draft_round": 9
+  },
+  {
+    "person_id": 822317,
+    "player_name": "Max Martin",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 308,
+    "draft_round": 10
+  },
+  {
+    "person_id": 806264,
+    "player_name": "Macon Winslow",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 190,
+    "draft_round": 6
+  },
+  {
+    "person_id": 805260,
+    "player_name": "Ethan Hedges",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 77,
+    "draft_round": 3
+  },
+  {
+    "person_id": 701331,
+    "player_name": "Blake Cyr",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 548,
+    "draft_round": 18
+  },
+  {
+    "person_id": 842969,
+    "player_name": "Corey Nunez",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 427,
+    "draft_round": 14
+  },
+  {
+    "person_id": 823918,
+    "player_name": "Kyle West",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 404,
+    "draft_round": 13
+  },
+  {
+    "person_id": 834710,
+    "player_name": "Ryan Niedzwiedz",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 434,
+    "draft_round": 15
+  },
+  {
+    "person_id": 812834,
+    "player_name": "Chase Fralick",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 600,
+    "draft_round": 20
+  },
+  {
+    "person_id": 814457,
+    "player_name": "Jake Casey",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 442,
+    "draft_round": 15
+  },
+  {
+    "person_id": 822390,
+    "player_name": "Charlie Sutherland",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 460,
+    "draft_round": 15
+  },
+  {
+    "person_id": 803811,
+    "player_name": "Josh Hogue",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 438,
+    "draft_round": 15
+  },
+  {
+    "person_id": 806701,
+    "player_name": "Jake Brown",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 65,
+    "draft_round": 2
+  },
+  {
+    "person_id": 820831,
+    "player_name": "Sawyer Strosnider",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 66,
+    "draft_round": 2
+  },
+  {
+    "person_id": 703676,
+    "player_name": "Ethan Frey",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 95,
+    "draft_round": 3
+  },
+  {
+    "person_id": 823455,
+    "player_name": "Petey Soto Jr.",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 541,
+    "draft_round": 18
+  },
+  {
+    "person_id": 656592,
+    "player_name": "Tyler Johnson",
+    "player_type": "hitter",
+    "draft_year": 2017,
+    "draft_pick": 147,
+    "draft_round": 5
+  },
+  {
+    "person_id": 701339,
+    "player_name": "Marek Houston",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 16,
+    "draft_round": 1
+  },
+  {
+    "person_id": 807229,
+    "player_name": "Chase Williams",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 580,
+    "draft_round": 19
+  },
+  {
+    "person_id": 702517,
+    "player_name": "Mason White",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 118,
+    "draft_round": 4
+  },
+  {
+    "person_id": 702656,
+    "player_name": "Drew Faurot",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 108,
+    "draft_round": 4
+  },
+  {
+    "person_id": 813533,
+    "player_name": "Michael Lombardi",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 61,
+    "draft_round": 2
+  },
+  {
+    "person_id": 824424,
+    "player_name": "Bear Harrison",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 160,
+    "draft_round": 5
+  },
+  {
+    "person_id": 805890,
+    "player_name": "Kaden Carpenter",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 267,
+    "draft_round": 9
+  },
+  {
+    "person_id": 805799,
+    "player_name": "Zion Rose",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 6,
+    "draft_round": 1
+  },
+  {
+    "person_id": 703680,
+    "player_name": "Brandon Compton",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 46,
+    "draft_round": 2
+  },
+  {
+    "person_id": 701360,
+    "player_name": "Chris Arroyo",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 139,
+    "draft_round": 5
+  },
+  {
+    "person_id": 807297,
+    "player_name": "Hunter Carns",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 614,
+    "draft_round": 20
+  },
+  {
+    "person_id": 702479,
+    "player_name": "Elie Kligman",
+    "player_type": "hitter",
+    "draft_year": 2021,
+    "draft_pick": 593,
+    "draft_round": 20
+  },
+  {
+    "person_id": 824569,
+    "player_name": "Chris McHugh",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 335,
+    "draft_round": 11
+  },
+  {
+    "person_id": 809844,
+    "player_name": "Kien Vu",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 264,
+    "draft_round": 9
+  },
+  {
+    "person_id": 822518,
+    "player_name": "Vahn Lackey",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 3,
+    "draft_round": 1
+  },
+  {
+    "person_id": 703447,
+    "player_name": "Jacob Jarrell",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 232,
+    "draft_round": 8
+  },
+  {
+    "person_id": 823352,
+    "player_name": "Luke Nixon",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 150,
+    "draft_round": 5
+  },
+  {
+    "person_id": 839366,
+    "player_name": "Charlie Scholvin",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 437,
+    "draft_round": 15
+  },
+  {
+    "person_id": 702276,
+    "player_name": "Carsten Sabathia",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 611,
+    "draft_round": 20
+  },
+  {
+    "person_id": 695057,
+    "player_name": "Garrett Wright",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 599,
+    "draft_round": 20
+  },
+  {
+    "person_id": 804119,
+    "player_name": "Bobby Boser",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 320,
+    "draft_round": 11
+  },
+  {
+    "person_id": 821920,
+    "player_name": "Kuhio Aloy",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 330,
+    "draft_round": 11
+  },
+  {
+    "person_id": 702701,
+    "player_name": "Parker Brosius",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 262,
+    "draft_round": 9
+  },
+  {
+    "person_id": 676340,
+    "player_name": "Trey Truitt",
+    "player_type": "hitter",
+    "draft_year": 2018,
+    "draft_pick": 1015,
+    "draft_round": 34
+  },
+  {
+    "person_id": 842475,
+    "player_name": "Brady Thomas",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 421,
+    "draft_round": 14
+  },
+  {
+    "person_id": 702594,
+    "player_name": "Jack Lausch",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 512,
+    "draft_round": 17
+  },
+  {
+    "person_id": 703449,
+    "player_name": "Nathan Hall",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 153,
+    "draft_round": 5
+  },
+  {
+    "person_id": 824742,
+    "player_name": "Logan Braunschweig",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 277,
+    "draft_round": 9
+  },
+  {
+    "person_id": 702630,
+    "player_name": "Luke Hanson",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 445,
+    "draft_round": 15
+  },
+  {
+    "person_id": 815628,
+    "player_name": "Tyler Bell",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 10,
+    "draft_round": 1
+  },
+  {
+    "person_id": 702973,
+    "player_name": "Kyle Johnson",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 174,
+    "draft_round": 6
+  },
+  {
+    "person_id": 833458,
+    "player_name": "Justin Stransky",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 301,
+    "draft_round": 10
+  },
+  {
+    "person_id": 803290,
+    "player_name": "Estevan Moreno",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 602,
+    "draft_round": 20
+  },
+  {
+    "person_id": 814469,
+    "player_name": "Crew McChesney",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 495,
+    "draft_round": 17
+  },
+  {
+    "person_id": 836052,
+    "player_name": "Conner O'Neal",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 285,
+    "draft_round": 9
+  },
+  {
+    "person_id": 811294,
+    "player_name": "Caden Sorrell",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 62,
+    "draft_round": 2
+  },
+  {
+    "person_id": 695484,
+    "player_name": "Anson Aroz",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 585,
+    "draft_round": 19
+  },
+  {
+    "person_id": 804610,
+    "player_name": "Shai Robinson",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 299,
+    "draft_round": 10
+  },
+  {
+    "person_id": 832402,
+    "player_name": "Jake Long",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 379,
+    "draft_round": 13
+  },
+  {
+    "person_id": 703785,
+    "player_name": "Jake Jackson",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 589,
+    "draft_round": 20
+  },
+  {
+    "person_id": 702263,
+    "player_name": "Jayson Jones",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 225,
+    "draft_round": 8
+  },
+  {
+    "person_id": 805207,
+    "player_name": "Caden Bodine",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 30,
+    "draft_round": 0
+  },
+  {
+    "person_id": 806137,
+    "player_name": "Ashton Larson",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 597,
+    "draft_round": 20
+  },
+  {
+    "person_id": 815628,
+    "player_name": "Tyler Bell",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 10,
+    "draft_round": 1
+  },
+  {
+    "person_id": 825130,
+    "player_name": "Lane Haworth",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 549,
+    "draft_round": 18
+  },
+  {
+    "person_id": 670363,
+    "player_name": "Jeremy Wolf",
+    "player_type": "hitter",
+    "draft_year": 2016,
+    "draft_pick": 940,
+    "draft_round": 31
+  },
+  {
+    "person_id": 814158,
+    "player_name": "Cashel Dugger",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 256,
+    "draft_round": 9
+  },
+  {
+    "person_id": 703519,
+    "player_name": "Brady Counsell",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 303,
+    "draft_round": 10
+  },
+  {
+    "person_id": 822165,
+    "player_name": "Canon Reeder",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 533,
+    "draft_round": 18
+  },
+  {
+    "person_id": 806227,
+    "player_name": "Alex Sosa",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 172,
+    "draft_round": 6
+  },
+  {
+    "person_id": 828790,
+    "player_name": "Blake Bowen",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 524,
+    "draft_round": 18
+  },
+  {
+    "person_id": 806131,
+    "player_name": "Dee Kennedy",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 114,
+    "draft_round": 4
+  },
+  {
+    "person_id": 831025,
+    "player_name": "Dean Toigo",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 608,
+    "draft_round": 20
+  },
+  {
+    "person_id": 805590,
+    "player_name": "Dylan Palmer",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 323,
+    "draft_round": 11
+  },
+  {
+    "person_id": 804133,
+    "player_name": "Braden Holcomb",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 345,
+    "draft_round": 12
+  },
+  {
+    "person_id": 805025,
+    "player_name": "Rylan Galvan",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 376,
+    "draft_round": 13
+  },
+  {
+    "person_id": 815488,
+    "player_name": "Augie Lopez",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 305,
+    "draft_round": 10
+  },
+  {
+    "person_id": 702309,
+    "player_name": "Hunter Hines",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 291,
+    "draft_round": 10
+  },
+  {
+    "person_id": 701699,
+    "player_name": "Bryan Arendt",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 380,
+    "draft_round": 13
+  },
+  {
+    "person_id": 803734,
+    "player_name": "Hayden Yost",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 162,
+    "draft_round": 5
+  },
+  {
+    "person_id": 804561,
+    "player_name": "Eric Guevara",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 205,
+    "draft_round": 7
+  },
+  {
+    "person_id": 808903,
+    "player_name": "Emilio Barreras",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 228,
+    "draft_round": 8
+  },
+  {
+    "person_id": 669152,
+    "player_name": "Jayson Gonzalez",
+    "player_type": "hitter",
+    "draft_year": 2021,
+    "draft_pick": 515,
+    "draft_round": 17
+  },
+  {
+    "person_id": 814809,
+    "player_name": "Wyatt Henseler",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 261,
+    "draft_round": 9
+  },
+  {
+    "person_id": 827685,
+    "player_name": "Rintaro Sasaki",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 235,
+    "draft_round": 8
+  },
+  {
+    "person_id": 804871,
+    "player_name": "Brooks Bryan",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 248,
+    "draft_round": 8
+  },
+  {
+    "person_id": 823770,
+    "player_name": "JP Smith",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 509,
+    "draft_round": 17
+  },
+  {
+    "person_id": 702705,
+    "player_name": "Kolby Branch",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 237,
+    "draft_round": 8
+  },
+  {
+    "person_id": 834240,
+    "player_name": "Ryan Wideman",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 99,
+    "draft_round": 3
+  },
+  {
+    "person_id": 832104,
+    "player_name": "Kooper Schulte",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 600,
+    "draft_round": 20
+  },
+  {
+    "person_id": 823801,
+    "player_name": "Tanner Smith",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 450,
+    "draft_round": 15
+  },
+  {
+    "person_id": 668943,
+    "player_name": "Ryan Miller",
+    "player_type": "hitter",
+    "draft_year": 2017,
+    "draft_pick": 920,
+    "draft_round": 31
+  },
+  {
+    "person_id": 814450,
+    "player_name": "Wehiwa Aloy",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 31,
+    "draft_round": 0
+  },
+  {
+    "person_id": 807061,
+    "player_name": "Carter Beck",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 26,
+    "draft_round": 0
+  },
+  {
+    "person_id": 804751,
+    "player_name": "Logan Poteet",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 511,
+    "draft_round": 17
+  },
+  {
+    "person_id": 835227,
+    "player_name": "Peyton Bonds",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 90,
+    "draft_round": 3
+  },
+  {
+    "person_id": 832552,
+    "player_name": "Ryan Pruitt",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 271,
+    "draft_round": 9
+  },
+  {
+    "person_id": 806499,
+    "player_name": "Avery Ortiz",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 526,
+    "draft_round": 18
+  },
+  {
+    "person_id": 807275,
+    "player_name": "Dalton Wentz",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 478,
+    "draft_round": 16
+  },
+  {
+    "person_id": 806065,
+    "player_name": "Mason Eckelman",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 250,
+    "draft_round": 8
+  },
+  {
+    "person_id": 546999,
+    "player_name": "Jeremy Martinez",
+    "player_type": "hitter",
+    "draft_year": 2016,
+    "draft_pick": 136,
+    "draft_round": 4
+  },
+  {
+    "person_id": 835211,
+    "player_name": "Alejandro Garza",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 453,
+    "draft_round": 15
+  },
+  {
+    "person_id": 701777,
+    "player_name": "Wilson Weber",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 348,
+    "draft_round": 12
+  },
+  {
+    "person_id": 825128,
+    "player_name": "Camden Johnson",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 269,
+    "draft_round": 9
+  },
+  {
+    "person_id": 811302,
+    "player_name": "Phoenix Call",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 448,
+    "draft_round": 15
+  },
+  {
+    "person_id": 814144,
+    "player_name": "Donovan LaSalle",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 559,
+    "draft_round": 19
+  },
+  {
+    "person_id": 670213,
+    "player_name": "Tyler Gordon",
+    "player_type": "hitter",
+    "draft_year": 2016,
+    "draft_pick": 1136,
+    "draft_round": 38
+  },
+  {
+    "person_id": 701330,
+    "player_name": "Brody Donay",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 507,
+    "draft_round": 17
+  },
+  {
+    "person_id": 828714,
+    "player_name": "Daniel Jackson",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 37,
+    "draft_round": 0
+  },
+  {
+    "person_id": 814145,
+    "player_name": "Trevor Hansen",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 259,
+    "draft_round": 9
+  },
+  {
+    "person_id": 835651,
+    "player_name": "Tanner Marsh",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 261,
+    "draft_round": 9
+  },
+  {
+    "person_id": 820842,
+    "player_name": "Bryce Chance",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 312,
+    "draft_round": 10
+  },
+  {
+    "person_id": 696273,
+    "player_name": "Lorenzo Carrier",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 404,
+    "draft_round": 14
+  },
+  {
+    "person_id": 695533,
+    "player_name": "Ty Evans",
+    "player_type": "hitter",
+    "draft_year": 2021,
+    "draft_pick": 607,
+    "draft_round": 20
+  },
+  {
+    "person_id": 827522,
+    "player_name": "Colby Turner",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 347,
+    "draft_round": 12
+  },
+  {
+    "person_id": 703602,
+    "player_name": "Jalin Flores",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 330,
+    "draft_round": 11
+  },
+  {
+    "person_id": 823772,
+    "player_name": "Ben Zeigler-Namoa",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 292,
+    "draft_round": 10
+  },
+  {
+    "person_id": 623178,
+    "player_name": "Matt Gonzalez",
+    "player_type": "hitter",
+    "draft_year": 2016,
+    "draft_pick": 169,
+    "draft_round": 6
+  },
+  {
+    "person_id": 825565,
+    "player_name": "Bub Terrell",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 577,
+    "draft_round": 19
+  },
+  {
+    "person_id": 814761,
+    "player_name": "Gabe Camacho",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 534,
+    "draft_round": 18
+  },
+  {
+    "person_id": 701366,
+    "player_name": "Austin Fawley",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 562,
+    "draft_round": 19
+  },
+  {
+    "person_id": 676740,
+    "player_name": "Jared Johnson",
+    "player_type": "hitter",
+    "draft_year": 2017,
+    "draft_pick": 523,
+    "draft_round": 17
+  },
+  {
+    "person_id": 703455,
+    "player_name": "Skylar King",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 448,
+    "draft_round": 15
+  },
+  {
+    "person_id": 812185,
+    "player_name": "Clay Burdette",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 195,
+    "draft_round": 7
+  },
+  {
+    "person_id": 702582,
+    "player_name": "Dallas Macias",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 457,
+    "draft_round": 15
+  },
+  {
+    "person_id": 702272,
+    "player_name": "Brady Neal",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 242,
+    "draft_round": 8
+  },
+  {
+    "person_id": 835868,
+    "player_name": "Caleb Johnson",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 403,
+    "draft_round": 13
+  },
+  {
+    "person_id": 805632,
+    "player_name": "Evan Dempsey",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 69,
+    "draft_round": 0
+  },
+  {
+    "person_id": 695566,
+    "player_name": "Bear Madliak",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 531,
+    "draft_round": 18
+  },
+  {
+    "person_id": 681819,
+    "player_name": "Tyler Smith",
+    "player_type": "hitter",
+    "draft_year": 2018,
+    "draft_pick": 241,
+    "draft_round": 8
+  },
+  {
+    "person_id": 805992,
+    "player_name": "James Smith",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 433,
+    "draft_round": 14
+  },
+  {
+    "person_id": 823658,
+    "player_name": "Daniel Dickinson",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 185,
+    "draft_round": 6
+  },
+  {
+    "person_id": 806275,
+    "player_name": "Jack Goodman",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 399,
+    "draft_round": 13
+  },
+  {
+    "person_id": 833381,
+    "player_name": "Jack Moroknek",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 321,
+    "draft_round": 11
+  },
+  {
+    "person_id": 822384,
+    "player_name": "Jack Spanier",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 386,
+    "draft_round": 13
+  },
+  {
+    "person_id": 804944,
+    "player_name": "Jackson Lovich",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 494,
+    "draft_round": 16
+  },
+  {
+    "person_id": 695649,
+    "player_name": "Will Rogers",
+    "player_type": "hitter",
+    "draft_year": 2021,
+    "draft_pick": 507,
+    "draft_round": 17
+  },
+  {
+    "person_id": 835279,
+    "player_name": "Jake Schaffner",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 20,
+    "draft_round": 1
+  },
+  {
+    "person_id": 842179,
+    "player_name": "Tanner Mally",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 508,
+    "draft_round": 17
+  },
+  {
+    "person_id": 815655,
+    "player_name": "Cooper Malamazian",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 515,
+    "draft_round": 17
+  },
+  {
+    "person_id": 821938,
+    "player_name": "Jackson Hotchkiss",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 554,
+    "draft_round": 18
+  },
+  {
+    "person_id": 828333,
+    "player_name": "John Smith",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 570,
+    "draft_round": 19
+  },
+  {
+    "person_id": 804854,
+    "player_name": "Kameron Douglas",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 609,
+    "draft_round": 20
+  },
+  {
+    "person_id": 668868,
+    "player_name": "Zack Thompson",
+    "player_type": "hitter",
+    "draft_year": 2016,
+    "draft_pick": 330,
+    "draft_round": 11
+  },
+  {
+    "person_id": 669193,
+    "player_name": "Jack Little",
+    "player_type": "hitter",
+    "draft_year": 2019,
+    "draft_pick": 161,
+    "draft_round": 5
+  },
+  {
+    "person_id": 822034,
+    "player_name": "Ryan Tayman",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 270,
+    "draft_round": 9
+  },
+  {
+    "person_id": 695726,
+    "player_name": "Alex Ulloa",
+    "player_type": "hitter",
+    "draft_year": 2021,
+    "draft_pick": 117,
+    "draft_round": 4
+  },
+  {
+    "person_id": 803284,
+    "player_name": "Max Belyeu",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 74,
+    "draft_round": 0
+  },
+  {
+    "person_id": 678190,
+    "player_name": "Raphael Pelletier",
+    "player_type": "hitter",
+    "draft_year": 2019,
+    "draft_pick": 745,
+    "draft_round": 25
+  },
+  {
+    "person_id": 681819,
+    "player_name": "Tyler Smith",
+    "player_type": "hitter",
+    "draft_year": 2018,
+    "draft_pick": 241,
+    "draft_round": 8
+  },
+  {
+    "person_id": 676907,
+    "player_name": "Billy Sullivan",
+    "player_type": "hitter",
+    "draft_year": 2017,
+    "draft_pick": 833,
+    "draft_round": 28
+  },
+  {
+    "person_id": 689583,
+    "player_name": "Adrian Rodriguez",
+    "player_type": "hitter",
+    "draft_year": 2019,
+    "draft_pick": 1165,
+    "draft_round": 39
+  },
+  {
+    "person_id": 702720,
+    "player_name": "RJ Austin",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 93,
+    "draft_round": 3
+  },
+  {
+    "person_id": 809865,
+    "player_name": "Jack Brooks",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 556,
+    "draft_round": 19
+  },
+  {
+    "person_id": 703628,
+    "player_name": "Carter McCulley",
+    "player_type": "hitter",
+    "draft_year": 2022,
+    "draft_pick": 615,
+    "draft_round": 20
+  },
+  {
+    "person_id": 804993,
+    "player_name": "Chase Mora",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 281,
+    "draft_round": 9
+  },
+  {
+    "person_id": 808786,
+    "player_name": "Jake Duer",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 536,
+    "draft_round": 18
+  },
+  {
+    "person_id": 643290,
+    "player_name": "Justin Dunn",
+    "player_type": "hitter",
+    "draft_year": 2016,
+    "draft_pick": 19,
+    "draft_round": 1
+  },
+  {
+    "person_id": 813488,
+    "player_name": "Jayden Lobliner",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 264,
+    "draft_round": 9
+  },
+  {
+    "person_id": 809934,
+    "player_name": "Freddy Rodriguez",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 601,
+    "draft_round": 20
+  },
+  {
+    "person_id": 701373,
+    "player_name": "Isaiah Barkett",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 296,
+    "draft_round": 10
+  },
+  {
+    "person_id": 822496,
+    "player_name": "Bayram Hot",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 308,
+    "draft_round": 10
+  },
+  {
+    "person_id": 694494,
+    "player_name": "Ty Johnson",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 446,
+    "draft_round": 15
+  },
+  {
+    "person_id": 822034,
+    "player_name": "Ryan Tayman",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 270,
+    "draft_round": 9
+  },
+  {
+    "person_id": 809467,
+    "player_name": "Luke Bard",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 583,
+    "draft_round": 19
+  },
+  {
+    "person_id": 701727,
+    "player_name": "Bryce Martin-Grudzielanek",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 607,
+    "draft_round": 20
+  },
+  {
+    "person_id": 695570,
+    "player_name": "Jonathan Vastine",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 580,
+    "draft_round": 19
+  },
+  {
+    "person_id": 816207,
+    "player_name": "Jared Davis",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 500,
+    "draft_round": 17
+  },
+  {
+    "person_id": 682056,
+    "player_name": "Tyler Jones",
+    "player_type": "hitter",
+    "draft_year": 2018,
+    "draft_pick": 777,
+    "draft_round": 26
+  },
+  {
+    "person_id": 669659,
+    "player_name": "Brent Gibbs",
+    "player_type": "hitter",
+    "draft_year": 2016,
+    "draft_pick": 225,
+    "draft_round": 7
+  },
+  {
+    "person_id": 800957,
+    "player_name": "Brendan Jones",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 361,
+    "draft_round": 12
+  },
+  {
+    "person_id": 832042,
+    "player_name": "Javier Gorostola",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 501,
+    "draft_round": 17
+  },
+  {
+    "person_id": 669428,
+    "player_name": "Brady Miller",
+    "player_type": "hitter",
+    "draft_year": 2017,
+    "draft_pick": 705,
+    "draft_round": 23
+  },
+  {
+    "person_id": 811760,
+    "player_name": "Mike Mancini",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 268,
+    "draft_round": 9
+  },
+  {
+    "person_id": 823771,
+    "player_name": "Itsuki Takemoto",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 560,
+    "draft_round": 19
+  },
+  {
+    "person_id": 804569,
+    "player_name": "Tre Phelps",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 258,
+    "draft_round": 9
+  },
+  {
+    "person_id": 702555,
+    "player_name": "Cannon Peebles",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 522,
+    "draft_round": 17
+  },
+  {
+    "person_id": 663700,
+    "player_name": "Andrew Miller",
+    "player_type": "hitter",
+    "draft_year": 2015,
+    "draft_pick": 1023,
+    "draft_round": 34
+  },
+  {
+    "person_id": 822904,
+    "player_name": "Rashawn Galloway",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 481,
+    "draft_round": 16
+  },
+  {
+    "person_id": 834976,
+    "player_name": "Carlos Martinez",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 118,
+    "draft_round": 4
+  },
+  {
+    "person_id": 680967,
+    "player_name": "Connor Smith",
+    "player_type": "hitter",
+    "draft_year": 2018,
+    "draft_pick": 913,
+    "draft_round": 30
+  },
+  {
+    "person_id": 800605,
+    "player_name": "Will Gasparino",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 161,
+    "draft_round": 5
+  },
+  {
+    "person_id": 815515,
+    "player_name": "Coen Niclai",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 454,
+    "draft_round": 15
+  },
+  {
+    "person_id": 815310,
+    "player_name": "Derrick Tarpley Jr",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 526,
+    "draft_round": 18
+  },
+  {
+    "person_id": 810022,
+    "player_name": "Luke Johnson",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 290,
+    "draft_round": 10
+  },
+  {
+    "person_id": 814191,
+    "player_name": "Javar Williams",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 321,
+    "draft_round": 11
+  },
+  {
+    "person_id": 804164,
+    "player_name": "Chris Diaz",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 430,
+    "draft_round": 14
+  },
+  {
+    "person_id": 822035,
+    "player_name": "Matthew Thomas",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 384,
+    "draft_round": 13
+  },
+  {
+    "person_id": 814779,
+    "player_name": "Mac Rose",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 615,
+    "draft_round": 20
+  },
+  {
+    "person_id": 822679,
+    "player_name": "Cort MacDonald",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 554,
+    "draft_round": 19
+  },
+  {
+    "person_id": 686523,
+    "player_name": "Peyton Wilson",
+    "player_type": "hitter",
+    "draft_year": 2021,
+    "draft_pick": 66,
+    "draft_round": 0
+  },
+  {
+    "person_id": 806130,
+    "player_name": "Max Kaufer",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 537,
+    "draft_round": 18
+  },
+  {
+    "person_id": 701217,
+    "player_name": "Jackson Linn",
+    "player_type": "hitter",
+    "draft_year": 2021,
+    "draft_pick": 598,
+    "draft_round": 20
+  },
+  {
+    "person_id": 811690,
+    "player_name": "Jake Mccoy",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 552,
+    "draft_round": 18
+  },
+  {
+    "person_id": 832420,
+    "player_name": "Edian Espinal",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 309,
+    "draft_round": 10
+  },
+  {
+    "person_id": 664137,
+    "player_name": "Jacob Evans",
+    "player_type": "hitter",
+    "draft_year": 2015,
+    "draft_pick": 191,
+    "draft_round": 6
+  },
+  {
+    "person_id": 664243,
+    "player_name": "Michael Pierson",
+    "player_type": "hitter",
+    "draft_year": 2015,
+    "draft_pick": 645,
+    "draft_round": 21
+  },
+  {
+    "person_id": 830964,
+    "player_name": "Cardell Thibodeaux",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 490,
+    "draft_round": 16
+  },
+  {
+    "person_id": 670443,
+    "player_name": "Jack Anderson",
+    "player_type": "hitter",
+    "draft_year": 2016,
+    "draft_pick": 687,
+    "draft_round": 23
+  },
+  {
+    "person_id": 835868,
+    "player_name": "Caleb Johnson",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 403,
+    "draft_round": 13
+  },
+  {
+    "person_id": 702479,
+    "player_name": "Elie Kligman",
+    "player_type": "hitter",
+    "draft_year": 2021,
+    "draft_pick": 593,
+    "draft_round": 20
+  },
+  {
+    "person_id": 688014,
+    "player_name": "Edwin Sanchez",
+    "player_type": "hitter",
+    "draft_year": 2019,
+    "draft_pick": 391,
+    "draft_round": 13
+  },
+  {
+    "person_id": 834966,
+    "player_name": "Dylan Grego",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 400,
+    "draft_round": 13
+  },
+  {
+    "person_id": 688664,
+    "player_name": "Ryan Brown",
+    "player_type": "hitter",
+    "draft_year": 2019,
+    "draft_pick": 795,
+    "draft_round": 26
+  },
+  {
+    "person_id": 815321,
+    "player_name": "Blake Wilson",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 589,
+    "draft_round": 20
+  },
+  {
+    "person_id": 842569,
+    "player_name": "Michael Gibson",
+    "player_type": "hitter",
+    "draft_year": 2026,
+    "draft_pick": 288,
+    "draft_round": 10
+  },
+  {
+    "person_id": 804946,
+    "player_name": "Tyler Howard",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 342,
+    "draft_round": 11
+  },
+  {
+    "person_id": 815102,
+    "player_name": "Ethan Farris",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 530,
+    "draft_round": 18
+  },
+  {
+    "person_id": 808195,
+    "player_name": "Michael Rodriguez",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 540,
+    "draft_round": 18
+  },
+  {
+    "person_id": 827332,
+    "player_name": "Gavin Smith",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 517,
+    "draft_round": 17
+  },
+  {
+    "person_id": 807229,
+    "player_name": "Chase Williams",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 580,
+    "draft_round": 19
+  },
+  {
+    "person_id": 805222,
+    "player_name": "Curtis Hebert",
+    "player_type": "hitter",
+    "draft_year": 2025,
+    "draft_pick": 606,
+    "draft_round": 20
+  },
+  {
+    "person_id": 822463,
+    "player_name": "Nolan Sparks",
+    "player_type": "hitter",
+    "draft_year": 2024,
+    "draft_pick": 381,
+    "draft_round": 13
+  },
+  {
+    "person_id": 814112,
+    "player_name": "Dylan Schlaegel",
+    "player_type": "hitter",
+    "draft_year": 2023,
+    "draft_pick": 508,
+    "draft_round": 17
+  },
+  {
+    "person_id": 669899,
+    "player_name": "Ryan Ward",
+    "player_type": "hitter",
+    "draft_year": 2019,
+    "draft_pick": 251,
+    "draft_round": 8
+  },
+  {
+    "person_id": 804756,
+    "player_name": "Jacob Morrison",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 94,
+    "draft_round": 3
+  },
+  {
+    "person_id": 830339,
+    "player_name": "Luke Pettitte",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 248,
+    "draft_round": 8
+  },
+  {
+    "person_id": 824604,
+    "player_name": "Liam Doyle",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 5,
+    "draft_round": 1
+  },
+  {
+    "person_id": 805906,
+    "player_name": "Gage Wood",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 26,
+    "draft_round": 1
+  },
+  {
+    "person_id": 805619,
+    "player_name": "Cameron Flukey",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 22,
+    "draft_round": 1
+  },
+  {
+    "person_id": 664895,
+    "player_name": "Tyler Davis",
+    "player_type": "pitcher",
+    "draft_year": 2015,
+    "draft_pick": 678,
+    "draft_round": 23
+  },
+  {
+    "person_id": 813533,
+    "player_name": "Michael Lombardi",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 61,
+    "draft_round": 2
+  },
+  {
+    "person_id": 815119,
+    "player_name": "Tanner Franklin",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 72,
+    "draft_round": 0
+  },
+  {
+    "person_id": 814094,
+    "player_name": "Tyler August",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 471,
+    "draft_round": 16
+  },
+  {
+    "person_id": 804817,
+    "player_name": "Kyson Witherspoon",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 15,
+    "draft_round": 1
+  },
+  {
+    "person_id": 803285,
+    "player_name": "Tyler Bremner",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 2,
+    "draft_round": 1
+  },
+  {
+    "person_id": 830336,
+    "player_name": "Mason Peters",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 122,
+    "draft_round": 4
+  },
+  {
+    "person_id": 834243,
+    "player_name": "Sean Episcope",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 155,
+    "draft_round": 5
+  },
+  {
+    "person_id": 814176,
+    "player_name": "Jackson Flora",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 4,
+    "draft_round": 1
+  },
+  {
+    "person_id": 808833,
+    "player_name": "Brady Afthim",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 384,
+    "draft_round": 13
+  },
+  {
+    "person_id": 823990,
+    "player_name": "Zane Taylor",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 141,
+    "draft_round": 5
+  },
+  {
+    "person_id": 823224,
+    "player_name": "Luke Guth",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 577,
+    "draft_round": 19
+  },
+  {
+    "person_id": 823779,
+    "player_name": "Ryan Sprock",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 239,
+    "draft_round": 8
+  },
+  {
+    "person_id": 806328,
+    "player_name": "Aidan Knaak",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 163,
+    "draft_round": 5
+  },
+  {
+    "person_id": 804465,
+    "player_name": "Riley Kelly",
+    "player_type": "pitcher",
+    "draft_year": 2022,
+    "draft_pick": 588,
+    "draft_round": 20
+  },
+  {
+    "person_id": 701336,
+    "player_name": "Davion Hickson",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 165,
+    "draft_round": 5
+  },
+  {
+    "person_id": 838103,
+    "player_name": "Drew Whalen",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 280,
+    "draft_round": 9
+  },
+  {
+    "person_id": 814817,
+    "player_name": "Cole Carlon",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 39,
+    "draft_round": 1
+  },
+  {
+    "person_id": 695518,
+    "player_name": "Pierce Coppola",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 211,
+    "draft_round": 7
+  },
+  {
+    "person_id": 805794,
+    "player_name": "Liam Peterson",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 19,
+    "draft_round": 1
+  },
+  {
+    "person_id": 804530,
+    "player_name": "Joseph Dzierwa",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 58,
+    "draft_round": 2
+  },
+  {
+    "person_id": 826536,
+    "player_name": "Brian Curley",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 92,
+    "draft_round": 3
+  },
+  {
+    "person_id": 822824,
+    "player_name": "Cooper McGrath",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 536,
+    "draft_round": 18
+  },
+  {
+    "person_id": 802486,
+    "player_name": "Julian Tonghini",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 201,
+    "draft_round": 7
+  },
+  {
+    "person_id": 700582,
+    "player_name": "Gabe Craig",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 161,
+    "draft_round": 5
+  },
+  {
+    "person_id": 804905,
+    "player_name": "Evan Siary",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 235,
+    "draft_round": 8
+  },
+  {
+    "person_id": 836074,
+    "player_name": "Riely Hunsaker",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 481,
+    "draft_round": 16
+  },
+  {
+    "person_id": 815164,
+    "player_name": "Carson Wiggins",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 27,
+    "draft_round": 1
+  },
+  {
+    "person_id": 807739,
+    "player_name": "Kade Anderson",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 3,
+    "draft_round": 1
+  },
+  {
+    "person_id": 833416,
+    "player_name": "Ryan Bilka",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 303,
+    "draft_round": 10
+  },
+  {
+    "person_id": 823810,
+    "player_name": "Reed Moring",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 449,
+    "draft_round": 15
+  },
+  {
+    "person_id": 683328,
+    "player_name": "Antoine Jean",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 197,
+    "draft_round": 7
+  },
+  {
+    "person_id": 810830,
+    "player_name": "Jake Knapp",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 241,
+    "draft_round": 8
+  },
+  {
+    "person_id": 815080,
+    "player_name": "Tommy LaPour",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 107,
+    "draft_round": 4
+  },
+  {
+    "person_id": 805706,
+    "player_name": "A.J. Russell",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 52,
+    "draft_round": 2
+  },
+  {
+    "person_id": 806205,
+    "player_name": "Bo Rhudy",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 219,
+    "draft_round": 7
+  },
+  {
+    "person_id": 827621,
+    "player_name": "Clayton Freshcorn",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 564,
+    "draft_round": 19
+  },
+  {
+    "person_id": 806076,
+    "player_name": "Gabe Gaeckle",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 73,
+    "draft_round": 0
+  },
+  {
+    "person_id": 804123,
+    "player_name": "Joey Volini",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 168,
+    "draft_round": 6
+  },
+  {
+    "person_id": 805255,
+    "player_name": "Dominick Reid",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 90,
+    "draft_round": 3
+  },
+  {
+    "person_id": 805730,
+    "player_name": "Blake Gillespie",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 284,
+    "draft_round": 9
+  },
+  {
+    "person_id": 814320,
+    "player_name": "Weston Moss",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 316,
+    "draft_round": 11
+  },
+  {
+    "person_id": 822477,
+    "player_name": "JB Middleton",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 45,
+    "draft_round": 2
+  },
+  {
+    "person_id": 701364,
+    "player_name": "Jamie Arnold",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 11,
+    "draft_round": 1
+  },
+  {
+    "person_id": 821977,
+    "player_name": "Brodie Purcell",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 362,
+    "draft_round": 12
+  },
+  {
+    "person_id": 702568,
+    "player_name": "Mason Morris",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 83,
+    "draft_round": 3
+  },
+  {
+    "person_id": 805261,
+    "player_name": "Cade Obermueller",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 63,
+    "draft_round": 2
+  },
+  {
+    "person_id": 695066,
+    "player_name": "Ben Grable",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 344,
+    "draft_round": 11
+  },
+  {
+    "person_id": 814346,
+    "player_name": "Dylan Watts",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 202,
+    "draft_round": 7
+  },
+  {
+    "person_id": 805279,
+    "player_name": "Jason Reitz",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 119,
+    "draft_round": 4
+  },
+  {
+    "person_id": 838731,
+    "player_name": "Landon Koenig",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 240,
+    "draft_round": 8
+  },
+  {
+    "person_id": 695542,
+    "player_name": "Samuel Dutton",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 290,
+    "draft_round": 10
+  },
+  {
+    "person_id": 703610,
+    "player_name": "Justin Lamkin",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 71,
+    "draft_round": 0
+  },
+  {
+    "person_id": 806201,
+    "player_name": "Cal Randall",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 146,
+    "draft_round": 5
+  },
+  {
+    "person_id": 800624,
+    "player_name": "Ben Jacobs",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 98,
+    "draft_round": 3
+  },
+  {
+    "person_id": 700895,
+    "player_name": "Sawyer Hawks",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 183,
+    "draft_round": 6
+  },
+  {
+    "person_id": 702583,
+    "player_name": "Logan Lunceford",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 375,
+    "draft_round": 12
+  },
+  {
+    "person_id": 702041,
+    "player_name": "Chase Renner",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 378,
+    "draft_round": 13
+  },
+  {
+    "person_id": 807290,
+    "player_name": "Peyton Prescott",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 163,
+    "draft_round": 5
+  },
+  {
+    "person_id": 828043,
+    "player_name": "Hunter Alberini",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 338,
+    "draft_round": 11
+  },
+  {
+    "person_id": 823765,
+    "player_name": "Callan Fang",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 389,
+    "draft_round": 13
+  },
+  {
+    "person_id": 814530,
+    "player_name": "Brett Renfrow",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 74,
+    "draft_round": 0
+  },
+  {
+    "person_id": 814215,
+    "player_name": "Carson Jasa",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 98,
+    "draft_round": 3
+  },
+  {
+    "person_id": 823994,
+    "player_name": "Trace Baker",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 382,
+    "draft_round": 13
+  },
+  {
+    "person_id": 821973,
+    "player_name": "Mason Edwards",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 47,
+    "draft_round": 2
+  },
+  {
+    "person_id": 834989,
+    "player_name": "Kaden Echeman",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 360,
+    "draft_round": 12
+  },
+  {
+    "person_id": 702696,
+    "player_name": "Xavier Cardenas III",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 498,
+    "draft_round": 17
+  },
+  {
+    "person_id": 805942,
+    "player_name": "Zach Royse",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 217,
+    "draft_round": 7
+  },
+  {
+    "person_id": 832044,
+    "player_name": "Justin Henschel",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 204,
+    "draft_round": 7
+  },
+  {
+    "person_id": 822298,
+    "player_name": "Logan Reddemann",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 38,
+    "draft_round": 2
+  },
+  {
+    "person_id": 806067,
+    "player_name": "James Ellwanger",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 555,
+    "draft_round": 19
+  },
+  {
+    "person_id": 702257,
+    "player_name": "Christian Foutch",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 148,
+    "draft_round": 5
+  },
+  {
+    "person_id": 822648,
+    "player_name": "Owen Kramkowski",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 145,
+    "draft_round": 5
+  },
+  {
+    "person_id": 811317,
+    "player_name": "Ryan Marohn",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 608,
+    "draft_round": 20
+  },
+  {
+    "person_id": 701361,
+    "player_name": "Jake Clemente",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 198,
+    "draft_round": 7
+  },
+  {
+    "person_id": 812431,
+    "player_name": "Rory Fox",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 194,
+    "draft_round": 6
+  },
+  {
+    "person_id": 811167,
+    "player_name": "Landen Payne",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 526,
+    "draft_round": 18
+  },
+  {
+    "person_id": 831912,
+    "player_name": "Truman Pauley",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 373,
+    "draft_round": 12
+  },
+  {
+    "person_id": 814101,
+    "player_name": "Robert Orloski",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 598,
+    "draft_round": 20
+  },
+  {
+    "person_id": 823162,
+    "player_name": "Ruger Riojas",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 100,
+    "draft_round": 3
+  },
+  {
+    "person_id": 830894,
+    "player_name": "Carson Laws",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 408,
+    "draft_round": 14
+  },
+  {
+    "person_id": 805312,
+    "player_name": "Brandon Arvidson",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 367,
+    "draft_round": 12
+  },
+  {
+    "person_id": 702505,
+    "player_name": "J.D. Thompson",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 59,
+    "draft_round": 2
+  },
+  {
+    "person_id": 805220,
+    "player_name": "Lucas Kelly",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 182,
+    "draft_round": 6
+  },
+  {
+    "person_id": 814488,
+    "player_name": "Eric Segura",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 105,
+    "draft_round": 4
+  },
+  {
+    "person_id": 825275,
+    "player_name": "Ethan Norby",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 122,
+    "draft_round": 4
+  },
+  {
+    "person_id": 815566,
+    "player_name": "Noah Wech",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 575,
+    "draft_round": 19
+  },
+  {
+    "person_id": 823781,
+    "player_name": "Sean Youngerman",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 131,
+    "draft_round": 4
+  },
+  {
+    "person_id": 822163,
+    "player_name": "Kellan Oakes",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 276,
+    "draft_round": 9
+  },
+  {
+    "person_id": 809685,
+    "player_name": "Aiven Cabral",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 547,
+    "draft_round": 18
+  },
+  {
+    "person_id": 811275,
+    "player_name": "Joel Sarver",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 513,
+    "draft_round": 17
+  },
+  {
+    "person_id": 806060,
+    "player_name": "Luke Dotson",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 333,
+    "draft_round": 11
+  },
+  {
+    "person_id": 809254,
+    "player_name": "Anthony Eyanson",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 87,
+    "draft_round": 3
+  },
+  {
+    "person_id": 805031,
+    "player_name": "Gabe Davis",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 137,
+    "draft_round": 5
+  },
+  {
+    "person_id": 828420,
+    "player_name": "Luke Kovach",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 562,
+    "draft_round": 19
+  },
+  {
+    "person_id": 830986,
+    "player_name": "Justin Byrd",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 170,
+    "draft_round": 6
+  },
+  {
+    "person_id": 821580,
+    "player_name": "Ashton Pocol",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 487,
+    "draft_round": 16
+  },
+  {
+    "person_id": 695560,
+    "player_name": "Pico Kohn",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 134,
+    "draft_round": 4
+  },
+  {
+    "person_id": 827359,
+    "player_name": "Ryan Lynch",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 97,
+    "draft_round": 3
+  },
+  {
+    "person_id": 669257,
+    "player_name": "Will Smith",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 32,
+    "draft_round": 1
+  },
+  {
+    "person_id": 831273,
+    "player_name": "Ethan Young",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 150,
+    "draft_round": 5
+  },
+  {
+    "person_id": 822043,
+    "player_name": "Dylan Crooks",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 437,
+    "draft_round": 15
+  },
+  {
+    "person_id": 804295,
+    "player_name": "Trey Beard",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 147,
+    "draft_round": 5
+  },
+  {
+    "person_id": 834978,
+    "player_name": "Danny Thompson",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 232,
+    "draft_round": 8
+  },
+  {
+    "person_id": 801358,
+    "player_name": "Jared Spencer",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 322,
+    "draft_round": 11
+  },
+  {
+    "person_id": 805788,
+    "player_name": "Aidan Keenan",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 210,
+    "draft_round": 7
+  },
+  {
+    "person_id": 823790,
+    "player_name": "Will McCausland",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 222,
+    "draft_round": 7
+  },
+  {
+    "person_id": 832225,
+    "player_name": "Alex Breckheimer",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 480,
+    "draft_round": 16
+  },
+  {
+    "person_id": 827359,
+    "player_name": "Ryan Lynch",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 97,
+    "draft_round": 3
+  },
+  {
+    "person_id": 804467,
+    "player_name": "Patrick Forbes",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 29,
+    "draft_round": 0
+  },
+  {
+    "person_id": 837597,
+    "player_name": "Albert Roblez",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 485,
+    "draft_round": 16
+  },
+  {
+    "person_id": 804863,
+    "player_name": "Wyatt Danilowicz",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 249,
+    "draft_round": 8
+  },
+  {
+    "person_id": 810836,
+    "player_name": "Andrew Shaffner",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 444,
+    "draft_round": 15
+  },
+  {
+    "person_id": 814742,
+    "player_name": "Max Bayles",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 197,
+    "draft_round": 7
+  },
+  {
+    "person_id": 814706,
+    "player_name": "Thomas Burns",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 227,
+    "draft_round": 8
+  },
+  {
+    "person_id": 642228,
+    "player_name": "Andrew Wright",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 618,
+    "draft_round": 21
+  },
+  {
+    "person_id": 806168,
+    "player_name": "Bryson Moore",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 198,
+    "draft_round": 7
+  },
+  {
+    "person_id": 801393,
+    "player_name": "Luke Harrison",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 234,
+    "draft_round": 8
+  },
+  {
+    "person_id": 835218,
+    "player_name": "Ryan Oshinskie",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 192,
+    "draft_round": 6
+  },
+  {
+    "person_id": 822021,
+    "player_name": "Oliver De La Torre",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 462,
+    "draft_round": 15
+  },
+  {
+    "person_id": 830769,
+    "player_name": "Nick Potter",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 156,
+    "draft_round": 5
+  },
+  {
+    "person_id": 692117,
+    "player_name": "Micah Bucknam",
+    "player_type": "pitcher",
+    "draft_year": 2021,
+    "draft_pick": 482,
+    "draft_round": 16
+  },
+  {
+    "person_id": 683087,
+    "player_name": "Joe Charles",
+    "player_type": "pitcher",
+    "draft_year": 2019,
+    "draft_pick": 748,
+    "draft_round": 25
+  },
+  {
+    "person_id": 803544,
+    "player_name": "Wes Mendes",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 57,
+    "draft_round": 2
+  },
+  {
+    "person_id": 703657,
+    "player_name": "Bryson Dudley",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 218,
+    "draft_round": 7
+  },
+  {
+    "person_id": 811311,
+    "player_name": "Jason DeCaro",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 80,
+    "draft_round": 3
+  },
+  {
+    "person_id": 814157,
+    "player_name": "Laif Palmer",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 591,
+    "draft_round": 20
+  },
+  {
+    "person_id": 826543,
+    "player_name": "Ethan Kleinschmit",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 52,
+    "draft_round": 2
+  },
+  {
+    "person_id": 702976,
+    "player_name": "Griffin Hugus",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 91,
+    "draft_round": 3
+  },
+  {
+    "person_id": 695545,
+    "player_name": "Hunter Elliott",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 610,
+    "draft_round": 20
+  },
+  {
+    "person_id": 823694,
+    "player_name": "Ryan Osinski",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 524,
+    "draft_round": 17
+  },
+  {
+    "person_id": 835481,
+    "player_name": "Dylan Mathiesen",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 383,
+    "draft_round": 13
+  },
+  {
+    "person_id": 801921,
+    "player_name": "Carter Lovasz",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 247,
+    "draft_round": 8
+  },
+  {
+    "person_id": 806163,
+    "player_name": "Chase Meyer",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 277,
+    "draft_round": 9
+  },
+  {
+    "person_id": 806213,
+    "player_name": "Derek Schaefer",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 204,
+    "draft_round": 7
+  },
+  {
+    "person_id": 814341,
+    "player_name": "Cody New",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 343,
+    "draft_round": 11
+  },
+  {
+    "person_id": 804571,
+    "player_name": "Dominic Fritton",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 117,
+    "draft_round": 4
+  },
+  {
+    "person_id": 696276,
+    "player_name": "Jay Woolfolk",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 367,
+    "draft_round": 12
+  },
+  {
+    "person_id": 802412,
+    "player_name": "Malachi Witherspoon",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 62,
+    "draft_round": 2
+  },
+  {
+    "person_id": 804852,
+    "player_name": "Grayson Grinsell",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 189,
+    "draft_round": 6
+  },
+  {
+    "person_id": 833080,
+    "player_name": "Ethan Walker",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 358,
+    "draft_round": 12
+  },
+  {
+    "person_id": 824606,
+    "player_name": "Connor Spencer",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 466,
+    "draft_round": 16
+  },
+  {
+    "person_id": 814099,
+    "player_name": "Alex Overbay",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 228,
+    "draft_round": 8
+  },
+  {
+    "person_id": 805149,
+    "player_name": "Cody Delvecchio",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 356,
+    "draft_round": 12
+  },
+  {
+    "person_id": 824414,
+    "player_name": "Dylan Volantis",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 586,
+    "draft_round": 20
+  },
+  {
+    "person_id": 809126,
+    "player_name": "Cole Gilley",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 311,
+    "draft_round": 10
+  },
+  {
+    "person_id": 702274,
+    "player_name": "Chase Shores",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 47,
+    "draft_round": 2
+  },
+  {
+    "person_id": 842569,
+    "player_name": "Michael Gibson",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 288,
+    "draft_round": 10
+  },
+  {
+    "person_id": 701839,
+    "player_name": "Jay Dill",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 530,
+    "draft_round": 18
+  },
+  {
+    "person_id": 804164,
+    "player_name": "Chris Diaz",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 430,
+    "draft_round": 14
+  },
+  {
+    "person_id": 831149,
+    "player_name": "Jordan Gottesman",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 176,
+    "draft_round": 6
+  },
+  {
+    "person_id": 810896,
+    "player_name": "Owen Proksch",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 265,
+    "draft_round": 9
+  },
+  {
+    "person_id": 811106,
+    "player_name": "Andrew Sentlinger",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 586,
+    "draft_round": 20
+  },
+  {
+    "person_id": 811573,
+    "player_name": "Myles Patton",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 208,
+    "draft_round": 7
+  },
+  {
+    "person_id": 691007,
+    "player_name": "Jackson Phipps",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 470,
+    "draft_round": 16
+  },
+  {
+    "person_id": 703467,
+    "player_name": "Matthew Matthijs",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 520,
+    "draft_round": 17
+  },
+  {
+    "person_id": 807252,
+    "player_name": "Ariston Veasey",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 337,
+    "draft_round": 11
+  },
+  {
+    "person_id": 806193,
+    "player_name": "Alex Philpott",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 473,
+    "draft_round": 16
+  },
+  {
+    "person_id": 805222,
+    "player_name": "Curtis Hebert",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 606,
+    "draft_round": 20
+  },
+  {
+    "person_id": 804525,
+    "player_name": "Aiden Jimenez",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 158,
+    "draft_round": 5
+  },
+  {
+    "person_id": 834393,
+    "player_name": "Caleb Leys",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 129,
+    "draft_round": 4
+  },
+  {
+    "person_id": 641786,
+    "player_name": "Kyle Lewis",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 11,
+    "draft_round": 1
+  },
+  {
+    "person_id": 813409,
+    "player_name": "Joe Ariola",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 213,
+    "draft_round": 7
+  },
+  {
+    "person_id": 804981,
+    "player_name": "Riley Quick",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 36,
+    "draft_round": 0
+  },
+  {
+    "person_id": 824609,
+    "player_name": "Ryne Rodriguez",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 433,
+    "draft_round": 14
+  },
+  {
+    "person_id": 805790,
+    "player_name": "Cody Bowker",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 100,
+    "draft_round": 3
+  },
+  {
+    "person_id": 815158,
+    "player_name": "Tegan Kuhns",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 32,
+    "draft_round": 0
+  },
+  {
+    "person_id": 701693,
+    "player_name": "Tanner Sagouspe",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 254,
+    "draft_round": 9
+  },
+  {
+    "person_id": 834673,
+    "player_name": "Jake Brink",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 324,
+    "draft_round": 11
+  },
+  {
+    "person_id": 802671,
+    "player_name": "Tyler Kapa",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 415,
+    "draft_round": 14
+  },
+  {
+    "person_id": 803289,
+    "player_name": "Collin McKinney",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 260,
+    "draft_round": 9
+  },
+  {
+    "person_id": 810890,
+    "player_name": "James Tallon",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 191,
+    "draft_round": 6
+  },
+  {
+    "person_id": 842454,
+    "player_name": "Calvin Proskey",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 332,
+    "draft_round": 11
+  },
+  {
+    "person_id": 702689,
+    "player_name": "Parker Coil",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 485,
+    "draft_round": 16
+  },
+  {
+    "person_id": 805632,
+    "player_name": "Evan Dempsey",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 69,
+    "draft_round": 0
+  },
+  {
+    "person_id": 842524,
+    "player_name": "Dylan Marionneaux",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 126,
+    "draft_round": 4
+  },
+  {
+    "person_id": 840033,
+    "player_name": "Eric Nachtsheim",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 179,
+    "draft_round": 6
+  },
+  {
+    "person_id": 815071,
+    "player_name": "Marcus Phillips",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 33,
+    "draft_round": 0
+  },
+  {
+    "person_id": 824667,
+    "player_name": "Owen Puk",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 531,
+    "draft_round": 18
+  },
+  {
+    "person_id": 824506,
+    "player_name": "Maison Martinez",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 474,
+    "draft_round": 16
+  },
+  {
+    "person_id": 807555,
+    "player_name": "Liam Best",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 570,
+    "draft_round": 19
+  },
+  {
+    "person_id": 815063,
+    "player_name": "Aidan Haugh",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 488,
+    "draft_round": 16
+  },
+  {
+    "person_id": 703667,
+    "player_name": "Luke Mcneillie",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 152,
+    "draft_round": 5
+  },
+  {
+    "person_id": 809093,
+    "player_name": "Aidan Cremarosa",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 237,
+    "draft_round": 8
+  },
+  {
+    "person_id": 835339,
+    "player_name": "Carter Rasmussen",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 418,
+    "draft_round": 14
+  },
+  {
+    "person_id": 828522,
+    "player_name": "Taylor Penn",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 594,
+    "draft_round": 20
+  },
+  {
+    "person_id": 815339,
+    "player_name": "Nathan Aceves",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 351,
+    "draft_round": 12
+  },
+  {
+    "person_id": 822795,
+    "player_name": "Colton Book",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 271,
+    "draft_round": 9
+  },
+  {
+    "person_id": 825101,
+    "player_name": "Anthony Watts",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 420,
+    "draft_round": 14
+  },
+  {
+    "person_id": 823182,
+    "player_name": "Braylon Owens",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 305,
+    "draft_round": 10
+  },
+  {
+    "person_id": 822956,
+    "player_name": "Jack Martinez",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 243,
+    "draft_round": 8
+  },
+  {
+    "person_id": 830729,
+    "player_name": "Connor Fennell",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 585,
+    "draft_round": 20
+  },
+  {
+    "person_id": 831560,
+    "player_name": "Easton Marks",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 557,
+    "draft_round": 19
+  },
+  {
+    "person_id": 806481,
+    "player_name": "Jack Radel",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 28,
+    "draft_round": 0
+  },
+  {
+    "person_id": 701409,
+    "player_name": "Corey Braun",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 230,
+    "draft_round": 8
+  },
+  {
+    "person_id": 830380,
+    "player_name": "Cody Airington",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 597,
+    "draft_round": 20
+  },
+  {
+    "person_id": 804940,
+    "player_name": "Nelson Keljo",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 192,
+    "draft_round": 6
+  },
+  {
+    "person_id": 702560,
+    "player_name": "Jack O'Connor",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 255,
+    "draft_round": 8
+  },
+  {
+    "person_id": 805424,
+    "player_name": "Brady Jones",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 357,
+    "draft_round": 12
+  },
+  {
+    "person_id": 826935,
+    "player_name": "Jacob Hartlaub",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 417,
+    "draft_round": 14
+  },
+  {
+    "person_id": 828674,
+    "player_name": "Max Hansmann",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 226,
+    "draft_round": 8
+  },
+  {
+    "person_id": 823808,
+    "player_name": "Jacob Mayers",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 268,
+    "draft_round": 9
+  },
+  {
+    "person_id": 702642,
+    "player_name": "Patrick Galle",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 508,
+    "draft_round": 17
+  },
+  {
+    "person_id": 822526,
+    "player_name": "Camden Wimbish",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 523,
+    "draft_round": 17
+  },
+  {
+    "person_id": 830361,
+    "player_name": "Tazwell Butler",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 301,
+    "draft_round": 10
+  },
+  {
+    "person_id": 830242,
+    "player_name": "Michael Hilker",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 599,
+    "draft_round": 20
+  },
+  {
+    "person_id": 835024,
+    "player_name": "Connor Knox",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 541,
+    "draft_round": 18
+  },
+  {
+    "person_id": 822461,
+    "player_name": "Shane Van Dam",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 278,
+    "draft_round": 9
+  },
+  {
+    "person_id": 830184,
+    "player_name": "Ryan Hetzler",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 199,
+    "draft_round": 7
+  },
+  {
+    "person_id": 831024,
+    "player_name": "Carson Lane",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 423,
+    "draft_round": 14
+  },
+  {
+    "person_id": 813555,
+    "player_name": "Mathieu Curtis",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 427,
+    "draft_round": 14
+  },
+  {
+    "person_id": 702523,
+    "player_name": "Matt Scott",
+    "player_type": "pitcher",
+    "draft_year": 2022,
+    "draft_pick": 589,
+    "draft_round": 20
+  },
+  {
+    "person_id": 830130,
+    "player_name": "Ryan Piech",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 200,
+    "draft_round": 7
+  },
+  {
+    "person_id": 815088,
+    "player_name": "Jacob Frost",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 315,
+    "draft_round": 10
+  },
+  {
+    "person_id": 822488,
+    "player_name": "Griffin Kirn",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 410,
+    "draft_round": 14
+  },
+  {
+    "person_id": 807749,
+    "player_name": "Gavyn Jones",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 546,
+    "draft_round": 18
+  },
+  {
+    "person_id": 814195,
+    "player_name": "Connor Mattison",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 467,
+    "draft_round": 16
+  },
+  {
+    "person_id": 827521,
+    "player_name": "Justin Mitrovich",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 269,
+    "draft_round": 9
+  },
+  {
+    "person_id": 807254,
+    "player_name": "Cade Townsend",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 23,
+    "draft_round": 1
+  },
+  {
+    "person_id": 822317,
+    "player_name": "Max Martin",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 308,
+    "draft_round": 10
+  },
+  {
+    "person_id": 811172,
+    "player_name": "Conner Ware",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 463,
+    "draft_round": 15
+  },
+  {
+    "person_id": 822793,
+    "player_name": "JT Raab",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 257,
+    "draft_round": 9
+  },
+  {
+    "person_id": 823764,
+    "player_name": "Colton Shaw",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 212,
+    "draft_round": 7
+  },
+  {
+    "person_id": 824614,
+    "player_name": "Hudson Calhoun",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 117,
+    "draft_round": 4
+  },
+  {
+    "person_id": 695572,
+    "player_name": "Will Koger III",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 280,
+    "draft_round": 9
+  },
+  {
+    "person_id": 808428,
+    "player_name": "Ethan Lay",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 168,
+    "draft_round": 6
+  },
+  {
+    "person_id": 828823,
+    "player_name": "Zac Cowan",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 573,
+    "draft_round": 19
+  },
+  {
+    "person_id": 841026,
+    "player_name": "Jacob Haley",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 324,
+    "draft_round": 11
+  },
+  {
+    "person_id": 827265,
+    "player_name": "Cade Crossland",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 120,
+    "draft_round": 4
+  },
+  {
+    "person_id": 801574,
+    "player_name": "Matthew Dalquist",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 539,
+    "draft_round": 18
+  },
+  {
+    "person_id": 701455,
+    "player_name": "David Rossow",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 201,
+    "draft_round": 7
+  },
+  {
+    "person_id": 822843,
+    "player_name": "Brett Lanman",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 185,
+    "draft_round": 6
+  },
+  {
+    "person_id": 806272,
+    "player_name": "Zane Petty",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 552,
+    "draft_round": 18
+  },
+  {
+    "person_id": 814778,
+    "player_name": "Colter McAnelly",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 527,
+    "draft_round": 18
+  },
+  {
+    "person_id": 823226,
+    "player_name": "Zach Harris",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 317,
+    "draft_round": 11
+  },
+  {
+    "person_id": 835221,
+    "player_name": "Cole Tryba",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 217,
+    "draft_round": 7
+  },
+  {
+    "person_id": 805971,
+    "player_name": "Evan Chrest",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 462,
+    "draft_round": 15
+  },
+  {
+    "person_id": 702671,
+    "player_name": "Alton Davis",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 319,
+    "draft_round": 11
+  },
+  {
+    "person_id": 695704,
+    "player_name": "Karson Ligon",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 262,
+    "draft_round": 9
+  },
+  {
+    "person_id": 830161,
+    "player_name": "Landon Waters",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 522,
+    "draft_round": 17
+  },
+  {
+    "person_id": 823181,
+    "player_name": "Connor Kelley",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 432,
+    "draft_round": 14
+  },
+  {
+    "person_id": 804989,
+    "player_name": "Gavin Van Kempen",
+    "player_type": "pitcher",
+    "draft_year": 2022,
+    "draft_pick": 607,
+    "draft_round": 20
+  },
+  {
+    "person_id": 804860,
+    "player_name": "Landon Beidelschies",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 187,
+    "draft_round": 6
+  },
+  {
+    "person_id": 695584,
+    "player_name": "Brayden Jones",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 537,
+    "draft_round": 18
+  },
+  {
+    "person_id": 823756,
+    "player_name": "Ryan DeSanto",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 372,
+    "draft_round": 12
+  },
+  {
+    "person_id": 814006,
+    "player_name": "Cole Stokes",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 353,
+    "draft_round": 12
+  },
+  {
+    "person_id": 803286,
+    "player_name": "Ben Bybee",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 236,
+    "draft_round": 8
+  },
+  {
+    "person_id": 823987,
+    "player_name": "Connor Marshburn",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 370,
+    "draft_round": 12
+  },
+  {
+    "person_id": 834863,
+    "player_name": "Brennan Stuprich",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 434,
+    "draft_round": 14
+  },
+  {
+    "person_id": 823983,
+    "player_name": "Cooper Allen",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 167,
+    "draft_round": 6
+  },
+  {
+    "person_id": 815132,
+    "player_name": "Gavin Perry",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 341,
+    "draft_round": 11
+  },
+  {
+    "person_id": 830153,
+    "player_name": "Luke Broderick",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 407,
+    "draft_round": 14
+  },
+  {
+    "person_id": 703667,
+    "player_name": "Luke McNeillie",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 152,
+    "draft_round": 5
+  },
+  {
+    "person_id": 804985,
+    "player_name": "Jack Anker",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 173,
+    "draft_round": 6
+  },
+  {
+    "person_id": 829591,
+    "player_name": "Wyatt Queen",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 340,
+    "draft_round": 11
+  },
+  {
+    "person_id": 701411,
+    "player_name": "Jack Cebert",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 464,
+    "draft_round": 15
+  },
+  {
+    "person_id": 805214,
+    "player_name": "Isaac Lyon",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 302,
+    "draft_round": 10
+  },
+  {
+    "person_id": 823230,
+    "player_name": "Tyler McLoughlin",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 313,
+    "draft_round": 10
+  },
+  {
+    "person_id": 806121,
+    "player_name": "Mac Heuer",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 254,
+    "draft_round": 8
+  },
+  {
+    "person_id": 702562,
+    "player_name": "Jaden Noot",
+    "player_type": "pitcher",
+    "draft_year": 2022,
+    "draft_pick": 582,
+    "draft_round": 19
+  },
+  {
+    "person_id": 828321,
+    "player_name": "Santiago Garcia",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 372,
+    "draft_round": 12
+  },
+  {
+    "person_id": 833439,
+    "player_name": "Peyton Fosher",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 558,
+    "draft_round": 19
+  },
+  {
+    "person_id": 804679,
+    "player_name": "Kole Klecker",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 287,
+    "draft_round": 10
+  },
+  {
+    "person_id": 800961,
+    "player_name": "Collin Rothermel",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 483,
+    "draft_round": 16
+  },
+  {
+    "person_id": 702969,
+    "player_name": "LJ Mercurius",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 148,
+    "draft_round": 5
+  },
+  {
+    "person_id": 702612,
+    "player_name": "Levi Huesman",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 471,
+    "draft_round": 16
+  },
+  {
+    "person_id": 809784,
+    "player_name": "Garrett Stratton",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 613,
+    "draft_round": 20
+  },
+  {
+    "person_id": 814340,
+    "player_name": "Raul Garayzar",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 543,
+    "draft_round": 18
+  },
+  {
+    "person_id": 806217,
+    "player_name": "Cole Selvig",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 176,
+    "draft_round": 6
+  },
+  {
+    "person_id": 803287,
+    "player_name": "Leighton Finley",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 178,
+    "draft_round": 6
+  },
+  {
+    "person_id": 834961,
+    "player_name": "Dusty Revis",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 332,
+    "draft_round": 11
+  },
+  {
+    "person_id": 702696,
+    "player_name": "Xavier Cardenas III",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 498,
+    "draft_round": 17
+  },
+  {
+    "person_id": 835217,
+    "player_name": "Steele Murdock",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 139,
+    "draft_round": 5
+  },
+  {
+    "person_id": 842296,
+    "player_name": "Michael Harpster",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 218,
+    "draft_round": 7
+  },
+  {
+    "person_id": 809059,
+    "player_name": "Danny Macchiarola",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 242,
+    "draft_round": 8
+  },
+  {
+    "person_id": 824763,
+    "player_name": "Colin Daniel",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 337,
+    "draft_round": 11
+  },
+  {
+    "person_id": 670369,
+    "player_name": "Christian Torres",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 909,
+    "draft_round": 30
+  },
+  {
+    "person_id": 823803,
+    "player_name": "Davis Chastain",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 435,
+    "draft_round": 14
+  },
+  {
+    "person_id": 806143,
+    "player_name": "Wil Libbert",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 144,
+    "draft_round": 5
+  },
+  {
+    "person_id": 702962,
+    "player_name": "Alex Kranzler",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 514,
+    "draft_round": 17
+  },
+  {
+    "person_id": 822702,
+    "player_name": "Isaac Yeager",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 405,
+    "draft_round": 14
+  },
+  {
+    "person_id": 702649,
+    "player_name": "Logan Forsythe",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 397,
+    "draft_round": 13
+  },
+  {
+    "person_id": 832562,
+    "player_name": "Dylan Brown",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 238,
+    "draft_round": 8
+  },
+  {
+    "person_id": 806066,
+    "player_name": "Gavin Eddy",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 153,
+    "draft_round": 5
+  },
+  {
+    "person_id": 679057,
+    "player_name": "Mason Green",
+    "player_type": "pitcher",
+    "draft_year": 2021,
+    "draft_pick": 350,
+    "draft_round": 12
+  },
+  {
+    "person_id": 800970,
+    "player_name": "Landry Jurecka",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 550,
+    "draft_round": 18
+  },
+  {
+    "person_id": 839126,
+    "player_name": "Griffin Naess",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 457,
+    "draft_round": 15
+  },
+  {
+    "person_id": 805422,
+    "player_name": "Nate Snead",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 105,
+    "draft_round": 0
+  },
+  {
+    "person_id": 831325,
+    "player_name": "Tyler Schmitt",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 520,
+    "draft_round": 17
+  },
+  {
+    "person_id": 815532,
+    "player_name": "Cole Royer",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 601,
+    "draft_round": 20
+  },
+  {
+    "person_id": 832377,
+    "player_name": "Luke Craytor",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 255,
+    "draft_round": 9
+  },
+  {
+    "person_id": 836071,
+    "player_name": "RJ Shunck",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 468,
+    "draft_round": 16
+  },
+  {
+    "person_id": 804892,
+    "player_name": "Justin West",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 554,
+    "draft_round": 18
+  },
+  {
+    "person_id": 701699,
+    "player_name": "Bryan Arendt",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 380,
+    "draft_round": 13
+  },
+  {
+    "person_id": 696287,
+    "player_name": "Ryan Higgins",
+    "player_type": "pitcher",
+    "draft_year": 2021,
+    "draft_pick": 257,
+    "draft_round": 9
+  },
+  {
+    "person_id": 624514,
+    "player_name": "Ryan Olson",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 378,
+    "draft_round": 13
+  },
+  {
+    "person_id": 805783,
+    "player_name": "Mason Nichols",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 267,
+    "draft_round": 9
+  },
+  {
+    "person_id": 809131,
+    "player_name": "Jacob Pruitt",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 461,
+    "draft_round": 15
+  },
+  {
+    "person_id": 824678,
+    "player_name": "Nick Bonn",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 294,
+    "draft_round": 10
+  },
+  {
+    "person_id": 701368,
+    "player_name": "Kolten Smith",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 359,
+    "draft_round": 12
+  },
+  {
+    "person_id": 822514,
+    "player_name": "Max Banks",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 406,
+    "draft_round": 14
+  },
+  {
+    "person_id": 833415,
+    "player_name": "Noah Edders",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 451,
+    "draft_round": 15
+  },
+  {
+    "person_id": 806139,
+    "player_name": "Justin Lee",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 609,
+    "draft_round": 20
+  },
+  {
+    "person_id": 689435,
+    "player_name": "Gavin Jones",
+    "player_type": "pitcher",
+    "draft_year": 2019,
+    "draft_pick": 824,
+    "draft_round": 27
+  },
+  {
+    "person_id": 827267,
+    "player_name": "Caden Hunter",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 184,
+    "draft_round": 6
+  },
+  {
+    "person_id": 804643,
+    "player_name": "Bryce Archie",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 414,
+    "draft_round": 14
+  },
+  {
+    "person_id": 702711,
+    "player_name": "Evan Blanco",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 381,
+    "draft_round": 13
+  },
+  {
+    "person_id": 814835,
+    "player_name": "Jaden Alba",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 414,
+    "draft_round": 14
+  },
+  {
+    "person_id": 805706,
+    "player_name": "AJ Russell",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 52,
+    "draft_round": 2
+  },
+  {
+    "person_id": 687986,
+    "player_name": "Jorge Romero",
+    "player_type": "pitcher",
+    "draft_year": 2019,
+    "draft_pick": 554,
+    "draft_round": 18
+  },
+  {
+    "person_id": 688664,
+    "player_name": "Ryan Brown",
+    "player_type": "pitcher",
+    "draft_year": 2019,
+    "draft_pick": 795,
+    "draft_round": 26
+  },
+  {
+    "person_id": 811285,
+    "player_name": "Joey Volchko",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 77,
+    "draft_round": 3
+  },
+  {
+    "person_id": 838104,
+    "player_name": "Garrett Brewer",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 344,
+    "draft_round": 12
+  },
+  {
+    "person_id": 807750,
+    "player_name": "Mason Bixby",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 413,
+    "draft_round": 14
+  },
+  {
+    "person_id": 703523,
+    "player_name": "Seth Clausen",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 467,
+    "draft_round": 16
+  },
+  {
+    "person_id": 596111,
+    "player_name": "Jordan Stephens",
+    "player_type": "pitcher",
+    "draft_year": 2015,
+    "draft_pick": 142,
+    "draft_round": 5
+  },
+  {
+    "person_id": 815484,
+    "player_name": "Chris Levonas",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 67,
+    "draft_round": 0
+  },
+  {
+    "person_id": 695649,
+    "player_name": "Will Rogers",
+    "player_type": "pitcher",
+    "draft_year": 2021,
+    "draft_pick": 507,
+    "draft_round": 17
+  },
+  {
+    "person_id": 691010,
+    "player_name": "Christian Rodriguez",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 309,
+    "draft_round": 10
+  },
+  {
+    "person_id": 834722,
+    "player_name": "Holden DeJong",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 334,
+    "draft_round": 11
+  },
+  {
+    "person_id": 670221,
+    "player_name": "Joshua Martinez",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 1170,
+    "draft_round": 39
+  },
+  {
+    "person_id": 805758,
+    "player_name": "Brian Walters",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 573,
+    "draft_round": 19
+  },
+  {
+    "person_id": 822652,
+    "player_name": "Lucas Mahlstedt",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 199,
+    "draft_round": 7
+  },
+  {
+    "person_id": 821903,
+    "player_name": "Garrett Ahern",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 488,
+    "draft_round": 16
+  },
+  {
+    "person_id": 840218,
+    "player_name": "Grant Govel",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 468,
+    "draft_round": 16
+  },
+  {
+    "person_id": 812727,
+    "player_name": "Ross Norman",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 320,
+    "draft_round": 11
+  },
+  {
+    "person_id": 802502,
+    "player_name": "Carson Latimer",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 354,
+    "draft_round": 12
+  },
+  {
+    "person_id": 806456,
+    "player_name": "Alex Solis",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 418,
+    "draft_round": 14
+  },
+  {
+    "person_id": 811669,
+    "player_name": "Andrew Gaines",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 311,
+    "draft_round": 10
+  },
+  {
+    "person_id": 831337,
+    "player_name": "Zach Bates",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 613,
+    "draft_round": 20
+  },
+  {
+    "person_id": 825131,
+    "player_name": "Brady Hamilton",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 412,
+    "draft_round": 14
+  },
+  {
+    "person_id": 695714,
+    "player_name": "Cody Howard",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 376,
+    "draft_round": 13
+  },
+  {
+    "person_id": 824720,
+    "player_name": "Nathan Taylor",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 101,
+    "draft_round": 3
+  },
+  {
+    "person_id": 702528,
+    "player_name": "Aidan Weaver",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 231,
+    "draft_round": 8
+  },
+  {
+    "person_id": 689731,
+    "player_name": "Cole Roberts",
+    "player_type": "pitcher",
+    "draft_year": 2019,
+    "draft_pick": 1133,
+    "draft_round": 38
+  },
+  {
+    "person_id": 701829,
+    "player_name": "Trendan Parish",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 297,
+    "draft_round": 10
+  },
+  {
+    "person_id": 802411,
+    "player_name": "JT Quinn",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 69,
+    "draft_round": 0
+  },
+  {
+    "person_id": 834616,
+    "player_name": "Amp Phillips",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 443,
+    "draft_round": 15
+  },
+  {
+    "person_id": 696492,
+    "player_name": "Ryan Prager",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 81,
+    "draft_round": 3
+  },
+  {
+    "person_id": 805779,
+    "player_name": "Jacob Wilson",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 6,
+    "draft_round": 1
+  },
+  {
+    "person_id": 844046,
+    "player_name": "Ty Brachbill",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 425,
+    "draft_round": 14
+  },
+  {
+    "person_id": 836071,
+    "player_name": "RJ Shunck",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 468,
+    "draft_round": 16
+  },
+  {
+    "person_id": 831540,
+    "player_name": "Ben Davis",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 104,
+    "draft_round": 4
+  },
+  {
+    "person_id": 815068,
+    "player_name": "Dylan Vigue",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 209,
+    "draft_round": 7
+  },
+  {
+    "person_id": 804999,
+    "player_name": "Cameron Keshock",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 353,
+    "draft_round": 12
+  },
+  {
+    "person_id": 701327,
+    "player_name": "Elijah Green",
+    "player_type": "pitcher",
+    "draft_year": 2022,
+    "draft_pick": 5,
+    "draft_round": 1
+  },
+  {
+    "person_id": 824531,
+    "player_name": "Russell Sandefer",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 132,
+    "draft_round": 4
+  },
+  {
+    "person_id": 822705,
+    "player_name": "Jacob Dudan",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 83,
+    "draft_round": 3
+  },
+  {
+    "person_id": 702578,
+    "player_name": "Kyle McCoy",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 234,
+    "draft_round": 8
+  },
+  {
+    "person_id": 805379,
+    "player_name": "Robby Porco",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 405,
+    "draft_round": 13
+  },
+  {
+    "person_id": 703536,
+    "player_name": "Lance Williams",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 247,
+    "draft_round": 8
+  },
+  {
+    "person_id": 822391,
+    "player_name": "Will Whelan",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 387,
+    "draft_round": 13
+  },
+  {
+    "person_id": 694408,
+    "player_name": "Riley Eikhoff",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 256,
+    "draft_round": 9
+  },
+  {
+    "person_id": 806474,
+    "player_name": "Tyner Horn",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 94,
+    "draft_round": 3
+  },
+  {
+    "person_id": 815037,
+    "player_name": "Drew Titsworth",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 339,
+    "draft_round": 11
+  },
+  {
+    "person_id": 821962,
+    "player_name": "James Guyette",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 157,
+    "draft_round": 5
+  },
+  {
+    "person_id": 703502,
+    "player_name": "Aubrey Smith",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 396,
+    "draft_round": 13
+  },
+  {
+    "person_id": 801799,
+    "player_name": "Matthew Becker",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 569,
+    "draft_round": 19
+  },
+  {
+    "person_id": 676800,
+    "player_name": "Nate Harris",
+    "player_type": "pitcher",
+    "draft_year": 2017,
+    "draft_pick": 626,
+    "draft_round": 21
+  },
+  {
+    "person_id": 824687,
+    "player_name": "Adam Troy",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 519,
+    "draft_round": 17
+  },
+  {
+    "person_id": 831099,
+    "player_name": "Caleb Jameson",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 356,
+    "draft_round": 12
+  },
+  {
+    "person_id": 811667,
+    "player_name": "Clay Edmondson",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 430,
+    "draft_round": 14
+  },
+  {
+    "person_id": 806155,
+    "player_name": "Ethan McElvain",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 151,
+    "draft_round": 5
+  },
+  {
+    "person_id": 703683,
+    "player_name": "Luke Jackson",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 327,
+    "draft_round": 11
+  },
+  {
+    "person_id": 664703,
+    "player_name": "Blake Smith",
+    "player_type": "pitcher",
+    "draft_year": 2015,
+    "draft_pick": 734,
+    "draft_round": 24
+  },
+  {
+    "person_id": 834947,
+    "player_name": "Luke Alwood",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 307,
+    "draft_round": 10
+  },
+  {
+    "person_id": 836078,
+    "player_name": "Hayden Cuthbertson",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 528,
+    "draft_round": 18
+  },
+  {
+    "person_id": 670227,
+    "player_name": "Andres Perez",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 1069,
+    "draft_round": 36
+  },
+  {
+    "person_id": 813535,
+    "player_name": "Tayler Montiel",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 363,
+    "draft_round": 12
+  },
+  {
+    "person_id": 802450,
+    "player_name": "Grayson Saunier",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 516,
+    "draft_round": 17
+  },
+  {
+    "person_id": 696488,
+    "player_name": "Caedmon Parker",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 335,
+    "draft_round": 11
+  },
+  {
+    "person_id": 814145,
+    "player_name": "Trevor Hansen",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 259,
+    "draft_round": 9
+  },
+  {
+    "person_id": 827616,
+    "player_name": "Nile Adcock",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 592,
+    "draft_round": 20
+  },
+  {
+    "person_id": 823789,
+    "player_name": "Tyler Fay",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 169,
+    "draft_round": 6
+  },
+  {
+    "person_id": 822622,
+    "player_name": "Diego Gutierrez",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 500,
+    "draft_round": 17
+  },
+  {
+    "person_id": 836072,
+    "player_name": "Garrett Langrell",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 476,
+    "draft_round": 16
+  },
+  {
+    "person_id": 809828,
+    "player_name": "Garrison Sumner",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 598,
+    "draft_round": 20
+  },
+  {
+    "person_id": 823746,
+    "player_name": "Harrison Bodendorf",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 312,
+    "draft_round": 10
+  },
+  {
+    "person_id": 806054,
+    "player_name": "Matthew Dallas",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 346,
+    "draft_round": 12
+  },
+  {
+    "person_id": 699546,
+    "player_name": "Jamie Hitt",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 250,
+    "draft_round": 8
+  },
+  {
+    "person_id": 822395,
+    "player_name": "Carson Cormier",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 492,
+    "draft_round": 16
+  },
+  {
+    "person_id": 800630,
+    "player_name": "Braeden Sloan",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 514,
+    "draft_round": 17
+  },
+  {
+    "person_id": 824044,
+    "player_name": "Kade Brown",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 590,
+    "draft_round": 20
+  },
+  {
+    "person_id": 663998,
+    "player_name": "Chase Ingram",
+    "player_type": "pitcher",
+    "draft_year": 2015,
+    "draft_pick": 179,
+    "draft_round": 6
+  },
+  {
+    "person_id": 822499,
+    "player_name": "Jonathan Gonzalez",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 431,
+    "draft_round": 14
+  },
+  {
+    "person_id": 814113,
+    "player_name": "Dominic Voegele",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 82,
+    "draft_round": 3
+  },
+  {
+    "person_id": 843900,
+    "player_name": "Alec Bouchard",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 407,
+    "draft_round": 14
+  },
+  {
+    "person_id": 811651,
+    "player_name": "Ryder Brooks",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 538,
+    "draft_round": 18
+  },
+  {
+    "person_id": 702615,
+    "player_name": "David Horn",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 563,
+    "draft_round": 19
+  },
+  {
+    "person_id": 702279,
+    "player_name": "Riley Stanford",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 477,
+    "draft_round": 16
+  },
+  {
+    "person_id": 676262,
+    "player_name": "Angelo Smith",
+    "player_type": "pitcher",
+    "draft_year": 2017,
+    "draft_pick": 1197,
+    "draft_round": 40
+  },
+  {
+    "person_id": 814834,
+    "player_name": "Josh McDevitt",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 116,
+    "draft_round": 4
+  },
+  {
+    "person_id": 800626,
+    "player_name": "Mikiah Negrete",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 284,
+    "draft_round": 10
+  },
+  {
+    "person_id": 702614,
+    "player_name": "Matthew Hoskins",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 368,
+    "draft_round": 12
+  },
+  {
+    "person_id": 802610,
+    "player_name": "Caden Aoki",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 207,
+    "draft_round": 7
+  },
+  {
+    "person_id": 695727,
+    "player_name": "Eric Hammond",
+    "player_type": "pitcher",
+    "draft_year": 2021,
+    "draft_pick": 558,
+    "draft_round": 19
+  },
+  {
+    "person_id": 831713,
+    "player_name": "Ryan Peterson",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 71,
+    "draft_round": 0
+  },
+  {
+    "person_id": 807307,
+    "player_name": "Cooper Consiglio",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 279,
+    "draft_round": 9
+  },
+  {
+    "person_id": 813801,
+    "player_name": "John Damozonio",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 502,
+    "draft_round": 17
+  },
+  {
+    "person_id": 805273,
+    "player_name": "Frank Camarillo",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 403,
+    "draft_round": 13
+  },
+  {
+    "person_id": 834581,
+    "player_name": "Blake Morgan",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 567,
+    "draft_round": 19
+  },
+  {
+    "person_id": 805028,
+    "player_name": "Sean Fitzpatrick",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 245,
+    "draft_round": 8
+  },
+  {
+    "person_id": 804986,
+    "player_name": "Andrew Healy",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 275,
+    "draft_round": 9
+  },
+  {
+    "person_id": 824600,
+    "player_name": "Riley Maddox",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 231,
+    "draft_round": 8
+  },
+  {
+    "person_id": 702651,
+    "player_name": "Cade Fisher",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 538,
+    "draft_round": 18
+  },
+  {
+    "person_id": 702672,
+    "player_name": "Lucas Davenport",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 156,
+    "draft_round": 5
+  },
+  {
+    "person_id": 805254,
+    "player_name": "Michael Barnett",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 587,
+    "draft_round": 20
+  },
+  {
+    "person_id": 812372,
+    "player_name": "Daniel Wright",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 286,
+    "draft_round": 10
+  },
+  {
+    "person_id": 806019,
+    "player_name": "Zane Adams",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 171,
+    "draft_round": 6
+  },
+  {
+    "person_id": 814819,
+    "player_name": "Isaac Morton",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 572,
+    "draft_round": 19
+  },
+  {
+    "person_id": 835714,
+    "player_name": "Logan Schmidt",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 59,
+    "draft_round": 2
+  },
+  {
+    "person_id": 664210,
+    "player_name": "Will Jones",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 848,
+    "draft_round": 28
+  },
+  {
+    "person_id": 829678,
+    "player_name": "Mario Pesca",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 273,
+    "draft_round": 9
+  },
+  {
+    "person_id": 833080,
+    "player_name": "Ethan Walker",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 358,
+    "draft_round": 12
+  },
+  {
+    "person_id": 811356,
+    "player_name": "Colin Fisher",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 388,
+    "draft_round": 13
+  },
+  {
+    "person_id": 669110,
+    "player_name": "Austin Jones",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 794,
+    "draft_round": 26
+  },
+  {
+    "person_id": 663717,
+    "player_name": "Dylan King",
+    "player_type": "pitcher",
+    "draft_year": 2015,
+    "draft_pick": 749,
+    "draft_round": 25
+  },
+  {
+    "person_id": 808860,
+    "player_name": "Aaron Savary",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 402,
+    "draft_round": 13
+  },
+  {
+    "person_id": 806156,
+    "player_name": "Tate McKee",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 293,
+    "draft_round": 10
+  },
+  {
+    "person_id": 806479,
+    "player_name": "Tate McGuire",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 409,
+    "draft_round": 14
+  },
+  {
+    "person_id": 833376,
+    "player_name": "Joe Scarborough",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 583,
+    "draft_round": 19
+  },
+  {
+    "person_id": 695384,
+    "player_name": "Cannon Pickell",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 588,
+    "draft_round": 20
+  },
+  {
+    "person_id": 814347,
+    "player_name": "Jett Johnston",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 396,
+    "draft_round": 13
+  },
+  {
+    "person_id": 702259,
+    "player_name": "Hayden Murphy",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 453,
+    "draft_round": 15
+  },
+  {
+    "person_id": 809826,
+    "player_name": "Merit Jones",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 608,
+    "draft_round": 20
+  },
+  {
+    "person_id": 811690,
+    "player_name": "Jake McCoy",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 552,
+    "draft_round": 18
+  },
+  {
+    "person_id": 702678,
+    "player_name": "Zach Crotchfelt",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 420,
+    "draft_round": 14
+  },
+  {
+    "person_id": 692165,
+    "player_name": "Tyrelle Chadwick",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 527,
+    "draft_round": 18
+  },
+  {
+    "person_id": 842475,
+    "player_name": "Brady Thomas",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 421,
+    "draft_round": 14
+  },
+  {
+    "person_id": 824598,
+    "player_name": "Nick Williams",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 286,
+    "draft_round": 10
+  },
+  {
+    "person_id": 804082,
+    "player_name": "Nolan Higgins",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 164,
+    "draft_round": 5
+  },
+  {
+    "person_id": 815533,
+    "player_name": "Mason Russell",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 599,
+    "draft_round": 20
+  },
+  {
+    "person_id": 702973,
+    "player_name": "Kyle Johnson",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 174,
+    "draft_round": 6
+  },
+  {
+    "person_id": 829657,
+    "player_name": "Connor Benge",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 385,
+    "draft_round": 13
+  },
+  {
+    "person_id": 806217,
+    "player_name": "Cole Selvig",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 176,
+    "draft_round": 6
+  },
+  {
+    "person_id": 815040,
+    "player_name": "Taylor Rabe",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 30,
+    "draft_round": 0
+  },
+  {
+    "person_id": 702560,
+    "player_name": "Jack O'Connor",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 255,
+    "draft_round": 8
+  },
+  {
+    "person_id": 828482,
+    "player_name": "Jackson Mitchell",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 565,
+    "draft_round": 19
+  },
+  {
+    "person_id": 844099,
+    "player_name": "Tristan Helmick",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 602,
+    "draft_round": 20
+  },
+  {
+    "person_id": 702658,
+    "player_name": "Rob Evans",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 365,
+    "draft_round": 12
+  },
+  {
+    "person_id": 842477,
+    "player_name": "Dalton Hill",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 389,
+    "draft_round": 13
+  },
+  {
+    "person_id": 813282,
+    "player_name": "Austin Newton",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 287,
+    "draft_round": 10
+  },
+  {
+    "person_id": 823776,
+    "player_name": "Braden Osbolt",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 174,
+    "draft_round": 6
+  },
+  {
+    "person_id": 835214,
+    "player_name": "Charlie Christensen",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 459,
+    "draft_round": 15
+  },
+  {
+    "person_id": 805260,
+    "player_name": "Ethan Hedges",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 77,
+    "draft_round": 3
+  },
+  {
+    "person_id": 670394,
+    "player_name": "Ryan Gold",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 822,
+    "draft_round": 27
+  },
+  {
+    "person_id": 688014,
+    "player_name": "Edwin Sanchez, Jr. ",
+    "player_type": "pitcher",
+    "draft_year": 2019,
+    "draft_pick": 391,
+    "draft_round": 13
+  },
+  {
+    "person_id": 702712,
+    "player_name": "Tucker Biven",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 381,
+    "draft_round": 13
+  },
+  {
+    "person_id": 702073,
+    "player_name": "Ryan Ure",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 568,
+    "draft_round": 19
+  },
+  {
+    "person_id": 801563,
+    "player_name": "Austin Smith",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 292,
+    "draft_round": 10
+  },
+  {
+    "person_id": 832560,
+    "player_name": "Ben Moore",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 351,
+    "draft_round": 12
+  },
+  {
+    "person_id": 690971,
+    "player_name": "Chase Davis",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 21,
+    "draft_round": 1
+  },
+  {
+    "person_id": 809934,
+    "player_name": "Freddy Rodriguez",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 601,
+    "draft_round": 20
+  },
+  {
+    "person_id": 826045,
+    "player_name": "Dane Burns",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 497,
+    "draft_round": 17
+  },
+  {
+    "person_id": 824024,
+    "player_name": "Duncan Marsten",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 183,
+    "draft_round": 6
+  },
+  {
+    "person_id": 835223,
+    "player_name": "Chris Downs",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 575,
+    "draft_round": 19
+  },
+  {
+    "person_id": 823771,
+    "player_name": "Itsuki Takemoto",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 560,
+    "draft_round": 19
+  },
+  {
+    "person_id": 676192,
+    "player_name": "Jack Smith",
+    "player_type": "pitcher",
+    "draft_year": 2017,
+    "draft_pick": 1173,
+    "draft_round": 39
+  },
+  {
+    "person_id": 681916,
+    "player_name": "Dylan Smith",
+    "player_type": "pitcher",
+    "draft_year": 2018,
+    "draft_pick": 531,
+    "draft_round": 18
+  },
+  {
+    "person_id": 806315,
+    "player_name": "Cade Perkins",
+    "player_type": "pitcher",
+    "draft_year": 2022,
+    "draft_pick": 586,
+    "draft_round": 19
+  },
+  {
+    "person_id": 820839,
+    "player_name": "Darin Horn",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 465,
+    "draft_round": 16
+  },
+  {
+    "person_id": 808750,
+    "player_name": "Casey Hintz",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 482,
+    "draft_round": 16
+  },
+  {
+    "person_id": 679239,
+    "player_name": "Ray Hernandez",
+    "player_type": "pitcher",
+    "draft_year": 2018,
+    "draft_pick": 862,
+    "draft_round": 29
+  },
+  {
+    "person_id": 806141,
+    "player_name": "Justin LeGuernic",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 180,
+    "draft_round": 6
+  },
+  {
+    "person_id": 827515,
+    "player_name": "Beau Bryans",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 208,
+    "draft_round": 7
+  },
+  {
+    "person_id": 804854,
+    "player_name": "Kameron Douglas",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 609,
+    "draft_round": 20
+  },
+  {
+    "person_id": 842599,
+    "player_name": "Austin Berggren",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 368,
+    "draft_round": 12
+  },
+  {
+    "person_id": 806040,
+    "player_name": "Porter Buursema",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 475,
+    "draft_round": 16
+  },
+  {
+    "person_id": 842097,
+    "player_name": "Nate Isler",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 300,
+    "draft_round": 10
+  },
+  {
+    "person_id": 802413,
+    "player_name": "Sam Horn",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 525,
+    "draft_round": 17
+  },
+  {
+    "person_id": 838115,
+    "player_name": "Jackson Bergman",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 525,
+    "draft_round": 18
+  },
+  {
+    "person_id": 835061,
+    "player_name": "Josh Swink",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 494,
+    "draft_round": 17
+  },
+  {
+    "person_id": 822360,
+    "player_name": "Blaine Wynk",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 226,
+    "draft_round": 8
+  },
+  {
+    "person_id": 844086,
+    "player_name": "Travis Lutz",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 513,
+    "draft_round": 17
+  },
+  {
+    "person_id": 809085,
+    "player_name": "Michael Addari",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 182,
+    "draft_round": 6
+  },
+  {
+    "person_id": 656589,
+    "player_name": "Jake Johnson",
+    "player_type": "pitcher",
+    "draft_year": 2015,
+    "draft_pick": 475,
+    "draft_round": 16
+  },
+  {
+    "person_id": 804875,
+    "player_name": "Tommy Szczepanski",
+    "player_type": "pitcher",
+    "draft_year": 2022,
+    "draft_pick": 565,
+    "draft_round": 19
+  },
+  {
+    "person_id": 842175,
+    "player_name": "Conner Griffin",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 302,
+    "draft_round": 10
+  },
+  {
+    "person_id": 815415,
+    "player_name": "Alex Hernandez",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 143,
+    "draft_round": 5
+  },
+  {
+    "person_id": 811266,
+    "player_name": "Ryan Reed",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 460,
+    "draft_round": 15
+  },
+  {
+    "person_id": 701360,
+    "player_name": "Chris Arroyo",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 139,
+    "draft_round": 5
+  },
+  {
+    "person_id": 681819,
+    "player_name": "Tyler Smith",
+    "player_type": "pitcher",
+    "draft_year": 2018,
+    "draft_pick": 241,
+    "draft_round": 8
+  },
+  {
+    "person_id": 696142,
+    "player_name": "Will Taylor",
+    "player_type": "pitcher",
+    "draft_year": 2021,
+    "draft_pick": 554,
+    "draft_round": 19
+  },
+  {
+    "person_id": 837903,
+    "player_name": "Marcus Kruzan",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 371,
+    "draft_round": 12
+  },
+  {
+    "person_id": 686622,
+    "player_name": "Dylan Eskew",
+    "player_type": "pitcher",
+    "draft_year": 2019,
+    "draft_pick": 722,
+    "draft_round": 24
+  },
+  {
+    "person_id": 676832,
+    "player_name": "Matt Brown",
+    "player_type": "pitcher",
+    "draft_year": 2017,
+    "draft_pick": 816,
+    "draft_round": 27
+  },
+  {
+    "person_id": 669428,
+    "player_name": "Brady Miller",
+    "player_type": "pitcher",
+    "draft_year": 2017,
+    "draft_pick": 705,
+    "draft_round": 23
+  },
+  {
+    "person_id": 694536,
+    "player_name": "Trent Baker",
+    "player_type": "pitcher",
+    "draft_year": 2021,
+    "draft_pick": 271,
+    "draft_round": 9
+  },
+  {
+    "person_id": 823007,
+    "player_name": "Rohan Lettow",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 348,
+    "draft_round": 12
+  },
+  {
+    "person_id": 596053,
+    "player_name": "AJ Murray",
+    "player_type": "pitcher",
+    "draft_year": 2015,
+    "draft_pick": 410,
+    "draft_round": 14
+  },
+  {
+    "person_id": 809789,
+    "player_name": "Parker Smith",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 131,
+    "draft_round": 4
+  },
+  {
+    "person_id": 811300,
+    "player_name": "Tristan Dietrich",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 533,
+    "draft_round": 18
+  },
+  {
+    "person_id": 815631,
+    "player_name": "Victor Christal",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 482,
+    "draft_round": 16
+  },
+  {
+    "person_id": 681916,
+    "player_name": "Dylan Smith",
+    "player_type": "pitcher",
+    "draft_year": 2018,
+    "draft_pick": 531,
+    "draft_round": 18
+  },
+  {
+    "person_id": 827612,
+    "player_name": "Henry Brummel",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 605,
+    "draft_round": 20
+  },
+  {
+    "person_id": 811011,
+    "player_name": "Hunter Possehl",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 239,
+    "draft_round": 8
+  },
+  {
+    "person_id": 681916,
+    "player_name": "Dylan Smith",
+    "player_type": "pitcher",
+    "draft_year": 2018,
+    "draft_pick": 531,
+    "draft_round": 18
+  },
+  {
+    "person_id": 832562,
+    "player_name": "Dylan Brown",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 238,
+    "draft_round": 8
+  },
+  {
+    "person_id": 802459,
+    "player_name": "Ryan Johnson",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 254,
+    "draft_round": 8
+  },
+  {
+    "person_id": 834695,
+    "player_name": "Jack Turner",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 306,
+    "draft_round": 10
+  },
+  {
+    "person_id": 669153,
+    "player_name": "Andrew Brown",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 377,
+    "draft_round": 13
+  },
+  {
+    "person_id": 806139,
+    "player_name": "Justin Lee",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 609,
+    "draft_round": 20
+  },
+  {
+    "person_id": 695720,
+    "player_name": "Tommy White",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 40,
+    "draft_round": 2
+  },
+  {
+    "person_id": 806701,
+    "player_name": "Jake Brown",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 471,
+    "draft_round": 16
+  },
+  {
+    "person_id": 669257,
+    "player_name": "Will Smith",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 32,
+    "draft_round": 1
+  },
+  {
+    "person_id": 680911,
+    "player_name": "Owen Miller",
+    "player_type": "pitcher",
+    "draft_year": 2018,
+    "draft_pick": 84,
+    "draft_round": 3
+  },
+  {
+    "person_id": 664787,
+    "player_name": "Zach Morris",
+    "player_type": "pitcher",
+    "draft_year": 2015,
+    "draft_pick": 714,
+    "draft_round": 24
+  },
+  {
+    "person_id": 688664,
+    "player_name": "Ryan Brown",
+    "player_type": "pitcher",
+    "draft_year": 2019,
+    "draft_pick": 795,
+    "draft_round": 26
+  },
+  {
+    "person_id": 804877,
+    "player_name": "Parker Dillhoff",
+    "player_type": "pitcher",
+    "draft_year": 2026,
+    "draft_pick": 543,
+    "draft_round": 18
+  },
+  {
+    "person_id": 688115,
+    "player_name": "Tyler Peck",
+    "player_type": "pitcher",
+    "draft_year": 2019,
+    "draft_pick": 845,
+    "draft_round": 28
+  },
+  {
+    "person_id": 702987,
+    "player_name": "Cameron Johnson",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 605,
+    "draft_round": 20
+  },
+  {
+    "person_id": 829622,
+    "player_name": "Hunter Allen",
+    "player_type": "pitcher",
+    "draft_year": 2025,
+    "draft_pick": 214,
+    "draft_round": 7
+  },
+  {
+    "person_id": 811358,
+    "player_name": "Jacob Gholston",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 512,
+    "draft_round": 17
+  },
+  {
+    "person_id": 666120,
+    "player_name": "Ian Anderson",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 3,
+    "draft_round": 1
+  },
+  {
+    "person_id": 676192,
+    "player_name": "Jack Smith",
+    "player_type": "pitcher",
+    "draft_year": 2017,
+    "draft_pick": 1173,
+    "draft_round": 39
+  },
+  {
+    "person_id": 664945,
+    "player_name": "Kyle Miller",
+    "player_type": "pitcher",
+    "draft_year": 2015,
+    "draft_pick": 563,
+    "draft_round": 19
+  },
+  {
+    "person_id": 677336,
+    "player_name": "Brett Hansen",
+    "player_type": "pitcher",
+    "draft_year": 2018,
+    "draft_pick": 1126,
+    "draft_round": 38
+  },
+  {
+    "person_id": 641758,
+    "player_name": "Jackson Klein",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 977,
+    "draft_round": 33
+  },
+  {
+    "person_id": 805315,
+    "player_name": "Michael Walsh",
+    "player_type": "pitcher",
+    "draft_year": 2022,
+    "draft_pick": 260,
+    "draft_round": 9
+  },
+  {
+    "person_id": 815095,
+    "player_name": "David Rodriguez",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 459,
+    "draft_round": 15
+  },
+  {
+    "person_id": 689658,
+    "player_name": "Logan Koester",
+    "player_type": "pitcher",
+    "draft_year": 2019,
+    "draft_pick": 960,
+    "draft_round": 32
+  },
+  {
+    "person_id": 803833,
+    "player_name": "Garrett Baumann",
+    "player_type": "pitcher",
+    "draft_year": 2023,
+    "draft_pick": 126,
+    "draft_round": 4
+  },
+  {
+    "person_id": 827332,
+    "player_name": "Gavin Smith",
+    "player_type": "pitcher",
+    "draft_year": 2024,
+    "draft_pick": 517,
+    "draft_round": 17
+  },
+  {
+    "person_id": 669446,
+    "player_name": "Brendan Murphy",
+    "player_type": "pitcher",
+    "draft_year": 2017,
+    "draft_pick": 114,
+    "draft_round": 4
+  },
+  {
+    "person_id": 670227,
+    "player_name": "Andres Perez",
+    "player_type": "pitcher",
+    "draft_year": 2016,
+    "draft_pick": 1069,
+    "draft_round": 36
+  },
+  {
+    "person_id": 690294,
+    "player_name": "Shane Murphy",
+    "player_type": "pitcher",
+    "draft_year": 2019,
+    "draft_pick": 930,
+    "draft_round": 31
+  }
+]

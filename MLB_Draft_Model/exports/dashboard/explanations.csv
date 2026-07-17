@@ -1,0 +1,261 @@
+player_uid,role,sample_size_text,data_completeness_score,match_confidence,positive_driver_1,positive_driver_2,negative_driver_1,negative_driver_2,warning_text
+h_829665,hitters,5 plate events / 4 BBE,47.05882352941176,0.95,Impact score 87.2,P90 EV wood-adj 102.2,Whiff rate 10%,Chase rate 42.9%,One-season-only warning: no prior season trend context available.
+h_814505,hitters,4 plate events / 4 BBE,35.294117647058826,0.95,Impact score 65.4,P90 EV wood-adj 105.9,Whiff rate 0%,Chase rate 10%,One-season-only warning: no prior season trend context available.
+h_822871,hitters,4 plate events / 3 BBE,30.769230769230774,0.95,Impact score 60.1,P90 EV wood-adj 101.8,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_1000328644,hitters,4 plate events / 3 BBE,23.80952380952381,0.95,Impact score 61.5,P90 EV wood-adj 102,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_834598,hitters,4 plate events / 3 BBE,46.15384615384615,0.95,Impact score 59.6,P90 EV wood-adj 102.5,Whiff rate 0%,Chase rate 14.3%,Data completeness warning: review missing critical fields before trusting the board score.
+h_10063085,hitters,5 plate events / 4 BBE,28.57142857142857,0.95,Impact score 98.1,P90 EV wood-adj 105.7,Whiff rate 37.5%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_824009,hitters,50 plate events / 26 BBE,21.76165803108809,0.95,Impact score 53.1,P90 EV wood-adj 100,Whiff rate 21.7%,Chase rate 17.2%,Data completeness warning: review missing critical fields before trusting the board score.
+h_831539,hitters,4 plate events / 1 BBE,25,0.95,Impact score 66.7,P90 EV wood-adj 108,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_837510,hitters,3 plate events / 2 BBE,23.076923076923066,0.95,Impact score 64.8,P90 EV wood-adj 104.4,Whiff rate 0%,Chase rate 0%,Data completeness warning: review missing critical fields before trusting the board score.
+h_1000462706,hitters,4 plate events / 2 BBE,44.44444444444444,0.95,Impact score 54.2,P90 EV wood-adj 100,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_1000091685,hitters,4 plate events / 3 BBE,33.33333333333334,0.95,Impact score 52.9,P90 EV wood-adj 99.3,Whiff rate 0%,Chase rate 16.7%,One-season-only warning: no prior season trend context available.
+h_820842,hitters,2 plate events / 2 BBE,50,0.95,Impact score 59,P90 EV wood-adj 100.3,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_1000187570,hitters,2 plate events / 2 BBE,50,0.95,Impact score 58.3,P90 EV wood-adj 99.8,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_827671,hitters,4 plate events / 3 BBE,35.294117647058826,0.95,Impact score 63.7,P90 EV wood-adj 104.7,Whiff rate 25%,Chase rate 10%,One-season-only warning: no prior season trend context available.
+h_1000087044,hitters,4 plate events / 3 BBE,33.33333333333334,0.95,Impact score 47.5,P90 EV wood-adj 96.1,Whiff rate 0%,Chase rate 11.1%,One-season-only warning: no prior season trend context available.
+h_804826,hitters,4 plate events / 2 BBE,29.411764705882348,0.95,Impact score 50.8,P90 EV wood-adj 96.2,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_815976,hitters,26 plate events / 7 BBE,10.569105691056919,0.95,Impact score 69.6,P90 EV wood-adj 100.8,Whiff rate 44.4%,Chase rate 20.6%,Data completeness warning: review missing critical fields before trusting the board score.
+h_808786,hitters,4 plate events / 4 BBE,60,0.95,Impact score 53.6,P90 EV wood-adj 99.5,Whiff rate 0%,Chase rate 40%,One-season-only warning: no prior season trend context available.
+h_812674,hitters,3 plate events / 2 BBE,16.666666666666657,0.95,Impact score 54.7,P90 EV wood-adj 100.2,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_831426,hitters,7 plate events / 3 BBE,21.73913043478261,0.95,Impact score 45.1,P90 EV wood-adj 95.3,Whiff rate 14.3%,Chase rate 18.8%,One-season-only warning: no prior season trend context available.
+h_831481,hitters,4 plate events / 3 BBE,25,0.95,Impact score 52.5,P90 EV wood-adj 101.3,Whiff rate 20%,Chase rate 14.3%,Data completeness warning: review missing critical fields before trusting the board score.
+h_838741,hitters,41 plate events / 25 BBE,21.42857142857143,0.95,Impact score 39.3,P90 EV wood-adj 100.4,Whiff rate 23.1%,Chase rate 14.9%,One-season-only warning: no prior season trend context available.
+h_1000133703,hitters,2 plate events / 2 BBE,60,0.95,Impact score 47.3,P90 EV wood-adj 98.7,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_814963,hitters,4 plate events / 3 BBE,25,0.95,Impact score 54.2,P90 EV wood-adj 101.6,Whiff rate 20%,Chase rate 20%,One-season-only warning: no prior season trend context available.
+h_831482,hitters,52 plate events / 35 BBE,29.01554404145078,0.95,Impact score 52.1,P90 EV wood-adj 103.4,Whiff rate 33%,Chase rate 28.4%,Data completeness warning: review missing critical fields before trusting the board score.
+h_825763,hitters,4 plate events / 3 BBE,35.294117647058826,0.95,Impact score 34.3,P90 EV wood-adj 94.1,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_823374,hitters,5 plate events / 2 BBE,21.05263157894737,0.95,Impact score 52.5,P90 EV wood-adj 97.4,Whiff rate 16.7%,Chase rate 20%,One-season-only warning: no prior season trend context available.
+h_10121639,hitters,4 plate events / 3 BBE,33.33333333333334,0.95,Impact score 33.9,P90 EV wood-adj 94.1,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_1000314364,hitters,4 plate events / 3 BBE,28.57142857142857,0.95,Impact score 46.7,P90 EV wood-adj 97.1,Whiff rate 16.7%,Chase rate 14.3%,One-season-only warning: no prior season trend context available.
+h_815155,hitters,4 plate events / 4 BBE,42.85714285714286,0.95,Impact score 46.9,P90 EV wood-adj 100.2,Whiff rate 25%,Chase rate 14.3%,One-season-only warning: no prior season trend context available.
+h_811781,hitters,47 plate events / 25 BBE,18.713450292397653,0.95,Impact score 34.8,P90 EV wood-adj 100.2,Whiff rate 25%,Chase rate 14%,Data completeness warning: review missing critical fields before trusting the board score.
+h_828345,hitters,3 plate events / 1 BBE,75,0.95,Impact score 57.7,P90 EV wood-adj 99.4,Whiff rate 0%,Chase rate NA%,One-season-only warning: no prior season trend context available.
+h_703494,hitters,5 plate events / 4 BBE,53.333333333333336,0.95,Impact score 41.2,P90 EV wood-adj 100.2,Whiff rate 10%,Chase rate 42.9%,One-season-only warning: no prior season trend context available.
+h_824567,hitters,43 plate events / 32 BBE,37.57225433526011,0.95,Impact score 31.8,P90 EV wood-adj 97.3,Whiff rate 12.8%,Chase rate 35.9%,Data completeness warning: review missing critical fields before trusting the board score.
+h_804746,hitters,3 plate events / 2 BBE,25,0.95,Impact score 58.3,P90 EV wood-adj 99.8,Whiff rate 25%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_838742,hitters,57 plate events / 38 BBE,29.081632653061234,0.95,Impact score 32.8,P90 EV wood-adj 98.4,Whiff rate 21.8%,Chase rate 25%,Data completeness warning: review missing critical fields before trusting the board score.
+h_1000182451,hitters,5 plate events / 5 BBE,58.33333333333333,0.95,Impact score 41.3,P90 EV wood-adj 104.6,Whiff rate 11.1%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_828162,hitters,3 plate events / 2 BBE,22.222222222222214,0.95,Impact score 43.8,P90 EV wood-adj 97.1,Whiff rate 0%,Chase rate 11.1%,One-season-only warning: no prior season trend context available.
+h_813527,hitters,1 plate events / 1 BBE,50,0.95,Impact score 47.7,P90 EV wood-adj 94.5,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_828130,hitters,4 plate events / 3 BBE,35.71428571428571,0.95,Impact score 52.9,P90 EV wood-adj 98.2,Whiff rate 22.2%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_10078856,hitters,1 plate events / 1 BBE,50,0.95,Impact score 46.7,P90 EV wood-adj 94.3,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_806039,hitters,3 plate events / 3 BBE,41.666666666666664,0.95,Impact score 57.2,P90 EV wood-adj 103,Whiff rate 25%,Chase rate 25%,One-season-only warning: no prior season trend context available.
+h_831539,hitters,4 plate events / 2 BBE,62.5,0.95,Impact score 58.7,P90 EV wood-adj 102.9,Whiff rate 16.7%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_10277040,hitters,5 plate events / 1 BBE,25,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_703551,hitters,27 plate events / 14 BBE,23.91304347826086,0.95,Impact score 33,P90 EV wood-adj 95.9,Whiff rate 31.4%,Chase rate 17.5%,Data completeness warning: review missing critical fields before trusting the board score.
+h_835059,hitters,3 plate events / 1 BBE,50,0.95,Impact score 52.5,P90 EV wood-adj 97,Whiff rate 16.7%,Chase rate 20%,One-season-only warning: no prior season trend context available.
+h_826306,hitters,3 plate events / 1 BBE,25,0.95,Impact score 65,P90 EV wood-adj 103.5,Whiff rate 33.3%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_695674,hitters,40 plate events / 21 BBE,25.342465753424662,0.95,Impact score 27.6,P90 EV wood-adj 97.3,Whiff rate 25%,Chase rate 18.5%,Data completeness warning: review missing critical fields before trusting the board score.
+h_1000119183,hitters,4 plate events / 3 BBE,50,0.95,Impact score 45.3,P90 EV wood-adj 97.4,Whiff rate 30%,Chase rate 20%,One-season-only warning: no prior season trend context available.
+h_838762,hitters,4 plate events / 1 BBE,12.5,0.95,Impact score 33.3,P90 EV wood-adj 90.3,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_827685,hitters,5 plate events / 3 BBE,30,0.95,Impact score 57.9,P90 EV wood-adj 104.6,Whiff rate 41.7%,Chase rate 36.4%,Data completeness warning: review missing critical fields before trusting the board score.
+h_1000116120,hitters,4 plate events / 3 BBE,40,0.95,Impact score 34.6,P90 EV wood-adj 91.9,Whiff rate 0%,Chase rate 40%,One-season-only warning: no prior season trend context available.
+h_702973,hitters,5 plate events / 2 BBE,18.75,0.95,Impact score 56.6,P90 EV wood-adj 100,Whiff rate 33.3%,Chase rate 27.3%,One-season-only warning: no prior season trend context available.
+h_1000281926,hitters,1 plate events / 1 BBE,66.66666666666667,0.95,Impact score 35.9,P90 EV wood-adj 90.9,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_815489,hitters,1 plate events / 1 BBE,33.33333333333334,0.95,Impact score 37.8,P90 EV wood-adj 91.9,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_1000480577,hitters,4 plate events / 3 BBE,45.45454545454546,0.95,Impact score 42.5,P90 EV wood-adj 96.7,Whiff rate 14.3%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_838743,hitters,43 plate events / 26 BBE,26.506024096385545,0.95,Impact score 34.3,P90 EV wood-adj 98,Whiff rate 25.3%,Chase rate 39.6%,One-season-only warning: no prior season trend context available.
+h_811294,hitters,4 plate events / 2 BBE,21.42857142857143,0.95,Impact score 64.8,P90 EV wood-adj 103.5,Whiff rate 50%,Chase rate 20%,One-season-only warning: no prior season trend context available.
+h_813359,hitters,3 plate events / 2 BBE,37.5,0.95,Impact score 59.4,P90 EV wood-adj 101.2,Whiff rate 25%,Chase rate 40%,Data completeness warning: review missing critical fields before trusting the board score.
+h_1000278564,hitters,4 plate events / 4 BBE,44.44444444444444,0.95,Impact score 5.8,P90 EV wood-adj 80.7,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_1000361026,hitters,4 plate events / 3 BBE,30.769230769230774,0.95,Impact score 22,P90 EV wood-adj 93.8,Whiff rate 0%,Chase rate 22.2%,One-season-only warning: no prior season trend context available.
+h_805714,hitters,43 plate events / 20 BBE,25.308641975308646,0.95,Impact score 35.9,P90 EV wood-adj 100.2,Whiff rate 34.7%,Chase rate 31.1%,Data completeness warning: review missing critical fields before trusting the board score.
+h_1000125439,hitters,6 plate events / 3 BBE,15.789473684210535,0.95,Impact score 20.3,P90 EV wood-adj 90.6,Whiff rate 14.3%,Chase rate 22.2%,One-season-only warning: no prior season trend context available.
+h_1000134813,hitters,4 plate events / 2 BBE,20,0.95,Impact score 58.3,P90 EV wood-adj 102.9,Whiff rate 40%,Chase rate 22.2%,One-season-only warning: no prior season trend context available.
+h_1000301843,hitters,3 plate events / 2 BBE,50,0.95,Impact score 24.8,P90 EV wood-adj 97.7,Whiff rate 0%,Chase rate 14.3%,One-season-only warning: no prior season trend context available.
+h_10054885,hitters,2 plate events / 1 BBE,28.57142857142857,0.95,Impact score 31.7,P90 EV wood-adj 89,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_807287,hitters,4 plate events / 3 BBE,50,0.95,Impact score 23.8,P90 EV wood-adj 92.8,Whiff rate 0%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_814843,hitters,3 plate events / 2 BBE,31.25,0.95,Impact score 23.1,P90 EV wood-adj 91.4,Whiff rate 0%,Chase rate 10%,One-season-only warning: no prior season trend context available.
+h_10281913,hitters,5 plate events / 3 BBE,31.578947368421055,0.95,Impact score 46.4,P90 EV wood-adj 99.7,Whiff rate 30%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_813298,hitters,1 plate events / 1 BBE,33.33333333333334,0.95,Impact score 54.7,P90 EV wood-adj 98,Whiff rate 33.3%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_814181,hitters,4 plate events / 3 BBE,33.33333333333334,0.95,Impact score 14.7,P90 EV wood-adj 90.4,Whiff rate 0%,Chase rate 22.2%,One-season-only warning: no prior season trend context available.
+h_807408,hitters,3 plate events / 1 BBE,22.222222222222214,0.95,Impact score 25.7,P90 EV wood-adj 86.2,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_1000222330,hitters,5 plate events / 5 BBE,53.333333333333336,0.95,Impact score 15.6,P90 EV wood-adj 87.6,Whiff rate 0%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_830145,hitters,3 plate events / 3 BBE,30,0.95,Impact score 27.9,P90 EV wood-adj 93.5,Whiff rate 25%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_822518,hitters,3 plate events / 0 BBE,0,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_836042,hitters,4 plate events / 1 BBE,23.80952380952381,0.95,Impact score 57.4,P90 EV wood-adj 99.4,Whiff rate 33.3%,Chase rate 28.6%,One-season-only warning: no prior season trend context available.
+h_10264381,hitters,3 plate events / 3 BBE,28.57142857142857,0.95,Impact score 17.9,P90 EV wood-adj 92.2,Whiff rate 0%,Chase rate 20%,One-season-only warning: no prior season trend context available.
+h_831480,hitters,6 plate events / 4 BBE,30.434782608695656,0.95,Impact score 6.7,P90 EV wood-adj 83.5,Whiff rate 20%,Chase rate 23.1%,Data completeness warning: review missing critical fields before trusting the board score.
+h_823332,hitters,5 plate events / 2 BBE,26.31578947368422,0.95,Impact score 28.3,P90 EV wood-adj 96.9,Whiff rate 30%,Chase rate 18.2%,One-season-only warning: no prior season trend context available.
+h_814822,hitters,4 plate events / 3 BBE,30,0.95,Impact score 46.9,P90 EV wood-adj 99.7,Whiff rate 40%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_806680,hitters,2 plate events / 1 BBE,33.33333333333334,0.95,Impact score 64.2,P90 EV wood-adj 103,Whiff rate 25%,Chase rate 66.7%,One-season-only warning: no prior season trend context available.
+h_809764,hitters,4 plate events / 1 BBE,14.285714285714292,0.95,Impact score 48.2,P90 EV wood-adj 94.8,Whiff rate 33.3%,Chase rate 20%,One-season-only warning: no prior season trend context available.
+h_806227,hitters,2 plate events / 1 BBE,30,0.95,Impact score 19.9,P90 EV wood-adj 85.5,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_824647,hitters,4 plate events / 2 BBE,11.111111111111114,0.95,Impact score 26.6,P90 EV wood-adj 93.8,Whiff rate 25%,Chase rate 8.3%,One-season-only warning: no prior season trend context available.
+h_824574,hitters,5 plate events / 2 BBE,11.111111111111114,0.95,Impact score 46.6,P90 EV wood-adj 96.2,Whiff rate 57.1%,Chase rate 20%,One-season-only warning: no prior season trend context available.
+h_1000133418,hitters,3 plate events / 3 BBE,60,0.95,Impact score 13,P90 EV wood-adj 87.8,Whiff rate 0%,Chase rate NA%,One-season-only warning: no prior season trend context available.
+h_1000115649,hitters,1 plate events / 1 BBE,100,0.95,Impact score 30.2,P90 EV wood-adj 88.3,Whiff rate 0%,Chase rate NA%,One-season-only warning: no prior season trend context available.
+h_815729,hitters,3 plate events / 1 BBE,11.111111111111114,0.95,Impact score 38.7,P90 EV wood-adj 92.5,Whiff rate 25%,Chase rate 11.1%,One-season-only warning: no prior season trend context available.
+h_835227,hitters,5 plate events / 5 BBE,33.33333333333334,0.95,Impact score 35,P90 EV wood-adj 100,Whiff rate 37.5%,Chase rate 55.6%,One-season-only warning: no prior season trend context available.
+h_10077581,hitters,3 plate events / 1 BBE,66.66666666666667,0.95,Impact score 34.1,P90 EV wood-adj 90.4,Whiff rate 0%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_807518,hitters,1 plate events / 0 BBE,100,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 0%,Chase rate NA%,One-season-only warning: no prior season trend context available.
+h_1000115663,hitters,5 plate events / 1 BBE,12,0.95,Impact score 50.1,P90 EV wood-adj 95.8,Whiff rate 40%,Chase rate 35.7%,One-season-only warning: no prior season trend context available.
+h_800606,hitters,4 plate events / 2 BBE,20,0.95,Impact score 50.8,P90 EV wood-adj 99.5,Whiff rate 50%,Chase rate 30.8%,One-season-only warning: no prior season trend context available.
+h_702701,hitters,1 plate events / 0 BBE,33.33333333333334,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 0%,Chase rate NA%,One-season-only warning: no prior season trend context available.
+h_1000339305,hitters,3 plate events / 2 BBE,38.888888888888886,0.95,Impact score 47.1,P90 EV wood-adj 99.4,Whiff rate 30%,Chase rate 54.5%,One-season-only warning: no prior season trend context available.
+h_10069127,hitters,3 plate events / 2 BBE,20,0.95,Impact score 21.6,P90 EV wood-adj 87.4,Whiff rate 25%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_813811,hitters,5 plate events / 4 BBE,44.44444444444444,0.95,Impact score 11,P90 EV wood-adj 86.1,Whiff rate 16.7%,Chase rate 58.3%,One-season-only warning: no prior season trend context available.
+h_1000301840,hitters,3 plate events / 1 BBE,8.333333333333343,0.95,Impact score 12.3,P90 EV wood-adj 82,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_824575,hitters,2 plate events / 1 BBE,16.666666666666657,0.95,Impact score 13.2,P90 EV wood-adj 82.5,Whiff rate 0%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_812668,hitters,2 plate events / 2 BBE,40,0.95,Impact score 46,P90 EV wood-adj 97.1,Whiff rate 25%,Chase rate 66.7%,One-season-only warning: no prior season trend context available.
+h_1000114445,hitters,3 plate events / 2 BBE,40,0.95,Impact score 24.2,P90 EV wood-adj 90.6,Whiff rate 0%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_1000072078,hitters,4 plate events / 3 BBE,26.66666666666667,0.95,Impact score 34.6,P90 EV wood-adj 95.7,Whiff rate 33.3%,Chase rate 40%,One-season-only warning: no prior season trend context available.
+h_804562,hitters,4 plate events / 2 BBE,40,0.95,Impact score 4.8,P90 EV wood-adj 75.6,Whiff rate 0%,Chase rate 25%,One-season-only warning: no prior season trend context available.
+h_1000242407,hitters,4 plate events / 2 BBE,21.42857142857143,0.95,Impact score 27.9,P90 EV wood-adj 87.6,Whiff rate 40%,Chase rate 12.5%,One-season-only warning: no prior season trend context available.
+h_812510,hitters,3 plate events / 3 BBE,60,0.95,Impact score 30.4,P90 EV wood-adj 95.9,Whiff rate 25%,Chase rate 50%,Data completeness warning: review missing critical fields before trusting the board score.
+h_813559,hitters,4 plate events / 2 BBE,21.05263157894737,0.95,Impact score 1.5,P90 EV wood-adj 59.7,Whiff rate 0%,Chase rate 18.2%,One-season-only warning: no prior season trend context available.
+h_828345,hitters,3 plate events / 2 BBE,60,0.95,Impact score 23.5,P90 EV wood-adj 93.6,Whiff rate 0%,Chase rate 100%,One-season-only warning: no prior season trend context available.
+h_1000462705,hitters,3 plate events / 2 BBE,33.33333333333334,0.95,Impact score 25.9,P90 EV wood-adj 94.3,Whiff rate 25%,Chase rate 25%,One-season-only warning: no prior season trend context available.
+h_10009966,hitters,5 plate events / 2 BBE,35.71428571428571,0.95,Impact score 14.5,P90 EV wood-adj 85.3,Whiff rate 28.6%,Chase rate 25%,One-season-only warning: no prior season trend context available.
+h_1000118912,hitters,3 plate events / 2 BBE,20,0.95,Impact score 27.7,P90 EV wood-adj 87.9,Whiff rate 33.3%,Chase rate 14.3%,One-season-only warning: no prior season trend context available.
+h_804433,hitters,1 plate events / 0 BBE,20,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 0%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_10139818,hitters,3 plate events / 2 BBE,22.222222222222214,0.95,Impact score 14,P90 EV wood-adj 86.9,Whiff rate 0%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_806678,hitters,4 plate events / 3 BBE,28.57142857142857,0.95,Impact score 30.2,P90 EV wood-adj 95.3,Whiff rate 33.3%,Chase rate 45.5%,One-season-only warning: no prior season trend context available.
+h_839111,hitters,1 plate events / 0 BBE,0,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate NA%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_822679,hitters,2 plate events / 2 BBE,33.33333333333334,0.95,Impact score 37.6,P90 EV wood-adj 98.6,Whiff rate 33.3%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_1000162895,hitters,2 plate events / 1 BBE,33.33333333333334,0.95,Impact score 30.7,P90 EV wood-adj 88.4,Whiff rate 25%,Chase rate 25%,One-season-only warning: no prior season trend context available.
+h_695718,hitters,1 plate events / 1 BBE,66.66666666666667,0.95,Impact score 26.8,P90 EV wood-adj 87.3,Whiff rate 0%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_1000343411,hitters,4 plate events / 2 BBE,11.111111111111114,0.95,Impact score 37.6,P90 EV wood-adj 92.9,Whiff rate 57.1%,Chase rate 22.2%,One-season-only warning: no prior season trend context available.
+h_703550,hitters,4 plate events / 2 BBE,33.33333333333334,0.95,Impact score 31.7,P90 EV wood-adj 96,Whiff rate 40%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_804451,hitters,3 plate events / 2 BBE,25,0.95,Impact score 5.8,P90 EV wood-adj 84,Whiff rate 0%,Chase rate 25%,One-season-only warning: no prior season trend context available.
+h_1000120627,hitters,3 plate events / 2 BBE,37.5,0.95,Impact score 3.2,P90 EV wood-adj 70.4,Whiff rate 0%,Chase rate 25%,One-season-only warning: no prior season trend context available.
+h_1000220194,hitters,3 plate events / 1 BBE,11.764705882352942,0.95,Impact score 17.1,P90 EV wood-adj 84.6,Whiff rate 25%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_10100750,hitters,4 plate events / 2 BBE,16.666666666666657,0.95,Impact score 7.4,P90 EV wood-adj 83.8,Whiff rate 25%,Chase rate 12.5%,One-season-only warning: no prior season trend context available.
+h_832363,hitters,5 plate events / 2 BBE,15.789473684210535,0.95,Impact score 22.2,P90 EV wood-adj 87.9,Whiff rate 57.1%,Chase rate 18.2%,Data completeness warning: review missing critical fields before trusting the board score.
+h_1000068590,hitters,4 plate events / 1 BBE,10.526315789473685,0.95,Impact score 54.2,P90 EV wood-adj 97.6,Whiff rate 66.7%,Chase rate 41.7%,Data completeness warning: review missing critical fields before trusting the board score.
+h_806021,hitters,3 plate events / 3 BBE,40,0.95,Impact score 9.9,P90 EV wood-adj 84.3,Whiff rate 20%,Chase rate 40%,One-season-only warning: no prior season trend context available.
+h_703552,hitters,5 plate events / 2 BBE,26.31578947368422,0.95,Impact score 31.7,P90 EV wood-adj 95.5,Whiff rate 50%,Chase rate 40%,Data completeness warning: review missing critical fields before trusting the board score.
+h_801499,hitters,3 plate events / 3 BBE,40,0.95,Impact score 22.2,P90 EV wood-adj 88.2,Whiff rate 25%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_831089,hitters,4 plate events / 1 BBE,26.66666666666667,0.95,Impact score 47.3,P90 EV wood-adj 94.4,Whiff rate 50%,Chase rate 44.4%,One-season-only warning: no prior season trend context available.
+h_1000224300,hitters,4 plate events / 1 BBE,18.51851851851852,0.95,Impact score 8.8,P90 EV wood-adj 77,Whiff rate 9.1%,Chase rate 27.8%,One-season-only warning: no prior season trend context available.
+h_811441,hitters,2 plate events / 1 BBE,25,0.95,Impact score 33,P90 EV wood-adj 90.1,Whiff rate 50%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_10026274,hitters,4 plate events / 2 BBE,25,0.95,Impact score 7.1,P90 EV wood-adj 81.6,Whiff rate 14.3%,Chase rate 37.5%,One-season-only warning: no prior season trend context available.
+h_806027,hitters,5 plate events / 3 BBE,25,0.95,Impact score 34.6,P90 EV wood-adj 99,Whiff rate 62.5%,Chase rate 62.5%,One-season-only warning: no prior season trend context available.
+h_10100779,hitters,2 plate events / 1 BBE,9.090909090909093,0.95,Impact score 39.9,P90 EV wood-adj 93.1,Whiff rate 66.7%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_815345,hitters,3 plate events / 1 BBE,16.666666666666657,0.95,Impact score 18.8,P90 EV wood-adj 85,Whiff rate 33.3%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_813915,hitters,1 plate events / 1 BBE,100,0.95,Impact score 6.3,P90 EV wood-adj 75.6,Whiff rate 0%,Chase rate NA%,One-season-only warning: no prior season trend context available.
+h_815337,hitters,4 plate events / 0 BBE,8.695652173913047,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 50%,Chase rate 5.9%,One-season-only warning: no prior season trend context available.
+h_1000091127,hitters,2 plate events / 2 BBE,33.33333333333334,0.95,Impact score 3.5,P90 EV wood-adj 74.1,Whiff rate 0%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_1000462698,hitters,1 plate events / 0 BBE,0,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 0%,Chase rate 100%,One-season-only warning: no prior season trend context available.
+h_1000242087,hitters,2 plate events / 1 BBE,16.666666666666657,0.95,Impact score 61.8,P90 EV wood-adj 101,Whiff rate 66.7%,Chase rate 66.7%,One-season-only warning: no prior season trend context available.
+h_812494,hitters,1 plate events / 1 BBE,100,0.95,Impact score 2.2,P90 EV wood-adj 62.6,Whiff rate 0%,Chase rate NA%,One-season-only warning: no prior season trend context available.
+h_10277040,hitters,5 plate events / 1 BBE,15.384615384615387,0.95,Impact score 35.2,P90 EV wood-adj 90.7,Whiff rate 50%,Chase rate 42.9%,One-season-only warning: no prior season trend context available.
+h_703486,hitters,4 plate events / 2 BBE,14.285714285714292,0.95,Impact score 7.3,P90 EV wood-adj 80.8,Whiff rate 42.9%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_10106448,hitters,4 plate events / 1 BBE,40,0.95,Impact score 29.8,P90 EV wood-adj 88.2,Whiff rate 33.3%,Chase rate 66.7%,One-season-only warning: no prior season trend context available.
+h_824575,hitters,2 plate events / 0 BBE,0,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 50%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_815514,hitters,3 plate events / 2 BBE,22.222222222222214,0.95,Impact score 14.2,P90 EV wood-adj 86.4,Whiff rate 42.9%,Chase rate 16.7%,One-season-only warning: no prior season trend context available.
+h_1000302625,hitters,3 plate events / 2 BBE,23.076923076923066,0.95,Impact score 32.4,P90 EV wood-adj 90.4,Whiff rate 50%,Chase rate 40%,One-season-only warning: no prior season trend context available.
+h_832195,hitters,3 plate events / 0 BBE,33.33333333333334,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 50%,Chase rate NA%,Data completeness warning: review missing critical fields before trusting the board score.
+h_1000281920,hitters,2 plate events / 1 BBE,41.666666666666664,0.95,Impact score 0.7,P90 EV wood-adj 55.1,Whiff rate 0%,Chase rate 42.9%,One-season-only warning: no prior season trend context available.
+h_804563,hitters,3 plate events / 3 BBE,33.33333333333334,0.95,Impact score 13.6,P90 EV wood-adj 90,Whiff rate 40%,Chase rate 40%,One-season-only warning: no prior season trend context available.
+h_827330,hitters,3 plate events / 3 BBE,38.46153846153846,0.95,Impact score 16.8,P90 EV wood-adj 85.1,Whiff rate 37.5%,Chase rate 60%,One-season-only warning: no prior season trend context available.
+h_806115,hitters,2 plate events / 1 BBE,12.5,0.95,Impact score 40.8,P90 EV wood-adj 93.6,Whiff rate 66.7%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_1000148955,hitters,3 plate events / 1 BBE,8.333333333333343,0.95,Impact score 20.7,P90 EV wood-adj 85.9,Whiff rate 50%,Chase rate 14.3%,One-season-only warning: no prior season trend context available.
+h_1000142987,hitters,3 plate events / 3 BBE,42.85714285714286,0.95,Impact score 15.1,P90 EV wood-adj 91.7,Whiff rate 40%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_702256,hitters,4 plate events / 2 BBE,30,0.95,Impact score 11.9,P90 EV wood-adj 89.8,Whiff rate 40%,Chase rate 40%,One-season-only warning: no prior season trend context available.
+h_813909,hitters,1 plate events / 0 BBE,0,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 100%,Chase rate 0%,One-season-only warning: no prior season trend context available.
+h_825579,hitters,3 plate events / 1 BBE,33.33333333333334,0.95,Impact score 8,P90 EV wood-adj 76,Whiff rate 25%,Chase rate 37.5%,One-season-only warning: no prior season trend context available.
+h_824554,hitters,1 plate events / 1 BBE,33.33333333333334,0.95,Impact score 15.3,P90 EV wood-adj 83.5,Whiff rate 33.3%,Chase rate 25%,One-season-only warning: no prior season trend context available.
+h_702713,hitters,2 plate events / 1 BBE,25,0.95,Impact score 9.5,P90 EV wood-adj 78.2,Whiff rate 33.3%,Chase rate 20%,One-season-only warning: no prior season trend context available.
+h_10025942,hitters,2 plate events / 1 BBE,36.36363636363637,0.95,Impact score 17.7,P90 EV wood-adj 84.7,Whiff rate 28.6%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_822701,hitters,3 plate events / 1 BBE,10,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 50%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_822961,hitters,3 plate events / 1 BBE,33.33333333333334,0.95,Impact score 1.1,P90 EV wood-adj 55.8,Whiff rate 20%,Chase rate 42.9%,One-season-only warning: no prior season trend context available.
+h_698840,hitters,1 plate events / 0 BBE,14.285714285714292,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 50%,Chase rate 25%,One-season-only warning: no prior season trend context available.
+h_803344,hitters,1 plate events / 1 BBE,12.5,0.95,Impact score 0.2,P90 EV wood-adj 36.1,Whiff rate 0%,Chase rate 42.9%,One-season-only warning: no prior season trend context available.
+h_824456,hitters,4 plate events / 0 BBE,15,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 62.5%,Chase rate 46.2%,One-season-only warning: no prior season trend context available.
+h_10106448,hitters,4 plate events / 0 BBE,20,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 50%,Chase rate 75%,One-season-only warning: no prior season trend context available.
+h_1000304697,hitters,3 plate events / 0 BBE,13.333333333333329,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 66.7%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_10077581,hitters,3 plate events / 0 BBE,0,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 80%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_806138,hitters,3 plate events / 0 BBE,7.692307692307693,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 83.3%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_806117,hitters,5 plate events / 2 BBE,13.63636363636364,0.95,Impact score 8.9,P90 EV wood-adj 84.8,Whiff rate 66.7%,Chase rate 40%,One-season-only warning: no prior season trend context available.
+h_836029,hitters,4 plate events / 3 BBE,26.66666666666667,0.95,Impact score 0.2,P90 EV wood-adj 41.1,Whiff rate 44.4%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_825840,hitters,1 plate events / 0 BBE,0,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 100%,Chase rate NA%,One-season-only warning: no prior season trend context available.
+h_815986,hitters,1 plate events / 0 BBE,0,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 100%,Chase rate 25%,One-season-only warning: no prior season trend context available.
+h_815415,hitters,3 plate events / 1 BBE,13.333333333333329,0.95,Impact score 16.8,P90 EV wood-adj 84.5,Whiff rate 60%,Chase rate 30%,One-season-only warning: no prior season trend context available.
+h_10025207,hitters,1 plate events / 0 BBE,0,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 100%,Chase rate 33.3%,One-season-only warning: no prior season trend context available.
+h_10054378,hitters,4 plate events / 2 BBE,20,0.95,Impact score 2.8,P90 EV wood-adj 69.5,Whiff rate 60%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_831931,hitters,2 plate events / 1 BBE,12.5,0.95,Impact score 7.4,P90 EV wood-adj 75.8,Whiff rate 33.3%,Chase rate 66.7%,One-season-only warning: no prior season trend context available.
+h_800628,hitters,1 plate events / 0 BBE,0,0.95,Impact score 29.4,P90 EV wood-adj NA,Whiff rate 100%,Chase rate 100%,One-season-only warning: no prior season trend context available.
+h_826051,hitters,2 plate events / 1 BBE,16.666666666666657,0.95,Impact score 8.4,P90 EV wood-adj 76.8,Whiff rate 66.7%,Chase rate 50%,One-season-only warning: no prior season trend context available.
+h_815427,hitters,1 plate events / 1 BBE,33.33333333333334,0.95,Impact score 3.2,P90 EV wood-adj 68.8,Whiff rate 50%,Chase rate 100%,One-season-only warning: no prior season trend context available.
+p_814530,pitchers,155 pitches / arsenal count 4,100,0.95,Stuff score 91.5,Avg FB velo 95.3,Risk score 41,Zone rate 52.9%,One-season-only warning: no prior season trend context available.
+p_811748,pitchers,220 pitches / arsenal count 4,100,0.95,Stuff score 85.4,Avg FB velo 93.3,Risk score 36.2,Zone rate 43.2%,No critical reliability warnings.
+p_10110051,pitchers,12 pitches / arsenal count 3,100,0.95,Stuff score 94.6,Avg FB velo 95.1,Risk score 34,Zone rate 41.7%,One-season-only warning: no prior season trend context available.
+p_832377,pitchers,44 pitches / arsenal count 4,100,0.95,Stuff score 78.2,Avg FB velo 96.1,Risk score 33.1,Zone rate 47.7%,No critical reliability warnings.
+p_815561,pitchers,81 pitches / arsenal count 6,100,0.95,Stuff score 68.4,Avg FB velo 95.3,Risk score 38.4,Zone rate 56.8%,One-season-only warning: no prior season trend context available.
+p_832561,pitchers,151 pitches / arsenal count 4,100,0.95,Stuff score 77.5,Avg FB velo 92.3,Risk score 40.7,Zone rate 40.4%,No critical reliability warnings.
+p_805658,pitchers,87 pitches / arsenal count 6,100,0.95,Stuff score 65.5,Avg FB velo 91.6,Risk score 39.7,Zone rate 54%,One-season-only warning: no prior season trend context available.
+p_821310,pitchers,18 pitches / arsenal count 2,100,0.95,Stuff score 81.3,Avg FB velo 94.3,Risk score 30.2,Zone rate 44.4%,One-season-only warning: no prior season trend context available.
+p_807507,pitchers,22 pitches / arsenal count 5,100,0.95,Stuff score 72.2,Avg FB velo 90.7,Risk score 43.8,Zone rate 50%,One-season-only warning: no prior season trend context available.
+p_1000539294,pitchers,46 pitches / arsenal count 3,100,0.95,Stuff score 54.7,Avg FB velo 90,Risk score 19.5,Zone rate 58.7%,One-season-only warning: no prior season trend context available.
+p_702528,pitchers,71 pitches / arsenal count 3,100,0.95,Stuff score 75.9,Avg FB velo 93.7,Risk score 36.2,Zone rate 46.5%,One-season-only warning: no prior season trend context available.
+p_1000342120,pitchers,46 pitches / arsenal count 4,100,0.95,Stuff score 70.9,Avg FB velo 93,Risk score 36.6,Zone rate 56.5%,One-season-only warning: no prior season trend context available.
+p_702711,pitchers,88 pitches / arsenal count 4,100,0.95,Stuff score 59.8,Avg FB velo 89,Risk score 31.5,Zone rate 43.2%,One-season-only warning: no prior season trend context available.
+p_832385,pitchers,56 pitches / arsenal count 5,100,0.95,Stuff score 68.7,Avg FB velo 94.2,Risk score 41.6,Zone rate 44.6%,No critical reliability warnings.
+p_815480,pitchers,39 pitches / arsenal count 4,100,0.95,Stuff score 72.5,Avg FB velo 95,Risk score 49.2,Zone rate 48.7%,One-season-only warning: no prior season trend context available.
+p_1000138611,pitchers,43 pitches / arsenal count 3,100,0.95,Stuff score 80.1,Avg FB velo 92.5,Risk score 39.4,Zone rate 32.6%,One-season-only warning: no prior season trend context available.
+p_825342,pitchers,102 pitches / arsenal count 4,100,0.95,Stuff score 56.3,Avg FB velo 87.9,Risk score 38.8,Zone rate 40.2%,No critical reliability warnings.
+p_802496,pitchers,23 pitches / arsenal count 5,100,0.95,Stuff score 54.7,Avg FB velo 92.4,Risk score 36.9,Zone rate 65.2%,One-season-only warning: no prior season trend context available.
+p_809806,pitchers,55 pitches / arsenal count 4,100,0.95,Stuff score 45.3,Avg FB velo 89.4,Risk score 31.8,Zone rate 50.9%,One-season-only warning: no prior season trend context available.
+p_823333,pitchers,14 pitches / arsenal count 3,100,0.95,Stuff score 81.6,Avg FB velo 93.9,Risk score 49.8,Zone rate 28.6%,One-season-only warning: no prior season trend context available.
+p_10027961,pitchers,24 pitches / arsenal count 3,100,0.95,Stuff score 41.5,Avg FB velo 87.8,Risk score 17.2,Zone rate 70.8%,One-season-only warning: no prior season trend context available.
+p_1000091452,pitchers,18 pitches / arsenal count 4,100,0.95,Stuff score 47.8,Avg FB velo 92.2,Risk score 19.8,Zone rate 50%,No critical reliability warnings.
+p_10296017,pitchers,76 pitches / arsenal count 4,100,0.95,Stuff score 32.6,Avg FB velo 86,Risk score 27.1,Zone rate 56.6%,One-season-only warning: no prior season trend context available.
+p_832383,pitchers,358 pitches / arsenal count 4,100,0.95,Stuff score 54.1,Avg FB velo 90.5,Risk score 39.1,Zone rate 50%,No critical reliability warnings.
+p_816342,pitchers,19 pitches / arsenal count 3,100,0.95,Stuff score 71.2,Avg FB velo 92.9,Risk score 40.7,Zone rate 26.3%,One-season-only warning: no prior season trend context available.
+p_806156,pitchers,65 pitches / arsenal count 6,100,0.95,Stuff score 59.5,Avg FB velo 93.3,Risk score 51.7,Zone rate 43.1%,One-season-only warning: no prior season trend context available.
+p_702658,pitchers,85 pitches / arsenal count 3,100,0.95,Stuff score 62.3,Avg FB velo 92.5,Risk score 43.5,Zone rate 42.4%,One-season-only warning: no prior season trend context available.
+p_815866,pitchers,18 pitches / arsenal count 4,100,0.95,Stuff score 64.9,Avg FB velo 92.7,Risk score 46.7,Zone rate 38.9%,One-season-only warning: no prior season trend context available.
+p_10109032,pitchers,79 pitches / arsenal count 4,100,0.95,Stuff score 53.5,Avg FB velo 88.7,Risk score 39.4,Zone rate 45.6%,No critical reliability warnings.
+p_10108349,pitchers,15 pitches / arsenal count 3,100,0.95,Stuff score 55.1,Avg FB velo 90.4,Risk score 22.3,Zone rate 53.3%,One-season-only warning: no prior season trend context available.
+p_831541,pitchers,3 pitches / arsenal count 2,100,0.95,Stuff score 75.9,Avg FB velo 92.5,Risk score 48.3,Zone rate 33.3%,One-season-only warning: no prior season trend context available.
+p_804901,pitchers,10 pitches / arsenal count 3,100,0.95,Stuff score 56.3,Avg FB velo 91,Risk score 37.5,Zone rate 70%,One-season-only warning: no prior season trend context available.
+p_824483,pitchers,21 pitches / arsenal count 2,100,0.95,Stuff score 66.8,Avg FB velo 90.4,Risk score 47.6,Zone rate 47.6%,One-season-only warning: no prior season trend context available.
+p_833405,pitchers,157 pitches / arsenal count 5,100,0.95,Stuff score 42.4,Avg FB velo 91,Risk score 43.2,Zone rate 47.1%,One-season-only warning: no prior season trend context available.
+p_810962,pitchers,8 pitches / arsenal count 3,100,0.95,Stuff score 48.1,Avg FB velo 89.3,Risk score 23.9,Zone rate 50%,One-season-only warning: no prior season trend context available.
+p_831358,pitchers,15 pitches / arsenal count 3,100,0.95,Stuff score 77.5,Avg FB velo 92.8,Risk score 59.7,Zone rate 40%,One-season-only warning: no prior season trend context available.
+p_811962,pitchers,34 pitches / arsenal count 2,100,0.95,Stuff score 46.2,Avg FB velo 91.2,Risk score 38.4,Zone rate 52.9%,One-season-only warning: no prior season trend context available.
+p_832360,pitchers,88 pitches / arsenal count 5,100,0.95,Stuff score 21.5,Avg FB velo 86.8,Risk score 33.7,Zone rate 65.9%,One-season-only warning: no prior season trend context available.
+p_1000185667,pitchers,136 pitches / arsenal count 3,100,0.95,Stuff score 42.1,Avg FB velo 89.6,Risk score 29.9,Zone rate 49.3%,No critical reliability warnings.
+p_832384,pitchers,75 pitches / arsenal count 5,100,0.95,Stuff score 41.8,Avg FB velo 89.1,Risk score 40.3,Zone rate 44%,No critical reliability warnings.
+p_805302,pitchers,24 pitches / arsenal count 3,100,0.95,Stuff score 58.5,Avg FB velo 92.6,Risk score 39.1,Zone rate 45.8%,One-season-only warning: no prior season trend context available.
+p_838745,pitchers,34 pitches / arsenal count 4,100,0.95,Stuff score 57.6,Avg FB velo 89,Risk score 54.3,Zone rate 41.2%,One-season-only warning: no prior season trend context available.
+p_1000251066,pitchers,41 pitches / arsenal count 4,100,0.95,Stuff score 49.1,Avg FB velo 88.1,Risk score 45.7,Zone rate 43.9%,One-season-only warning: no prior season trend context available.
+p_703495,pitchers,30 pitches / arsenal count 5,100,0.95,Stuff score 52.2,Avg FB velo 93.5,Risk score 47.3,Zone rate 46.7%,No critical reliability warnings.
+p_10149428,pitchers,56 pitches / arsenal count 4,100,0.95,Stuff score 37.7,Avg FB velo 87.2,Risk score 44.8,Zone rate 41.1%,One-season-only warning: no prior season trend context available.
+p_831311,pitchers,29 pitches / arsenal count 3,100,0.95,Stuff score 40.5,Avg FB velo 90.3,Risk score 27.1,Zone rate 48.3%,One-season-only warning: no prior season trend context available.
+p_823306,pitchers,120 pitches / arsenal count 6,100,0.95,Stuff score 25.9,Avg FB velo 87.8,Risk score 38.8,Zone rate 42.5%,No critical reliability warnings.
+p_10105510,pitchers,20 pitches / arsenal count 4,100,0.95,Stuff score 49.4,Avg FB velo 91.2,Risk score 38.1,Zone rate 35%,One-season-only warning: no prior season trend context available.
+p_811689,pitchers,33 pitches / arsenal count 4,100,0.95,Stuff score 25,Avg FB velo 86.1,Risk score 26.7,Zone rate 48.5%,One-season-only warning: no prior season trend context available.
+p_1000270048,pitchers,7 pitches / arsenal count 4,100,0.95,Stuff score 32.6,Avg FB velo 85.6,Risk score 29.6,Zone rate 57.1%,One-season-only warning: no prior season trend context available.
+p_10294512,pitchers,41 pitches / arsenal count 2,100,0.95,Stuff score 60.1,Avg FB velo 92,Risk score 46.4,Zone rate 39%,One-season-only warning: no prior season trend context available.
+p_10180039,pitchers,38 pitches / arsenal count 4,100,0.95,Stuff score 23.7,Avg FB velo 86.7,Risk score 32.4,Zone rate 68.4%,One-season-only warning: no prior season trend context available.
+p_835480,pitchers,26 pitches / arsenal count 3,100,0.95,Stuff score 52.2,Avg FB velo 91.4,Risk score 41.3,Zone rate 19.2%,One-season-only warning: no prior season trend context available.
+p_1000110932,pitchers,31 pitches / arsenal count 4,100,0.95,Stuff score 25.3,Avg FB velo 90.4,Risk score 30.9,Zone rate 51.6%,One-season-only warning: no prior season trend context available.
+p_828410,pitchers,22 pitches / arsenal count 4,100,0.95,Stuff score 57.3,Avg FB velo 91.5,Risk score 58.7,Zone rate 40.9%,One-season-only warning: no prior season trend context available.
+p_1000243590,pitchers,21 pitches / arsenal count 2,100,0.95,Stuff score 45.9,Avg FB velo 89.1,Risk score 38.4,Zone rate 33.3%,One-season-only warning: no prior season trend context available.
+p_10320121,pitchers,14 pitches / arsenal count 3,100,0.95,Stuff score 41.1,Avg FB velo 91.3,Risk score 32.4,Zone rate 42.9%,One-season-only warning: no prior season trend context available.
+p_813069,pitchers,18 pitches / arsenal count 3,100,0.95,Stuff score 23.7,Avg FB velo 88.5,Risk score 19.1,Zone rate 61.1%,One-season-only warning: no prior season trend context available.
+p_1000452698,pitchers,18 pitches / arsenal count 4,100,0.95,Stuff score 40.2,Avg FB velo 88.5,Risk score 46.7,Zone rate 38.9%,One-season-only warning: no prior season trend context available.
+p_1000314671,pitchers,21 pitches / arsenal count 3,100,0.95,Stuff score 43,Avg FB velo 86.2,Risk score 55.9,Zone rate 42.9%,One-season-only warning: no prior season trend context available.
+p_838500,pitchers,9 pitches / arsenal count 3,100,0.95,Stuff score 29.7,Avg FB velo 89.9,Risk score 26.7,Zone rate 77.8%,One-season-only warning: no prior season trend context available.
+p_815353,pitchers,8 pitches / arsenal count 3,100,0.95,Stuff score 48.4,Avg FB velo 91.3,Risk score 41.3,Zone rate 62.5%,One-season-only warning: no prior season trend context available.
+p_702667,pitchers,11 pitches / arsenal count 3,100,0.95,Stuff score 43.7,Avg FB velo 91.5,Risk score 45.1,Zone rate 54.5%,One-season-only warning: no prior season trend context available.
+p_825281,pitchers,16 pitches / arsenal count 5,100,0.95,Stuff score 29.4,Avg FB velo 88.5,Risk score 39.7,Zone rate 50%,One-season-only warning: no prior season trend context available.
+p_815627,pitchers,10 pitches / arsenal count 3,100,0.95,Stuff score 50.6,Avg FB velo 98.5,Risk score 45.7,Zone rate 50%,One-season-only warning: no prior season trend context available.
+p_1000387580,pitchers,58 pitches / arsenal count 5,100,0.95,Stuff score 22.2,Avg FB velo 88.4,Risk score 44.5,Zone rate 46.6%,No critical reliability warnings.
+p_1000156391,pitchers,15 pitches / arsenal count 3,100,0.95,Stuff score 47.8,Avg FB velo 91.7,Risk score 40.3,Zone rate 26.7%,One-season-only warning: no prior season trend context available.
+p_811107,pitchers,56 pitches / arsenal count 4,100,0.95,Stuff score 14.2,Avg FB velo 84.9,Risk score 40.7,Zone rate 42.9%,One-season-only warning: no prior season trend context available.
+p_828453,pitchers,8 pitches / arsenal count 2,100,0.95,Stuff score 50.9,Avg FB velo 93.5,Risk score 41,Zone rate 25%,One-season-only warning: no prior season trend context available.
+p_10164964,pitchers,27 pitches / arsenal count 4,100,0.95,Stuff score 15.8,Avg FB velo 83.9,Risk score 43.2,Zone rate 55.6%,One-season-only warning: no prior season trend context available.
+p_10278825,pitchers,25 pitches / arsenal count 3,100,0.95,Stuff score 16.8,Avg FB velo 84.7,Risk score 36.9,Zone rate 56%,One-season-only warning: no prior season trend context available.
+p_1000389559,pitchers,17 pitches / arsenal count 3,100,0.95,Stuff score 41.1,Avg FB velo 89.2,Risk score 44.1,Zone rate 41.2%,One-season-only warning: no prior season trend context available.
+p_831508,pitchers,16 pitches / arsenal count 3,100,0.95,Stuff score 40.5,Avg FB velo 89.2,Risk score 47,Zone rate 43.8%,One-season-only warning: no prior season trend context available.
+p_834654,pitchers,30 pitches / arsenal count 3,100,0.95,Stuff score 26.3,Avg FB velo 87.8,Risk score 42.2,Zone rate 50%,One-season-only warning: no prior season trend context available.
+p_1000220592,pitchers,8 pitches / arsenal count 3,100,0.95,Stuff score 38.6,Avg FB velo 91.4,Risk score 37.5,Zone rate 37.5%,One-season-only warning: no prior season trend context available.
+p_1000248614,pitchers,14 pitches / arsenal count 3,100,0.95,Stuff score 39.9,Avg FB velo 85.4,Risk score 47.6,Zone rate 35.7%,One-season-only warning: no prior season trend context available.
+p_10151000,pitchers,19 pitches / arsenal count 4,100,0.95,Stuff score 25.9,Avg FB velo 89.3,Risk score 63.1,Zone rate 31.6%,One-season-only warning: no prior season trend context available.
+p_1000232524,pitchers,2 pitches / arsenal count 1,100,0.95,Stuff score 12.3,Avg FB velo 86.1,Risk score 40,Zone rate 100%,One-season-only warning: no prior season trend context available.
+p_1000077268,pitchers,9 pitches / arsenal count 3,100,0.95,Stuff score 5.4,Avg FB velo 85.3,Risk score 41.6,Zone rate 11.1%,One-season-only warning: no prior season trend context available.
+p_1000185000,pitchers,15 pitches / arsenal count 2,100,0.95,Stuff score 19.3,Avg FB velo 87.6,Risk score 58.4,Zone rate 33.3%,One-season-only warning: no prior season trend context available.

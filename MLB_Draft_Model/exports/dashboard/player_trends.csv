@@ -1,0 +1,919 @@
+player_uid,player_name,role,season,metric_key,metric_label,metric_value
+h_1000068590,"Strand, Matthew",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),97.56021
+h_1000068590,"Strand, Matthew",hitters,2026,contact_rate,Contact Rate,33.333333333333336
+h_1000068590,"Strand, Matthew",hitters,2026,chase_rate,Chase Rate,41.666666666666664
+h_1000068590,"Strand, Matthew",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_1000068590,"Strand, Matthew",hitters,NA,contact_rate,Contact Rate,NA
+h_1000068590,"Strand, Matthew",hitters,NA,chase_rate,Chase Rate,NA
+h_1000072078,"Flores, Nick",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),95.71658599999999
+h_1000072078,"Flores, Nick",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_1000072078,"Flores, Nick",hitters,2026,chase_rate,Chase Rate,40
+h_1000087044,"Son, Junho",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),96.111062
+h_1000087044,"Son, Junho",hitters,2026,contact_rate,Contact Rate,100
+h_1000087044,"Son, Junho",hitters,2026,chase_rate,Chase Rate,11.11111111111111
+h_1000091127,"Powell, Brady",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),74.076836
+h_1000091127,"Powell, Brady",hitters,2026,contact_rate,Contact Rate,100
+h_1000091127,"Powell, Brady",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_1000091685,"Gracia, AJ",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),99.271616
+h_1000091685,"Gracia, AJ",hitters,2026,contact_rate,Contact Rate,100
+h_1000091685,"Gracia, AJ",hitters,2026,chase_rate,Chase Rate,16.666666666666668
+h_1000114445,"Aycock, Cameron",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),90.56754
+h_1000114445,"Aycock, Cameron",hitters,2026,contact_rate,Contact Rate,100
+h_1000114445,"Aycock, Cameron",hitters,2026,chase_rate,Chase Rate,50
+h_1000115649,"Greco, Anthony",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),88.26818
+h_1000115649,"Greco, Anthony",hitters,2026,contact_rate,Contact Rate,100
+h_1000115649,"Greco, Anthony",hitters,2026,chase_rate,Chase Rate,NA
+h_1000115663,"Lee, Jacob",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),95.79690000000001
+h_1000115663,"Lee, Jacob",hitters,2026,contact_rate,Contact Rate,60
+h_1000115663,"Lee, Jacob",hitters,2026,chase_rate,Chase Rate,35.714285714285715
+h_1000116120,"Guerrero, Jack",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),91.881102
+h_1000116120,"Guerrero, Jack",hitters,2026,contact_rate,Contact Rate,100
+h_1000116120,"Guerrero, Jack",hitters,2026,chase_rate,Chase Rate,40
+h_1000118912,"Melendez, Axel",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),87.918688
+h_1000118912,"Melendez, Axel",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_1000118912,"Melendez, Axel",hitters,2026,chase_rate,Chase Rate,14.285714285714286
+h_1000119183,"Curless, Tristan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),97.398386
+h_1000119183,"Curless, Tristan",hitters,2026,contact_rate,Contact Rate,70
+h_1000119183,"Curless, Tristan",hitters,2026,chase_rate,Chase Rate,20
+h_1000120627,"Smith, Kaden",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),70.42159099999999
+h_1000120627,"Smith, Kaden",hitters,2026,contact_rate,Contact Rate,100
+h_1000120627,"Smith, Kaden",hitters,2026,chase_rate,Chase Rate,25
+h_1000125439,"Bottone, Evan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),90.635691
+h_1000125439,"Bottone, Evan",hitters,2026,contact_rate,Contact Rate,85.71428571428571
+h_1000125439,"Bottone, Evan",hitters,2026,chase_rate,Chase Rate,22.22222222222222
+h_1000133418,"Whitacre, Brady",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),87.772666
+h_1000133418,"Whitacre, Brady",hitters,2026,contact_rate,Contact Rate,100
+h_1000133418,"Whitacre, Brady",hitters,2026,chase_rate,Chase Rate,NA
+h_1000133703,"Lethert, Teige",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),98.71552799999999
+h_1000133703,"Lethert, Teige",hitters,2026,contact_rate,Contact Rate,100
+h_1000133703,"Lethert, Teige",hitters,2026,chase_rate,Chase Rate,0
+h_1000134813,"Thompson, Clay",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),102.904364
+h_1000134813,"Thompson, Clay",hitters,2026,contact_rate,Contact Rate,60
+h_1000134813,"Thompson, Clay",hitters,2026,chase_rate,Chase Rate,22.22222222222222
+h_1000142987,"Palmese, Jamie",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),91.704228
+h_1000142987,"Palmese, Jamie",hitters,2026,contact_rate,Contact Rate,60
+h_1000142987,"Palmese, Jamie",hitters,2026,chase_rate,Chase Rate,50
+h_1000148955,"Ferguson, Henry",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),85.8506
+h_1000148955,"Ferguson, Henry",hitters,2026,contact_rate,Contact Rate,50
+h_1000148955,"Ferguson, Henry",hitters,2026,chase_rate,Chase Rate,14.285714285714286
+h_1000162895,"Tousa, Cade",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),88.358
+h_1000162895,"Tousa, Cade",hitters,2026,contact_rate,Contact Rate,75
+h_1000162895,"Tousa, Cade",hitters,2026,chase_rate,Chase Rate,25
+h_1000182451,"Schmidly, Ike",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),104.58625
+h_1000182451,"Schmidly, Ike",hitters,2026,contact_rate,Contact Rate,88.88888888888889
+h_1000182451,"Schmidly, Ike",hitters,2026,chase_rate,Chase Rate,50
+h_1000187570,"Iriotakis, Charlie",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),99.77883200000001
+h_1000187570,"Iriotakis, Charlie",hitters,2026,contact_rate,Contact Rate,100
+h_1000187570,"Iriotakis, Charlie",hitters,2026,chase_rate,Chase Rate,0
+h_1000220194,"Perilli, Quinten",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),84.57632000000001
+h_1000220194,"Perilli, Quinten",hitters,2026,contact_rate,Contact Rate,75
+h_1000220194,"Perilli, Quinten",hitters,2026,chase_rate,Chase Rate,0
+h_1000222330,"Kamerer, Tyler",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),87.619366
+h_1000222330,"Kamerer, Tyler",hitters,2026,contact_rate,Contact Rate,100
+h_1000222330,"Kamerer, Tyler",hitters,2026,chase_rate,Chase Rate,50
+h_1000224300,"Maher, Quinn",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),76.98931
+h_1000224300,"Maher, Quinn",hitters,2026,contact_rate,Contact Rate,90.9090909090909
+h_1000224300,"Maher, Quinn",hitters,2026,chase_rate,Chase Rate,27.77777777777778
+h_1000242087,"Juarez, Gabe",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),101.04315
+h_1000242087,"Juarez, Gabe",hitters,2026,contact_rate,Contact Rate,33.333333333333336
+h_1000242087,"Juarez, Gabe",hitters,2026,chase_rate,Chase Rate,66.66666666666667
+h_1000242407,"Matlock, Luke",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),87.58714400000001
+h_1000242407,"Matlock, Luke",hitters,2026,contact_rate,Contact Rate,60
+h_1000242407,"Matlock, Luke",hitters,2026,chase_rate,Chase Rate,12.5
+h_1000278564,"Tiroly, Joe",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),80.72022600000001
+h_1000278564,"Tiroly, Joe",hitters,2026,contact_rate,Contact Rate,100
+h_1000278564,"Tiroly, Joe",hitters,2026,chase_rate,Chase Rate,0
+h_1000281920,"Galusky, Ty",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),55.113
+h_1000281920,"Galusky, Ty",hitters,2026,contact_rate,Contact Rate,100
+h_1000281920,"Galusky, Ty",hitters,2026,chase_rate,Chase Rate,42.857142857142854
+h_1000281926,"Little, Joey",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),90.93875
+h_1000281926,"Little, Joey",hitters,2026,contact_rate,Contact Rate,100
+h_1000281926,"Little, Joey",hitters,2026,chase_rate,Chase Rate,0
+h_1000301840,"Havrilla, Aj",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),82.00899
+h_1000301840,"Havrilla, Aj",hitters,2026,contact_rate,Contact Rate,100
+h_1000301840,"Havrilla, Aj",hitters,2026,chase_rate,Chase Rate,0
+h_1000301843,"Murdoch, Ethan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),97.66046
+h_1000301843,"Murdoch, Ethan",hitters,2026,contact_rate,Contact Rate,100
+h_1000301843,"Murdoch, Ethan",hitters,2026,chase_rate,Chase Rate,14.285714285714286
+h_1000302625,"O'Neil, Liam",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),90.380015
+h_1000302625,"O'Neil, Liam",hitters,2026,contact_rate,Contact Rate,50
+h_1000302625,"O'Neil, Liam",hitters,2026,chase_rate,Chase Rate,40
+h_1000304697,"Santangelo, Ryan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_1000304697,"Santangelo, Ryan",hitters,2026,contact_rate,Contact Rate,33.333333333333336
+h_1000304697,"Santangelo, Ryan",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_1000314364,"Guanzon, Ian",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),97.14662399999999
+h_1000314364,"Guanzon, Ian",hitters,2026,contact_rate,Contact Rate,83.33333333333333
+h_1000314364,"Guanzon, Ian",hitters,2026,chase_rate,Chase Rate,14.285714285714286
+h_1000328644,"Fetterman, Tyler",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),101.99356800000001
+h_1000328644,"Fetterman, Tyler",hitters,2026,contact_rate,Contact Rate,100
+h_1000328644,"Fetterman, Tyler",hitters,2026,chase_rate,Chase Rate,0
+h_1000339305,"Harrison, Connor",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),99.35350400000002
+h_1000339305,"Harrison, Connor",hitters,2026,contact_rate,Contact Rate,70
+h_1000339305,"Harrison, Connor",hitters,2026,chase_rate,Chase Rate,54.54545454545455
+h_1000343411,"Christman, Trey",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),92.86996500000001
+h_1000343411,"Christman, Trey",hitters,2026,contact_rate,Contact Rate,42.857142857142854
+h_1000343411,"Christman, Trey",hitters,2026,chase_rate,Chase Rate,22.22222222222222
+h_1000361026,"Moody, Reece",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),93.81246999999999
+h_1000361026,"Moody, Reece",hitters,2026,contact_rate,Contact Rate,100
+h_1000361026,"Moody, Reece",hitters,2026,chase_rate,Chase Rate,22.22222222222222
+h_1000462698,"Duncan, Andrew",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_1000462698,"Duncan, Andrew",hitters,2026,contact_rate,Contact Rate,100
+h_1000462698,"Duncan, Andrew",hitters,2026,chase_rate,Chase Rate,100
+h_1000462705,"Perez, Brooks",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),94.31968699999999
+h_1000462705,"Perez, Brooks",hitters,2026,contact_rate,Contact Rate,75
+h_1000462705,"Perez, Brooks",hitters,2026,chase_rate,Chase Rate,25
+h_1000462706,"Anderson, Collin",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),99.99331
+h_1000462706,"Anderson, Collin",hitters,2026,contact_rate,Contact Rate,100
+h_1000462706,"Anderson, Collin",hitters,2026,chase_rate,Chase Rate,0
+h_1000480577,"Bartletti, Louis",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),96.659294
+h_1000480577,"Bartletti, Louis",hitters,2026,contact_rate,Contact Rate,85.71428571428571
+h_1000480577,"Bartletti, Louis",hitters,2026,chase_rate,Chase Rate,50
+h_10009966,"Laskofski, Jamie",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),85.307103
+h_10009966,"Laskofski, Jamie",hitters,2026,contact_rate,Contact Rate,71.42857142857143
+h_10009966,"Laskofski, Jamie",hitters,2026,chase_rate,Chase Rate,25
+h_10025207,"Woolwine, Jackson",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_10025207,"Woolwine, Jackson",hitters,2026,contact_rate,Contact Rate,0
+h_10025207,"Woolwine, Jackson",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_10025942,"Chavez, Conner",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),84.74674
+h_10025942,"Chavez, Conner",hitters,2026,contact_rate,Contact Rate,71.42857142857143
+h_10025942,"Chavez, Conner",hitters,2026,chase_rate,Chase Rate,50
+h_10026274,"Keen, Hunter",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),81.597338
+h_10026274,"Keen, Hunter",hitters,2026,contact_rate,Contact Rate,85.71428571428571
+h_10026274,"Keen, Hunter",hitters,2026,chase_rate,Chase Rate,37.5
+h_10054378,"Gubba, Wil",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),69.544285
+h_10054378,"Gubba, Wil",hitters,2026,contact_rate,Contact Rate,40
+h_10054378,"Gubba, Wil",hitters,2026,chase_rate,Chase Rate,50
+h_10054885,"Hinson, Cooper",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),89.03055
+h_10054885,"Hinson, Cooper",hitters,2026,contact_rate,Contact Rate,100
+h_10054885,"Hinson, Cooper",hitters,2026,chase_rate,Chase Rate,0
+h_10063085,"Petite, Michael",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),105.671917
+h_10063085,"Petite, Michael",hitters,2026,contact_rate,Contact Rate,62.5
+h_10063085,"Petite, Michael",hitters,2026,chase_rate,Chase Rate,50
+h_10069127,"Kiel II, Terrence",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),87.364139
+h_10069127,"Kiel II, Terrence",hitters,2026,contact_rate,Contact Rate,75
+h_10069127,"Kiel II, Terrence",hitters,2026,chase_rate,Chase Rate,0
+h_10077581,"Hudgins, Eli",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),90.4231
+h_10077581,"Hudgins, Eli",hitters,2026,contact_rate,Contact Rate,100
+h_10077581,"Hudgins, Eli",hitters,2026,chase_rate,Chase Rate,50
+h_10077581,"Hudgins, Eli",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_10077581,"Hudgins, Eli",hitters,2026,contact_rate,Contact Rate,20
+h_10077581,"Hudgins, Eli",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_10078856,"Barrow, Ben",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),94.27216
+h_10078856,"Barrow, Ben",hitters,2026,contact_rate,Contact Rate,100
+h_10078856,"Barrow, Ben",hitters,2026,chase_rate,Chase Rate,0
+h_10100750,"Partida, Nicholas",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),83.770289
+h_10100750,"Partida, Nicholas",hitters,2026,contact_rate,Contact Rate,75
+h_10100750,"Partida, Nicholas",hitters,2026,chase_rate,Chase Rate,12.5
+h_10100779,"Ecker, Chase",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),93.13833
+h_10100779,"Ecker, Chase",hitters,2026,contact_rate,Contact Rate,33.333333333333336
+h_10100779,"Ecker, Chase",hitters,2026,chase_rate,Chase Rate,0
+h_10106448,"Kosuda, Matthew",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),88.21789
+h_10106448,"Kosuda, Matthew",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_10106448,"Kosuda, Matthew",hitters,2026,chase_rate,Chase Rate,66.66666666666667
+h_10106448,"Kosuda, Matthew",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_10106448,"Kosuda, Matthew",hitters,2026,contact_rate,Contact Rate,50
+h_10106448,"Kosuda, Matthew",hitters,2026,chase_rate,Chase Rate,75
+h_10121639,"Haesler, Keegan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),94.092962
+h_10121639,"Haesler, Keegan",hitters,2026,contact_rate,Contact Rate,100
+h_10121639,"Haesler, Keegan",hitters,2026,chase_rate,Chase Rate,0
+h_10139818,"Nace, Breckin",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),86.920242
+h_10139818,"Nace, Breckin",hitters,2026,contact_rate,Contact Rate,100
+h_10139818,"Nace, Breckin",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_10264381,"Gocio, Ryan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),92.195206
+h_10264381,"Gocio, Ryan",hitters,2026,contact_rate,Contact Rate,100
+h_10264381,"Gocio, Ryan",hitters,2026,chase_rate,Chase Rate,20
+h_10277040,"Seguin, Josiah",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),90.73208
+h_10277040,"Seguin, Josiah",hitters,2026,contact_rate,Contact Rate,50
+h_10277040,"Seguin, Josiah",hitters,2026,chase_rate,Chase Rate,42.857142857142854
+h_10277040,"Seguin, Josiah",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_10277040,"Seguin, Josiah",hitters,2026,contact_rate,Contact Rate,100
+h_10277040,"Seguin, Josiah",hitters,2026,chase_rate,Chase Rate,0
+h_10281913,"Langley, Kyle",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),99.67814800000001
+h_10281913,"Langley, Kyle",hitters,2026,contact_rate,Contact Rate,70
+h_10281913,"Langley, Kyle",hitters,2026,chase_rate,Chase Rate,50
+h_695674,"Hughes, Treyson",hitters,2025,p90_ev_wood_adj,P90 EV (Wood Adj),98.734882
+h_695674,"Hughes, Treyson",hitters,2025,contact_rate,Contact Rate,82.3529411764706
+h_695674,"Hughes, Treyson",hitters,2025,chase_rate,Chase Rate,12.5
+h_695674,"Hughes, Treyson",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),97.28114400000001
+h_695674,"Hughes, Treyson",hitters,2026,contact_rate,Contact Rate,75
+h_695674,"Hughes, Treyson",hitters,2026,chase_rate,Chase Rate,18.46153846153846
+h_695674,"Hughes, Treyson",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_695674,"Hughes, Treyson",hitters,NA,contact_rate,Contact Rate,NA
+h_695674,"Hughes, Treyson",hitters,NA,chase_rate,Chase Rate,NA
+h_695674,"Hughes, Treyson",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_695674,"Hughes, Treyson",hitters,NA,contact_rate,Contact Rate,NA
+h_695674,"Hughes, Treyson",hitters,NA,chase_rate,Chase Rate,NA
+h_695718,"Marsh, Bobby",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),87.27168
+h_695718,"Marsh, Bobby",hitters,2026,contact_rate,Contact Rate,100
+h_695718,"Marsh, Bobby",hitters,2026,chase_rate,Chase Rate,50
+h_698840,"Nati, Jimmy",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_698840,"Nati, Jimmy",hitters,2026,contact_rate,Contact Rate,50
+h_698840,"Nati, Jimmy",hitters,2026,chase_rate,Chase Rate,25
+h_702256,"Chapman, Reese",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),89.775445
+h_702256,"Chapman, Reese",hitters,2026,contact_rate,Contact Rate,60
+h_702256,"Chapman, Reese",hitters,2026,chase_rate,Chase Rate,40
+h_702701,"Brosius, Parker",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_702701,"Brosius, Parker",hitters,2026,contact_rate,Contact Rate,100
+h_702701,"Brosius, Parker",hitters,2026,chase_rate,Chase Rate,NA
+h_702713,"Binderup, Blake",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),78.19906
+h_702713,"Binderup, Blake",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_702713,"Binderup, Blake",hitters,2026,chase_rate,Chase Rate,20
+h_702973,"Johnson, Kyle",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),100.008104
+h_702973,"Johnson, Kyle",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_702973,"Johnson, Kyle",hitters,2026,chase_rate,Chase Rate,27.272727272727273
+h_703486,"Albright, Tyler",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),80.783475
+h_703486,"Albright, Tyler",hitters,2026,contact_rate,Contact Rate,57.142857142857146
+h_703486,"Albright, Tyler",hitters,2026,chase_rate,Chase Rate,0
+h_703494,"Didawick, Harrison",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),100.242818
+h_703494,"Didawick, Harrison",hitters,2026,contact_rate,Contact Rate,90
+h_703494,"Didawick, Harrison",hitters,2026,chase_rate,Chase Rate,42.857142857142854
+h_703550,"Jaros, Ryan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),95.971591
+h_703550,"Jaros, Ryan",hitters,2026,contact_rate,Contact Rate,60
+h_703550,"Jaros, Ryan",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_703551,"Gibson, Ethan",hitters,2025,p90_ev_wood_adj,P90 EV (Wood Adj),98.575219
+h_703551,"Gibson, Ethan",hitters,2025,contact_rate,Contact Rate,85.71428571428571
+h_703551,"Gibson, Ethan",hitters,2025,chase_rate,Chase Rate,0
+h_703551,"Gibson, Ethan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),95.880177
+h_703551,"Gibson, Ethan",hitters,2026,contact_rate,Contact Rate,68.57142857142857
+h_703551,"Gibson, Ethan",hitters,2026,chase_rate,Chase Rate,17.5
+h_703552,"Krewson, Chase",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),95.517452
+h_703552,"Krewson, Chase",hitters,2026,contact_rate,Contact Rate,50
+h_703552,"Krewson, Chase",hitters,2026,chase_rate,Chase Rate,40
+h_703552,"Krewson, Chase",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_703552,"Krewson, Chase",hitters,NA,contact_rate,Contact Rate,NA
+h_703552,"Krewson, Chase",hitters,NA,chase_rate,Chase Rate,NA
+h_800606,"Grahovac, Gavin",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),99.48072599999999
+h_800606,"Grahovac, Gavin",hitters,2026,contact_rate,Contact Rate,50
+h_800606,"Grahovac, Gavin",hitters,2026,chase_rate,Chase Rate,30.76923076923077
+h_800628,"Reynolds, Brady",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_800628,"Reynolds, Brady",hitters,2026,contact_rate,Contact Rate,0
+h_800628,"Reynolds, Brady",hitters,2026,chase_rate,Chase Rate,100
+h_801499,"DeFranco, Dante",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),88.151368
+h_801499,"DeFranco, Dante",hitters,2026,contact_rate,Contact Rate,75
+h_801499,"DeFranco, Dante",hitters,2026,chase_rate,Chase Rate,50
+h_803344,"Galvin, Max",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),36.112030000000004
+h_803344,"Galvin, Max",hitters,2026,contact_rate,Contact Rate,100
+h_803344,"Galvin, Max",hitters,2026,chase_rate,Chase Rate,42.857142857142854
+h_804433,"Coupet, Nathanael",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_804433,"Coupet, Nathanael",hitters,2026,contact_rate,Contact Rate,100
+h_804433,"Coupet, Nathanael",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_804451,"Sheahan, Vance",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),83.992767
+h_804451,"Sheahan, Vance",hitters,2026,contact_rate,Contact Rate,100
+h_804451,"Sheahan, Vance",hitters,2026,chase_rate,Chase Rate,25
+h_804562,"Cuvet, Daniel",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),75.59907000000001
+h_804562,"Cuvet, Daniel",hitters,2026,contact_rate,Contact Rate,100
+h_804562,"Cuvet, Daniel",hitters,2026,chase_rate,Chase Rate,25
+h_804563,"Marin, Manny",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),90.032024
+h_804563,"Marin, Manny",hitters,2026,contact_rate,Contact Rate,60
+h_804563,"Marin, Manny",hitters,2026,chase_rate,Chase Rate,40
+h_804746,"Williams, Derek",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),99.769508
+h_804746,"Williams, Derek",hitters,2026,contact_rate,Contact Rate,75
+h_804746,"Williams, Derek",hitters,2026,chase_rate,Chase Rate,0
+h_804826,"Ogden, Jake",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),96.172039
+h_804826,"Ogden, Jake",hitters,2026,contact_rate,Contact Rate,100
+h_804826,"Ogden, Jake",hitters,2026,chase_rate,Chase Rate,0
+h_805714,"Cooke, Henry",hitters,2025,p90_ev_wood_adj,P90 EV (Wood Adj),90.310836
+h_805714,"Cooke, Henry",hitters,2025,contact_rate,Contact Rate,77.77777777777777
+h_805714,"Cooke, Henry",hitters,2025,chase_rate,Chase Rate,3.8461538461538463
+h_805714,"Cooke, Henry",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),100.24066400000001
+h_805714,"Cooke, Henry",hitters,2026,contact_rate,Contact Rate,65.27777777777777
+h_805714,"Cooke, Henry",hitters,2026,chase_rate,Chase Rate,31.11111111111111
+h_806021,"Antigua, Ariel",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),84.34894600000001
+h_806021,"Antigua, Ariel",hitters,2026,contact_rate,Contact Rate,80
+h_806021,"Antigua, Ariel",hitters,2026,chase_rate,Chase Rate,40
+h_806027,"Becker, Eric",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),98.953476
+h_806027,"Becker, Eric",hitters,2026,contact_rate,Contact Rate,37.5
+h_806027,"Becker, Eric",hitters,2026,chase_rate,Chase Rate,62.5
+h_806039,"Burress, Drew",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),103.03583
+h_806039,"Burress, Drew",hitters,2026,contact_rate,Contact Rate,75
+h_806039,"Burress, Drew",hitters,2026,chase_rate,Chase Rate,25
+h_806115,"Hamilton, RJ",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),93.57956
+h_806115,"Hamilton, RJ",hitters,2026,contact_rate,Contact Rate,33.333333333333336
+h_806115,"Hamilton, RJ",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_806117,"Harris, Sam",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),84.81147000000001
+h_806117,"Harris, Sam",hitters,2026,contact_rate,Contact Rate,33.333333333333336
+h_806117,"Harris, Sam",hitters,2026,chase_rate,Chase Rate,40
+h_806138,"Lavin, Luke",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_806138,"Lavin, Luke",hitters,2026,contact_rate,Contact Rate,16.666666666666668
+h_806138,"Lavin, Luke",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_806227,"Sosa, Alex",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),85.49733
+h_806227,"Sosa, Alex",hitters,2026,contact_rate,Contact Rate,100
+h_806227,"Sosa, Alex",hitters,2026,chase_rate,Chase Rate,0
+h_806678,"Peralta, Fabio",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),95.253518
+h_806678,"Peralta, Fabio",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_806678,"Peralta, Fabio",hitters,2026,chase_rate,Chase Rate,45.45454545454545
+h_806680,"Hacopian, Chris",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),103.03378000000001
+h_806680,"Hacopian, Chris",hitters,2026,contact_rate,Contact Rate,75
+h_806680,"Hacopian, Chris",hitters,2026,chase_rate,Chase Rate,66.66666666666667
+h_807287,"Bates, Charlie",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),92.835772
+h_807287,"Bates, Charlie",hitters,2026,contact_rate,Contact Rate,100
+h_807287,"Bates, Charlie",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_807408,"West, Brylan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),86.23018
+h_807408,"West, Brylan",hitters,2026,contact_rate,Contact Rate,100
+h_807408,"West, Brylan",hitters,2026,chase_rate,Chase Rate,0
+h_807518,"Hugus, Jackson",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_807518,"Hugus, Jackson",hitters,2026,contact_rate,Contact Rate,100
+h_807518,"Hugus, Jackson",hitters,2026,chase_rate,Chase Rate,NA
+h_808786,"Duer, Jake",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),99.481192
+h_808786,"Duer, Jake",hitters,2026,contact_rate,Contact Rate,100
+h_808786,"Duer, Jake",hitters,2026,chase_rate,Chase Rate,40
+h_809764,"Chestnut, Travis",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),94.77248
+h_809764,"Chestnut, Travis",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_809764,"Chestnut, Travis",hitters,2026,chase_rate,Chase Rate,20
+h_811294,"Sorrell, Caden",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),103.509002
+h_811294,"Sorrell, Caden",hitters,2026,contact_rate,Contact Rate,50
+h_811294,"Sorrell, Caden",hitters,2026,chase_rate,Chase Rate,20
+h_811441,"Rogers, Drew",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),90.14189
+h_811441,"Rogers, Drew",hitters,2026,contact_rate,Contact Rate,50
+h_811441,"Rogers, Drew",hitters,2026,chase_rate,Chase Rate,0
+h_811781,"Gates, Sam",hitters,2025,p90_ev_wood_adj,P90 EV (Wood Adj),99.602395
+h_811781,"Gates, Sam",hitters,2025,contact_rate,Contact Rate,53.84615384615385
+h_811781,"Gates, Sam",hitters,2025,chase_rate,Chase Rate,20.833333333333332
+h_811781,"Gates, Sam",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),100.247515
+h_811781,"Gates, Sam",hitters,2026,contact_rate,Contact Rate,75
+h_811781,"Gates, Sam",hitters,2026,chase_rate,Chase Rate,13.978494623655914
+h_812494,"Brown, Cade",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),62.601380000000006
+h_812494,"Brown, Cade",hitters,2026,contact_rate,Contact Rate,100
+h_812494,"Brown, Cade",hitters,2026,chase_rate,Chase Rate,NA
+h_812510,"Quagliano, Coltin",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),95.85901000000001
+h_812510,"Quagliano, Coltin",hitters,2026,contact_rate,Contact Rate,75
+h_812510,"Quagliano, Coltin",hitters,2026,chase_rate,Chase Rate,50
+h_812510,"Quagliano, Coltin",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_812510,"Quagliano, Coltin",hitters,NA,contact_rate,Contact Rate,NA
+h_812510,"Quagliano, Coltin",hitters,NA,chase_rate,Chase Rate,NA
+h_812668,"Kerce, Carson",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),97.11947799999999
+h_812668,"Kerce, Carson",hitters,2026,contact_rate,Contact Rate,75
+h_812668,"Kerce, Carson",hitters,2026,chase_rate,Chase Rate,66.66666666666667
+h_812674,"Schmidt, Kent",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),100.24208800000001
+h_812674,"Schmidt, Kent",hitters,2026,contact_rate,Contact Rate,100
+h_812674,"Schmidt, Kent",hitters,2026,chase_rate,Chase Rate,0
+h_813298,"Milano, Gabriel",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),98.00078
+h_813298,"Milano, Gabriel",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_813298,"Milano, Gabriel",hitters,2026,chase_rate,Chase Rate,0
+h_813359,"Teel, Aidan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),101.169651
+h_813359,"Teel, Aidan",hitters,2026,contact_rate,Contact Rate,75
+h_813359,"Teel, Aidan",hitters,2026,chase_rate,Chase Rate,40
+h_813359,"Teel, Aidan",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_813359,"Teel, Aidan",hitters,NA,contact_rate,Contact Rate,NA
+h_813359,"Teel, Aidan",hitters,NA,chase_rate,Chase Rate,NA
+h_813527,"Gary, Bennett",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),94.46835
+h_813527,"Gary, Bennett",hitters,2026,contact_rate,Contact Rate,100
+h_813527,"Gary, Bennett",hitters,2026,chase_rate,Chase Rate,0
+h_813559,"Sullivan, Noah",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),59.705118999999996
+h_813559,"Sullivan, Noah",hitters,2026,contact_rate,Contact Rate,100
+h_813559,"Sullivan, Noah",hitters,2026,chase_rate,Chase Rate,18.181818181818183
+h_813811,"Kirkpatrick, Nathan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),86.075281
+h_813811,"Kirkpatrick, Nathan",hitters,2026,contact_rate,Contact Rate,83.33333333333333
+h_813811,"Kirkpatrick, Nathan",hitters,2026,chase_rate,Chase Rate,58.333333333333336
+h_813909,"Copeland, Cian",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_813909,"Copeland, Cian",hitters,2026,contact_rate,Contact Rate,0
+h_813909,"Copeland, Cian",hitters,2026,chase_rate,Chase Rate,0
+h_813915,"De Goti, Brandon",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),75.5964
+h_813915,"De Goti, Brandon",hitters,2026,contact_rate,Contact Rate,100
+h_813915,"De Goti, Brandon",hitters,2026,chase_rate,Chase Rate,NA
+h_814181,"Advincula, Jarren",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),90.40113
+h_814181,"Advincula, Jarren",hitters,2026,contact_rate,Contact Rate,100
+h_814181,"Advincula, Jarren",hitters,2026,chase_rate,Chase Rate,22.22222222222222
+h_814505,"Reese, Ace",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),105.858803
+h_814505,"Reese, Ace",hitters,2026,contact_rate,Contact Rate,100
+h_814505,"Reese, Ace",hitters,2026,chase_rate,Chase Rate,10
+h_814822,"Ford, Henry",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),99.703258
+h_814822,"Ford, Henry",hitters,2026,contact_rate,Contact Rate,60
+h_814822,"Ford, Henry",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_814843,"Self, Mason",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),91.423557
+h_814843,"Self, Mason",hitters,2026,contact_rate,Contact Rate,100
+h_814843,"Self, Mason",hitters,2026,chase_rate,Chase Rate,10
+h_814963,"Meglio, Charlie",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),101.591134
+h_814963,"Meglio, Charlie",hitters,2026,contact_rate,Contact Rate,80
+h_814963,"Meglio, Charlie",hitters,2026,chase_rate,Chase Rate,20
+h_815155,"Clark, Levi",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),100.237027
+h_815155,"Clark, Levi",hitters,2026,contact_rate,Contact Rate,75
+h_815155,"Clark, Levi",hitters,2026,chase_rate,Chase Rate,14.285714285714286
+h_815337,"Abernathy, Jay",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_815337,"Abernathy, Jay",hitters,2026,contact_rate,Contact Rate,50
+h_815337,"Abernathy, Jay",hitters,2026,chase_rate,Chase Rate,5.882352941176471
+h_815345,"Baker, Will",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),84.98554
+h_815345,"Baker, Will",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_815345,"Baker, Will",hitters,2026,chase_rate,Chase Rate,0
+h_815415,"Hernandez, Alex",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),84.49251
+h_815415,"Hernandez, Alex",hitters,2026,contact_rate,Contact Rate,40
+h_815415,"Hernandez, Alex",hitters,2026,chase_rate,Chase Rate,30
+h_815427,"Johnson, Trevor",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),68.8037
+h_815427,"Johnson, Trevor",hitters,2026,contact_rate,Contact Rate,50
+h_815427,"Johnson, Trevor",hitters,2026,chase_rate,Chase Rate,100
+h_815489,"Lougee, Jeff",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),91.89642
+h_815489,"Lougee, Jeff",hitters,2026,contact_rate,Contact Rate,100
+h_815489,"Lougee, Jeff",hitters,2026,chase_rate,Chase Rate,0
+h_815514,"Newstrom, Chris",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),86.43359500000001
+h_815514,"Newstrom, Chris",hitters,2026,contact_rate,Contact Rate,57.142857142857146
+h_815514,"Newstrom, Chris",hitters,2026,chase_rate,Chase Rate,16.666666666666668
+h_815729,"Sparrer, Tyler",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),92.48825000000001
+h_815729,"Sparrer, Tyler",hitters,2026,contact_rate,Contact Rate,75
+h_815729,"Sparrer, Tyler",hitters,2026,chase_rate,Chase Rate,11.11111111111111
+h_815976,"French, Anderson",hitters,2025,p90_ev_wood_adj,P90 EV (Wood Adj),85.434053
+h_815976,"French, Anderson",hitters,2025,contact_rate,Contact Rate,46.666666666666664
+h_815976,"French, Anderson",hitters,2025,chase_rate,Chase Rate,15.789473684210526
+h_815976,"French, Anderson",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),100.814654
+h_815976,"French, Anderson",hitters,2026,contact_rate,Contact Rate,55.55555555555556
+h_815976,"French, Anderson",hitters,2026,chase_rate,Chase Rate,20.634920634920636
+h_815986,"Stephenson, Dominic",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_815986,"Stephenson, Dominic",hitters,2026,contact_rate,Contact Rate,0
+h_815986,"Stephenson, Dominic",hitters,2026,chase_rate,Chase Rate,25
+h_820842,"Chance, Bryce",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),100.290197
+h_820842,"Chance, Bryce",hitters,2026,contact_rate,Contact Rate,100
+h_820842,"Chance, Bryce",hitters,2026,chase_rate,Chase Rate,0
+h_822518,"Lackey, Vahn",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_822518,"Lackey, Vahn",hitters,2026,contact_rate,Contact Rate,100
+h_822518,"Lackey, Vahn",hitters,2026,chase_rate,Chase Rate,0
+h_822679,"MacDonald, Cort",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),98.59006600000001
+h_822679,"MacDonald, Cort",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_822679,"MacDonald, Cort",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_822701,"Salinas, Tristan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_822701,"Salinas, Tristan",hitters,2026,contact_rate,Contact Rate,50
+h_822701,"Salinas, Tristan",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_822871,"Zuckerman, Ryan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),101.752036
+h_822871,"Zuckerman, Ryan",hitters,2026,contact_rate,Contact Rate,100
+h_822871,"Zuckerman, Ryan",hitters,2026,chase_rate,Chase Rate,0
+h_822961,"Halter, Jackson",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),55.754740000000005
+h_822961,"Halter, Jackson",hitters,2026,contact_rate,Contact Rate,80
+h_822961,"Halter, Jackson",hitters,2026,chase_rate,Chase Rate,42.857142857142854
+h_823332,"Hott, Ethan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),96.92541899999999
+h_823332,"Hott, Ethan",hitters,2026,contact_rate,Contact Rate,70
+h_823332,"Hott, Ethan",hitters,2026,chase_rate,Chase Rate,18.181818181818183
+h_823374,"Murray, Noah",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),97.35501500000001
+h_823374,"Murray, Noah",hitters,2026,contact_rate,Contact Rate,83.33333333333333
+h_823374,"Murray, Noah",hitters,2026,chase_rate,Chase Rate,20
+h_824009,"Locurto, Nick",hitters,2025,p90_ev_wood_adj,P90 EV (Wood Adj),95.21116
+h_824009,"Locurto, Nick",hitters,2025,contact_rate,Contact Rate,72.72727272727273
+h_824009,"Locurto, Nick",hitters,2025,chase_rate,Chase Rate,20.833333333333332
+h_824009,"Locurto, Nick",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),99.970114
+h_824009,"Locurto, Nick",hitters,2026,contact_rate,Contact Rate,78.26086956521739
+h_824009,"Locurto, Nick",hitters,2026,chase_rate,Chase Rate,17.204301075268816
+h_824009,"Locurto, Nick",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_824009,"Locurto, Nick",hitters,NA,contact_rate,Contact Rate,NA
+h_824009,"Locurto, Nick",hitters,NA,chase_rate,Chase Rate,NA
+h_824456,"Conner, Nate",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_824456,"Conner, Nate",hitters,2026,contact_rate,Contact Rate,37.5
+h_824456,"Conner, Nate",hitters,2026,chase_rate,Chase Rate,46.15384615384615
+h_824554,"Adelman, Trent",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),83.51823
+h_824554,"Adelman, Trent",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_824554,"Adelman, Trent",hitters,2026,chase_rate,Chase Rate,25
+h_824567,"Lutterman, Hudson",hitters,2025,p90_ev_wood_adj,P90 EV (Wood Adj),93.65837
+h_824567,"Lutterman, Hudson",hitters,2025,contact_rate,Contact Rate,85.71428571428571
+h_824567,"Lutterman, Hudson",hitters,2025,chase_rate,Chase Rate,25
+h_824567,"Lutterman, Hudson",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),97.33115000000001
+h_824567,"Lutterman, Hudson",hitters,2026,contact_rate,Contact Rate,87.23404255319149
+h_824567,"Lutterman, Hudson",hitters,2026,chase_rate,Chase Rate,35.869565217391305
+h_824567,"Lutterman, Hudson",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_824567,"Lutterman, Hudson",hitters,NA,contact_rate,Contact Rate,NA
+h_824567,"Lutterman, Hudson",hitters,NA,chase_rate,Chase Rate,NA
+h_824574,"Smith, Jack",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),96.235483
+h_824574,"Smith, Jack",hitters,2026,contact_rate,Contact Rate,42.857142857142854
+h_824574,"Smith, Jack",hitters,2026,chase_rate,Chase Rate,20
+h_824575,"Toole, Noah",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),82.54168
+h_824575,"Toole, Noah",hitters,2026,contact_rate,Contact Rate,100
+h_824575,"Toole, Noah",hitters,2026,chase_rate,Chase Rate,0
+h_824575,"Toole, Noah",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_824575,"Toole, Noah",hitters,2026,contact_rate,Contact Rate,50
+h_824575,"Toole, Noah",hitters,2026,chase_rate,Chase Rate,0
+h_824647,"Onate, Mason",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),93.82503600000001
+h_824647,"Onate, Mason",hitters,2026,contact_rate,Contact Rate,75
+h_824647,"Onate, Mason",hitters,2026,chase_rate,Chase Rate,8.333333333333334
+h_825579,"Brown, Blaine",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),75.9922
+h_825579,"Brown, Blaine",hitters,2026,contact_rate,Contact Rate,75
+h_825579,"Brown, Blaine",hitters,2026,chase_rate,Chase Rate,37.5
+h_825763,"Nunnallee, James",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),94.105168
+h_825763,"Nunnallee, James",hitters,2026,contact_rate,Contact Rate,100
+h_825763,"Nunnallee, James",hitters,2026,chase_rate,Chase Rate,0
+h_825840,"Daniel, Caleb",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_825840,"Daniel, Caleb",hitters,2026,contact_rate,Contact Rate,0
+h_825840,"Daniel, Caleb",hitters,2026,chase_rate,Chase Rate,NA
+h_826051,"Myatt, Tyler",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),76.80266
+h_826051,"Myatt, Tyler",hitters,2026,contact_rate,Contact Rate,33.333333333333336
+h_826051,"Myatt, Tyler",hitters,2026,chase_rate,Chase Rate,50
+h_826306,"Marsh, Tatum",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),103.4522
+h_826306,"Marsh, Tatum",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_826306,"Marsh, Tatum",hitters,2026,chase_rate,Chase Rate,0
+h_827330,"Carreras, Yomar",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),85.12807600000001
+h_827330,"Carreras, Yomar",hitters,2026,contact_rate,Contact Rate,62.5
+h_827330,"Carreras, Yomar",hitters,2026,chase_rate,Chase Rate,60
+h_827671,"Stallman, Reed",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),104.715772
+h_827671,"Stallman, Reed",hitters,2026,contact_rate,Contact Rate,75
+h_827671,"Stallman, Reed",hitters,2026,chase_rate,Chase Rate,10
+h_827685,"Sasaki, Rintaro",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),104.598014
+h_827685,"Sasaki, Rintaro",hitters,2026,contact_rate,Contact Rate,58.333333333333336
+h_827685,"Sasaki, Rintaro",hitters,2026,chase_rate,Chase Rate,36.36363636363637
+h_827685,"Sasaki, Rintaro",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_827685,"Sasaki, Rintaro",hitters,NA,contact_rate,Contact Rate,NA
+h_827685,"Sasaki, Rintaro",hitters,NA,chase_rate,Chase Rate,NA
+h_828130,"Dubovik, Dylan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),98.247748
+h_828130,"Dubovik, Dylan",hitters,2026,contact_rate,Contact Rate,77.77777777777777
+h_828130,"Dubovik, Dylan",hitters,2026,chase_rate,Chase Rate,33.333333333333336
+h_828162,"Kellner, Boston",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),97.14611000000001
+h_828162,"Kellner, Boston",hitters,2026,contact_rate,Contact Rate,100
+h_828162,"Kellner, Boston",hitters,2026,chase_rate,Chase Rate,11.11111111111111
+h_828345,"Alvarez, Alonzo",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),99.41504
+h_828345,"Alvarez, Alonzo",hitters,2026,contact_rate,Contact Rate,100
+h_828345,"Alvarez, Alonzo",hitters,2026,chase_rate,Chase Rate,NA
+h_828345,"Alvarez, Alonzo",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),93.56504600000001
+h_828345,"Alvarez, Alonzo",hitters,2026,contact_rate,Contact Rate,100
+h_828345,"Alvarez, Alonzo",hitters,2026,chase_rate,Chase Rate,100
+h_829665,"Woodson, Ryder",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),102.206698
+h_829665,"Woodson, Ryder",hitters,2026,contact_rate,Contact Rate,90
+h_829665,"Woodson, Ryder",hitters,2026,chase_rate,Chase Rate,42.857142857142854
+h_830145,"Lambdin, Jake",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),93.494142
+h_830145,"Lambdin, Jake",hitters,2026,contact_rate,Contact Rate,75
+h_830145,"Lambdin, Jake",hitters,2026,chase_rate,Chase Rate,0
+h_831089,"Wells, Trey",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),94.4096
+h_831089,"Wells, Trey",hitters,2026,contact_rate,Contact Rate,50
+h_831089,"Wells, Trey",hitters,2026,chase_rate,Chase Rate,44.44444444444444
+h_831426,"Hurt, Willie",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),95.340872
+h_831426,"Hurt, Willie",hitters,2026,contact_rate,Contact Rate,85.71428571428571
+h_831426,"Hurt, Willie",hitters,2026,chase_rate,Chase Rate,18.75
+h_831480,"Oxendine, CJ",hitters,2025,p90_ev_wood_adj,P90 EV (Wood Adj),98.74087
+h_831480,"Oxendine, CJ",hitters,2025,contact_rate,Contact Rate,75
+h_831480,"Oxendine, CJ",hitters,2025,chase_rate,Chase Rate,20
+h_831480,"Oxendine, CJ",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),83.535387
+h_831480,"Oxendine, CJ",hitters,2026,contact_rate,Contact Rate,80
+h_831480,"Oxendine, CJ",hitters,2026,chase_rate,Chase Rate,23.076923076923077
+h_831481,"Chandler, Aimon",hitters,2025,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_831481,"Chandler, Aimon",hitters,2025,contact_rate,Contact Rate,NA
+h_831481,"Chandler, Aimon",hitters,2025,chase_rate,Chase Rate,0
+h_831481,"Chandler, Aimon",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),101.32025399999999
+h_831481,"Chandler, Aimon",hitters,2026,contact_rate,Contact Rate,80
+h_831481,"Chandler, Aimon",hitters,2026,chase_rate,Chase Rate,14.285714285714286
+h_831482,"Ball, Ethan",hitters,2025,p90_ev_wood_adj,P90 EV (Wood Adj),103.72848800000001
+h_831482,"Ball, Ethan",hitters,2025,contact_rate,Contact Rate,100
+h_831482,"Ball, Ethan",hitters,2025,chase_rate,Chase Rate,0
+h_831482,"Ball, Ethan",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),103.427142
+h_831482,"Ball, Ethan",hitters,2026,contact_rate,Contact Rate,67
+h_831482,"Ball, Ethan",hitters,2026,chase_rate,Chase Rate,28.42105263157895
+h_831482,"Ball, Ethan",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_831482,"Ball, Ethan",hitters,NA,contact_rate,Contact Rate,NA
+h_831482,"Ball, Ethan",hitters,NA,chase_rate,Chase Rate,NA
+h_831539,"Frei, Gehrig",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),108.04644
+h_831539,"Frei, Gehrig",hitters,2026,contact_rate,Contact Rate,100
+h_831539,"Frei, Gehrig",hitters,2026,chase_rate,Chase Rate,0
+h_831539,"Frei, Gehrig",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),102.857617
+h_831539,"Frei, Gehrig",hitters,2026,contact_rate,Contact Rate,83.33333333333333
+h_831539,"Frei, Gehrig",hitters,2026,chase_rate,Chase Rate,50
+h_831931,"Warden, Alec",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),75.84063
+h_831931,"Warden, Alec",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_831931,"Warden, Alec",hitters,2026,chase_rate,Chase Rate,66.66666666666667
+h_832195,"Moran, JJ",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_832195,"Moran, JJ",hitters,2026,contact_rate,Contact Rate,50
+h_832195,"Moran, JJ",hitters,2026,chase_rate,Chase Rate,NA
+h_832195,"Moran, JJ",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_832195,"Moran, JJ",hitters,NA,contact_rate,Contact Rate,NA
+h_832195,"Moran, JJ",hitters,NA,chase_rate,Chase Rate,NA
+h_832363,"Jackson, Zach",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),87.898575
+h_832363,"Jackson, Zach",hitters,2026,contact_rate,Contact Rate,42.857142857142854
+h_832363,"Jackson, Zach",hitters,2026,chase_rate,Chase Rate,18.181818181818183
+h_832363,"Jackson, Zach",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_832363,"Jackson, Zach",hitters,NA,contact_rate,Contact Rate,NA
+h_832363,"Jackson, Zach",hitters,NA,chase_rate,Chase Rate,NA
+h_834598,"Tokheim, Teddy",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),102.487802
+h_834598,"Tokheim, Teddy",hitters,2026,contact_rate,Contact Rate,100
+h_834598,"Tokheim, Teddy",hitters,2026,chase_rate,Chase Rate,14.285714285714286
+h_834598,"Tokheim, Teddy",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_834598,"Tokheim, Teddy",hitters,NA,contact_rate,Contact Rate,NA
+h_834598,"Tokheim, Teddy",hitters,NA,chase_rate,Chase Rate,NA
+h_835059,"DiMartini, Michael",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),96.96419
+h_835059,"DiMartini, Michael",hitters,2026,contact_rate,Contact Rate,83.33333333333333
+h_835059,"DiMartini, Michael",hitters,2026,chase_rate,Chase Rate,20
+h_835227,"Bonds, Peyton",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),100.02599799999999
+h_835227,"Bonds, Peyton",hitters,2026,contact_rate,Contact Rate,62.5
+h_835227,"Bonds, Peyton",hitters,2026,chase_rate,Chase Rate,55.55555555555556
+h_836029,"Jouras, Noah",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),41.071472
+h_836029,"Jouras, Noah",hitters,2026,contact_rate,Contact Rate,55.55555555555556
+h_836029,"Jouras, Noah",hitters,2026,chase_rate,Chase Rate,50
+h_836042,"Chatelle, Matthew",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),99.36976
+h_836042,"Chatelle, Matthew",hitters,2026,contact_rate,Contact Rate,66.66666666666667
+h_836042,"Chatelle, Matthew",hitters,2026,chase_rate,Chase Rate,28.571428571428573
+h_837510,"Jeon, Eric",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),104.380849
+h_837510,"Jeon, Eric",hitters,2026,contact_rate,Contact Rate,100
+h_837510,"Jeon, Eric",hitters,2026,chase_rate,Chase Rate,0
+h_837510,"Jeon, Eric",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_837510,"Jeon, Eric",hitters,NA,contact_rate,Contact Rate,NA
+h_837510,"Jeon, Eric",hitters,NA,chase_rate,Chase Rate,NA
+h_838741,"Daniel, Pete",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),100.435096
+h_838741,"Daniel, Pete",hitters,2026,contact_rate,Contact Rate,76.92307692307692
+h_838741,"Daniel, Pete",hitters,2026,chase_rate,Chase Rate,14.942528735632184
+h_838742,"Grube, Sam",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),98.44330400000001
+h_838742,"Grube, Sam",hitters,2026,contact_rate,Contact Rate,78.16091954022988
+h_838742,"Grube, Sam",hitters,2026,chase_rate,Chase Rate,25
+h_838742,"Grube, Sam",hitters,NA,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_838742,"Grube, Sam",hitters,NA,contact_rate,Contact Rate,NA
+h_838742,"Grube, Sam",hitters,NA,chase_rate,Chase Rate,NA
+h_838743,"Petrich, Owen",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),98.03707299999999
+h_838743,"Petrich, Owen",hitters,2026,contact_rate,Contact Rate,74.68354430379746
+h_838743,"Petrich, Owen",hitters,2026,chase_rate,Chase Rate,39.56043956043956
+h_838762,"Raymond, Andrew",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),90.28641
+h_838762,"Raymond, Andrew",hitters,2026,contact_rate,Contact Rate,100
+h_838762,"Raymond, Andrew",hitters,2026,chase_rate,Chase Rate,0
+h_839111,"Watkins, Jailen",hitters,2026,p90_ev_wood_adj,P90 EV (Wood Adj),NA
+h_839111,"Watkins, Jailen",hitters,2026,contact_rate,Contact Rate,NA
+h_839111,"Watkins, Jailen",hitters,2026,chase_rate,Chase Rate,0
+p_1000077268,"Susce, Brode",pitchers,2026,avg_fb_velo,Avg FB Velo,85.30419
+p_1000077268,"Susce, Brode",pitchers,2026,csw_pct,CSW%,11.11111111111111
+p_1000077268,"Susce, Brode",pitchers,2026,zone_pct,Zone%,11.11111111111111
+p_1000091452,"Smith, Peyton",pitchers,2026,avg_fb_velo,Avg FB Velo,92.16683454545455
+p_1000091452,"Smith, Peyton",pitchers,2026,csw_pct,CSW%,33.333333333333336
+p_1000091452,"Smith, Peyton",pitchers,2026,zone_pct,Zone%,50
+p_1000091452,"Smith, Peyton",pitchers,NA,avg_fb_velo,Avg FB Velo,NA
+p_1000091452,"Smith, Peyton",pitchers,NA,csw_pct,CSW%,0
+p_1000091452,"Smith, Peyton",pitchers,NA,zone_pct,Zone%,0
+p_1000110932,"Dugan, Nick",pitchers,2026,avg_fb_velo,Avg FB Velo,90.40928272727272
+p_1000110932,"Dugan, Nick",pitchers,2026,csw_pct,CSW%,9.67741935483871
+p_1000110932,"Dugan, Nick",pitchers,2026,zone_pct,Zone%,51.61290322580645
+p_1000138611,"Calveric, Luke",pitchers,2026,avg_fb_velo,Avg FB Velo,92.51083578947369
+p_1000138611,"Calveric, Luke",pitchers,2026,csw_pct,CSW%,27.906976744186046
+p_1000138611,"Calveric, Luke",pitchers,2026,zone_pct,Zone%,32.55813953488372
+p_1000156391,"LaPalm, Bennett",pitchers,2026,avg_fb_velo,Avg FB Velo,91.70426142857143
+p_1000156391,"LaPalm, Bennett",pitchers,2026,csw_pct,CSW%,6.666666666666667
+p_1000156391,"LaPalm, Bennett",pitchers,2026,zone_pct,Zone%,26.666666666666668
+p_1000185000,"Christopher, Stephen",pitchers,2026,avg_fb_velo,Avg FB Velo,87.625045
+p_1000185000,"Christopher, Stephen",pitchers,2026,csw_pct,CSW%,20
+p_1000185000,"Christopher, Stephen",pitchers,2026,zone_pct,Zone%,33.333333333333336
+p_1000185667,"Roe, Brody",pitchers,2025,avg_fb_velo,Avg FB Velo,89.10552
+p_1000185667,"Roe, Brody",pitchers,2025,csw_pct,CSW%,18.181818181818183
+p_1000185667,"Roe, Brody",pitchers,2025,zone_pct,Zone%,45.45454545454545
+p_1000185667,"Roe, Brody",pitchers,2026,avg_fb_velo,Avg FB Velo,89.60356430769231
+p_1000185667,"Roe, Brody",pitchers,2026,csw_pct,CSW%,25
+p_1000185667,"Roe, Brody",pitchers,2026,zone_pct,Zone%,49.26470588235294
+p_1000185667,"Roe, Brody",pitchers,NA,avg_fb_velo,Avg FB Velo,NA
+p_1000185667,"Roe, Brody",pitchers,NA,csw_pct,CSW%,0
+p_1000185667,"Roe, Brody",pitchers,NA,zone_pct,Zone%,0
+p_1000220592,"Eaton, Colin",pitchers,2026,avg_fb_velo,Avg FB Velo,91.3572575
+p_1000220592,"Eaton, Colin",pitchers,2026,csw_pct,CSW%,0
+p_1000220592,"Eaton, Colin",pitchers,2026,zone_pct,Zone%,37.5
+p_1000232524,"Lingle, Daniel",pitchers,2026,avg_fb_velo,Avg FB Velo,86.140915
+p_1000232524,"Lingle, Daniel",pitchers,2026,csw_pct,CSW%,0
+p_1000232524,"Lingle, Daniel",pitchers,2026,zone_pct,Zone%,100
+p_1000243590,"Keefe, Ben",pitchers,2026,avg_fb_velo,Avg FB Velo,89.14519250000001
+p_1000243590,"Keefe, Ben",pitchers,2026,csw_pct,CSW%,23.80952380952381
+p_1000243590,"Keefe, Ben",pitchers,2026,zone_pct,Zone%,33.333333333333336
+p_1000248614,"Kinsler, Jaden",pitchers,2026,avg_fb_velo,Avg FB Velo,85.432
+p_1000248614,"Kinsler, Jaden",pitchers,2026,csw_pct,CSW%,14.285714285714286
+p_1000248614,"Kinsler, Jaden",pitchers,2026,zone_pct,Zone%,35.714285714285715
+p_1000251066,"Bauer, Patrick",pitchers,2026,avg_fb_velo,Avg FB Velo,88.10715523809523
+p_1000251066,"Bauer, Patrick",pitchers,2026,csw_pct,CSW%,26.829268292682926
+p_1000251066,"Bauer, Patrick",pitchers,2026,zone_pct,Zone%,43.90243902439025
+p_1000270048,"Anderson, Caleb",pitchers,2026,avg_fb_velo,Avg FB Velo,85.56325
+p_1000270048,"Anderson, Caleb",pitchers,2026,csw_pct,CSW%,28.571428571428573
+p_1000270048,"Anderson, Caleb",pitchers,2026,zone_pct,Zone%,57.142857142857146
+p_1000314671,"Kropis, Tyler",pitchers,2026,avg_fb_velo,Avg FB Velo,86.23923625
+p_1000314671,"Kropis, Tyler",pitchers,2026,csw_pct,CSW%,52.38095238095238
+p_1000314671,"Kropis, Tyler",pitchers,2026,zone_pct,Zone%,42.857142857142854
+p_1000342120,"Caudill, Alex",pitchers,2026,avg_fb_velo,Avg FB Velo,93.020537
+p_1000342120,"Caudill, Alex",pitchers,2026,csw_pct,CSW%,28.26086956521739
+p_1000342120,"Caudill, Alex",pitchers,2026,zone_pct,Zone%,56.52173913043478
+p_1000387580,"Harrison, Dallin",pitchers,2026,avg_fb_velo,Avg FB Velo,88.36768090909091
+p_1000387580,"Harrison, Dallin",pitchers,2026,csw_pct,CSW%,25.862068965517242
+p_1000387580,"Harrison, Dallin",pitchers,2026,zone_pct,Zone%,46.55172413793103
+p_1000387580,"Harrison, Dallin",pitchers,NA,avg_fb_velo,Avg FB Velo,NA
+p_1000387580,"Harrison, Dallin",pitchers,NA,csw_pct,CSW%,0
+p_1000387580,"Harrison, Dallin",pitchers,NA,zone_pct,Zone%,0
+p_1000389559,"Jones, Cooper",pitchers,2026,avg_fb_velo,Avg FB Velo,89.2001975
+p_1000389559,"Jones, Cooper",pitchers,2026,csw_pct,CSW%,23.529411764705884
+p_1000389559,"Jones, Cooper",pitchers,2026,zone_pct,Zone%,41.1764705882353
+p_1000452698,"Rolison, Evan",pitchers,2026,avg_fb_velo,Avg FB Velo,88.52302333333333
+p_1000452698,"Rolison, Evan",pitchers,2026,csw_pct,CSW%,27.77777777777778
+p_1000452698,"Rolison, Evan",pitchers,2026,zone_pct,Zone%,38.888888888888886
+p_1000539294,"Lazaro, Daniel",pitchers,2026,avg_fb_velo,Avg FB Velo,89.99438375
+p_1000539294,"Lazaro, Daniel",pitchers,2026,csw_pct,CSW%,41.30434782608695
+p_1000539294,"Lazaro, Daniel",pitchers,2026,zone_pct,Zone%,58.69565217391305
+p_10027961,"Dressler, Cade",pitchers,2026,avg_fb_velo,Avg FB Velo,87.76407333333333
+p_10027961,"Dressler, Cade",pitchers,2026,csw_pct,CSW%,37.5
+p_10027961,"Dressler, Cade",pitchers,2026,zone_pct,Zone%,70.83333333333333
+p_10105510,"Nystrom, Chase",pitchers,2026,avg_fb_velo,Avg FB Velo,91.23654
+p_10105510,"Nystrom, Chase",pitchers,2026,csw_pct,CSW%,20
+p_10105510,"Nystrom, Chase",pitchers,2026,zone_pct,Zone%,35
+p_10108349,"Palmer, Will",pitchers,2026,avg_fb_velo,Avg FB Velo,90.381705
+p_10108349,"Palmer, Will",pitchers,2026,csw_pct,CSW%,26.666666666666668
+p_10108349,"Palmer, Will",pitchers,2026,zone_pct,Zone%,53.333333333333336
+p_10109032,"Lazaro, Daniel",pitchers,2025,avg_fb_velo,Avg FB Velo,89.89942714285715
+p_10109032,"Lazaro, Daniel",pitchers,2025,csw_pct,CSW%,24.137931034482758
+p_10109032,"Lazaro, Daniel",pitchers,2025,zone_pct,Zone%,34.48275862068966
+p_10109032,"Lazaro, Daniel",pitchers,2026,avg_fb_velo,Avg FB Velo,88.67783222222222
+p_10109032,"Lazaro, Daniel",pitchers,2026,csw_pct,CSW%,27.848101265822784
+p_10109032,"Lazaro, Daniel",pitchers,2026,zone_pct,Zone%,45.56962025316456
+p_10109032,"Lazaro, Daniel",pitchers,NA,avg_fb_velo,Avg FB Velo,NA
+p_10109032,"Lazaro, Daniel",pitchers,NA,csw_pct,CSW%,0
+p_10109032,"Lazaro, Daniel",pitchers,NA,zone_pct,Zone%,0
+p_10110051,"McGrath, Luke",pitchers,2026,avg_fb_velo,Avg FB Velo,95.101865
+p_10110051,"McGrath, Luke",pitchers,2026,csw_pct,CSW%,50
+p_10110051,"McGrath, Luke",pitchers,2026,zone_pct,Zone%,41.666666666666664
+p_10149428,"Lutz, Tyler",pitchers,2026,avg_fb_velo,Avg FB Velo,87.20622777777778
+p_10149428,"Lutz, Tyler",pitchers,2026,csw_pct,CSW%,33.92857142857143
+p_10149428,"Lutz, Tyler",pitchers,2026,zone_pct,Zone%,41.07142857142857
+p_10151000,"Cruz, Matthew",pitchers,2026,avg_fb_velo,Avg FB Velo,89.265938
+p_10151000,"Cruz, Matthew",pitchers,2026,csw_pct,CSW%,10.526315789473685
+p_10151000,"Cruz, Matthew",pitchers,2026,zone_pct,Zone%,31.57894736842105
+p_10164964,"Noonan, Parker",pitchers,2026,avg_fb_velo,Avg FB Velo,83.91547571428572
+p_10164964,"Noonan, Parker",pitchers,2026,csw_pct,CSW%,33.333333333333336
+p_10164964,"Noonan, Parker",pitchers,2026,zone_pct,Zone%,55.55555555555556
+p_10180039,"Costarelli, Thomas",pitchers,2026,avg_fb_velo,Avg FB Velo,86.73812357142857
+p_10180039,"Costarelli, Thomas",pitchers,2026,csw_pct,CSW%,23.68421052631579
+p_10180039,"Costarelli, Thomas",pitchers,2026,zone_pct,Zone%,68.42105263157895
+p_10278825,"Seneker, Charlie",pitchers,2026,avg_fb_velo,Avg FB Velo,84.73512625
+p_10278825,"Seneker, Charlie",pitchers,2026,csw_pct,CSW%,32
+p_10278825,"Seneker, Charlie",pitchers,2026,zone_pct,Zone%,56
+p_10294512,"Lippman, Hank",pitchers,2026,avg_fb_velo,Avg FB Velo,91.9605394117647
+p_10294512,"Lippman, Hank",pitchers,2026,csw_pct,CSW%,19.51219512195122
+p_10294512,"Lippman, Hank",pitchers,2026,zone_pct,Zone%,39.02439024390244
+p_10296017,"Doll, Landen",pitchers,2026,avg_fb_velo,Avg FB Velo,86.01704921052632
+p_10296017,"Doll, Landen",pitchers,2026,csw_pct,CSW%,35.526315789473685
+p_10296017,"Doll, Landen",pitchers,2026,zone_pct,Zone%,56.578947368421055
+p_10320121,"Bobb, Coleman",pitchers,2026,avg_fb_velo,Avg FB Velo,91.29628636363637
+p_10320121,"Bobb, Coleman",pitchers,2026,csw_pct,CSW%,21.428571428571427
+p_10320121,"Bobb, Coleman",pitchers,2026,zone_pct,Zone%,42.857142857142854
+p_702528,"Weaver, Aidan",pitchers,2026,avg_fb_velo,Avg FB Velo,93.74011857142857
+p_702528,"Weaver, Aidan",pitchers,2026,csw_pct,CSW%,28.169014084507044
+p_702528,"Weaver, Aidan",pitchers,2026,zone_pct,Zone%,46.478873239436616
+p_702658,"Evans, Rob",pitchers,2026,avg_fb_velo,Avg FB Velo,92.50962673469388
+p_702658,"Evans, Rob",pitchers,2026,csw_pct,CSW%,31.764705882352942
+p_702658,"Evans, Rob",pitchers,2026,zone_pct,Zone%,42.35294117647059
+p_702667,"DiGiacomo, Roman",pitchers,2026,avg_fb_velo,Avg FB Velo,91.47513833333333
+p_702667,"DiGiacomo, Roman",pitchers,2026,csw_pct,CSW%,27.272727272727273
+p_702667,"DiGiacomo, Roman",pitchers,2026,zone_pct,Zone%,54.54545454545455
+p_702711,"Blanco, Evan",pitchers,2026,avg_fb_velo,Avg FB Velo,88.98902731707317
+p_702711,"Blanco, Evan",pitchers,2026,csw_pct,CSW%,31.818181818181817
+p_702711,"Blanco, Evan",pitchers,2026,zone_pct,Zone%,43.18181818181818
+p_703495,"Stieg, Griffin",pitchers,2025,avg_fb_velo,Avg FB Velo,93.237716875
+p_703495,"Stieg, Griffin",pitchers,2025,csw_pct,CSW%,26.470588235294116
+p_703495,"Stieg, Griffin",pitchers,2025,zone_pct,Zone%,42.64705882352941
+p_703495,"Stieg, Griffin",pitchers,2026,avg_fb_velo,Avg FB Velo,93.483258
+p_703495,"Stieg, Griffin",pitchers,2026,csw_pct,CSW%,20
+p_703495,"Stieg, Griffin",pitchers,2026,zone_pct,Zone%,46.666666666666664
+p_703495,"Stieg, Griffin",pitchers,NA,avg_fb_velo,Avg FB Velo,NA
+p_703495,"Stieg, Griffin",pitchers,NA,csw_pct,CSW%,20
+p_703495,"Stieg, Griffin",pitchers,NA,zone_pct,Zone%,0
+p_802496,"Frers, Nick",pitchers,2026,avg_fb_velo,Avg FB Velo,92.42708545454545
+p_802496,"Frers, Nick",pitchers,2026,csw_pct,CSW%,34.78260869565217
+p_802496,"Frers, Nick",pitchers,2026,zone_pct,Zone%,65.21739130434783
+p_804901,"Campbell, Kayden",pitchers,2026,avg_fb_velo,Avg FB Velo,90.99700777777778
+p_804901,"Campbell, Kayden",pitchers,2026,csw_pct,CSW%,40
+p_804901,"Campbell, Kayden",pitchers,2026,zone_pct,Zone%,70
+p_805302,"O'Harran, Toran",pitchers,2026,avg_fb_velo,Avg FB Velo,92.55812818181818
+p_805302,"O'Harran, Toran",pitchers,2026,csw_pct,CSW%,25
+p_805302,"O'Harran, Toran",pitchers,2026,zone_pct,Zone%,45.833333333333336
+p_805658,"Sdao, Shane",pitchers,2026,avg_fb_velo,Avg FB Velo,91.60842583333333
+p_805658,"Sdao, Shane",pitchers,2026,csw_pct,CSW%,31.03448275862069
+p_805658,"Sdao, Shane",pitchers,2026,zone_pct,Zone%,54.02298850574713
+p_806156,"McKee, Tate",pitchers,2026,avg_fb_velo,Avg FB Velo,93.34687631578947
+p_806156,"McKee, Tate",pitchers,2026,csw_pct,CSW%,27.692307692307693
+p_806156,"McKee, Tate",pitchers,2026,zone_pct,Zone%,43.07692307692308
+p_807507,"Hartman, Lucas",pitchers,2026,avg_fb_velo,Avg FB Velo,90.69329333333333
+p_807507,"Hartman, Lucas",pitchers,2026,csw_pct,CSW%,68.18181818181819
+p_807507,"Hartman, Lucas",pitchers,2026,zone_pct,Zone%,50
+p_809806,"Ballard, Carson",pitchers,2026,avg_fb_velo,Avg FB Velo,89.3596065
+p_809806,"Ballard, Carson",pitchers,2026,csw_pct,CSW%,40
+p_809806,"Ballard, Carson",pitchers,2026,zone_pct,Zone%,50.90909090909091
+p_810962,"Hindy, Mark",pitchers,2026,avg_fb_velo,Avg FB Velo,89.33656666666667
+p_810962,"Hindy, Mark",pitchers,2026,csw_pct,CSW%,37.5
+p_810962,"Hindy, Mark",pitchers,2026,zone_pct,Zone%,50
+p_811107,"Exum, Jacob",pitchers,2026,avg_fb_velo,Avg FB Velo,84.92986870967742
+p_811107,"Exum, Jacob",pitchers,2026,csw_pct,CSW%,28.571428571428573
+p_811107,"Exum, Jacob",pitchers,2026,zone_pct,Zone%,42.857142857142854
+p_811689,"Mastroianni, Marcello",pitchers,2026,avg_fb_velo,Avg FB Velo,86.11784222222222
+p_811689,"Mastroianni, Marcello",pitchers,2026,csw_pct,CSW%,27.272727272727273
+p_811689,"Mastroianni, Marcello",pitchers,2026,zone_pct,Zone%,48.484848484848484
+p_811748,"Crowl, Preston",pitchers,2025,avg_fb_velo,Avg FB Velo,92.435956
+p_811748,"Crowl, Preston",pitchers,2025,csw_pct,CSW%,28.37837837837838
+p_811748,"Crowl, Preston",pitchers,2025,zone_pct,Zone%,45.945945945945944
+p_811748,"Crowl, Preston",pitchers,2026,avg_fb_velo,Avg FB Velo,93.32882252631579
+p_811748,"Crowl, Preston",pitchers,2026,csw_pct,CSW%,31.363636363636363
+p_811748,"Crowl, Preston",pitchers,2026,zone_pct,Zone%,43.18181818181818
+p_811748,"Crowl, Preston",pitchers,NA,avg_fb_velo,Avg FB Velo,NA
+p_811748,"Crowl, Preston",pitchers,NA,csw_pct,CSW%,0
+p_811748,"Crowl, Preston",pitchers,NA,zone_pct,Zone%,0
+p_811962,"Mazza, Joe",pitchers,2026,avg_fb_velo,Avg FB Velo,91.22660615384615
+p_811962,"Mazza, Joe",pitchers,2026,csw_pct,CSW%,44.11764705882353
+p_811962,"Mazza, Joe",pitchers,2026,zone_pct,Zone%,52.94117647058823
+p_813069,"Lofgren, Brixton",pitchers,2026,avg_fb_velo,Avg FB Velo,88.47969666666667
+p_813069,"Lofgren, Brixton",pitchers,2026,csw_pct,CSW%,16.666666666666668
+p_813069,"Lofgren, Brixton",pitchers,2026,zone_pct,Zone%,61.111111111111114
+p_814530,"Renfrow, Brett",pitchers,2026,avg_fb_velo,Avg FB Velo,95.3497021875
+p_814530,"Renfrow, Brett",pitchers,2026,csw_pct,CSW%,42.58064516129032
+p_814530,"Renfrow, Brett",pitchers,2026,zone_pct,Zone%,52.903225806451616
+p_815353,"Booth, Braden",pitchers,2026,avg_fb_velo,Avg FB Velo,91.33538
+p_815353,"Booth, Braden",pitchers,2026,csw_pct,CSW%,12.5
+p_815353,"Booth, Braden",pitchers,2026,zone_pct,Zone%,62.5
+p_815480,"Krenzel, Brayden",pitchers,2026,avg_fb_velo,Avg FB Velo,95.00526277777777
+p_815480,"Krenzel, Brayden",pitchers,2026,csw_pct,CSW%,38.46153846153846
+p_815480,"Krenzel, Brayden",pitchers,2026,zone_pct,Zone%,48.717948717948715
+p_815561,"Valincius, Tomas",pitchers,2026,avg_fb_velo,Avg FB Velo,95.3459676923077
+p_815561,"Valincius, Tomas",pitchers,2026,csw_pct,CSW%,28.395061728395063
+p_815561,"Valincius, Tomas",pitchers,2026,zone_pct,Zone%,56.79012345679013
+p_815627,"Bauer, Jack",pitchers,2026,avg_fb_velo,Avg FB Velo,98.48416222222222
+p_815627,"Bauer, Jack",pitchers,2026,csw_pct,CSW%,20
+p_815627,"Bauer, Jack",pitchers,2026,zone_pct,Zone%,50
+p_815866,"Peralta, Erick",pitchers,2026,avg_fb_velo,Avg FB Velo,92.70085416666666
+p_815866,"Peralta, Erick",pitchers,2026,csw_pct,CSW%,38.888888888888886
+p_815866,"Peralta, Erick",pitchers,2026,zone_pct,Zone%,38.888888888888886
+p_816342,"Gomez, Cohen",pitchers,2026,avg_fb_velo,Avg FB Velo,92.86875727272727
+p_816342,"Gomez, Cohen",pitchers,2026,csw_pct,CSW%,31.57894736842105
+p_816342,"Gomez, Cohen",pitchers,2026,zone_pct,Zone%,26.31578947368421
+p_821310,"Sweeney, Brendan",pitchers,2026,avg_fb_velo,Avg FB Velo,94.25227846153845
+p_821310,"Sweeney, Brendan",pitchers,2026,csw_pct,CSW%,38.888888888888886
+p_821310,"Sweeney, Brendan",pitchers,2026,zone_pct,Zone%,44.44444444444444
+p_823306,"Weber, Ben",pitchers,2025,avg_fb_velo,Avg FB Velo,89.689663125
+p_823306,"Weber, Ben",pitchers,2025,csw_pct,CSW%,26.923076923076923
+p_823306,"Weber, Ben",pitchers,2025,zone_pct,Zone%,53.84615384615385
+p_823306,"Weber, Ben",pitchers,2026,avg_fb_velo,Avg FB Velo,87.77473719298246
+p_823306,"Weber, Ben",pitchers,2026,csw_pct,CSW%,26.666666666666668
+p_823306,"Weber, Ben",pitchers,2026,zone_pct,Zone%,42.5
+p_823333,"Moore, Trevor",pitchers,2026,avg_fb_velo,Avg FB Velo,93.9463325
+p_823333,"Moore, Trevor",pitchers,2026,csw_pct,CSW%,50
+p_823333,"Moore, Trevor",pitchers,2026,zone_pct,Zone%,28.571428571428573
+p_824483,"Hatcher, Mason",pitchers,2026,avg_fb_velo,Avg FB Velo,90.41441235294117
+p_824483,"Hatcher, Mason",pitchers,2026,csw_pct,CSW%,38.095238095238095
+p_824483,"Hatcher, Mason",pitchers,2026,zone_pct,Zone%,47.61904761904762
+p_825281,"Costello, Corey",pitchers,2026,avg_fb_velo,Avg FB Velo,88.5363925
+p_825281,"Costello, Corey",pitchers,2026,csw_pct,CSW%,18.75
+p_825281,"Costello, Corey",pitchers,2026,zone_pct,Zone%,50
+p_825342,"Swift, Chase",pitchers,2025,avg_fb_velo,Avg FB Velo,87.63815444444444
+p_825342,"Swift, Chase",pitchers,2025,csw_pct,CSW%,18.181818181818183
+p_825342,"Swift, Chase",pitchers,2025,zone_pct,Zone%,45.45454545454545
+p_825342,"Swift, Chase",pitchers,2026,avg_fb_velo,Avg FB Velo,87.85818942857142
+p_825342,"Swift, Chase",pitchers,2026,csw_pct,CSW%,40.19607843137255
+p_825342,"Swift, Chase",pitchers,2026,zone_pct,Zone%,40.19607843137255
+p_825342,"Swift, Chase",pitchers,NA,avg_fb_velo,Avg FB Velo,NA
+p_825342,"Swift, Chase",pitchers,NA,csw_pct,CSW%,0
+p_825342,"Swift, Chase",pitchers,NA,zone_pct,Zone%,0
+p_828410,"Howard, Hunter",pitchers,2026,avg_fb_velo,Avg FB Velo,91.4522
+p_828410,"Howard, Hunter",pitchers,2026,csw_pct,CSW%,22.727272727272727
+p_828410,"Howard, Hunter",pitchers,2026,zone_pct,Zone%,40.90909090909091
+p_828453,"Clover, Caleb",pitchers,2026,avg_fb_velo,Avg FB Velo,93.50530833333333
+p_828453,"Clover, Caleb",pitchers,2026,csw_pct,CSW%,12.5
+p_828453,"Clover, Caleb",pitchers,2026,zone_pct,Zone%,25
+p_831311,"Newman, Dawson",pitchers,2026,avg_fb_velo,Avg FB Velo,90.261102
+p_831311,"Newman, Dawson",pitchers,2026,csw_pct,CSW%,20.689655172413794
+p_831311,"Newman, Dawson",pitchers,2026,zone_pct,Zone%,48.275862068965516
+p_831358,"Brosnan, Reid",pitchers,2026,avg_fb_velo,Avg FB Velo,92.77799166666667
+p_831358,"Brosnan, Reid",pitchers,2026,csw_pct,CSW%,53.333333333333336
+p_831358,"Brosnan, Reid",pitchers,2026,zone_pct,Zone%,40
+p_831508,"Baker, Eli",pitchers,2026,avg_fb_velo,Avg FB Velo,89.231983
+p_831508,"Baker, Eli",pitchers,2026,csw_pct,CSW%,25
+p_831508,"Baker, Eli",pitchers,2026,zone_pct,Zone%,43.75
+p_831541,"Gleason, Jack",pitchers,2026,avg_fb_velo,Avg FB Velo,92.45948
+p_831541,"Gleason, Jack",pitchers,2026,csw_pct,CSW%,66.66666666666667
+p_831541,"Gleason, Jack",pitchers,2026,zone_pct,Zone%,33.333333333333336
+p_832360,"Zatkowski, Henry",pitchers,2026,avg_fb_velo,Avg FB Velo,86.7648317948718
+p_832360,"Zatkowski, Henry",pitchers,2026,csw_pct,CSW%,35.22727272727273
+p_832360,"Zatkowski, Henry",pitchers,2026,zone_pct,Zone%,65.9090909090909
+p_832377,"Craytor, Luke",pitchers,2025,avg_fb_velo,Avg FB Velo,94.99952285714286
+p_832377,"Craytor, Luke",pitchers,2025,csw_pct,CSW%,20.833333333333332
+p_832377,"Craytor, Luke",pitchers,2025,zone_pct,Zone%,33.333333333333336
+p_832377,"Craytor, Luke",pitchers,2026,avg_fb_velo,Avg FB Velo,96.07862866666666
+p_832377,"Craytor, Luke",pitchers,2026,csw_pct,CSW%,36.36363636363637
+p_832377,"Craytor, Luke",pitchers,2026,zone_pct,Zone%,47.72727272727273
+p_832383,"Yagesh, Brendan",pitchers,2025,avg_fb_velo,Avg FB Velo,91.39997
+p_832383,"Yagesh, Brendan",pitchers,2025,csw_pct,CSW%,41.1764705882353
+p_832383,"Yagesh, Brendan",pitchers,2025,zone_pct,Zone%,41.1764705882353
+p_832383,"Yagesh, Brendan",pitchers,2026,avg_fb_velo,Avg FB Velo,90.46937275449102
+p_832383,"Yagesh, Brendan",pitchers,2026,csw_pct,CSW%,28.491620111731844
+p_832383,"Yagesh, Brendan",pitchers,2026,zone_pct,Zone%,50
+p_832383,"Yagesh, Brendan",pitchers,NA,avg_fb_velo,Avg FB Velo,NA
+p_832383,"Yagesh, Brendan",pitchers,NA,csw_pct,CSW%,0
+p_832383,"Yagesh, Brendan",pitchers,NA,zone_pct,Zone%,0
+p_832384,"Berzonski, Josh",pitchers,2025,avg_fb_velo,Avg FB Velo,88.93394684210526
+p_832384,"Berzonski, Josh",pitchers,2025,csw_pct,CSW%,35.13513513513514
+p_832384,"Berzonski, Josh",pitchers,2025,zone_pct,Zone%,43.24324324324324
+p_832384,"Berzonski, Josh",pitchers,2026,avg_fb_velo,Avg FB Velo,89.060791
+p_832384,"Berzonski, Josh",pitchers,2026,csw_pct,CSW%,24
+p_832384,"Berzonski, Josh",pitchers,2026,zone_pct,Zone%,44
+p_832384,"Berzonski, Josh",pitchers,NA,avg_fb_velo,Avg FB Velo,NA
+p_832384,"Berzonski, Josh",pitchers,NA,csw_pct,CSW%,0
+p_832384,"Berzonski, Josh",pitchers,NA,zone_pct,Zone%,0
+p_832385,"Eisenreich, Logan",pitchers,2025,avg_fb_velo,Avg FB Velo,95.50012851851852
+p_832385,"Eisenreich, Logan",pitchers,2025,csw_pct,CSW%,17.142857142857142
+p_832385,"Eisenreich, Logan",pitchers,2025,zone_pct,Zone%,28.571428571428573
+p_832385,"Eisenreich, Logan",pitchers,2026,avg_fb_velo,Avg FB Velo,94.1680696875
+p_832385,"Eisenreich, Logan",pitchers,2026,csw_pct,CSW%,28.571428571428573
+p_832385,"Eisenreich, Logan",pitchers,2026,zone_pct,Zone%,44.642857142857146
+p_832385,"Eisenreich, Logan",pitchers,NA,avg_fb_velo,Avg FB Velo,NA
+p_832385,"Eisenreich, Logan",pitchers,NA,csw_pct,CSW%,0
+p_832385,"Eisenreich, Logan",pitchers,NA,zone_pct,Zone%,0
+p_832561,"Grim, Ethan",pitchers,2026,avg_fb_velo,Avg FB Velo,92.31248152941177
+p_832561,"Grim, Ethan",pitchers,2026,csw_pct,CSW%,31.125827814569536
+p_832561,"Grim, Ethan",pitchers,2026,zone_pct,Zone%,40.397350993377486
+p_832561,"Grim, Ethan",pitchers,NA,avg_fb_velo,Avg FB Velo,NA
+p_832561,"Grim, Ethan",pitchers,NA,csw_pct,CSW%,100
+p_832561,"Grim, Ethan",pitchers,NA,zone_pct,Zone%,0
+p_833405,"Robertson, Aiden",pitchers,2026,avg_fb_velo,Avg FB Velo,90.97722147727272
+p_833405,"Robertson, Aiden",pitchers,2026,csw_pct,CSW%,27.388535031847134
+p_833405,"Robertson, Aiden",pitchers,2026,zone_pct,Zone%,47.13375796178344
+p_834654,"Marsh, Quinten",pitchers,2026,avg_fb_velo,Avg FB Velo,87.82892789473684
+p_834654,"Marsh, Quinten",pitchers,2026,csw_pct,CSW%,26.666666666666668
+p_834654,"Marsh, Quinten",pitchers,2026,zone_pct,Zone%,50
+p_835480,"Stone, Tyler",pitchers,2026,avg_fb_velo,Avg FB Velo,91.43098928571429
+p_835480,"Stone, Tyler",pitchers,2026,csw_pct,CSW%,15.384615384615385
+p_835480,"Stone, Tyler",pitchers,2026,zone_pct,Zone%,19.23076923076923
+p_838500,"Hubert, Cole",pitchers,2026,avg_fb_velo,Avg FB Velo,89.91256666666668
+p_838500,"Hubert, Cole",pitchers,2026,csw_pct,CSW%,22.22222222222222
+p_838500,"Hubert, Cole",pitchers,2026,zone_pct,Zone%,77.77777777777777
+p_838745,"Wise, Jake",pitchers,2026,avg_fb_velo,Avg FB Velo,89.0460761111111
+p_838745,"Wise, Jake",pitchers,2026,csw_pct,CSW%,32.35294117647059
+p_838745,"Wise, Jake",pitchers,2026,zone_pct,Zone%,41.1764705882353

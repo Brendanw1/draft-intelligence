@@ -13,17 +13,15 @@ const GLOSSARY: [string, string][] = [
   ["Composite score", "40% projected draft slot value + 60% calibrated MLB probability, scaled 0–100. It is an opinion, not an output of either model alone."],
   ["Value grade", "Composite percentile within qualified players of the same type: elite = top 1%, high = 95th–99th, medium = 80th–95th, low = the rest. Percentile tiers, because calibrated probabilities compress absolute scores."],
   ["Spearman ρ", "Rank correlation between projected and actual draft order in backtests. ~0.5 means the model orders players meaningfully but far from perfectly."],
+  ["Tier 3 / MLB Arrival", "Predicts P(MLB debut | drafted) using an Elastic Net model with a round-anchored prior offset and nearest-neighbor comp rates. Only available for the 2026 projections — trained on 2021–2023 outcomes."],
+  ["Conf_strength", "Continuous conference strength score: empirical draft rate ratio (conference draft rate / global draft rate). Replaces the old 4-tier categorical conference tiers. SEC = 2.98×, SWAC = 0.09×."],
+  ["Conference-adjusted stats", "Raw stats (wOBA, ERA, etc.) are multiplied by the inverse of conf_strength before entering the model. This prevents overrating small-conference production and underrating elite-conference production."],
 ];
 
 const LIMITS: [string, string][] = [
-  ["No conference adjustment", "A .400 wOBA at Vanderbilt and at a low-major get the same credit. The single biggest known gap — treat small-conference stars with extra scrutiny (the models will overrate them)."],
+  ["Conference adjustment is approximate", "Conference strength is based on empirical draft rates (2021–2025), which is a reasonable proxy but not a direct measure of conference quality. A few small conferences (DI Independent) have high draft rates due to individual programs, not overall strength."],
+  ["Tier 3 training recency", "Tier 3 (MLB arrival) is trained on 2021–2023 draftees only — the most recent classes haven't had time to debut. Rates will shift as 2024–2025 draftees reach MLB."],
   ["No class year", "A sophomore hitting .350 and a senior hitting .350 look identical to the model. Age partially covers this, but eligibility timing does not exist in the features."],
-  ["College D1 only", "High school, JUCO, and non-D1 players were never in the training population. The models have nothing to say about them."],
-  ["fg_SHO sparse signal", "Shutouts rank high in pitcher feature importance. Rare-event stat, likely a small-sample artifact — flagged on the model card, pending an ablation test."],
-  ["2024 MiLB scrape gap", "The 2024 outcome scrape captured fewer players than other years, so Tier 2 training is thinner for that class."],
-  ["Survivorship bias", "Tier 2 only sees players who signed and appeared on a MiLB roster. Its baseline assumes the player starts a pro career."],
-  ["Recent classes unresolved", "2024–2025 draftees haven't had time to debut. Outcome rates for those classes will keep rising for years."],
-  ["Pick error is real", "Backtest MAE is ~110 picks. That's why every projection renders as a round band, not a slot."],
 ];
 
 export default function MethodologyPage() {
@@ -46,13 +44,17 @@ export default function MethodologyPage() {
         </h2>
         <p className="mt-2 text-[13px] leading-relaxed text-ink-2">
           FanGraphs D1 stats (2021–2026) are joined to MLB draft records via
-          MLBAM IDs (99.9% match rate). A regression model learns where drafted
-          stat profiles went (2,366 players, 2021–2025); its projected pick feeds
-          a second, classification model trained on which drafted players actually
-          reached MLB (1,549 players joined to scraped MiLB careers, 12.3% base
-          rate). Raw probabilities are corrected with Platt scaling. Every 2026
-          D1 player with a FanGraphs line — all 10,734 — gets scored. Details on
-          each artifact live in the <Link href="/models/" className="text-maroon underline">Model Lab</Link>.
+          MLBAM IDs (99.9% match rate). Conference-adjusted stats (wOBA_adj,
+          ERA_adj) and a continuous conference strength score (conf_strength)
+          normalize for competitive level — small-conference production is
+          now discounted proportionally. A regression model learns where drafted
+          stat profiles went; its projected pick feeds a second, classification
+          model trained on which drafted players actually reached MLB. Raw
+          probabilities are corrected with Platt scaling. A third tier, an
+          Elastic Net with round-anchored prior, predicts P(MLB debut | drafted).
+          Every 2026 D1 player with a FanGraphs line — all 10,734 — gets scored.
+          Details on each artifact live in the{" "}
+          <Link href="/models/" className="text-maroon underline">Model Lab</Link>.
         </p>
       </section>
 
@@ -82,6 +84,12 @@ export default function MethodologyPage() {
           <li>
             <span className="font-semibold text-ink">Gray means no data, never zero.</span>{" "}
             A dash is an honest absence.
+          </li>
+          <li>
+            <span className="font-semibold text-ink">Tier 3 arrival probability</span>{" "}
+            predicts P(MLB debut if drafted). It is round-anchored — a 5th-rounder
+            with 15% arrival is above their round baseline; a 1st-rounder with 15%
+            is below theirs. Always compare to the round's historical rate.
           </li>
         </ul>
       </section>
@@ -123,6 +131,7 @@ export default function MethodologyPage() {
           <li>Draft records: MLB Stats API, 2015–2026 (9,300+ picks).</li>
           <li>Pro outcomes: MiLB game feeds 2021–2025 + MLB debut records.</li>
           <li>Conference labels: static 2026 map, approximate — a display label, not a model input.</li>
+          <li>Tier 3 arrival model: trained on 2021–2023 draft outcomes. 2024–2025 outcomes still accumulating.</li>
           <li>Model vintage is stamped in the top bar; regenerate via <code className="rounded bg-paper-sunken px-1">scripts/export_frontend_data.py</code>.</li>
         </ul>
       </section>
