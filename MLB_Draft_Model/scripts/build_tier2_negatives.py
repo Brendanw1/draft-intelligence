@@ -40,10 +40,14 @@ Matching Strategy:
   - Verified undrafted = not found in ANY draft year (2015-2026)
 
 Usage:
-  python3 scripts/build_tier2_negatives.py
+  python3 scripts/build_tier2_negatives.py [--train-until YEAR]
+
+By default checks against all draft years (2015-2026). Pass --train-until 2025
+to exclude the most recent season for retrospective validation.
 """
 
 import json, re
+import argparse
 import numpy as np
 from pathlib import Path
 from collections import defaultdict, Counter
@@ -89,8 +93,15 @@ def normalize_team(name):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Build Tier 2 negative examples")
+    parser.add_argument("--train-until", type=int, default=None,
+                        help="Max season year to include (e.g. 2025 to exclude 2026 negatives)")
+    args = parser.parse_args()
+
     print("=" * 60)
     print("TIER 2 NEGATIVE EXAMPLES — VERIFIED UNDRAFTED PLAYERS")
+    if args.train_until:
+        print(f"  Limited to season ≤ {args.train_until}")
     print("=" * 60)
 
     # ── Load data ──
@@ -192,7 +203,7 @@ def main():
         return ""
 
     # ── Match all FG records to draft data ──
-    def process_data(records, player_type, already_drafted_ids):
+    def process_data(records, player_type, already_drafted_ids, max_season=None):
         """Process FG records, label as drafted/undrafted."""
         pos_count = 0  # Drafted
         neg_count = 0  # Verified undrafted
@@ -279,17 +290,18 @@ def main():
                                  "conference", "Conf", "Division"):
                         record[k] = r.get(k)
 
-                undrafted_records.append(record)
+                if max_season is None or (season is not None and season <= max_season):
+                    undrafted_records.append(record)
 
         return pos_count, neg_count, uncertain, id_matched, name_matched, undrafted_records
 
     # Process batters
     print("\n\nProcessing batters...")
-    h_pos, h_neg, h_unc, h_id, h_name, h_undrafted = process_data(b_all, "hitter", dr_ids_h)
+    h_pos, h_neg, h_unc, h_id, h_name, h_undrafted = process_data(b_all, "hitter", dr_ids_h, args.train_until)
 
     # Process pitchers
     print("Processing pitchers...")
-    p_pos, p_neg, p_unc, p_id, p_name, p_undrafted = process_data(p_all, "pitcher", dr_ids_p)
+    p_pos, p_neg, p_unc, p_id, p_name, p_undrafted = process_data(p_all, "pitcher", dr_ids_p, args.train_until)
 
     total = h_neg + p_neg
     combined = h_undrafted + p_undrafted
