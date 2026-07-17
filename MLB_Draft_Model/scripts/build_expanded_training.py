@@ -24,10 +24,14 @@ Industry context:
   - Conference adjustment is standard (SEC/ACC/Big 12 premium)
 
 Usage:
-  python3 scripts/build_expanded_training.py
+  python3 scripts/build_expanded_training.py [--train-until YEAR]
+
+By default trains on all available data (2015-2026). Pass --train-until 2025
+to exclude the most recent draft class for retrospective validation.
 """
 
 import json
+import argparse
 from pathlib import Path
 from collections import defaultdict
 
@@ -121,8 +125,15 @@ def normalize_name(name):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Build expanded training set")
+    parser.add_argument("--train-until", type=int, default=None,
+                        help="Max draft year to include (e.g. 2025 to exclude 2026 outcomes)")
+    args = parser.parse_args()
+
     print("=" * 60)
     print("BUILDING EXPANDED TRAINING SET")
+    if args.train_until:
+        print(f"  Training data limited to draft year ≤ {args.train_until}")
     print("=" * 60)
 
     # Load data
@@ -247,13 +258,13 @@ def main():
     print("\nProcessing hitter seasons...")
     for r in fg_batters:
         result = process_fg_record(r, "hitter")
-        if result:
+        if result and (not args.train_until or result.get("draft_year", 9999) <= args.train_until):
             hitter_seasons.append(result)
 
     print("Processing pitcher seasons...")
     for r in fg_pitchers:
         result = process_fg_record(r, "pitcher")
-        if result:
+        if result and (not args.train_until or result.get("draft_year", 9999) <= args.train_until):
             pitcher_seasons.append(result)
 
     print(f"\n=== Expansion Results ===")
