@@ -293,7 +293,7 @@ def main():
         print(f"\n  ── 5-Fold CV ──")
         cv_model = LogisticRegression(
             penalty="elasticnet", solver="saga",
-            C=0.5, l1_ratio=0.5, max_iter=2000, random_state=42, n_jobs=-1,
+            C=1.0, l1_ratio=0.3, max_iter=2000, random_state=42, n_jobs=-1,
         )
         cv_scores = cross_val_score(cv_model, X_train, y_train, cv=5,
                                      scoring="roc_auc", n_jobs=-1)
@@ -306,7 +306,7 @@ def main():
         for train_idx, test_idx in kf.split(X_train):
             m = LogisticRegression(
                 penalty="elasticnet", solver="saga",
-                C=0.5, l1_ratio=0.5, max_iter=2000, random_state=42, n_jobs=-1,
+                C=1.0, l1_ratio=0.3, max_iter=2000, random_state=42, n_jobs=-1,
             )
             m.fit(X_train[train_idx], y_train[train_idx])
             preds = m.predict_proba(X_train[test_idx])[:, 1]
@@ -317,7 +317,7 @@ def main():
         print(f"\n  ── Final Training ──")
         final = LogisticRegression(
             penalty="elasticnet", solver="saga",
-            C=0.5, l1_ratio=0.5, max_iter=2000, random_state=42, n_jobs=-1,
+            C=1.0, l1_ratio=0.3, max_iter=2000, random_state=42, n_jobs=-1,
         )
         final.fit(X_train, y_train)
 
