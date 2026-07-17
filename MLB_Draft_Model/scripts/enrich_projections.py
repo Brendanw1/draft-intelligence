@@ -27,6 +27,7 @@ BASE = Path(__file__).resolve().parents[1]
 PROJECTIONS_PATH = BASE / "data" / "training" / "projections_2026.json"
 ROSTER_PATH = BASE / "data" / "rosters" / "d1_rosters_2026.json"
 CROSSWALK_PATH = BASE / "data" / "rosters" / "fg_to_roster_crosswalk.json"
+DRAFT_PATH = BASE / "data" / "draft" / "draft_all_picks.json"
 OUTPUT_PATH = BASE / "data" / "training" / "projections_2026_enriched.json"
 
 
@@ -50,14 +51,27 @@ def normalize_name(name):
 
 
 def parse_height(height_str):
-    """Convert height string '6-7' to total inches."""
+    """Convert height string to total inches.
+    Handles '6-7' (roster), '6' 7"' (draft), and freeform formats."""
     if not height_str or height_str == "":
         return None
     try:
-        parts = str(height_str).strip().split("-")
-        if len(parts) == 2:
-            feet, inches = int(parts[0]), int(parts[1])
+        s = str(height_str).strip()
+        # Try "6-7" format (roster)
+        if "-" in s:
+            parts = s.split("-")
+            if len(parts) == 2:
+                feet, inches = int(parts[0]), int(parts[1])
+                return feet * 12 + inches
+        # Try "6' 7"" or "6' 7'" format (draft records)
+        import re
+        m = re.match(r"(\d+)\s*['\u2019\u2018]\s*(\d*)\s*[\"\u201d\u201c]?", s)
+        if m:
+            feet = int(m.group(1))
+            inches = int(m.group(2)) if m.group(2) else 0
             return feet * 12 + inches
+        # Try bare number (already inches)
+        return int(float(s))
     except (ValueError, IndexError):
         pass
     return None
@@ -149,6 +163,15 @@ def main():
     print(f"  Projections: {len(projections)}")
     print(f"  Rosters: {len(rosters)}")
     print(f"  Crosswalk: {crosswalk['summary']['matched']} teams matched")
+
+    # Load draft records for height/weight fallback
+    draft_records = load_json(DRAFT_PATH)
+    draft_by_pid = {}
+    for p in draft_records:
+        pid = p.get("person_id")
+        if pid and pid not in draft_by_pid:
+            draft_by_pid[pid] = p
+    print(f"  Draft records indexed: {len(draft_by_pid)}")
 
     # Build indexes
     roster_idx = build_roster_index(rosters)
@@ -278,6 +301,43 @@ def main():
 
         else:
             unmatched_name += 1
+
+        # Fallback: if height still missing from roster, try draft records by xMLBAMID
+        if record.get("height_inches") is None:
+            xid = record.get("xMLBAMID") or record.get("mlb_id")
+            if xid is not None:
+                try:
+                    draft_rec = draft_by_pid.get(int(xid))
+                except (ValueError, TypeError):
+                    draft_rec = None
+                if draft_rec:
+                    h = draft_rec.get("height", "")
+                    if h:
+                        hi = parse_height(h)
+                        if hi:
+                            record["height_inches"] = hi
+                            record["height"] = height_display(hi)
+                            # Also get weight and compute BMI
+                            w = draft_rec.get("weight")
+                            if w and hi:
+                                record["bmi"] = compute_bmi(float(w), hi)
+                # Try person_id as alternate key if xMLBAMID didn't match
+                if record.get("height_inches") is None:
+                    for pid_key in ["person_id", "mlb_id"]:
+                        alt_id = record.get(pid_key)
+                        if alt_id is not None and str(alt_id) != str(xid):
+                            try:
+                                draft_rec = draft_by_pid.get(int(alt_id))
+                            except (ValueError, TypeError):
+                                draft_rec = None
+                            if draft_rec:
+                                h = draft_rec.get("height", "")
+                                if h:
+                                    hi = parse_height(h)
+                                    if hi:
+                                        record["height_inches"] = hi
+                                        record["height"] = height_display(hi)
+                                        break
 
         enriched.append(record)
 
