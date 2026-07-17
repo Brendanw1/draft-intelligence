@@ -69,7 +69,7 @@ export const FLAG_LABELS: Record<string, string> = {
 
 export const FLAG_HELP: Record<string, string> = {
   no_mlbam_id:
-    "No MLB Advanced Media ID on record — draft/pro history joins are unavailable for this player.",
+    "No MLB Advanced Media ID on record — draft/pro history joins are unavailable for this player. Likely still in college or not yet scouted by MLB.",
   low_pa: "Under 50 plate appearances in 2026 — treat every rate stat as unstable.",
   low_ip: "Under 20 innings in 2026 — treat every rate stat as unstable.",
   no_stat_join: "Projection exists but the FanGraphs stat line failed to join.",

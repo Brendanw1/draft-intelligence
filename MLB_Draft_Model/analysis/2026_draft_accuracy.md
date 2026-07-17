@@ -1,4 +1,6 @@
-# 2026 MLB Draft — Model Accuracy Report
+# 2026 MLB Draft — Retrospective Model Accuracy Report
+
+**WARNING**: This report is a retrospective goodness-of-fit check — the models were trained on all available data including 2026 outcomes. These numbers represent how well the model describes the data it was trained on, not how well it predicts unseen data. For the true prospective validation (trained on ≤2025 only), see [`2026_draft_accuracy_prospective.md`](2026_draft_accuracy_prospective.md).
 
 ## Summary
 
