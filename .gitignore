@@ -27,17 +27,17 @@ MLB_Draft_Model/scripts/inspect_ncaa_tables.R
 .vercel
 
 # Root-level stale copies (project lives under MLB_Draft_Model/)
-app/
-components/
-configs/
-docs/
-exports/
-lib/
-public/
-R/
-scripts/
-src/
-tests/
+/app/
+/components/
+/configs/
+/docs/
+/exports/
+/lib/
+/public/
+/R/
+/scripts/
+/src/
+/tests/
 next.config.ts
 package.json
 package-lock.json

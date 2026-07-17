@@ -126,8 +126,8 @@ def normalize_name(name):
 
 def main():
     parser = argparse.ArgumentParser(description="Build expanded training set")
-    parser.add_argument("--train-until", type=int, default=None,
-                        help="Max draft year to include (e.g. 2025 to exclude 2026 outcomes)")
+    parser.add_argument("--train-until", type=int, default=2025,
+                        help="Max draft year to include (e.g. 2025 to exclude 2026 outcomes). Default 2025.")
     args = parser.parse_args()
 
     print("=" * 60)

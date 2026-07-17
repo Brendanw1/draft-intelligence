@@ -94,8 +94,8 @@ def normalize_team(name):
 
 def main():
     parser = argparse.ArgumentParser(description="Build Tier 2 negative examples")
-    parser.add_argument("--train-until", type=int, default=None,
-                        help="Max season year to include (e.g. 2025 to exclude 2026 negatives)")
+    parser.add_argument("--train-until", type=int, default=2025,
+                        help="Max season year to include (e.g. 2025 to exclude 2026 negatives). Default 2025.")
     args = parser.parse_args()
 
     print("=" * 60)
