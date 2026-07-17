@@ -6,6 +6,10 @@ __pycache__/
 .venv311/
 .venv39/
 
+# Generated training data (rebuildable from FG scrapers)
+data/training/tier2_negatives.json
+data/training/projections_2026_enriched.json
+
 # Node
 node_modules/
 .next/

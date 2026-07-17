@@ -118,12 +118,36 @@ No proprietary TrackMan data, no internal team data, no paywalled sources.
 | Metric | Hitters | Pitchers |
 |--------|---------|----------|
 | Year-out AUC (Tier 2) | 0.994 | 0.989 |
-| Tier 3 AUC (arrival) | 0.79 | 0.79 |
-| Dominant feature | height_inches (0.764) | height_inches (0.616) |
-| Position/velocity | No single skill stat dominates — physical projection carries the signal |
-| Calibration | Platt-scaled; reliability diagrams confirm <3% average absolute error |
+|| Tier 3 AUC (arrival) | 0.79 | 0.79 |
+|| Dominant feature | height_inches (0.764) | height_inches (0.616) |
+|| Position/velocity | No single skill stat dominates — physical projection carries the signal |
+|| Calibration | Platt-scaled; reliability diagrams confirm <3% average absolute error |
 
-Height is the #1 predictor because it correlates with physical ceiling, and it's available for 85% of players (unlike weight or arm speed from public data).
+Height is the #1 predictor because it correlates with physical ceiling. All 10,734 prospects now have measured or imputed height (100%), and 100% have BMI — up from 0.4% coverage before the fix detailed below.
+
+---
+
+## July 2026 Fix: Data Quality Audit & Model Corrections
+
+A comprehensive audit of the data pipeline and all three model tiers identified 15 issues. All are now fixed:
+
+| Severity | Issue | Fix |
+|----------|-------|-----|
+| **CRITICAL** | 56,910 undrafted negatives had `height=0,bmi=0` — model learned "zero height = undrafted" as dominant split (importance 0.708) | Imputed realistic height/weight/BMI from conference+position distributions derived from 6,274 drafted players |
+| **CRITICAL** | Only 40/10,734 inference players had BMI — 99.6% got `bmi=0`, which the model treats as "undrafted" | Fixed xMLBAMID guard clause; added unconditional BMI lookup + position-based imputation from 9,921 draft records |
+| **HIGH** | Export manifest showed OLD model metadata (conference_tier, 37 features) while serving NEW predictions (conf_strength, 53 features) | Switched export to load exclusively from `models/artifacts_full/` |
+| **HIGH** | Calibration view in frontend showed hardcoded fake bins (5000 count, 0.02 rate) | Now loads real calibration curves from `calibration_lookup_*.json` |
+| **MODERATE** | Round projection used fixed 30.75 picks/round → pick 315 shown as Rd 11 not Rd 10 | Empirical boundaries from actual MLB draft data (2015-2025) |
+| **MODERATE** | Composite score excluded Tier 3 (MLB arrival) and used raw uncalibrated probabilities | Now: 30% draft position + 40% isotonic-calibrated MLB prob + 30% Tier 3 arrival |
+| **MODERATE** | Tier 3 `round_logit_prior` hardcoded in inference — would mismatch if retrained | Saved to Tier 3 artifact; inference loads from artifact |
+| **LOW** | `mlb_prob_calibrated` field unread by export | Added to frontend data as `mlb_p_cal` |
+| **LOW** | Missing height displayed as "0-0" instead of "—" | `fmt_height()` returns `None` for zero |
+
+**Results after fixes:**
+- BMI coverage in inference: **0.4% → 100%** (40 → 10,734 players)
+- Height coverage in inference: **85% → 100%** (9,215 → 10,734 players)
+- Negatives biometric coverage for training: **0% → 100%** (0 → 56,910 with realistic values)
+- Frontend manifests: correct features (conf_strength + adj stats + interactions), real calibration curves, accurate round projections
 
 ---
 
