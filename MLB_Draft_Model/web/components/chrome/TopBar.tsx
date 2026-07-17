@@ -43,7 +43,7 @@ export function TopBar() {
             className="text-[17px] font-semibold tracking-tight text-maroon"
             style={{ fontFamily: "var(--font-fraunces)" }}
           >
-            VT Draft Intelligence
+            Draft Intelligence
           </span>
           <span className="text-[11px] uppercase tracking-[0.14em] text-ink-3">
             2026

@@ -1,6 +1,6 @@
-# VT Draft Intelligence
+# Draft Intelligence
 
-A draft-model review workspace for the VT Baseball MLB Draft Model — 2026
+A draft-model review workspace for the MLB Draft Model — 2026
 projections for 10,734 D1 players, calibrated MLB probabilities, projected
 round bands, historical comps, class retrospectives, and full model
 transparency cards.
