@@ -24,3 +24,31 @@ MLB_Draft_Model/scripts/verify_*.py
 MLB_Draft_Model/scripts/assess_*.py
 MLB_Draft_Model/scripts/inspect_*.R
 MLB_Draft_Model/scripts/inspect_ncaa_tables.R
+.vercel
+
+# Root-level stale copies (project lives under MLB_Draft_Model/)
+app/
+components/
+configs/
+docs/
+exports/
+lib/
+public/
+R/
+scripts/
+src/
+tests/
+next.config.ts
+package.json
+package-lock.json
+postcss.config.mjs
+tsconfig.json
+requirements.txt
+setup.py
+pyproject.toml
+
+# Old plan files at root
+"Agent-Ready Implementation Plan for an MLB Draft Model.md"
+"Building an MLB Draft Model with College Trackman Data.md"
+"Building an MLB Draft Model with College Trackman Data.pdf"
+"MLB Draft Model — Tech Stack & Build Plan.md"
