@@ -82,14 +82,17 @@ The model's 2026 projections can be compared against actual draft outcomes with 
 
 | Metric | Value |
 |--------|-------|
-| Prospectively matchable draftees | 212 of 474 (44.7%) |
-| Mean absolute pick error | **115.7 picks** |
-| Median absolute pick error | 100.0 picks |
+| Prospectively matchable draftees | 454 of 474 (96%) |
+| Mean absolute pick error | **116.4 picks** |
+| Median absolute pick error | 101.4 picks |
+| Spearman rank correlation | 0.559 (p < 0.001) |
 | Within projected pick range (±~110 picks) | **54%** |
-| Drafted higher than projected | 19% |
-| Drafted lower than projected | 25% |
+| Within ±150 picks | 69% |
+| Within ±200 picks | 84% |
+| Drafted higher than projected (model undervalued) | 45% |
+| Drafted lower than projected (model overvalued) | 55% |
 
-The lower match rate (44.7% vs the retrospective 93%) is a function of the matching methodology — enriched projections use abbreviated school codes (`LSU`) while draft records use full school names (`Louisiana State University`). A better crosswalk would improve this. The true prospective MAE of ±116 picks validates the ±110-pick backtest estimate. Full report in [`analysis/2026_draft_accuracy_prospective.md`](analysis/2026_draft_accuracy_prospective.md).
+The prospective MAE of **116.4 picks** validates the ±110 backtest estimate used throughout the UI. The Spearman ρ of 0.56 (p < 0.001) shows meaningful rank ordering. The 96% match rate was achieved by combining person_id joins with fuzzy name+school matching. Full report in [`analysis/2026_draft_accuracy_prospective.md`](analysis/2026_draft_accuracy_prospective.md).
 
 Full round-by-round breakdown, biggest misses, best predictions, and unmatched player analysis in the retrospective [`analysis/2026_draft_accuracy.md`](analysis/2026_draft_accuracy.md).
 
