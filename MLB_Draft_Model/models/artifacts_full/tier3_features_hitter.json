@@ -15,39 +15,39 @@
   "feature_coefficients": [
     {
       "feature": "round_logit_prior",
-      "coefficient": 1.0323292054578883
+      "coefficient": 1.0586892041040064
     },
     {
       "feature": "conf_strength",
-      "coefficient": -0.3712215456212366
-    },
-    {
-      "feature": "Age",
-      "coefficient": -0.11679965622559554
-    },
-    {
-      "feature": "bmi",
-      "coefficient": 0.08619889937209278
-    },
-    {
-      "feature": "OPS_adj",
-      "coefficient": 0.024471465251946867
+      "coefficient": -0.39062230317668334
     },
     {
       "feature": "K_pct_adj",
-      "coefficient": -0.023761282895469905
+      "coefficient": -0.27450862421898353
     },
     {
-      "feature": "height_inches",
-      "coefficient": 0.02127870283800898
+      "feature": "Age",
+      "coefficient": -0.13034132487880312
     },
     {
       "feature": "nn_mlb_rate",
-      "coefficient": 0.005441592633157608
+      "coefficient": 0.12388158967201879
+    },
+    {
+      "feature": "bmi",
+      "coefficient": 0.08918417807429434
+    },
+    {
+      "feature": "OPS_adj",
+      "coefficient": 0.0705784580886383
+    },
+    {
+      "feature": "height_inches",
+      "coefficient": 0.026221367154953677
     },
     {
       "feature": "wOBA_adj",
-      "coefficient": 0.0
+      "coefficient": 0.0225024124663549
     },
     {
       "feature": "BB_pct_adj",
@@ -56,8 +56,8 @@
   ],
   "n_train": 549,
   "n_positives": 94,
-  "cv_auc_mean": 0.7862026862026862,
-  "cv_auc_std": 0.04255207780018717,
-  "cv_brier": 0.11833854085679185,
+  "cv_auc_mean": 0.7866332497911447,
+  "cv_auc_std": 0.05495806990047218,
+  "cv_brier": 0.11795343083931464,
   "nn_reference_pool": 1112
 }

@@ -343,10 +343,29 @@ def main():
             continue
 
         # Build similarity matrix for all players of this type
+        # NOTE: sim_stats are adjusted stats (wOBA_adj, ERA_adj, etc.) that don't
+        # exist directly in enriched records. Build them from raw_fg data.
         sim_matrix = []
         for idx in type_indices:
             rec = enriched[idx]
-            row = [safe_float(rec.get(s, 0)) or 0 for s in sim_stats]
+            # Build lookup key (same as in main loop below)
+            name = rec.get("player_name", "")
+            team_abb = rec.get("team_abb", "").strip()
+            lookup_key = f"{name.strip().lower()}|{team_abb.strip().lower()}"
+            raw_fg = raw_fg_idx.get(lookup_key, {})
+            conf = rec.get("conference", "")
+            season = rec.get("season", 2026)
+
+            row = []
+            for s in sim_stats:
+                raw_stat = ADJ_FEATURE_MAP.get(s, s.replace("_adj", ""))
+                raw_val = safe_float(raw_fg.get(raw_stat))
+                if raw_val is not None and conf_stats is not None:
+                    conf_avg = get_conf_avg(conf_stats, conf, season, pt, raw_stat)
+                    adj_val = round(raw_val - conf_avg, 4)
+                    row.append(adj_val if adj_val is not None else 0.0)
+                else:
+                    row.append(0.0)
             sim_matrix.append(row)
         sim_matrix = np.array(sim_matrix)
 
