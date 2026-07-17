@@ -56,15 +56,27 @@ def safe_float(v):
 
 def fmt_height(inches: float | None) -> str | None:
     """Convert inches to "6-4" format for display."""
-    if inches is None:
+    if inches is None or inches == 0:
         return None
     return f"{int(inches)//12}-{int(inches)%12}"
+
+
+# Empirical pick-to-round boundaries from actual MLB draft data (2015-2025).
+# Rounds 1-10 have extra compensatory picks; constant 30.75/round was wrong.
+# Round boundary at index N-1 = max pick number in that round.
+PICK_ROUND_BOUNDARIES = [
+    40, 70, 107, 137, 167, 197, 227, 257, 287, 317,
+    347, 377, 407, 437, 467, 497, 527, 557, 587, 617,
+]
 
 
 def pick_to_round(pick: float | None) -> int | None:
     if pick is None:
         return None
-    return max(1, min(20, int(math.ceil(pick / 30.75))))
+    for i, boundary in enumerate(PICK_ROUND_BOUNDARIES):
+        if pick <= boundary:
+            return max(1, min(20, i + 1))
+    return 20
 
 
 # ── stat mapping: raw FG → frontend key_stats ────────────────────────
@@ -275,24 +287,22 @@ def main():
     raw_fg_lookup = build_player_id_map(raw_batters_2026, raw_pitchers_2026)
     print(f"  Raw FG 2026 lookup: {len(raw_fg_lookup)}")
 
-    # Model artifacts
-    artifacts_dir = BASE / "models" / "artifacts"
+    # Model artifacts — use artifacts_full (conf_strength models), not legacy artifacts/
     artifacts_full_dir = BASE / "models" / "artifacts_full"
 
-    # Load calibrators for calibration curves
+    # Load calibrators for calibration curves (from conf_strength-trained models)
     calibrators = {}
     for pt in ["hitter", "pitcher"]:
-        platt_path = artifacts_dir / f"calibrator_platt_{pt}.pkl"
+        platt_path = artifacts_full_dir / f"calibrator_platt_{pt}.pkl"
         if platt_path.exists():
             with open(platt_path, "rb") as f:
                 calibrators[f"platt_{pt}"] = pickle.load(f)
 
-    # Load feature metadata
+    # Load feature metadata from artifacts_full only
     feat_meta = {}
-    for fname in ["fg_features_hitter.json", "fg_features_pitcher.json",
-                   "tier2_features_hitter.json", "tier2_features_pitcher.json",
+    for fname in ["tier1_features_hitter.json", "tier1_features_pitcher.json",
                    "tier2_full_features_hitter.json", "tier2_full_features_pitcher.json"]:
-        fpath = artifacts_dir / fname if (artifacts_dir / fname).exists() else artifacts_full_dir / fname
+        fpath = artifacts_full_dir / fname
         if fpath.exists():
             feat_meta[fname.replace(".json", "")] = load_json(fpath)
 
@@ -380,6 +390,7 @@ def main():
         mlb_p = safe_float(rec.get("mlb_probability"))
         mlb_p_raw = safe_float(rec.get("mlb_prob_platt"))
         mlb_p_iso = safe_float(rec.get("mlb_prob_isotonic"))
+        mlb_p_cal = safe_float(rec.get("mlb_prob_calibrated"))  # quantile calibration (optional)
         mlb_arrival = safe_float(rec.get("mlb_arrival_prob"))
         nn_mlb_rate = safe_float(rec.get("nn_mlb_rate"))
         composite = safe_float(rec.get("composite_score"))
@@ -433,6 +444,7 @@ def main():
             "mlb_p": mlb_p,
             "mlb_p_raw": mlb_p_raw,
             "mlb_p_iso": mlb_p_iso,
+            "mlb_p_cal": mlb_p_cal,
             "mlb_arrival": mlb_arrival,
             "nn_mlb_rate": nn_mlb_rate,
             "hist_rate": hist_rate,
@@ -534,6 +546,7 @@ def main():
             "mlb_p": mlb_p,
             "mlb_p_raw": mlb_p_raw,
             "mlb_p_iso": mlb_p_iso,
+            "mlb_p_cal": mlb_p_cal,
             "mlb_arrival": mlb_arrival,
             "nn_mlb_rate": nn_mlb_rate,
             "hist_rate": hist_rate,
@@ -736,7 +749,7 @@ def main():
     # Tier 1: FG draft position models
     for pt in ["hitter", "pitcher"]:
         artifact_key = f"fg-draft-{pt}"
-        feat_file = f"fg_features_{pt}"
+        feat_file = f"tier1_features_{pt}"
         meta = feat_meta.get(feat_file, {})
 
         label = "Hitters" if pt == "hitter" else "Pitchers"
@@ -821,42 +834,82 @@ def main():
         except Exception:
             pass
 
-        # Build calibration info from metadata if available
-        if meta.get("auc_base") is not None:
-            # Use known calibration info from training runs
-            # Pre-calibration ECE was ~0.12 (from earlier runs)
+        # Build calibration info from real calibration_lookup data
+        cal_lookup_path = artifacts_full_dir / f"calibration_lookup_{pt}.json"
+        cal_curve_path = artifacts_full_dir / f"calibration_curve_{pt}.json"
+        if cal_lookup_path.exists():
+            cal_lookup = load_json(cal_lookup_path)
+            cal_curve_data = load_json(cal_curve_path) if cal_curve_path.exists() else None
+
+            raw_centers = cal_lookup["raw_centers"]
+            calibrated = cal_lookup["calibrated"]
+            n_total = cal_lookup.get("n", 0) or cal_curve_data.get("n_total", 0) if cal_curve_data else 0
+
+            # Compute metrics from the 100-bin curve
+            if cal_curve_data:
+                bins_data = cal_curve_data["bins"]
+                raw_vals = [b["raw_mean"] for b in bins_data]
+                emp_vals = [b["empirical_rate"] for b in bins_data]
+                ece = float(np.mean(np.abs(np.array(raw_vals) - np.array(emp_vals))))
+                mean_pred = float(np.mean(raw_vals))
+                mean_actual = float(np.mean(emp_vals))
+                slope = cal_curve_data["calibration_slope"]
+            else:
+                raw_arr = np.array(raw_centers)
+                cal_arr = np.array(calibrated)
+                ece = float(np.mean(np.abs(raw_arr - cal_arr)))
+                mean_pred = float(np.mean(raw_centers))
+                mean_actual = float(np.mean(calibrated))
+                slope = None
+
+            # Build 10 decile bins for frontend display
+            n_bins = len(raw_centers)
+            if n_bins >= 10:
+                bin_edges = np.linspace(0, n_bins, 11, dtype=int).tolist()
+                display_bins = []
+                for i in range(10):
+                    start, end = bin_edges[i], bin_edges[i + 1]
+                    if end > n_bins:
+                        end = n_bins
+                    if start >= end:
+                        continue
+                    slice_raw = raw_centers[start:end]
+                    slice_cal = calibrated[start:end]
+                    pct_min = int(min(slice_raw) * 100)
+                    pct_max = int(max(slice_raw) * 100)
+                    display_bins.append({
+                        "bin": f"{pct_min}–{pct_max}%",
+                        "count": int(end - start),
+                        "pred_mean": round(float(np.mean(slice_raw)), 4),
+                        "actual_rate": round(float(np.mean(slice_cal)), 4),
+                    })
+            else:
+                display_bins = []
+
             calibration_info = {
-                "type": "Platt scaling",
-                "n": meta.get("n_train", 0),
-                "ece": 0.12,
-                "mean_pred": 0.28,
-                "mean_actual": 0.12,
-                "bias": 2.3,
-                "bins": [
-                    {"bin": "0–10%", "count": 5000, "pred_mean": 0.05, "actual_rate": 0.02},
-                    {"bin": "10–20%", "count": 3000, "pred_mean": 0.15, "actual_rate": 0.05},
-                    {"bin": "20–30%", "count": 2000, "pred_mean": 0.25, "actual_rate": 0.08},
-                    {"bin": "30–50%", "count": 1500, "pred_mean": 0.40, "actual_rate": 0.15},
-                    {"bin": "50–70%", "count": 800, "pred_mean": 0.60, "actual_rate": 0.28},
-                    {"bin": "70–90%", "count": 400, "pred_mean": 0.80, "actual_rate": 0.50},
-                    {"bin": "90–100%", "count": 200, "pred_mean": 0.95, "actual_rate": 0.75},
-                ],
+                "type": "Quantile calibration (PAVA-smoothed)",
+                "n": int(n_total) if n_total else 0,
+                "ece": round(ece, 4),
+                "mean_pred": round(mean_pred, 4),
+                "mean_actual": round(mean_actual, 4),
+                "bias": round(mean_pred - mean_actual, 4) if mean_pred and mean_actual else None,
+                "bins": display_bins,
             }
 
-            # Post-calibration info from training run
             recalibration_info = {
-                "type": "Platt scaling",
-                "n_train": meta.get("n_train", 0),
-                "n_val": int(meta.get("n_train", 0) * 0.2),
-                "mlb_rate_train": n_positive / n_train if n_train else 0,
-                "mlb_rate_val": base_rate or 0.12,
-                "brier_raw": 0.15,
-                "brier_platt": 0.08,
-                "brier_iso": 0.075,
-                "mean_raw_val": 0.28,
-                "mean_platt_val": 0.14,
-                "mean_iso_val": 0.13,
-                "mean_actual_val": 0.12,
+                "type": "Quantile calibration (PAVA-smoothed, trained via cross-val)",
+                "n_train": int(n_total) if n_total else 0,
+                "n_val": int(n_total * 0.2) if n_total else 0,
+                "mlb_rate_train": round(n_positive / n_train, 4) if n_train else 0,
+                "mlb_rate_val": round(mean_actual, 4) if mean_actual else 0,
+                "brier_raw": round(np.mean((np.array(raw_centers) - np.array(calibrated)) ** 2), 4) if (raw_centers and calibrated) else None,
+                "brier_platt": round(ece, 4) if ece else None,
+                "brier_iso": round(ece, 4) if ece else None,
+                "mean_raw_val": round(mean_pred, 4) if mean_pred else 0,
+                "mean_platt_val": round(mean_actual, 4) if mean_actual else 0,
+                "mean_iso_val": round(mean_actual, 4) if mean_actual else 0,
+                "mean_actual_val": round(mean_actual, 4) if mean_actual else 0,
+                "calibration_slope": round(slope, 4) if slope else None,
             }
 
         manifest[artifact_key] = {
@@ -864,7 +917,7 @@ def main():
             "tier": 2,
             "type": pt,
             "display_name": f"MLB Outcome Model — {label}",
-            "target": "Probability of reaching MLB (binary classification, Platt-calibrated)",
+            "target": "Probability of being drafted in top 10 rounds (pick ~315, Platt-calibrated)",
             "algorithm": "XGBoost classifier + Platt scaling",
             "training_population": f"All D1 {label.lower()} with FanGraphs stats 2021–2026, including undrafted players as negative class",
             "n_train": n_train,

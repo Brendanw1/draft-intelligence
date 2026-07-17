@@ -173,6 +173,36 @@ def main():
             draft_by_pid[pid] = p
     print(f"  Draft records indexed: {len(draft_by_pid)}")
 
+    # ── Pre-compute weight imputation stats from draft records ──
+    draft_heights = []
+    draft_weights = {"hitter": [], "pitcher": []}
+    for p in draft_records:
+        h = p.get("height")
+        w = p.get("weight")
+        if h:
+            hi = parse_height(h)
+            if hi:
+                draft_heights.append(hi)
+        pos = (p.get("position_abbr") or "").lower()
+        ptype = "pitcher" if pos in ("p", "rp", "sp", "lhp", "rhp") else "hitter"
+        if w:
+            draft_weights[ptype].append(float(w))
+
+    import statistics
+    weight_params = {}
+    for ptype in ["hitter", "pitcher"]:
+        ws = draft_weights[ptype]
+        weight_params[ptype] = {
+            "mean": statistics.mean(ws) if ws else 200.0,
+            "std": max(statistics.stdev(ws) if len(ws) > 1 else 20.0, 10.0),
+        }
+        print(f"  Draft weight params ({ptype}): mean={weight_params[ptype]['mean']:.0f} std={weight_params[ptype]['std']:.0f} (n={len(ws)})")
+    height_params = {
+        "mean": statistics.mean(draft_heights) if draft_heights else 73.0,
+        "std": max(statistics.stdev(draft_heights) if len(draft_heights) > 1 else 2.0, 1.0),
+    }
+    print(f"  Draft height params: mean={height_params['mean']:.1f}\" std={height_params['std']:.1f}\" (n={len(draft_heights)})")
+
     # Build indexes
     roster_idx = build_roster_index(rosters)
     fg_to_roster_team = build_fg_team_index(crosswalk)
@@ -302,7 +332,8 @@ def main():
         else:
             unmatched_name += 1
 
-        # Fallback: if height still missing from roster, try draft records by xMLBAMID
+        # ── Fallback: draft record lookup for missing height ──
+        # Only runs when height is not yet set by roster.
         if record.get("height_inches") is None:
             xid = record.get("xMLBAMID") or record.get("mlb_id")
             if xid is not None:
@@ -317,7 +348,6 @@ def main():
                         if hi:
                             record["height_inches"] = hi
                             record["height"] = height_display(hi)
-                            # Also get weight and compute BMI
                             w = draft_rec.get("weight")
                             if w and hi:
                                 record["bmi"] = compute_bmi(float(w), hi)
@@ -338,6 +368,41 @@ def main():
                                         record["height_inches"] = hi
                                         record["height"] = height_display(hi)
                                         break
+
+        # ── Unconditional BMI lookup from draft records ──
+        # Even when height was found via roster, always try to get weight/BMI
+        # from draft records if xMLBAMID is available (100% weight coverage).
+        if record.get("bmi") is None:
+            xid = record.get("xMLBAMID") or record.get("mlb_id")
+            if xid is not None and record.get("height_inches") is not None:
+                try:
+                    draft_rec = draft_by_pid.get(int(xid))
+                except (ValueError, TypeError):
+                    draft_rec = None
+                if draft_rec:
+                    w = draft_rec.get("weight")
+                    if w:
+                        record["bmi"] = compute_bmi(float(w), record["height_inches"])
+
+        # ── Weight/BMI imputation for players still missing it ──
+        # Players without xMLBAMID can't be looked up in draft records.
+        # Use position-specific mean weight from the full draft pool.
+        if record.get("bmi") is None and record.get("height_inches") is not None:
+            ptype = record.get("player_type", "hitter")
+            w_params = weight_params.get(ptype, weight_params["hitter"])
+            imputed_weight = round(w_params["mean"], 1)
+            record["bmi"] = compute_bmi(imputed_weight, record["height_inches"])
+
+        # Height imputation for players with no roster match and no draft match
+        if record.get("height_inches") is None and record.get("player_name"):
+            h = round(height_params["mean"])
+            record["height_inches"] = h
+            record["height"] = height_display(h)
+            # Also impute BMI from weight if possible
+            ptype = record.get("player_type", "hitter")
+            w_params = weight_params.get(ptype, weight_params["hitter"])
+            imputed_weight = round(w_params["mean"], 1)
+            record["bmi"] = compute_bmi(imputed_weight, h)
 
         enriched.append(record)
 
