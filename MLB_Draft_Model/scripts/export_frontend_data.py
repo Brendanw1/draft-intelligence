@@ -11,7 +11,7 @@ Usage:
   python3 scripts/export_frontend_data.py --web-dir web/public/data
 """
 
-import json, os, sys, math, pickle, hashlib
+import json, os, sys, math, pickle
 from pathlib import Path
 from typing import Any
 
@@ -19,6 +19,15 @@ import numpy as np
 
 BASE = Path(__file__).resolve().parents[1]
 DEFAULT_WEB_DIR = BASE / "web" / "public" / "data"
+
+# ── FNV-1a 32-bit hash — must match web/lib/hash.ts exactly ──────────
+
+def fnv1a(s: str) -> int:
+    h = 0x811c9dc5
+    for byte in s.encode("utf-8"):
+        h ^= byte
+        h = (h * 0x01000193) & 0xFFFFFFFF
+    return h
 
 # ── helpers ──────────────────────────────────────────────────────────
 
@@ -176,10 +185,35 @@ def main():
                     hist_raw_fg.setdefault(name, []).append(rec)
     print(f"  Historical FG records indexed by name: {len(hist_raw_fg)} unique player names")
 
+    # ── MiLB outcome enrichment tables ──────────────────────────────
+    # Build person_id → MLB debut status from draft data
+    # Build person_id → peak MiLB level from MiLB outcome years
+    draft_all: list[dict] = load_json(BASE / "data" / "draft" / "draft_all_picks.json")
+    pid_debut = {p["person_id"] for p in draft_all if p.get("mlb_debut_date")}
+    print(f"  MLB debut lookups: {len(pid_debut)} players with mlb_debut_date")
+
+    level_rank = {"": 0, "A": 1, "A+": 2, "AA": 3, "AAA": 4}
+    pid_peak: dict[int, str] = {}
+    for year in [2021, 2022, 2023, 2024, 2025]:
+        fpath = BASE / "data" / "milb" / f"milb_{year}.json"
+        if fpath.exists():
+            raw = load_json(fpath)
+            players = raw.get("players", raw if isinstance(raw, list) else [])
+            for p in players:
+                pid = p.get("person_id")
+                lvl = p.get("level", "")
+                if pid is not None and lvl:
+                    cur_rank = level_rank.get(pid_peak.get(pid, ""), 0)
+                    new_rank = level_rank.get(lvl, 0)
+                    if new_rank > cur_rank:
+                        pid_peak[pid] = lvl
+    print(f"  Peak-level lookups: {len(pid_peak)} players with MiLB data")
+
     # Build comp database: historical drafted players with normalized stat vectors
     # Indexed by player_name|season for nearest-neighbor matching
     comp_database: list[dict] = []
     for r in fg_historical:
+        pid = r.get("person_id")
         ptype = r.get("player_type", "hitter")
         # Build a stat vector for similarity comparison
         if ptype == "hitter":
@@ -214,8 +248,9 @@ def main():
             "year": r.get("draft_year") or r.get("fg_season"),
             "pick": safe_float(r.get("draft_pick")),
             "round": safe_float(r.get("draft_round")),
-            "reached_mlb": str(r.get("reached_mlb", "")).lower() in ("true", "1", "yes"),
-            "peak_level": r.get("peak_level"),
+            "reached_mlb": pid is not None and pid in pid_debut,
+            # Peak level: use MiLB data if available; if they reached MLB but no MiLB peak, infer "MLB"
+            "peak_level": (pid_peak.get(pid) or ("MLB" if (pid is not None and pid in pid_debut) else None)),
             "type": ptype,
             "vec": stats_vec,
         })
@@ -404,10 +439,21 @@ def main():
         seasons = []
         if raw_rec:
             season_2026 = {}
+            # Common/hitter fields
             for fk in ["Season", "G", "PA", "AB", "H", "1B", "2B", "3B", "HR", "R", "RBI",
                         "BB", "SO", "SB", "CS", "HBP", "SF", "SH", "GDP",
                         "AVG", "OBP", "SLG", "OPS", "ISO", "wOBA", "wRC_plus",
                         "BB_pct", "K_pct", "BB/K", "Spd", "BABIP", "wRC", "wRAA", "wBsR"]:
+                if fk in raw_rec:
+                    v = raw_rec[fk]
+                    if isinstance(v, (int, float)) and not isinstance(v, bool):
+                        season_2026[fk] = float(v)
+                    elif v is not None:
+                        season_2026[fk] = v
+            # Pitcher-specific fields (also present for two-way / hitter historical)
+            for fk in ["ERA", "FIP", "WHIP", "K_per_nine", "BB_per_nine",
+                        "HR_per_nine", "IP", "GS", "K_minus_BB_pct",
+                        "LOB_pct", "ERA_minus_FIP"]:
                 if fk in raw_rec:
                     v = raw_rec[fk]
                     if isinstance(v, (int, float)) and not isinstance(v, bool):
@@ -485,7 +531,7 @@ def main():
         }
 
         # Assign to shard
-        shard_idx = int(hashlib.md5(pid.encode()).hexdigest(), 16) % N_SHARDS
+        shard_idx = fnv1a(pid) % N_SHARDS
         shards[shard_idx][pid] = detail_rec
 
     # ── 3. Compute percentiles ────────────────────────────────────
@@ -514,8 +560,12 @@ def main():
         for k, v in rec["key_stats"].items():
             if v is not None and isinstance(v, (int, float)) and k in type_stats[pt]:
                 arr = np.array(type_stats[pt][k])
-                if k in ("k_pct", "era", "fip", "bb_pct", "whip", "bb9", "hr_per_nine"):
-                    # Lower is better
+                # Type-aware direction: some stats flip meaning between hitters and pitchers
+                lower_better = {
+                    "hitter": {"k_pct", "era", "fip", "bb_pct", "whip", "bb9", "hr_per_nine"},
+                    "pitcher": {"era", "fip", "bb_pct", "whip", "bb9", "hr_per_nine"},
+                }
+                if k in lower_better.get(pt, set()):
                     pct = int(np.sum(arr >= v) / len(arr) * 100)
                 else:
                     pct = int(np.sum(arr <= v) / len(arr) * 100)
@@ -523,7 +573,7 @@ def main():
 
         # Store percentiles back into detail and index
         pid = rec["id"]
-        shard_idx = int(hashlib.md5(pid.encode()).hexdigest(), 16) % N_SHARDS
+        shard_idx = fnv1a(pid) % N_SHARDS
         if pid in shards[shard_idx]:
             shards[shard_idx][pid]["pctl"] = pctl
 
@@ -605,7 +655,7 @@ def main():
 
             # Store in detail shard
             pid = rec["id"]
-            shard_idx = int(hashlib.md5(pid.encode()).hexdigest(), 16) % N_SHARDS
+            shard_idx = fnv1a(pid) % N_SHARDS
             if pid in shards[shard_idx]:
                 shards[shard_idx][pid]["comps"] = comps
 
@@ -643,7 +693,7 @@ def main():
                 r["grade"] = "low"
             # Sync detail
             pid = r["id"]
-            shard_idx = int(hashlib.md5(pid.encode()).hexdigest(), 16) % N_SHARDS
+            shard_idx = fnv1a(pid) % N_SHARDS
             if pid in shards[shard_idx]:
                 shards[shard_idx][pid]["grade"] = r["grade"]
 
