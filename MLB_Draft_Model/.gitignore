@@ -32,3 +32,6 @@ Thumbs.db
 *.pages
 RLIBS/
 2026-07-*-*.txt
+
+# Legacy/backup artifacts
+models/artifacts_legacy/

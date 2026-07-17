@@ -13,3 +13,7 @@ next-env.d.ts
 # os
 .DS_Store
 .vercel
+.env*
+
+# Generated frontend data (populated via rclone sync to R2)
+public/data/

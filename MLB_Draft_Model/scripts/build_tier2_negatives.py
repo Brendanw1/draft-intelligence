@@ -44,6 +44,7 @@ Usage:
 """
 
 import json, re
+import numpy as np
 from pathlib import Path
 from collections import defaultdict, Counter
 from difflib import SequenceMatcher
@@ -319,6 +320,81 @@ def main():
     print(f"\nTop conferences:")
     for conf, count in conf_dist.most_common(10):
         print(f"  {conf:<25s} {count:>6,}")
+
+    # ── Height/weight imputation for negatives ──
+    # Negatives have no biometric data because they lack xMLBAMID (the join
+    # key to draft records). We impute from conference+position distributions
+    # computed from drafted players to avoid the model learning "height=0 =
+    # undrafted" as an artificial split.
+    print("\\nImputing height/weight for negatives...")
+    positives = load_json(BASE / "data" / "training" / "expanded_training_set.json")
+
+    # Compute per-(conference, position) height/weight stats from drafted players
+    bio_stats = {}
+    for p in positives:
+        conf = p.get("conference", "")
+        ptype = p.get("player_type", "hitter")
+        key = (conf, ptype)
+        if key not in bio_stats:
+            bio_stats[key] = {"heights": [], "weights": []}
+        h = p.get("height_inches")
+        w = p.get("weight")
+        if h:
+            bio_stats[key]["heights"].append(h)
+        if w:
+            bio_stats[key]["weights"].append(w)
+
+    # Compute mean/std for each group (minimum 5 samples)
+    bio_params = {}
+    for (conf, ptype), data in bio_stats.items():
+        hs = data["heights"]
+        ws = data["weights"]
+        if len(hs) >= 5:
+            bio_params[(conf, ptype)] = {
+                "height_mean": float(np.mean(hs)),
+                "height_std": float(max(np.std(hs), 1.0)),
+                "weight_mean": float(np.mean(ws)) if ws else 195.0,
+                "weight_std": float(max(np.std(ws), 10.0)) if ws and len(ws) >= 5 else 20.0,
+            }
+
+    # D1 overall fallback
+    all_heights = [p["height_inches"] for p in positives if p.get("height_inches")]
+    all_weights = [p["weight"] for p in positives if p.get("weight")]
+    fallback = {
+        "height_mean": float(np.mean(all_heights)),
+        "height_std": float(max(np.std(all_heights), 1.0)),
+        "weight_mean": float(np.mean(all_weights)),
+        "weight_std": float(max(np.std(all_weights), 10.0)),
+    }
+
+    rng = np.random.default_rng(42)
+    imputed_h = 0
+    imputed_w = 0
+    for rec in combined:
+        conf = rec.get("conference", "")
+        ptype = rec.get("player_type", "hitter")
+        params = bio_params.get((conf, ptype), bio_params.get(("", ptype), fallback))
+
+        if rec.get("height_inches") is None:
+            h = round(float(rng.normal(params["height_mean"], params["height_std"])), 1)
+            h = max(60, min(84, h))  # Clamp to realistic range (5'0"–7'0")
+            rec["height_inches"] = h
+            rec["height_raw"] = f"{int(h)//12}-{int(h)%12}"
+            imputed_h += 1
+
+        if rec.get("weight") is None:
+            w = round(float(rng.normal(params["weight_mean"], params["weight_std"])), 1)
+            w = max(140, min(270, w))  # Clamp to realistic range
+            rec["weight"] = w
+            imputed_w += 1
+
+        if rec.get("bmi") is None and rec.get("height_inches") and rec.get("weight"):
+            rec["bmi"] = round(rec["weight"] * 703 / (rec["height_inches"] ** 2), 1)
+
+    print(f"  Imputed height for {imputed_h} negatives")
+    print(f"  Imputed weight for {imputed_w} negatives")
+    print(f"  Coverage: height={sum(1 for r in combined if r.get('height_inches'))}/{len(combined)}, "
+          f"bmi={sum(1 for r in combined if r.get('bmi'))}/{len(combined)}")
 
     # Write output
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)

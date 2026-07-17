@@ -104,6 +104,14 @@ def get_conf_strength(conf_strength, conf):
     return conf_strength.get(conf, {}).get("strength", 1.0)
 
 
+# Empirical pick-to-round boundaries from actual MLB draft data (2015-2025).
+# Rounds 1-10 have extra compensatory picks; constant 30.75/round was wrong.
+PICK_ROUND_BOUNDARIES = [
+    40, 70, 107, 137, 167, 197, 227, 257, 287, 317,
+    347, 377, 407, 437, 467, 497, 527, 557, 587, 617,
+]
+
+
 # ── Feature lists ──
 # Tier 1 (position regressor) — now retrained with conf_strength + adj + interactions
 HITTER_FEATURES_T1 = [
@@ -432,7 +440,13 @@ def main():
         if t1_key in models:
             proj_pick = float(models[t1_key].predict(X_t1)[0])
             rec["projected_pick"] = round(proj_pick, 1)
-            rec["projected_round"] = max(1, min(20, int(np.ceil(proj_pick / 30.75))))
+            # Map projected pick to round using empirical boundaries
+            proj_round = 20
+            for i, boundary in enumerate(PICK_ROUND_BOUNDARIES):
+                if proj_pick <= boundary:
+                    proj_round = max(1, min(20, i + 1))
+                    break
+            rec["projected_round"] = proj_round
         else:
             rec["projected_pick"] = rec.get("projected_pick")
             rec["projected_round"] = rec.get("projected_round")
@@ -454,17 +468,21 @@ def main():
                     if feat == "nn_mlb_rate":
                         t3_row.append(nn_rate)
                     elif feat == "round_logit_prior":
-                        # Map projected_round to its empirical MLB debut logit
+                        # Map projected_round to its empirical MLB debut logit.
+                        # Load round rates from model artifact (saved at training time).
                         rnd = rec.get("projected_round", 10)
-                        # Load round rates from model artifact if available (saved at training time)
-                        # For now, use a default mapping based on training data
-                        round_logit_map = {
-                            1: -0.259, 2: -0.818, 3: -1.337, 4: -2.046, 5: -1.963,
-                            6: -1.737, 7: -2.653, 8: -2.752, 9: -4.317, 10: -2.786,
-                            11: -2.159, 12: -2.364, 13: -3.227, 14: -3.714, 15: -4.159,
-                            16: -4.103, 17: -4.754, 18: -2.986, 19: -4.533, 20: -2.273,
-                        }
-                        t3_row.append(round_logit_map.get(rnd, -2.0))
+                        round_rates = t3_info.get("round_rates", {})
+                        if round_rates and rnd in round_rates:
+                            t3_row.append(round_rates[rnd]["logit"])
+                        else:
+                            # Fallback default mapping if round_rates not available
+                            round_logit_map = {
+                                1: -0.259, 2: -0.818, 3: -1.337, 4: -2.046, 5: -1.963,
+                                6: -1.737, 7: -2.653, 8: -2.752, 9: -4.317, 10: -2.786,
+                                11: -2.159, 12: -2.364, 13: -3.227, 14: -3.714, 15: -4.159,
+                                16: -4.103, 17: -4.754, 18: -2.986, 19: -4.533, 20: -2.273,
+                            }
+                            t3_row.append(round_logit_map.get(rnd, -2.0))
                     elif feat == "conf_strength":
                         conf = rec.get("conference", "")
                         t3_row.append(get_conf_strength(conf_strength_data, conf) if conf_strength_data else 1.0)
@@ -526,15 +544,22 @@ def main():
     print("\nComputing composites and grades...")
     for rec in enriched:
         proj_pick = safe_float(rec.get("projected_pick"))
-        # Use raw probability as primary (conference-adjusted, no calibration ceiling)
-        mlb_p = safe_float(rec.get("mlb_probability")) or 0
+        # Use calibrated probabilities (isotonic preferred — no ceiling, preserves elite tail)
+        mlb_p = (safe_float(rec.get("mlb_prob_isotonic"))
+                 or safe_float(rec.get("mlb_prob_platt"))
+                 or safe_float(rec.get("mlb_probability"))
+                 or 0)
+        arrival_p = safe_float(rec.get("mlb_arrival_prob")) or 0
 
         slot_score = 0
         if proj_pick is not None and proj_pick > 0:
             slot_score = max(0, 100 - (proj_pick / 620) * 100)
 
+        # Three-component composite: draft position + MLB probability + MLB arrival
+        # Weights: 30% draft position (Tier 1), 40% MLB prob (Tier 2, calibrated), 30% arrival (Tier 3)
         mlb_score = (mlb_p or 0) * 100
-        composite = slot_score * 0.4 + mlb_score * 0.6
+        arrival_score = arrival_p * 100
+        composite = slot_score * 0.30 + mlb_score * 0.40 + arrival_score * 0.30
         rec["composite_score"] = round(composite, 1)
 
         if proj_pick is not None:

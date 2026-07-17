@@ -337,8 +337,12 @@ def main():
         # ── 3d. Save artifacts ──
         model_path = OUTPUT_DIR / f"tier3_mlb_{pt}.pkl"
         with open(model_path, "wb") as f:
-            pickle.dump({"model": final, "features": en_features}, f)
-        print(f"\n  Saved model: {model_path}")
+            pickle.dump({
+                "model": final,
+                "features": en_features,
+                "round_rates": {int(k): v for k, v in round_rates.items()},
+            }, f)
+        print(f"\\n  Saved model: {model_path}")
 
         nn_path = OUTPUT_DIR / f"tier3_nn_{pt}.pkl"
         with open(nn_path, "wb") as f:
