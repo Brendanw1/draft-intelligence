@@ -116,6 +116,8 @@ const SORTS: Record<string, SortAccessor> = {
   bmi: (r) => r.bmi ?? null,
   draftability: (r) => r.draftability_score ?? null,
   conference_tier: (r) => r.conference_tier ?? null,
+  mlb_arrival: (r) => r.mlb_arrival ?? null,
+  nn_mlb_rate: (r) => r.nn_mlb_rate ?? null,
 };
 
 export function sortRows(rows: IndexPlayer[], sort: string, dir: "asc" | "desc"): IndexPlayer[] {

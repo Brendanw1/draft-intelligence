@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.venv311/
+.venv39/
+
+# Node
+node_modules/
+.next/
+out/
+
+# R
+.Rproj.user/
+.RData
+.Rhistory
+.Rproj
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Databases (regenerated from scrapers)
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated docs & temp files
+*.pdf
+*.docx
+*.pages
+RLIBS/
+2026-07-*-*.txt

@@ -113,16 +113,17 @@ function TrustPanel({ p }: { p: DetailPlayer }) {
             <Link href={`/models/fg-draft-${t}/`} className="text-maroon underline">
               fg_draft_{t}
             </Link>{" "}
-            (draft position) and{" "}
+            (draft position),{" "}
             <Link href={`/models/tier2-predraft-${t}/`} className="text-maroon underline">
               tier2_predraft_{t}
             </Link>{" "}
-            (MLB probability, Platt-calibrated). Inputs are FanGraphs D1 stats only —
-            no scouting, defense, or medical signal.
+            (MLB probability, Platt-calibrated), and Tier 3 Elastic Net (MLB arrival, round-anchored).
+            Inputs are FanGraphs D1 stats normalized by conference strength — no
+            scouting, defense, or medical signal.
           </p>
           <ul className="list-disc space-y-1 pl-4">
             <li>Pick estimates carry ±~110 picks of backtest error — read rounds, not slots.</li>
-            <li>No conference-strength adjustment: small-conference production is taken at face value.</li>
+            <li>Conference-adjusted stats (wOBA_adj, ERA_adj) and conf_strength are first-class features — small-conference production is discounted proportionally.</li>
             {t === "pitcher" && (
               <li>
                 Pitcher probabilities between 20–60% were historically overconfident —
@@ -234,6 +235,85 @@ export function PlayerDossier({
       </div>
 
       <VerdictRow p={p} />
+
+      {/* MLB Outlook — Tier 3: arrival probability */}
+      {p.mlb_arrival != null && (
+        <div className="border-t border-rule px-4 py-3">
+          <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-ink-3">
+            MLB Outlook (if drafted) — Tier 3
+          </div>
+          <div className="grid grid-cols-3 gap-3">
+            <div>
+              <div className="text-[10px] text-ink-3">Arrival probability</div>
+              <div className="text-[18px] font-semibold leading-tight">
+                {fmtPct(p.mlb_arrival)}
+              </div>
+              <div className="text-[11px] leading-snug text-ink-2">
+                Elastic Net with round-anchored prior
+              </div>
+            </div>
+            <div>
+              <div className="text-[10px] text-ink-3">NN comp rate</div>
+              <div className="text-[18px] font-semibold leading-tight">
+                {p.nn_mlb_rate != null ? fmtPct(p.nn_mlb_rate) : NO_DATA}
+              </div>
+              <div className="text-[11px] leading-snug text-ink-2">
+                % of 20 nearest comps who reached MLB
+              </div>
+            </div>
+            <div>
+              <div className="text-[10px] text-ink-3">Round baseline</div>
+              <div className="text-[18px] font-semibold leading-tight">
+                {p.proj_round != null
+                  ? `R${p.proj_round} → ${fmtPct(
+                      p.proj_round <= 5 ? 0.27 :
+                      p.proj_round <= 10 ? 0.12 :
+                      p.proj_round <= 15 ? 0.06 :
+                      0.03
+                    )}`
+                  : NO_DATA}
+              </div>
+              <div className="text-[11px] leading-snug text-ink-2">
+                historical MLB rate for this round
+              </div>
+            </div>
+          </div>
+          {/* model disagreement indicator */}
+          {p.mlb_p != null && p.mlb_arrival != null && (
+            <div className="mt-2 rounded-sm bg-caution-bg px-2.5 py-1.5">
+              <div className="flex items-center gap-2 text-[11px]">
+                <span className="font-semibold text-caution">Model check:</span>
+                {p.mlb_p > 0.50 && p.mlb_arrival < 0.10 ? (
+                  <span className="text-text-secondary">
+                    Tier 2 is bullish ({fmtPct(p.mlb_p)} MLB%) but Tier 3 is cautious
+                    ({fmtPct(p.mlb_arrival)} arrival). The Tier 2 historical rate is{" "}
+                    {p.hist_rate != null ? fmtPct(p.hist_rate) : "unknown"} — check the model card.
+                  </span>
+                ) : p.mlb_p < 0.15 && p.mlb_arrival > 0.10 ? (
+                  <span className="text-text-secondary">
+                    Tier 2 sees low MLB odds ({fmtPct(p.mlb_p)}) but Tier 3 suggests
+                    above-average arrival potential ({fmtPct(p.mlb_arrival)}) if drafted.
+                    Worth a closer scouting look.
+                  </span>
+                ) : p.mlb_p > 0.50 && p.mlb_arrival > 0.15 ? (
+                  <span className="text-text-secondary">
+                    Both models agree: strong MLB probability ({fmtPct(p.mlb_p)}) and
+                    above-average arrival outlook ({fmtPct(p.mlb_arrival)}).
+                  </span>
+                ) : (
+                  <span className="text-text-secondary">
+                    Tier 2 and Tier 3 are broadly aligned —{" "}
+                    {p.mlb_arrival > 0.05
+                      ? "moderate-to-strong arrival outlook"
+                      : "arrival probability is in the typical range"}
+                    .
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Physical profile — height/BMI are #1 and #2 model features */}
       <div className="border-t border-rule px-4 py-3">

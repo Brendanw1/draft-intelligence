@@ -32,6 +32,9 @@ export const IndexPlayerSchema = z.object({
   bmi: z.number().nullable().optional(),
   draftability_score: z.number().nullable().optional(),
   conference_tier: z.number().nullable().optional(),
+  // Tier 3 — MLB arrival probability (Elastic Net + nearest-neighbor)
+  mlb_arrival: z.number().nullable().optional(),
+  nn_mlb_rate: z.number().nullable().optional(),
 });
 export type IndexPlayer = z.infer<typeof IndexPlayerSchema>;
 
