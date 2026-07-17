@@ -51,25 +51,24 @@ export const PITCHER_BOARD_STATS: StatDef[] = [
 
 // Percentile panel: the stats the Tier 1 models weight most, in importance order
 export const HITTER_PCTL_PANEL: { stat: string; label: string; why: string }[] = [
-  { stat: "wRC_plus", label: "wRC+", why: "top production signal" },
-  { stat: "BB_pct", label: "BB%", why: "plate discipline — heavily weighted" },
-  { stat: "BB/K", label: "BB/K", why: "zone control" },
-  { stat: "HR", label: "HR", why: "power volume" },
+  { stat: "wRCplus", label: "wRC+", why: "top production signal" },
+  { stat: "bb_pct", label: "BB%", why: "plate discipline — heavily weighted" },
+  { stat: "hr", label: "HR", why: "power volume" },
   { stat: "wOBA", label: "wOBA", why: "rate production" },
-  { stat: "ISO", label: "ISO", why: "raw power" },
-  { stat: "K_pct", label: "K%", why: "contact risk (lower is better)" },
-  { stat: "PA", label: "PA", why: "sample / durability" },
+  { stat: "iso", label: "ISO", why: "raw power" },
+  { stat: "k_pct", label: "K%", why: "contact risk (lower is better)" },
+  { stat: "pa", label: "PA", why: "sample / durability" },
 ];
 
 export const PITCHER_PCTL_PANEL: { stat: string; label: string; why: string }[] = [
-  { stat: "SO", label: "SO", why: "strikeout volume — #1 model feature" },
-  { stat: "K_minus_BB_pct", label: "K-BB%", why: "stuff minus command" },
-  { stat: "K_pct", label: "K%", why: "swing-and-miss" },
-  { stat: "FIP", label: "FIP", why: "defense-independent run prevention" },
-  { stat: "WHIP", label: "WHIP", why: "baserunner suppression" },
-  { stat: "GS", label: "GS", why: "starter workload" },
-  { stat: "IP", label: "IP", why: "sample / durability" },
-  { stat: "BB_per_nine", label: "BB/9", why: "walk rate (lower is better)" },
+  { stat: "so", label: "SO", why: "strikeout volume — #1 model feature" },
+  { stat: "k_minus_bb_pct", label: "K-BB%", why: "stuff minus command" },
+  { stat: "k_pct", label: "K%", why: "swing-and-miss" },
+  { stat: "fip", label: "FIP", why: "defense-independent run prevention" },
+  { stat: "whip", label: "WHIP", why: "baserunner suppression" },
+  { stat: "gs", label: "GS", why: "starter workload" },
+  { stat: "ip", label: "IP", why: "sample / durability" },
+  { stat: "bb9", label: "BB/9", why: "walk rate (lower is better)" },
 ];
 
 export const HITTER_SEASON_COLS: StatDef[] = [
