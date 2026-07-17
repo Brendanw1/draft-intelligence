@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ── VT Draft Intelligence — Calibration Monitor design system ──────────── */
+/* ── Draft Intelligence — Calibration Monitor design system ─────────────── */
 /*
  * Visual metaphor: precision instrument readout, not a document.
  * The panel recedes (neutral grays). The data advances (signal colors).
@@ -41,7 +41,7 @@
   --sig-elite: #1e5a8a;
   --sig-elite-bg: #e5eef6;
 
-  /* Interactive accent — VT maroon, used sparingly for actions and links */
+  /* Interactive accent — maroon, used sparingly for actions and links */
   --accent: #861f41;
   --accent-soft: #f3e4ea;
   --accent-hover: #6d1935;

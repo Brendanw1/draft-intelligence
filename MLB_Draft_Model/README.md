@@ -1,4 +1,4 @@
-# VT Draft Intelligence — MLB Draft Prediction & Scouting Dashboard
+# MLB Draft Intelligence — Prediction & Scouting Dashboard
 
 A **full-stack machine learning pipeline** that projects where 10,000+ NCAA Division I baseball players will be selected in the MLB Draft, estimates their probability of reaching the majors, and surfaces similar historical player comps.
 

@@ -19,7 +19,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "VT Draft Intelligence",
+  title: "MLB Draft Intelligence",
   description:
     "College-to-pro draft model workspace — 2026 projections, calibrated MLB probabilities, model transparency.",
   robots: { index: false, follow: false },

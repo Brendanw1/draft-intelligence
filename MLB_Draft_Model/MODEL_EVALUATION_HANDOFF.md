@@ -1,6 +1,6 @@
 # Draft Intelligence — Model Evaluation Handoff
 
-**Project:** VT Draft Intelligence (`vt-draft-intelligence.vercel.app`)
+**Project:** MLB Draft Intelligence (`vt-draft-intelligence.vercel.app`)
 **Repo:** `Brendanw1/vt-draft-intelligence` (monorepo root is `vt_baseball/`)
 **App root:** `MLB_Draft_Model/web/`
 **Data pipeline:** `MLB_Draft_Model/scripts/`
