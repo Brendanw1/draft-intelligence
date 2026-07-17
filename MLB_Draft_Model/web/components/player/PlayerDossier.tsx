@@ -404,7 +404,7 @@ export function PlayerDossier({
             </span>
             <span className="text-[10px] text-ink-3">nearest stat profiles</span>
           </div>
-          <CompsList comps={p.comps} />
+          <CompsList comps={p.comps} projPick={p.proj_pick} />
         </div>
 
         <TrustPanel p={p} />

@@ -674,8 +674,8 @@ def main():
             # Compute Euclidean distances
             dists = np.sqrt(np.sum((comp_arr_norm - query_norm) ** 2, axis=1))
 
-            # Find 5 nearest neighbors
-            nearest_idx = np.argsort(dists)[:5]
+            # Find 10 nearest neighbors
+            nearest_idx = np.argsort(dists)[:10]
             comps = []
             for ni in nearest_idx:
                 c = comp_entries[ni]
