@@ -251,6 +251,19 @@ def main():
             if drafted:
                 pos_count += 1
             else:
+                # Verified undrafted — but only use draft-eligible players as negatives.
+                # Skipping underclassmen (Age < 20) prevents the model from learning
+                # "young = undrafted" as an artificial shortcut. Undrafted underclassmen
+                # are easy negatives that inflate probability estimates for eligible 2026 prospects.
+                age = r.get("Age")
+                if age is not None:
+                    try:
+                        age_val = float(age)
+                        if age_val < 20:
+                            uncertain += 1
+                            continue
+                    except (ValueError, TypeError):
+                        pass
                 # Verified undrafted
                 neg_count += 1
 

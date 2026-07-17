@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 """
 train_fg_model.py — Train Tier 1 draft pick model (XGBoost).
+COMPATIBLE with infer_2026.py feature pipeline.
 
 Predicts MLB draft pick number from FanGraphs college stats plus
-new features (height, BMI, conference_tier, position).
+new features (height, BMI, conference_strength, conference-adjusted stats).
 
 Trains separate models for hitters and pitchers.
 Saves model artifacts and feature importance.
 
 Usage:
   python3 scripts/train_fg_model.py [--output-dir models/artifacts]
+  python3 scripts/train_fg_model.py --output-dir models/artifacts_full
 """
 
-import json, sys, os, argparse
-import warnings
+import json, sys, os, warnings
 from pathlib import Path
 
 import numpy as np
@@ -27,6 +28,64 @@ warnings.filterwarnings("ignore")
 BASE = Path(__file__).resolve().parents[1]
 DATA_PATH = BASE / "data" / "training" / "fg_training_set.json"
 DEFAULT_OUTPUT = BASE / "models" / "artifacts"
+CONF_STATS_PATH = BASE / "models" / "artifacts_full" / "conference_stats.json"
+CONF_STRENGTH_PATH = BASE / "models" / "artifacts_full" / "conference_strength.json"
+
+# ── Conference-adjusted feature helpers (same as infer_2026.py) ──
+HITTER_ADJ = ["wOBA_adj", "OPS_adj", "AVG_adj", "SLG_adj",
+              "BB_pct_adj", "K_pct_adj", "ISO_adj", "wRC_plus_adj"]
+PITCHER_ADJ = ["ERA_adj", "FIP_adj", "WHIP_adj",
+               "K_per_nine_adj", "BB_per_nine_adj", "K_pct_adj", "BB_pct_adj"]
+HITTER_INTERACTIONS = ["strength_x_" + s.replace("_adj", "") for s in HITTER_ADJ]
+PITCHER_INTERACTIONS = ["strength_x_" + s.replace("_adj", "") for s in PITCHER_ADJ]
+
+ADJ_FEATURE_MAP = {
+    "wOBA_adj": "wOBA", "OPS_adj": "OPS", "AVG_adj": "AVG", "SLG_adj": "SLG",
+    "BB_pct_adj": "BB_pct", "K_pct_adj": "K_pct", "ISO_adj": "ISO", "wRC_plus_adj": "wRC_plus",
+    "ERA_adj": "ERA", "FIP_adj": "FIP", "WHIP_adj": "WHIP",
+    "K_per_nine_adj": "K_per_nine", "BB_per_nine_adj": "BB_per_nine",
+}
+
+# Map non-prefixed feature names to fg_ prefixed training data columns
+FG_COLUMN_MAP = {
+    "Age": "fg_Age", "G": "fg_G", "AB": "fg_AB", "PA": "fg_PA",
+    "H": "fg_H", "1B": "fg_1B", "2B": "fg_2B", "3B": "fg_3B", "HR": "fg_HR",
+    "R": "fg_R", "RBI": "fg_RBI", "BB": "fg_BB", "SO": "fg_SO",
+    "HBP": "fg_HBP", "SF": "fg_SF", "SH": "fg_SH", "SB": "fg_SB", "CS": "fg_CS",
+    "GDP": "fg_GDP",
+    "AVG": "fg_AVG", "BB_pct": "fg_BB_pct", "K_pct": "fg_K_pct",
+    "OBP": "fg_OBP", "SLG": "fg_SLG", "OPS": "fg_OPS", "ISO": "fg_ISO",
+    "Spd": "fg_Spd", "BABIP": "fg_BABIP", "wOBA": "fg_wOBA",
+    "wRC_plus": "fg_wRC_plus", "wRC": "fg_wRC", "wRAA": "fg_wRAA", "wBsR": "fg_wBsR",
+    "BB/K": "fg_BB/K",
+    # Pitcher-specific
+    "ERA": "fg_ERA", "FIP": "fg_FIP", "WHIP": "fg_WHIP",
+    "K_per_nine": "fg_K_per_nine", "BB_per_nine": "fg_BB_per_nine",
+    "KBB": "fg_KBB", "HR_per_nine": "fg_HR_per_nine",
+    "LOB_pct": "fg_LOB_pct", "ERA_minus_FIP": "fg_ERA_minus_FIP",
+    "K_minus_BB_pct": "fg_K_minus_BB_pct",
+    "TBF": "fg_TBF", "ER": "fg_ER", "WP": "fg_WP", "BK": "fg_BK",
+    "W": "fg_W", "L": "fg_L", "SHO": "fg_SHO", "SV": "fg_SV", "CG": "fg_CG",
+    "GS": "fg_GS", "IP": "fg_IP",
+}
+
+# ── Feature lists matching infer_2026.py ──
+HITTER_FEATURES = [
+    "Age", "G", "AB", "PA", "H", "1B", "2B", "3B", "HR",
+    "R", "RBI", "BB", "SO", "HBP", "SF", "SH", "SB", "CS", "GDP",
+    "AVG", "BB_pct", "K_pct", "OBP", "SLG", "OPS", "ISO", "Spd",
+    "BABIP", "wOBA", "wRC_plus", "wRC", "wRAA", "wBsR", "BB/K",
+    "height_inches", "bmi", "conf_strength",
+] + HITTER_ADJ + HITTER_INTERACTIONS
+
+PITCHER_FEATURES = [
+    "Age", "G", "GS", "CG", "SHO", "SV", "IP", "TBF",
+    "H", "R", "ER", "HR", "BB", "SO", "HBP", "WP", "BK",
+    "W", "L", "ERA", "WHIP", "FIP", "ERA_minus_FIP",
+    "K_pct", "BB_pct", "KBB", "K_per_nine", "BB_per_nine", "HR_per_nine",
+    "AVG", "BABIP", "LOB_pct", "K_minus_BB_pct",
+    "height_inches", "bmi", "conf_strength",
+] + PITCHER_ADJ + PITCHER_INTERACTIONS
 
 
 def load_json(path):
@@ -35,7 +94,6 @@ def load_json(path):
 
 
 def safe_float(v):
-    """Convert value to float, return None on failure."""
     if v is None:
         return None
     try:
@@ -45,7 +103,6 @@ def safe_float(v):
 
 
 def parse_height(height_str):
-    """Convert height like \"6' 4\\\"\" or \"6-4\" to inches."""
     if not height_str or height_str == "":
         return None
     try:
@@ -59,41 +116,25 @@ def parse_height(height_str):
     return None
 
 
-# ── Hitter feature columns (same as manifest + new features) ──
-HITTER_FEATURES = [
-    # FG college stats
-    "fg_AVG", "fg_OBP", "fg_SLG", "fg_OPS", "fg_ISO",
-    "fg_wOBA", "fg_wRC_plus", "fg_wRC", "fg_wRAA", "fg_wBsR",
-    "fg_BB_pct", "fg_K_pct", "fg_BB/K",
-    "fg_BABIP", "fg_Spd",
-    "fg_G", "fg_PA", "fg_AB",
-    "fg_H", "fg_1B", "fg_2B", "fg_3B", "fg_HR",
-    "fg_R", "fg_RBI", "fg_BB", "fg_SO", "fg_SB", "fg_CS",
-    "fg_HBP", "fg_SF", "fg_SH", "fg_GDP",
-    "fg_Age",
-    # New features
-    "height_inches", "bmi", "conference_tier",
-]
-
-# ── Pitcher feature columns ──
-PITCHER_FEATURES = [
-    "fg_ERA", "fg_FIP", "fg_WHIP",
-    "fg_K_pct", "fg_BB_pct", "fg_KBB",
-    "fg_K_per_nine", "fg_BB_per_nine",
-    "fg_AVG", "fg_BABIP", "fg_HR_per_nine",
-    "fg_LOB_pct", "fg_ERA_minus_FIP", "fg_K_minus_BB_pct",
-    "fg_G", "fg_GS", "fg_IP", "fg_TBF",
-    "fg_H", "fg_R", "fg_ER", "fg_HR", "fg_BB", "fg_SO",
-    "fg_HBP", "fg_WP", "fg_BK",
-    "fg_W", "fg_L", "fg_SHO", "fg_SV", "fg_CG",
-    "fg_Age",
-    # New features
-    "height_inches", "bmi", "conference_tier",
-]
+def get_conf_avg(conf_stats, conf, season, ptype, stat):
+    per_season = conf_stats.get("per_season", {})
+    conf_ov = conf_stats.get("conference_overall", {})
+    tier_fb = conf_stats.get("tier_fallback", {})
+    season_data = per_season.get(conf, {}).get(str(season), {})
+    if isinstance(season_data, dict):
+        ptype_data = season_data.get(ptype, {})
+        if stat in ptype_data:
+            return ptype_data[stat]
+    conf_data = conf_ov.get(conf, {}).get(ptype, {})
+    if stat in conf_data:
+        return conf_data[stat]
+    tier_data = tier_fb.get("3", {}).get(ptype, {})
+    return tier_data.get(stat, 0.0)
 
 
-def prepare_data(records, player_type, feature_cols):
-    """Convert records to feature matrix X and target vector y."""
+def prepare_data(records, player_type, feature_cols, conf_stats=None, conf_strength_data=None):
+    """Convert records to feature matrix X and target vector y.
+    Compatible with infer_2026.py feature pipeline."""
     rows = []
     targets = []
     player_names = []
@@ -108,33 +149,81 @@ def prepare_data(records, player_type, feature_cols):
         if pick is None or pick <= 0:
             continue
 
-        # Build feature vector
-        row = []
-        valid = True
+        # Player info
+        conf = r.get("conference") or ""
+        season = r.get("draft_year") or 2021
+        strength = conf_strength_data.get(conf, {}).get("strength", 1.0) if conf_strength_data else 1.0
 
         # Parse height
         height_raw = r.get("height", "")
         height_inches = parse_height(height_raw) if isinstance(height_raw, str) else height_raw
 
-        for col in feature_cols:
-            if col == "height_inches":
+        # Build feature vector
+        row = []
+        for feat in feature_cols:
+            if feat == "height_inches":
                 val = height_inches
-            elif col == "bmi":
+            elif feat == "bmi":
                 val = safe_float(r.get("bmi"))
-                # Compute BMI from weight if not present
                 if val is None:
                     weight = safe_float(r.get("weight"))
                     if weight and height_inches:
                         val = round(weight * 703 / (height_inches ** 2), 1)
-            elif col == "conference_tier":
-                val = safe_float(r.get("conference_tier"))
+                    else:
+                        val = 0.0
+            elif feat == "conf_strength":
+                val = strength
+            elif feat == "conference_tier":
+                val = safe_float(r.get("conference_tier", 4))
                 if val is None:
-                    val = 4.0  # default for unknown
+                    val = 4.0
+            elif feat.endswith("_adj") and not feat.startswith("strength_x_"):
+                # Adjusted stat: player stat - conference average
+                raw_stat = ADJ_FEATURE_MAP.get(feat, feat.replace("_adj", ""))
+                fg_col = FG_COLUMN_MAP.get(raw_stat)
+                if fg_col:
+                    raw_val = safe_float(r.get(fg_col))
+                else:
+                    raw_val = safe_float(r.get(raw_stat))
+                if raw_val is not None and conf_stats is not None:
+                    conf_avg = get_conf_avg(conf_stats, conf, season, player_type, raw_stat)
+                    val = round(raw_val - conf_avg, 4)
+                else:
+                    val = 0.0
+            elif feat.startswith("strength_x_"):
+                # Interaction: conf_strength × adjusted stat
+                base_adj = None
+                for k, v in ADJ_FEATURE_MAP.items():
+                    if f"strength_x_{v}" == feat:
+                        base_adj = k
+                        break
+                if base_adj is None:
+                    base_adj = feat.replace("strength_x_", "") + "_adj"
+
+                raw_stat = ADJ_FEATURE_MAP.get(base_adj, base_adj.replace("_adj", ""))
+                fg_col = FG_COLUMN_MAP.get(raw_stat)
+                if fg_col:
+                    raw_val = safe_float(r.get(fg_col))
+                else:
+                    raw_val = safe_float(r.get(raw_stat))
+                if raw_val is not None and conf_stats is not None:
+                    conf_avg = get_conf_avg(conf_stats, conf, season, player_type, raw_stat)
+                    adj_val = round(raw_val - conf_avg, 4)
+                    val = round(strength * adj_val, 4)
+                else:
+                    val = 0.0
             else:
-                val = safe_float(r.get(col))
+                # Try non-prefixed first, then fg_ prefixed
+                fg_col = FG_COLUMN_MAP.get(feat)
+                if fg_col:
+                    val = safe_float(r.get(fg_col))
+                else:
+                    val = safe_float(r.get(feat))
+                if val is None:
+                    val = 0.0
 
             if val is None or np.isnan(val):
-                val = 0.0  # fill missing with 0
+                val = 0.0
             row.append(val)
 
         rows.append(row)
@@ -165,9 +254,21 @@ def main():
     print("TIER 1: DRAFT PICK PREDICTION (XGBoost)")
     print("=" * 60)
 
+    # Load conference data (optional — for adj stats and conf_strength)
+    conf_stats = None
+    conf_strength_data = None
+    if CONF_STATS_PATH.exists():
+        conf_stats = load_json(CONF_STATS_PATH)
+        print(f"  Loaded conference stats: {len(conf_stats.get('per_season', {}))} conferences")
+    if CONF_STRENGTH_PATH.exists():
+        conf_strength_data = load_json(CONF_STRENGTH_PATH)
+        print(f"  Loaded conf_strength: {len(conf_strength_data)} conferences")
+
     # Load data
     print("\nLoading training data...")
     data = load_json(DATA_PATH)
+    # Also filter out 2026 (already done if we ran filter_training_no2026.py)
+    data = [r for r in data if r.get("draft_year") != 2026]
     hitters = [r for r in data if r.get("player_type") == "hitter"]
     pitchers = [r for r in data if r.get("player_type") == "pitcher"]
     print(f"  Hitters: {len(hitters)}")
@@ -184,7 +285,9 @@ def main():
         print(f"{'=' * 60}")
 
         records = hitters if pt == "hitter" else pitchers
-        X, y, names, ids = prepare_data(data, pt, features)
+        X, y, names, ids = prepare_data(data, pt, features,
+                                         conf_stats=conf_stats,
+                                         conf_strength_data=conf_strength_data)
 
         print(f"  Training samples: {len(y)}")
         print(f"  Features: {len(features)}")
@@ -308,4 +411,5 @@ def main():
 
 
 if __name__ == "__main__":
+    import argparse
     main()

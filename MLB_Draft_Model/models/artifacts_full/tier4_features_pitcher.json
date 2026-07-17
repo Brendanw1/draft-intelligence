@@ -1,0 +1,119 @@
+{
+  "model_type": "tier4_mlb_pitcher",
+  "features": [
+    "Age",
+    "conf_strength",
+    "ERA_adj",
+    "FIP_adj",
+    "K_per_nine_adj",
+    "BB_per_nine_adj",
+    "height_inches",
+    "bmi",
+    "round_logit_prior",
+    "nn_mlb_rate",
+    "milb_year1_FIP",
+    "milb_year1_level",
+    "milb_year1_games"
+  ],
+  "tier3_features": [
+    "Age",
+    "conf_strength",
+    "ERA_adj",
+    "FIP_adj",
+    "K_per_nine_adj",
+    "BB_per_nine_adj",
+    "height_inches",
+    "bmi",
+    "round_logit_prior",
+    "nn_mlb_rate"
+  ],
+  "feature_coefficients": [
+    {
+      "feature": "round_logit_prior",
+      "coefficient": 0.8261691286066346
+    },
+    {
+      "feature": "milb_year1_FIP",
+      "coefficient": -0.7686493965817122
+    },
+    {
+      "feature": "milb_year1_level",
+      "coefficient": 0.6270944289524842
+    },
+    {
+      "feature": "BB_per_nine_adj",
+      "coefficient": -0.21710850356431546
+    },
+    {
+      "feature": "Age",
+      "coefficient": -0.17926665677583434
+    },
+    {
+      "feature": "bmi",
+      "coefficient": 0.16360567140250099
+    },
+    {
+      "feature": "FIP_adj",
+      "coefficient": 0.09068417163083961
+    },
+    {
+      "feature": "K_per_nine_adj",
+      "coefficient": 0.05989542548849572
+    },
+    {
+      "feature": "milb_year1_games",
+      "coefficient": -0.03924109968225828
+    },
+    {
+      "feature": "height_inches",
+      "coefficient": 0.020668263304962044
+    },
+    {
+      "feature": "conf_strength",
+      "coefficient": 0.018763039852937927
+    },
+    {
+      "feature": "ERA_adj",
+      "coefficient": 0.015940070954729338
+    },
+    {
+      "feature": "nn_mlb_rate",
+      "coefficient": 0.0
+    }
+  ],
+  "milb_feature_coefficients": [
+    {
+      "feature": "milb_year1_FIP",
+      "coefficient": -0.7686493965817122
+    },
+    {
+      "feature": "milb_year1_level",
+      "coefficient": 0.6270944289524842
+    },
+    {
+      "feature": "milb_year1_games",
+      "coefficient": -0.03924109968225828
+    }
+  ],
+  "n_train": 177,
+  "n_validation": 171,
+  "n_positives_train": 38,
+  "n_positives_val": 3,
+  "tier3_validation_auc": 0.501984126984127,
+  "tier3_validation_brier": 0.1117909181295029,
+  "tier4_validation_auc": 0.6468253968253967,
+  "tier4_validation_brier": 0.10668205532540598,
+  "auc_delta": 0.14484126984126977,
+  "brier_delta": 0.00510886280409692,
+  "tier3_comparison": {
+    "auc": 0.501984126984127,
+    "brier": 0.1117909181295029
+  },
+  "validation_checks": {
+    "V1_auc_not_worse": true,
+    "V2_milb_stat_coef_sign": true,
+    "V3_milb_level_coef_positive": true,
+    "V4_model_converged": true,
+    "all_passed": true
+  }
+}
