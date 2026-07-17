@@ -1,0 +1,279 @@
+{
+  "model_type": "fg_draft_hitter",
+  "features": [
+    "Age",
+    "G",
+    "AB",
+    "PA",
+    "H",
+    "1B",
+    "2B",
+    "3B",
+    "HR",
+    "R",
+    "RBI",
+    "BB",
+    "SO",
+    "HBP",
+    "SF",
+    "SH",
+    "SB",
+    "CS",
+    "GDP",
+    "AVG",
+    "BB_pct",
+    "K_pct",
+    "OBP",
+    "SLG",
+    "OPS",
+    "ISO",
+    "Spd",
+    "BABIP",
+    "wOBA",
+    "wRC_plus",
+    "wRC",
+    "wRAA",
+    "wBsR",
+    "BB/K",
+    "height_inches",
+    "bmi",
+    "conf_strength",
+    "wOBA_adj",
+    "OPS_adj",
+    "AVG_adj",
+    "SLG_adj",
+    "BB_pct_adj",
+    "K_pct_adj",
+    "ISO_adj",
+    "wRC_plus_adj",
+    "strength_x_wOBA",
+    "strength_x_OPS",
+    "strength_x_AVG",
+    "strength_x_SLG",
+    "strength_x_BB_pct",
+    "strength_x_K_pct",
+    "strength_x_ISO",
+    "strength_x_wRC_plus"
+  ],
+  "n_train": 817,
+  "n_features": 53,
+  "r2_test": 0.2977749180527258,
+  "rmse_test": 139.57868989366594,
+  "mae_test": 111.04229757262439,
+  "cv_r2_mean": 0.21179316611784332,
+  "cv_r2_std": 0.05739876599079403,
+  "feature_importance": [
+    {
+      "feature": "Age",
+      "importance": 0.07418985664844513
+    },
+    {
+      "feature": "wRC",
+      "importance": 0.07130831480026245
+    },
+    {
+      "feature": "HR",
+      "importance": 0.030579699203372
+    },
+    {
+      "feature": "BB/K",
+      "importance": 0.02953205816447735
+    },
+    {
+      "feature": "ISO_adj",
+      "importance": 0.026549531146883965
+    },
+    {
+      "feature": "OPS",
+      "importance": 0.026453077793121338
+    },
+    {
+      "feature": "BB",
+      "importance": 0.02454153448343277
+    },
+    {
+      "feature": "ISO",
+      "importance": 0.024355746805667877
+    },
+    {
+      "feature": "strength_x_K_pct",
+      "importance": 0.022189466282725334
+    },
+    {
+      "feature": "wRAA",
+      "importance": 0.021481819450855255
+    },
+    {
+      "feature": "BABIP",
+      "importance": 0.021362315863370895
+    },
+    {
+      "feature": "AVG",
+      "importance": 0.021215474233031273
+    },
+    {
+      "feature": "strength_x_BB_pct",
+      "importance": 0.020885590463876724
+    },
+    {
+      "feature": "strength_x_SLG",
+      "importance": 0.020777683705091476
+    },
+    {
+      "feature": "height_inches",
+      "importance": 0.020215243101119995
+    },
+    {
+      "feature": "PA",
+      "importance": 0.01979944482445717
+    },
+    {
+      "feature": "strength_x_OPS",
+      "importance": 0.018807118758559227
+    },
+    {
+      "feature": "Spd",
+      "importance": 0.01880393736064434
+    },
+    {
+      "feature": "2B",
+      "importance": 0.01833629421889782
+    },
+    {
+      "feature": "SH",
+      "importance": 0.018257346004247665
+    },
+    {
+      "feature": "K_pct",
+      "importance": 0.01791544258594513
+    },
+    {
+      "feature": "K_pct_adj",
+      "importance": 0.017109692096710205
+    },
+    {
+      "feature": "BB_pct_adj",
+      "importance": 0.016786612570285797
+    },
+    {
+      "feature": "G",
+      "importance": 0.016751527786254883
+    },
+    {
+      "feature": "1B",
+      "importance": 0.016606410965323448
+    },
+    {
+      "feature": "OPS_adj",
+      "importance": 0.016554243862628937
+    },
+    {
+      "feature": "OBP",
+      "importance": 0.016256414353847504
+    },
+    {
+      "feature": "strength_x_wOBA",
+      "importance": 0.015200445428490639
+    },
+    {
+      "feature": "GDP",
+      "importance": 0.014984356239438057
+    },
+    {
+      "feature": "wRC_plus",
+      "importance": 0.014854253269731998
+    },
+    {
+      "feature": "SB",
+      "importance": 0.014835006557404995
+    },
+    {
+      "feature": "SLG_adj",
+      "importance": 0.01478280033916235
+    },
+    {
+      "feature": "BB_pct",
+      "importance": 0.01473469752818346
+    },
+    {
+      "feature": "strength_x_ISO",
+      "importance": 0.014730325900018215
+    },
+    {
+      "feature": "SO",
+      "importance": 0.014683078043162823
+    },
+    {
+      "feature": "strength_x_wRC_plus",
+      "importance": 0.014233151450753212
+    },
+    {
+      "feature": "wBsR",
+      "importance": 0.014136371202766895
+    },
+    {
+      "feature": "bmi",
+      "importance": 0.014098911546170712
+    },
+    {
+      "feature": "AB",
+      "importance": 0.013865102082490921
+    },
+    {
+      "feature": "AVG_adj",
+      "importance": 0.013760896399617195
+    },
+    {
+      "feature": "3B",
+      "importance": 0.013721587136387825
+    },
+    {
+      "feature": "wRC_plus_adj",
+      "importance": 0.012629319913685322
+    },
+    {
+      "feature": "HBP",
+      "importance": 0.012340448796749115
+    },
+    {
+      "feature": "CS",
+      "importance": 0.011694968678057194
+    },
+    {
+      "feature": "wOBA",
+      "importance": 0.01136099174618721
+    },
+    {
+      "feature": "H",
+      "importance": 0.01113381702452898
+    },
+    {
+      "feature": "R",
+      "importance": 0.01100159715861082
+    },
+    {
+      "feature": "RBI",
+      "importance": 0.010912363417446613
+    },
+    {
+      "feature": "SLG",
+      "importance": 0.010533364489674568
+    },
+    {
+      "feature": "wOBA_adj",
+      "importance": 0.010345818474888802
+    },
+    {
+      "feature": "strength_x_AVG",
+      "importance": 0.010176651179790497
+    },
+    {
+      "feature": "conf_strength",
+      "importance": 0.009276438504457474
+    },
+    {
+      "feature": "SF",
+      "importance": 0.008351373486220837
+    }
+  ]
+}
