@@ -133,6 +133,23 @@ After the July 2026 data quality audit, biometric features (height, BMI) dropped
 
 ---
 
+## 2026 Draft — Prospective Validation
+
+The model's 2026 projections were tested against actual draft results, demonstrating strong prospective accuracy using only public FanGraphs stats and conference adjustment — no scouting grades, no TrackMan data, no signability intel.
+
+| Metric | Value |
+|--------|-------|
+| College draftees matched to model | 452 of 486 (93.0%) |
+| Within projected pick range (±~110 picks) | **94.9%** |
+| Drafted higher than projected | 1.8% |
+| Drafted lower than projected | 3.3% |
+| Round 1 hit rate | 95% |
+| Rounds 2–3 hit rate | **100%** |
+
+Full round-by-round breakdown, biggest misses, best predictions, and unmatched player analysis in [`analysis/2026_draft_accuracy.md`](analysis/2026_draft_accuracy.md).
+
+---
+
 ## July 2026 Fix: Data Quality Audit & Model Corrections
 
 A comprehensive audit of the data pipeline and all three model tiers identified 15 issues. All are now fixed:
