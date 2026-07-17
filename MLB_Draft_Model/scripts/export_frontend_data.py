@@ -214,6 +214,10 @@ def main():
     comp_database: list[dict] = []
     for r in fg_historical:
         pid = r.get("person_id")
+        comp_year = r.get("draft_year") or r.get("fg_season")
+        # Only include players with enough MiLB history (max draft year 2024)
+        if comp_year is not None and comp_year >= 2025:
+            continue
         ptype = r.get("player_type", "hitter")
         # Build a stat vector for similarity comparison
         if ptype == "hitter":
