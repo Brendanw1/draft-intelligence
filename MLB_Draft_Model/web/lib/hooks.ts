@@ -42,6 +42,7 @@ export function useMeta(): Loaded<Meta> {
   return useAsync(loadMeta, []);
 }
 
+// cache-invalidator
 export function useClassYear(year: number): Loaded<ClassRow[]> {
   return useAsync(() => loadClass(year), [year]);
 }
