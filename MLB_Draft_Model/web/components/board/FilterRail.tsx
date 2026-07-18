@@ -145,8 +145,9 @@ export function FilterRail({
           ))}
         </div>
         <div className="mt-1 text-[10px] leading-snug text-ink-3">
-          2026 alignment, approximate. Conference is a label here — the models do
-          not adjust for it.
+          2026 alignment, approximate. Conference is a label here — the models use
+          continuous conference strength (SEC ≈ 3.1×, SWAC ≈ 0.1×) in their
+          adjustments.
         </div>
       </Section>
 
