@@ -2,12 +2,12 @@ import Link from "next/link";
 
 const GLOSSARY: [string, string][] = [
   ["wOBA", "Weighted on-base average — every offensive event valued by how many runs it's actually worth, per plate appearance. The best single rate stat for a hitter."],
-  ["wRC+", "Runs created, indexed so 100 = D1 average. 150 means 50% better than average. Not conference-adjusted here — a 150 in the SEC is worth more than a 150 in the SWAC, and the model can't see that yet."],
+  ["wRC+", "Runs created, indexed so 100 = D1 average. 150 means 50% better than average. Not conference-adjusted here — a 150 in the SEC is worth more than a 150 in the SWAC, though conf_strength and adjusted stats partially compensate."],
   ["ISO", "Isolated power: slugging minus average. Pure extra-base damage."],
   ["BB% / K%", "Walks and strikeouts per plate appearance. The Tier 1 hitter model leans hard on plate discipline — this matches how teams actually draft."],
   ["FIP", "Fielding-independent pitching — what a pitcher's ERA 'should' be from strikeouts, walks, and homers alone. Our FIP uses an MLB constant, so compare pitchers to each other, not to a magic number."],
   ["K-BB%", "Strikeout rate minus walk rate — the fastest single read on a pitcher's dominance."],
-  ["Platt calibration", "A learned correction that maps the model's raw score to an honest probability. Raw scores ran ~2.3× hot; every probability on this site is calibrated."],
+  ["Platt calibration", "A learned correction that maps the model's raw score to an honest probability. The primary calibration is PAVA-smoothed quantile (100-bin empirical mapping); Platt and isotonic are also computed as cross-checks in dossiers. Raw scores ran ~2.3× hot; every probability on this site is calibrated."],
   ["Isotonic calibration", "A second, non-linear correction shown in dossiers as a cross-check. When Platt and isotonic agree, trust the number more."],
   ["ECE", "Expected calibration error — the average gap between what the model predicted and what actually happened, before correction."],
   ["Composite score", "30% projected draft slot value + 40% calibrated top-10-round probability + 30% Tier 3 MLB arrival probability, scaled 0–100. It is an opinion, not an output of either model alone."],
@@ -15,7 +15,7 @@ const GLOSSARY: [string, string][] = [
   ["Spearman ρ", "Rank correlation between projected and actual draft order in backtests. ~0.5 means the model orders players meaningfully but far from perfectly."],
   ["Tier 3 / MLB Arrival", "Predicts P(MLB debut | drafted) using an Elastic Net model with a round-anchored prior offset and nearest-neighbor comp rates. Only available for the 2026 projections — trained on 2021–2023 outcomes."],
   ["Conf_strength", "Continuous conference strength score: empirical draft rate ratio (conference draft rate / global draft rate). Replaces the old 4-tier categorical conference tiers. SEC = 2.98×, SWAC = 0.09×."],
-  ["Conference-adjusted stats", "Raw stats (wOBA, ERA, etc.) are multiplied by the inverse of conf_strength before entering the model. This prevents overrating small-conference production and underrating elite-conference production."],
+  ["Conference-adjusted stats", "Raw stats (wOBA, ERA, etc.) are adjusted by subtracting the conference-average stat (e.g. wOBA_adj = wOBA − SEC_avg_wOBA). Separate strength×stat interaction features let the model learn non-linear conference effects. Together this prevents overrating small-conference production and underrating elite-conference production."],
 ];
 
 const LIMITS: [string, string][] = [
@@ -50,7 +50,7 @@ export default function MethodologyPage() {
           now discounted proportionally. A regression model learns where drafted
           stat profiles went; its projected pick feeds a second classification
           model trained on top-10-round draft depth (pick ≤315). Raw
-          probabilities are corrected with Platt scaling. A third tier, an
+          probabilities are corrected with PAVA-smoothed quantile calibration (100-bin empirical mapping from raw score to historical rate). Platt and isotonic calibrations are also computed as cross-checks in individual player dossiers. A third tier, an
           Elastic Net with round-anchored prior, predicts P(MLB debut | drafted).
           Every 2026 D1 player with a FanGraphs line — all 10,734 — gets scored.
           Details on each artifact live in the{" "}

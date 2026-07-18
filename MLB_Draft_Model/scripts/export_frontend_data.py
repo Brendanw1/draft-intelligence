@@ -11,7 +11,7 @@ Usage:
   python3 scripts/export_frontend_data.py --web-dir web/public/data
 """
 
-import json, os, sys, math, pickle
+import json, os, sys, math, pickle, datetime
 from pathlib import Path
 from typing import Any
 
@@ -1016,7 +1016,7 @@ def main():
     pitchers_count = len([r for r in index_players if r["type"] == "pitcher"])
 
     meta = {
-        "generated_at": "2026-07-16T09:08:38.564559+00:00",
+        "generated_at": datetime.datetime.utcnow().isoformat() + "+00:00",
         "season": 2026,
         "players": len(index_players),
         "hitters": hitters_count,
