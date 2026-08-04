@@ -181,7 +181,7 @@ MIS_ST.,Missouri State,MVC
 MIZ_TIG,Missouri,SEC
 MON_HAW,Monmouth,CAA
 MOR_EAG,Morehead State,OVC
-MOY_MOY,Mount St. Mary's,MAAC
+MOY_MOY,Le Moyne,Northeast
 MSM_MTN,Mount St. Mary's,MAAC
 MSU_BDG,Mississippi State,SEC
 MT,Memphis,American
@@ -262,7 +262,7 @@ SET_PIR,Seton Hall,Big East
 SEW_TIG,Sewanee,SAA
 SIE_SAI,Siena,MAAC
 SIM_UNI,SIUE,OVC
-SIU_SAL,Southern Illinois,MVC
+SIU_SAL,SIU Edwardsville,OVC
 SLU_BILL,Saint Louis,Atlantic 10
 SMU_SAI,SMU,ACC
 SOU_COU,South Carolina,SEC
@@ -272,17 +272,17 @@ SOU_IND16,Southern Indiana,OVC
 SOU_JAC,Southern,SWAC
 SOU_JAG,South Alabama,Sun Belt
 SOU_LIO,Southeastern Louisiana,Southland
-SOU_RED,Southern,SWAC
+SOU_RED,Southeast Missouri State,OVC
 SOU_TRO,South Carolina Upstate,Big South
 SPU_PEA,Saint Peter's,MAAC
 STA_CAR,Stanford,ACC
 STB_BON,St. Bonaventure,Atlantic 10
 STE_HAT,Stetson,ASUN
 STE_LUM,Stephen F. Austin,Southland
-STJ_HAW,St. John's,Big East
+STJ_HAW,Saint Joseph's,Atlantic 10
 STJ_RED,St. John's,Big East
 STM_GAE,Saint Mary's,WCC
-STO_COL,Stony Brook,CAA
+STO_COL,Stonehill,Northeast
 TAR_TEX,Tarleton State,WAC
 TCU_HFG,TCU,Big 12
 TEN_TEC,Tennessee Tech,OVC
@@ -293,7 +293,7 @@ TEX_ISL,Texas A&M-Corpus Christi,Southland
 TEX_LON,Texas,SEC
 TEX_RAI,Texas Tech,Big 12
 TEX_TIG,Texas Southern,SWAC
-THO_M,Thomas More,GMAC
+THO_M,St. Thomas,Summit
 TNU,Trevecca Nazarene,GMAC
 TOL_ROC,Toledo,MAC
 TOW_TIG,Towson,CAA
