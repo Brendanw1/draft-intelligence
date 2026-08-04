@@ -160,7 +160,7 @@ LOY_LIO,Loyola Marymount,WCC
 LSU_TIG,LSU,SEC
 MAI_BLA,Maine,America East
 MAN_JAS,Manhattan,MAAC
-MAR_HAW,UMass,Atlantic 10
+MAR_HAW,Maryland Eastern Shore,Northeast
 MAR_RED,Marist,MAAC
 MAR_TER,Maryland,Big Ten
 MAR_THU,Marshall,Sun Belt
@@ -265,7 +265,7 @@ SIM_UNI,SIUE,OVC
 SIU_SAL,Southern Illinois,Missouri Valley
 SLU_BILL,Saint Louis,Atlantic 10
 SMU_SAI,SMU,ACC
-SOU_COU,South Carolina,SEC
+SOU_COU,SIU Edwardsville,OVC
 SOU_GAM,South Carolina Upstate,Big South
 SOU_GOL,Southern Miss,Sun Belt
 SOU_IND16,Southern Indiana,OVC
@@ -307,7 +307,7 @@ UCLA,UCLA,Big Ten
 UCO_HUS,UCONN,Big East
 UIC_FLA,UIC,MVC
 ULM_WAR,ULM,Sun Belt
-UMASS_RIV,UMass,Atlantic 10
+UMASS_RIV,UMass Lowell,America East
 UMA_AMH,UMass,Atlantic 10
 UMBC_RET,UMBC,America East
 UNC_SEA,UNC Wilmington,CAA
