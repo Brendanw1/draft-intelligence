@@ -16,7 +16,7 @@ ARK_LIO,Arkansas-Pine Bluff,SWAC
 ARK_RAZ,Arkansas,SEC
 ARL_MAV,UT Arlington,WAC
 ARM_BLA,Army,Patriot
-ASU_RED,Arizona State,Big 12
+ASU_RED,Arkansas State,Sun Belt
 AUB_PRC,Auburn,SEC
 AUB_TIG,Auburn,SEC
 AUG_COL,Augustana,NSIC
@@ -132,7 +132,7 @@ JAC_GAM,Jacksonville State,CUSA
 JAC_TIG,Jackson State,SWAC
 JMU_DUK,James Madison,Sun Belt
 JOH_MEL,Johnson & Wales,GNAC
-JUD,Judson,CCAC
+JUD,Jacksonville,ASUN
 KAN_JAY,Kansas,Big 12
 KAN_JHK,Kansas State,Big 12
 KAN_WIL,Kansas State,Big 12
@@ -204,7 +204,7 @@ NOF_OSP,North Florida,ASUN
 NOK_NOR,Northern Kentucky,Horizon
 NOR_AGG,North Carolina A&T,CAA
 NOR_BIS,North Dakota State,Summit
-NOR_CAT,North Carolina,ACC
+NOR_CAT,Western Carolina,Southern
 NOR_DEM,Northwestern State,Southland
 NOR_HUS,Northeastern,CAA
 NOR_PAR,Norfolk State,MEAC
@@ -343,7 +343,7 @@ WAS_UNI,Washington State,Pac-12
 WCC,West Chester,PSAC
 WES_CHE5,West Chester,PSAC
 WES_GEO4,West Georgia,ASUN
-WES_HIL,West Virginia,Big 12
+WES_HIL,Western Kentucky,CUSA
 WES_MOU,Western Michigan,MAC
 WES_UNI,West Virginia,Big 12
 WES_VIR4,West Virginia State,MEC
