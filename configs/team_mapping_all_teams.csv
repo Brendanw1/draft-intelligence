@@ -208,7 +208,7 @@ NOR_CAT,Northwestern,Big Ten
 NOR_DEM,Northwestern State,Southland
 NOR_HUS,Northeastern,CAA
 NOR_PAR,Norfolk State,MEAC
-NOR_SPA,North Carolina,ACC
+NOR_SPA,Norfolk State,MEAC
 NOR_TAR,North Carolina,ACC
 NOR_WOL,NC State,ACC
 NOT_IRI,Notre Dame,ACC
@@ -314,7 +314,7 @@ UNC_SEA,UNC Wilmington,CAA
 UNC_SPA,UNC Greensboro,Southern
 UNI_BRI,Northern Iowa,MVC
 UNI_THE2,Union (TN),GSC
-UNI_WES,West Virginia,Big 12
+UNI_WES,West Georgia,ASUN
 UNI_WIS,Wisconsin,Big Ten
 UNL_REB,UNLV,Mountain West
 UNO_MAV,Omaha,Summit
@@ -344,7 +344,7 @@ WCC,West Chester,PSAC
 WES_CHE5,West Chester,PSAC
 WES_GEO4,West Georgia,ASUN
 WES_HIL,Western Kentucky,CUSA
-WES_MOU,Western Michigan,MAC
+WES_MOU,West Virginia,Big 12
 WES_UNI,West Virginia,Big 12
 WES_VIR4,West Virginia State,MEC
 WIC_SHO,Wichita State,American
