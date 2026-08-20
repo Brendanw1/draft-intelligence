@@ -1,0 +1,11 @@
+{
+  "hurdle_threshold": 2.0,
+  "train_cohorts": [2015, 2021],
+  "validation_cohorts": [2022, 2023],
+  "inference_cohorts": [2024, 2026],
+  "min_pa_hitters": 50,
+  "min_ip_pitchers": 20,
+  "hurdle_auc_gate": 0.65,
+  "bbref_match_rate_gate": 0.85,
+  "war_windows": [3, 5, 8]
+}
