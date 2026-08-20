@@ -1,0 +1,17 @@
+{
+  "generated_by": "scripts/build_tier5_training.py",
+  "generated_at": "2026-08-20T22:37:23.188790+00:00",
+  "windowing_note": "spec's 2015-2021 windowing is aspirational; actual college-stats coverage is 2021-2025, so train=2021 / heldout=2022-2023",
+  "field_name_note": "player_type (not role), Age (capital A), draft_pick (not draft_pick_number)",
+  "hurdle_threshold": 2.0,
+  "n_expanded": 4974,
+  "n_unique_players": 2142,
+  "n_train": 376,
+  "n_heldout": 748,
+  "n_excluded_inference": 750,
+  "n_two_way_excluded": 164,
+  "n_below_min_sample": 104,
+  "n_skipped_ip_filter": 0,
+  "trackman_joined": 0,
+  "hurdle_rate": 0.029359430604982206
+}
