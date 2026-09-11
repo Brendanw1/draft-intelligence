@@ -61,9 +61,12 @@ pyproject.toml
 # BaseballGOAT is its own repo (github.com/Brendanw1/BaseballGOAT) — keep it out of this public repo
 BaseballGOAT/
 
-# internal_draft_model: 800MB of models/data + named-player Trackman derivatives.
-# Scripts there are tracked deliberately; the heavy/private dirs must never enter this PUBLIC repo.
-internal_draft_model/data/
-internal_draft_model/models/
-internal_draft_model/reports/
-internal_draft_model/catboost_info/
+# internal_draft_model: NOTHING from here belongs in this PUBLIC repo — not code,
+# not data. It holds TrackMan-derived internal models (stuff+, xRV, pitching+,
+# decision+) and 800MB of named-player data. Policy: draft-intelligence is
+# public data only.
+internal_draft_model/
+
+# TrackMan-derived data is licensed/internal — never in this PUBLIC repo.
+# (trackman_player_features.json was tracked from 2026-08-20 to 2026-09-11; see history-purge decision.)
+MLB_Draft_Model/data/trackman/
