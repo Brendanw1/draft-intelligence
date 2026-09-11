@@ -298,6 +298,26 @@ def main():
             with open(platt_path, "rb") as f:
                 calibrators[f"platt_{pt}"] = pickle.load(f)
 
+    # Load Tier 5 models (hurdle + value)
+    tier5_models = {}
+    for pt in ["hitter", "pitcher"]:
+        for stage in ["hurdle", "value"]:
+            pkl_path = artifacts_full_dir / f"tier5_{stage}_{pt}.pkl"
+            feat_path = artifacts_full_dir / f"tier5_{stage}_{pt}_features.json"
+            if pkl_path.exists() and feat_path.exists():
+                with open(pkl_path, "rb") as f:
+                    model_data = pickle.load(f)
+                with open(feat_path) as f:
+                    feat_data = json.load(f)
+                tier5_models[f"{stage}_{pt}"] = {
+                    "model": model_data.get("model"),
+                    "features": feat_data.get("features", []),
+                    "gate": model_data.get("gate", {}),
+                }
+                print(f"  Loaded Tier 5 {stage} model for {pt}")
+            else:
+                print(f"  Tier 5 {stage} {pt} model not found (skipping)")
+
     # Load feature metadata from artifacts_full only
     feat_meta = {}
     for fname in ["tier1_features_hitter.json", "tier1_features_pitcher.json",
@@ -420,6 +440,56 @@ def main():
         if mlb_p_raw is not None and mlb_p is not None and abs(mlb_p_raw - mlb_p) > 0.35:
             flags.append("wide_spread")
 
+        # Tier 5 predictions (hurdle + expected WAR)
+        tier5_hurdle_prob = None
+        tier5_expected_war = None
+        tier5_confidence = None
+        if tier5_models:
+            model_key = f"hurdle_{ptype}"
+            if model_key in tier5_models:
+                model = tier5_models[model_key]["model"]
+                features = tier5_models[model_key]["features"]
+                # Build feature vector from enriched record
+                feature_vec = []
+                for feat in features:
+                    val = rec.get(feat)
+                    if val is None:
+                        val = 0.0
+                    feature_vec.append(float(val))
+                # Predict hurdle probability
+                try:
+                    hurdle_prob = model.predict_proba([feature_vec])[0][1]
+                    tier5_hurdle_prob = round(float(hurdle_prob), 4)
+                except Exception:
+                    pass
+
+            model_key = f"value_{ptype}"
+            if model_key in tier5_models:
+                model = tier5_models[model_key]["model"]
+                features = tier5_models[model_key]["features"]
+                # Build feature vector from enriched record
+                feature_vec = []
+                for feat in features:
+                    val = rec.get(feat)
+                    if val is None:
+                        val = 0.0
+                    feature_vec.append(float(val))
+                # Predict expected WAR (signed_log_war, transform back)
+                try:
+                    pred_log_war = model.predict([feature_vec])[0]
+                    # Transform back from signed_log_war to WAR
+                    # signed_log_war = sign(war) * log1p(abs(war))
+                    # war = sign(pred) * (exp(abs(pred)) - 1)
+                    sign = 1 if pred_log_war >= 0 else -1
+                    tier5_expected_war = round(float(sign * (np.exp(abs(pred_log_war)) - 1)), 4)
+                except Exception:
+                    pass
+
+            # Confidence based on gate status
+            if tier5_hurdle_prob is not None:
+                gate_status = tier5_models.get(f"hurdle_{ptype}", {}).get("gate", {}).get("status", "unknown")
+                tier5_confidence = "high" if gate_status == "PASS" else "low"
+
         # Historical bin rate (for "players scored like this" context)
         hist_rate = None
         # We'll compute from calibration data later
@@ -460,6 +530,10 @@ def main():
             "bmi": bmi,
             "draftability_score": draftability,
             "conference_tier": conf_tier,
+            # Tier 5 predictions
+            "tier5_hurdle_prob": tier5_hurdle_prob,
+            "tier5_expected_war": tier5_expected_war,
+            "tier5_confidence": tier5_confidence,
         }
         index_players.append(index_rec)
 
@@ -567,6 +641,10 @@ def main():
             "height_display": fmt_height(height_inches),
             "draftability_score": draftability,
             "conference_tier": conf_tier,
+            # Tier 5 predictions
+            "tier5_hurdle_prob": tier5_hurdle_prob,
+            "tier5_expected_war": tier5_expected_war,
+            "tier5_confidence": tier5_confidence,
         }
 
         # Assign to shard
@@ -934,6 +1012,40 @@ def main():
             "recalibration": recalibration_info,
             "notes": "Full-population model. Height and BMI dominate feature importance — physical projection is the strongest signal for MLB reachability.",
         }
+
+    # Tier 5: WAR value models (hurdle + value regression)
+    for pt in ["hitter", "pitcher"]:
+        for stage in ["hurdle", "value"]:
+            model_key = f"{stage}_{pt}"
+            if model_key in tier5_models:
+                model_data = tier5_models[model_key]
+                label = "Hitters" if pt == "hitter" else "Pitchers"
+                artifact_key = f"tier5-{stage}-{pt}"
+
+                gate = model_data.get("gate", {})
+                gate_status = gate.get("status", "UNKNOWN")
+                gate_r2 = gate.get("r2", None)
+
+                manifest[artifact_key] = {
+                    "artifact": f"tier5_{stage}_{pt}.pkl",
+                    "tier": 5,
+                    "type": pt,
+                    "display_name": f"WAR {stage.title()} Model — {label}",
+                    "target": "Hurdle: probability of positive WAR; Value: expected WAR (signed_log transform)",
+                    "algorithm": "LightGBM regressor (hurdle: classifier)",
+                    "training_population": f"Drafted D1 {label.lower()} 2021-2023 with BRef WAR outcomes",
+                    "n_train": model_data.get("n_train", 0),
+                    "n_features": len(model_data.get("features", [])),
+                    "features": model_data.get("features", []),
+                    "importance": [],  # LightGBM feature importance not extracted yet
+                    "backtest": [],
+                    "flagged_features": [],
+                    "calibration": None,
+                    "recalibration": None,
+                    "gate_status": gate_status,
+                    "gate_r2": gate_r2,
+                    "notes": f"Phase A model. Gate: {gate_status}. R²: {gate_r2:.4f}" if gate_r2 else f"Phase A model. Gate: {gate_status}",
+                }
 
     # Build peak level mapping from MiLB data
     level_order = {"A": 1, "A+": 2, "AA": 3, "AAA": 4, "MLB": 5}

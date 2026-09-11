@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { fmtPct, fmtNum, fmtRoundBand, pickToRound, fmtHeight, NO_DATA } from "@/lib/format";
+import { fmtPct, fmtNum, fmtRoundBand, pickToRound, fmtHeight, fmtWAR, NO_DATA } from "@/lib/format";
 import {
   HITTER_PCTL_PANEL,
   HITTER_SEASON_COLS,
@@ -350,16 +350,104 @@ export function PlayerDossier({
             </div>
           </div>
           <div>
-            <div className="text-[10px] text-ink-3">Conference</div>
+            <div className="text-[10px] text-ink-3">Draftability</div>
             <div className="text-[18px] font-semibold leading-tight">
-              {p.conference ?? NO_DATA}
+              {p.draftability_score != null ? p.draftability_score.toFixed(1) : NO_DATA}
             </div>
             <div className="text-[11px] text-ink-2">
-              adj. stats weighted by conf_strength
+              {p.draftability_score != null
+                ? p.draftability_score >= 70
+                  ? "high"
+                  : p.draftability_score >= 50
+                    ? "moderate"
+                    : "low"
+                : "not scored"}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Tier 5: WAR Value Card */}
+      {p.tier5_hurdle_prob != null && (
+        <div className="border-t border-rule px-4 py-3">
+          <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-ink-3">
+            WAR Value (Tier 5)
+            {p.tier5_confidence === "low" && (
+              <span className="ml-2 inline-block rounded-sm bg-flag-bg px-1.5 py-px text-[10px] font-medium text-flag">
+                experimental
+              </span>
+            )}
+          </div>
+          <div className="grid grid-cols-3 gap-3">
+            <div>
+              <div className="text-[10px] text-ink-3">Expected WAR</div>
+              <div
+                className={`text-[18px] font-semibold leading-tight ${
+                  (p.tier5_expected_war ?? 0) > 2
+                    ? "text-green-600"
+                    : (p.tier5_expected_war ?? 0) > 0.5
+                      ? "text-ink"
+                      : (p.tier5_expected_war ?? 0) > 0
+                        ? "text-yellow-600"
+                        : "text-red-600"
+                }`}
+              >
+                {fmtWAR(p.tier5_expected_war)}
+              </div>
+              <div className="text-[11px] leading-snug text-ink-2">
+                LightGBM value regression
+              </div>
+            </div>
+            <div>
+              <div className="text-[10px] text-ink-3">Positive WAR prob</div>
+              <div
+                className={`text-[18px] font-semibold leading-tight ${
+                  (p.tier5_hurdle_prob ?? 0) > 0.7
+                    ? "text-green-600"
+                    : (p.tier5_hurdle_prob ?? 0) > 0.5
+                      ? "text-yellow-600"
+                      : "text-red-600"
+                }`}
+              >
+                {fmtPct(p.tier5_hurdle_prob)}
+              </div>
+              <div className="text-[11px] leading-snug text-ink-2">
+                Hurdle model (classifier)
+              </div>
+            </div>
+            <div>
+              <div className="text-[10px] text-ink-3">Confidence</div>
+              <div className="text-[18px] font-semibold leading-tight">
+                <span
+                  className={`inline-block rounded px-2 py-0.5 text-[12px] font-semibold ${
+                    p.tier5_confidence === "high"
+                      ? "bg-green-100 text-green-700"
+                      : p.tier5_confidence === "medium"
+                        ? "bg-yellow-100 text-yellow-700"
+                        : "bg-red-100 text-red-700"
+                  }`}
+                >
+                  {(p.tier5_confidence ?? "low").toUpperCase()}
+                </span>
+              </div>
+              <div className="text-[11px] leading-snug text-ink-2">
+                {p.tier5_confidence === "high"
+                  ? "R² ≥ 0.0 gate passed"
+                  : "R² < 0.0 — use cautiously"}
+              </div>
+            </div>
+          </div>
+          {/* Honesty note */}
+          {p.tier5_confidence === "low" && (
+            <div className="mt-2 rounded-sm bg-caution-bg px-2.5 py-1.5 text-[11px] text-text-secondary">
+              <span className="font-semibold text-caution">Honesty note:</span>{" "}
+              Tier 5 value regression has not yet passed the R² ≥ 0.0 kill criterion on
+              heldout data. Expected WAR is a directional signal only — do not treat as
+              a precise forecast. The hurdle probability is more reliable.
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="thin-scroll flex-1 overflow-y-auto">
         {/* why the model thinks this */}

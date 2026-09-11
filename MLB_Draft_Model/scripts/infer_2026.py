@@ -555,11 +555,16 @@ def main():
         if proj_pick is not None and proj_pick > 0:
             slot_score = max(0, 100 - (proj_pick / 620) * 100)
 
-        # Three-component composite: draft position + MLB probability + MLB arrival
-        # Weights: 30% draft position (Tier 1), 40% MLB prob (Tier 2, calibrated), 30% arrival (Tier 3)
+        # Four-component composite: draft position + MLB probability + MLB arrival + WAR value
+        # Weights: 25% draft position (Tier 1), 30% MLB prob (Tier 2), 25% arrival (Tier 3), 20% WAR (Tier 5)
         mlb_score = (mlb_p or 0) * 100
         arrival_score = arrival_p * 100
-        composite = slot_score * 0.30 + mlb_score * 0.40 + arrival_score * 0.30
+        
+        # Tier 5: WAR value (use hurdle probability since it's more reliable than expected WAR)
+        hurdle_p = safe_float(rec.get("tier5_hurdle_prob")) or 0
+        war_score = hurdle_p * 100
+        
+        composite = slot_score * 0.25 + mlb_score * 0.30 + arrival_score * 0.25 + war_score * 0.20
         rec["composite_score"] = round(composite, 1)
 
         if proj_pick is not None:

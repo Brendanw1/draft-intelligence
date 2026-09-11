@@ -59,6 +59,12 @@ export function fmtHeight(inches: number | null | undefined): string {
   return `${ft}'${inc}"`;
 }
 
+export function fmtWAR(v: number | null | undefined): string {
+  if (v == null) return NO_DATA;
+  const sign = v >= 0 ? "+" : "";
+  return `${sign}${v.toFixed(2)}`;
+}
+
 export const FLAG_LABELS: Record<string, string> = {
   no_mlbam_id: "no MLBAM ID",
   low_pa: "low PA",

@@ -10,7 +10,8 @@ const GLOSSARY: [string, string][] = [
   ["Platt calibration", "A learned correction that maps the model's raw score to an honest probability. The primary calibration is PAVA-smoothed quantile (100-bin empirical mapping); Platt and isotonic are also computed as cross-checks in dossiers. Raw scores ran ~2.3× hot; every probability on this site is calibrated."],
   ["Isotonic calibration", "A second, non-linear correction shown in dossiers as a cross-check. When Platt and isotonic agree, trust the number more."],
   ["ECE", "Expected calibration error — the average gap between what the model predicted and what actually happened, before correction."],
-  ["Composite score", "30% projected draft slot value + 40% calibrated top-10-round probability + 30% Tier 3 MLB arrival probability, scaled 0–100. It is an opinion, not an output of either model alone."],
+  ["Composite score", "Four-component blend: 25% projected draft slot value (Tier 1) + 30% calibrated top-10-round probability (Tier 2) + 25% Tier 3 MLB arrival probability + 20% Tier 5 hurdle probability (positive WAR). Scaled 0–100. It is an opinion, not an output of any single model."],
+  ["Tier 5 / WAR Value", "Two-stage model: hurdle (probability of positive career WAR) + value regression (expected WAR magnitude). Uses LightGBM with signed_log_war target to handle zero-inflated distribution. Currently in Phase A — kill criteria (R² ≥ 0.0) not yet met on heldout data. Treat as directional signal only."],
   ["Value grade", "Composite percentile within qualified players of the same type: elite = top 1%, high = 95th–99th, medium = 80th–95th, low = the rest. Percentile tiers, because calibrated probabilities compress absolute scores."],
   ["Spearman ρ", "Rank correlation between projected and actual draft order in backtests. ~0.5 means the model orders players meaningfully but far from perfectly."],
   ["Tier 3 / MLB Arrival", "Predicts P(MLB debut | drafted) using an Elastic Net model with a round-anchored prior offset and nearest-neighbor comp rates. Only available for the 2026 projections — trained on 2021–2023 outcomes."],
@@ -52,6 +53,7 @@ export default function MethodologyPage() {
           model trained on top-10-round draft depth (pick ≤315). Raw
           probabilities are corrected with PAVA-smoothed quantile calibration (100-bin empirical mapping from raw score to historical rate). Platt and isotonic calibrations are also computed as cross-checks in individual player dossiers. A third tier, an
           Elastic Net with round-anchored prior, predicts P(MLB debut | drafted).
+          A fourth tier (Tier 5) predicts career WAR value via a two-stage LightGBM model: a hurdle classifier for positive WAR probability, then a value regression for expected WAR magnitude. Tier 5 is currently in Phase A and has not yet passed kill criteria — treat as a directional signal only.
           Every 2026 D1 player with a FanGraphs line — all 10,734 — gets scored.
           Details on each artifact live in the{" "}
           <Link href="/models/" className="text-maroon underline">Model Lab</Link>.

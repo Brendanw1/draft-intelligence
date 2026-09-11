@@ -1,7 +1,7 @@
 # MLB Draft Model — Ground Floor & Execution Plan
 
-**Status**: Framework built, data scraped, training set assembled, architecture designed.
-**What's running**: Draft data for 9,308 picks (2015–2025), joined training set of 608 players with TrackMan metrics + draft outcomes, team mapping covering 313 D1 codes.
+**Status**: Five-tier pipeline live. Tier 5 (WAR Value) in development — kill criteria not yet met.
+**What's running**: Draft data for 9,300+ picks (2015–2026), 10,734 players (2021–2026), five model tiers, Next.js 15 static frontend.
 
 ---
 
@@ -116,7 +116,7 @@ Our TrackMan data only covers ~2024–2026. For a robust model, we need college 
                           │  MLB Stats API       │
                           │  /api/v1/draft/{year} │
                           └──────────┬──────────┘
-                                     │ 9,308 picks
+                                     │ 9,300+ picks
                                      ▼
                           ┌─────────────────────┐
                           │  Draft Data Store    │
@@ -129,52 +129,113 @@ Our TrackMan data only covers ~2024–2026. For a robust model, we need college 
               │                      │
               ▼                      ▼
   ┌──────────────────────┐  ┌──────────────────────┐
-  │  TrackMan Pipeline   │  │  Join: NameKey       │
-  │  PS server/data/2025 │──▶  + school normalizer │
-  │  8,184 players       │  │  608 matched         │  ✅ Complete
-  │  351 metrics each    │  └──────────┬───────────┘
+  │  FanGraphs Pipeline  │  │  Join: NameKey       │
+  │  10,734 players      │──▶  + school normalizer │
+  │  2021–2026           │  │  10,734 matched      │  ✅ Complete
+  │  wOBA, ERA, K/BB     │  └──────────┬───────────┘
   └──────────────────────┘            │
                                       ▼
                           ┌──────────────────────┐
-                          │  Training Set        │
-                          │  data/training/      │  ✅ Complete
-                          │  features + labels   │
+                          │  Five-Tier Pipeline  │
+                          │                      │
+                          │  Tier 1: XGBoost     │  ✅ Live
+                          │  (draft pick)        │
+                          │                      │
+                          │  Tier 2: XGBoost     │  ✅ Live
+                          │  (top-10 prob)       │
+                          │                      │
+                          │  Tier 3: Elastic Net │  ✅ Live
+                          │  (MLB arrival)       │
+                          │                      │
+                          │  Tier 4: NN Comps    │  ✅ Live
+                          │  (similar players)   │
+                          │                      │
+                          │  Tier 5: LightGBM    │  ⚠️ Dev
+                          │  (hurdle + WAR)      │
                           └──────────┬───────────┘
                                      │
                                      ▼
                           ┌──────────────────────┐
-                          │  XGBoost Model (v1)  │
-                          │  Pick/Round/Bonus    │  🟡 Next Step
-                          │  prediction          │
+                          │  Next.js 15 Static   │
+                          │  64 shards + index   │  ✅ Live
+                          │  vt-draft.vercel.app │
                           └──────────────────────┘
 ```
-
 ---
 
-## 4. Model Strategy — Two-Tier Approach
+## 4. Model Strategy — Five-Tier Approach
 
-### Tier 1: Draft Position Model (NOW — n=608)
+### Tier 1: Draft Position Model ✅ LIVE
 
-Predict draft pick number / round from TrackMan college metrics.
+Predict draft pick number / round from college performance metrics.
 
-| Component | Choice | Rationale |
-|-----------|--------|-----------|
-| Target | `pick_number` (regression) | Continuous, captures within-round ordering |
-| Alternatively | `pick_round` (ordinal) | Coarser but less noise from bonus-pool shenanigans |
-| Algorithm | XGBoost Regressor | Handles 351 sparse features, gives feature importance, regularizes well on small n |
-| Validation | 5-fold cross-validation | n=608 is small enough that a holdout set would starve training. CV gives realistic error estimate. |
-| Features | Top 50 by importance | Start with all 351, prune to keep model interpretable |
-| Metric | RMSE (picks), MAE (rounds) | Pick error of ±30 is usable; ±15 is excellent |
-| Baseline | Mean prediction | Compare against naive "predict middle-of-round" |
+| Component | Choice | Status |
+|-----------|--------|--------|
+| Target | `pick_number` (regression) | ✅ Live |
+| Algorithm | XGBoost Regressor | ✅ Live |
+| Validation | Rolling year-out backtest | ✅ MAE ~110 picks |
+| Features | 53 features (conf_strength + adj stats) | ✅ Live |
+| Performance | MAE 119.8, Spearman ρ 0.487 | ✅ Live |
 
-**Projected performance**: With 351 features and 608 rows, we're in high-dimensional regime (p > n/2). XGBoost's built-in regularization (`lambda`, `alpha`, `subsample`) is critical. Expect feature importance to converge on 15–25 dominant metrics (velo, EV, chase rate, whiff rate, barrel rate, PV score).
+### Tier 2: MLB Probability Model ✅ LIVE
 
-### Tier 2: MiLB Outcome Model (FUTURE — needs more data)
+Predict top-10-round draft probability.
 
-Predict actual pro performance (wOBA, ERA, level reached) rather than draft position.
+| Component | Choice | Status |
+|-----------|--------|--------|
+| Target | Top-10-round (pick ≤315) | ✅ Live |
+| Algorithm | XGBoost + Platt calibration | ✅ Live |
+| Training | Full population (56,910 negatives) | ✅ Live |
+| Performance | AUC 0.97 (hitters/pitchers) | ✅ Live |
+| Calibration | <3% avg absolute error | ✅ Live |
 
-Requires: MiLB stats for training labels. See Section 2.1.
+### Tier 3: MLB Arrival Model ✅ LIVE
 
+Predict P(MLB debut | drafted) using prior-offset approach.
+
+| Component | Choice | Status |
+|-----------|--------|--------|
+| Target | MLB debut (binary) | ✅ Live |
+| Algorithm | Elastic Net (prior-offset) | ✅ Live |
+| Prior | Round-specific historical baseline | ✅ Live |
+| Performance | AUC 0.79 | ✅ Live |
+
+### Tier 4: Nearest-Neighbor Comps ✅ LIVE
+
+Find similar historical players for context.
+
+| Component | Choice | Status |
+|-----------|--------|--------|
+| Pool | 1,524 MiLB-enriched records | ✅ Live |
+| Distance | Euclidean (10 standardized dims) | ✅ Live |
+| Output | Top-10 comps per player | ✅ Live |
+| Visualization | Interactive pick-axis dot plot | ✅ Live |
+
+### Tier 5: WAR Value Model ⚠️ IN DEVELOPMENT
+
+Two-stage model: hurdle (P(WAR>0)) + value regression (E[WAR]).
+
+| Component | Choice | Status |
+|-----------|--------|--------|
+| Stage 1 | Logistic regression (hurdle) | ✅ Trained |
+| Stage 2 | LightGBM (value regression) | ✅ Trained (Phase A + Phase B scripts) |
+| Target | `signed_log_war` (transform) | ✅ Live |
+| Features | 10 Tier 3 features per role | ✅ Live |
+| Performance | Hurdle AUC ~0.65, Value R² < 0.0 | ⚠️ Kill criteria not met |
+| Backtest | 2015-2020 cohort (369 records) | ✅ Complete |
+| Frontend | WAR Leaderboard + Dossier card | ✅ Live |
+| Validation | 8 unified gates + honesty report | ✅ Live |
+| CI | Makefile + verify_all.py | ✅ Live |
+
+**Kill criteria**: R² ≥ 0.0 (must beat predicting the median). Currently failing — expected with ~300 train records and right-censored heldout.
+
+**Scripts**:
+- `scripts/train_tier5_hurdle.py` — Stage 1 hurdle classifier
+- `scripts/train_tier5_value.py` — Stage 2 value regression (Phase A)
+- `scripts/train_tier5_value_phaseB.py` — Optuna tuning + RFE + ensemble (gated on Phase A)
+- `scripts/validate_tier5.py` — 8 unified verification gates
+- `scripts/tier5_honesty_report.py` — Markdown honesty report generator
+- `scripts/backtest_tier5.py` — E2E backtest on 2015-2020 cohort with kill enforcement
 ---
 
 ## 5. Data Flow for Model Training

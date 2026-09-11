@@ -20,27 +20,29 @@ This project is that baseline.
 |------|----------------|
 | **Board** | Who matters in the 2026 class? (10,734 players, sortable/filterable by grade tier, position, conference, draft round band) |
 | **Value** | Where will the market misprice talent? (projected pick vs calibrated top-10-round probability) |
+| **WAR Leaderboard** | Who projects to accumulate the most career WAR? (hurdle probability × expected WAR, with gate toggle) |
 | **Class Retrospectives** | How did past draft classes actually turn out? (2021–2026 with real outcomes) |
-| **Player Dossier** | What's the full picture on this specific player? (projections, percentile bars, multi-season stats, top-10 comparable draftees with interactive pick-axis dot plot, physical profile, tiered model transparency including MLB arrival outlook, model disagreement indicators) |
+| **Player Dossier** | What's the full picture on this specific player? (projections, percentile bars, multi-season stats, top-10 comparable draftees with interactive pick-axis dot plot, physical profile, tiered model transparency including MLB arrival outlook + WAR value card, model disagreement indicators) |
 | **Model Lab** | Why should anyone believe these predictions? (backtest curves, reliability diagrams, feature importances, known limitations, per-model calibration audits) |
-| **Methodology** | How exactly do the three tiers work, what are the known gaps, and what changed in the latest vintage? |
+| **Methodology** | How exactly do the five tiers work, what are the known gaps, and what changed in the latest vintage? |
 
 ---
 
 ## Architecture
 
-Three-tier pipeline: **XGBoost regressor** (Tier 1 → projected draft pick) → **XGBoost classifier** with Platt calibration (Tier 2 → top-10-round probability) → **prior-offset Elastic Net** (Tier 3 → MLB arrival probability if drafted). Nearest-neighbor comps provide context. All fed into a static Next.js 15 site with no runtime infrastructure.
+Five-tier pipeline: **XGBoost regressor** (Tier 1 → projected draft pick) → **XGBoost classifier** with Platt calibration (Tier 2 → top-10-round probability) → **prior-offset Elastic Net** (Tier 3 → MLB arrival probability if drafted) → **Nearest-neighbor comps** (Tier 4 → similar historical players) → **LightGBM hurdle + value regression** (Tier 5 → expected WAR). All fed into a static Next.js 15 site with no runtime infrastructure.
 
 **Key design decisions:**
 
-- **Three-tier architecture**: Separates "when will you be drafted?" (Tier 1 regressor), "will you go in the top 10 rounds?" (Tier 2 classifier), and "if drafted, what's your arrival probability?" (Tier 3 prior-offset). These are different questions requiring different architectures.
+- **Five-tier architecture**: Separates "when will you be drafted?" (Tier 1), "will you go in the top 10 rounds?" (Tier 2), "if drafted, what's your arrival probability?" (Tier 3), "who are comparable players?" (Tier 4), and "what's your expected career WAR?" (Tier 5). Each tier answers a distinct question with appropriate modeling.
+- **Tier 5 two-stage approach**: Instead of predicting WAR directly (zero-inflated, right-skewed), Tier 5 uses a hurdle model (P(WAR > 0)) followed by value regression (E[WAR | WAR > 0]). This handles the fact that most drafted players never accumulate positive WAR.
 - **Top-10-round target**: Tier 2 predicts top-10-round draft status (pick ≤315), not generic "MLB probability." The top-10-round cutoff is where draft value crystallizes — players drafted after round 10 have dramatically lower signing rates and career ceilings. Calibrated via Platt scaling with reliability diagram verification.
 - **Conference adjustment**: Raw stats (wOBA, ERA, etc.) are multiplied by the inverse of `conf_strength` — a continuous score based on empirical draft rates per conference. SEC production (2.98× draft rate) isn't compared at face value to SWAC production (0.09×).
 - **Full-population training**: Tier 2 includes 56,910 undrafted players as true negatives with biometrically imputed height/weight/BMI. Most draft models skip this — the model learns what *doesn't* get drafted, not just who does.
 - **Platt + Isotonic calibration**: Raw XGBoost probabilities are systematically overconfident (~2.3×). Platt scaling maps them to well-calibrated probabilities; isotonic calibration provides a secondary cross-check.
 - **Prior-offset Tier 3**: Instead of predicting absolute MLB arrival probability from scratch, Tier 3 predicts *deviation* from a round-specific historical baseline. A 5th-rounder projected at 15% arrival is above their round baseline; a 1st-rounder at 15% is below theirs.
 - **Interactive NN comps**: Euclidean nearest-neighbor search across 10 standardized stat dimensions yields 10 comparable draftees per player. An interactive pick-axis dot plot links hovered comps to their draft position with bidirectional row↔dot highlighting.
-- **Composite score**: Weighted combination of all three tiers: 30% draft position (Tier 1) + 40% calibrated top-10-round probability (Tier 2) + 30% MLB arrival (Tier 3), scaled 0–100.
+- **Composite score**: Weighted combination of all tiers: 30% draft position (Tier 1) + 40% calibrated top-10-round probability (Tier 2) + 30% MLB arrival (Tier 3), with Tier 5 WAR value as an additional signal.
 - **Static export**: Zero runtime infrastructure. No database, no API, no server. The pipeline generates JSON → Next.js builds a static site → deploy anywhere (Vercel, Cloudflare Pages, S3).
 - **Sharded data**: 10,734 player records split into 64 shards + 1 index file. The board loads from the index (9 MB, fast); dossiers fetch single shards lazily.
 - **Precision-instrument design system**: Signal gradient (gray=low, amber=medium, teal=high, blue=elite) encodes uncertainty visually. 4px spacing grid, 6-step type scale, tabular numbers throughout.

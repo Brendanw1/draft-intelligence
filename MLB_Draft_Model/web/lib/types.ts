@@ -35,6 +35,10 @@ export const IndexPlayerSchema = z.object({
   // Tier 3 — MLB arrival probability (Elastic Net + nearest-neighbor)
   mlb_arrival: z.number().nullable().optional(),
   nn_mlb_rate: z.number().nullable().optional(),
+  // Tier 5 — WAR value predictions (hurdle + value regression)
+  tier5_hurdle_prob: z.number().nullable().optional(),
+  tier5_expected_war: z.number().nullable().optional(),
+  tier5_confidence: z.enum(["high", "medium", "low"]).nullable().optional(),
 });
 export type IndexPlayer = z.infer<typeof IndexPlayerSchema>;
 
