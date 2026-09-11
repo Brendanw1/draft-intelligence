@@ -52,3 +52,18 @@ pyproject.toml
 "Building an MLB Draft Model with College Trackman Data.md"
 "Building an MLB Draft Model with College Trackman Data.pdf"
 "MLB Draft Model — Tech Stack & Build Plan.md"
+.env*
+
+
+# Private/local SQLite databases — never commit (decide destination later)
+*.db
+
+# BaseballGOAT is its own repo (github.com/Brendanw1/BaseballGOAT) — keep it out of this public repo
+BaseballGOAT/
+
+# internal_draft_model: 800MB of models/data + named-player Trackman derivatives.
+# Scripts there are tracked deliberately; the heavy/private dirs must never enter this PUBLIC repo.
+internal_draft_model/data/
+internal_draft_model/models/
+internal_draft_model/reports/
+internal_draft_model/catboost_info/
