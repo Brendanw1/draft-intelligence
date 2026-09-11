@@ -70,3 +70,9 @@ internal_draft_model/
 # TrackMan-derived data is licensed/internal — never in this PUBLIC repo.
 # (trackman_player_features.json was tracked from 2026-08-20 to 2026-09-11; see history-purge decision.)
 MLB_Draft_Model/data/trackman/
+
+# TrackMan extraction code: exposes the masterTableAllGames schema and queries,
+# so the data is derivable from it. Keep private along with the data itself.
+MLB_Draft_Model/scripts/aggregate_trackman_features.py
+MLB_Draft_Model/tests/test_trackman_agg.py
+MLB_Draft_Model/Building an MLB Draft Model with College Trackman Data.md
