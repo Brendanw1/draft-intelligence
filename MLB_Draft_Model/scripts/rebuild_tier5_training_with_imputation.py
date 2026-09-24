@@ -39,7 +39,6 @@ EXPANDED_PATH = BASE / "data" / "training" / "expanded_training_set.json"
 OUTPUT_PATH = BASE / "data" / "training" / "tier5_training_set_v2.json"
 CONF_STATS_PATH = BASE / "models" / "artifacts_full" / "conference_stats.json"
 CONF_STRENGTH_PATH = BASE / "models" / "artifacts_full" / "conference_strength.json"
-TRACKMAN_PATH = BASE / "data" / "trackman" / "trackman_player_features.json"
 
 # Draft years where we can safely impute WAR=0 for non-debuted players
 # (5+ years have passed since draft, as of 2026)
@@ -204,46 +203,6 @@ def assign_round_logit_prior(players, round_rates):
     return players
 
 
-def merge_trackman_features(players, trackman_data):
-    """Merge TrackMan features if available.
-    
-    Note: TrackMan uses internal 5-11 digit IDs, not MLBAM person_ids.
-    This function attempts to join on player_id/person_id but will gracefully
-    handle the case where no matches are found.
-    """
-    if not trackman_data:
-        for p in players:
-            p["avg_ev_wood_adj"] = None
-            p["avg_velo"] = None
-        return players, 0
-
-    pitchers = trackman_data.get("pitchers", {})
-    hitters = trackman_data.get("hitters", {})
-    joined = 0
-    
-    for p in players:
-        key = str(p.get("person_id"))
-        if p.get("player_type") == "hitter":
-            matched = hitters.get(key)
-            if matched:
-                joined += 1
-                latest = max(matched, key=lambda r: r.get("season", 0) or 0)
-                p["avg_ev_wood_adj"] = latest.get("avg_ev_wood_adj")
-            else:
-                p["avg_ev_wood_adj"] = None
-            p["avg_velo"] = None
-        else:
-            matched = pitchers.get(key)
-            if matched:
-                joined += 1
-                latest = max(matched, key=lambda r: r.get("season", 0) or 0)
-                p["avg_velo"] = latest.get("avg_velo")
-            else:
-                p["avg_velo"] = None
-            p["avg_ev_wood_adj"] = None
-    
-    return players, joined
-
 
 def main(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="Rebuild Tier 5 training set with WAR=0 imputation")
@@ -251,7 +210,6 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--expanded-path", type=Path, default=EXPANDED_PATH)
     parser.add_argument("--conf-stats-path", type=Path, default=CONF_STATS_PATH)
     parser.add_argument("--conf-strength-path", type=Path, default=CONF_STRENGTH_PATH)
-    parser.add_argument("--trackman-path", type=Path, default=TRACKMAN_PATH)
     parser.add_argument("--out", type=Path, default=OUTPUT_PATH)
     parser.add_argument("--verify", action="store_true", help="Print summary stats")
     args = parser.parse_args(argv)
@@ -296,28 +254,9 @@ def main(argv: Optional[List[str]] = None) -> int:
     conf_strength = load_json(args.conf_strength_path)
     print(f"Loaded conference stats and strength")
 
-    # Load TrackMan features if available
-    trackman_data = None
-    if args.trackman_path.exists():
-        trackman_data = load_json(args.trackman_path)
-        print(f"Loaded TrackMan features: {len(trackman_data.get('pitchers', {}))} pitchers, {len(trackman_data.get('hitters', {}))} hitters")
-    else:
-        print(f"TrackMan features not found at {args.trackman_path}, skipping")
-
     # Feature engineering: add conference-adjusted features
     print("Computing conference-adjusted features...")
     expanded = add_features(expanded, conf_stats, conf_strength)
-
-    # Merge TrackMan features if available
-    if trackman_data:
-        print("Merging TrackMan features...")
-        expanded, tm_joined = merge_trackman_features(expanded, trackman_data)
-        print(f"  Joined {tm_joined}/{len(expanded)} records with TrackMan data")
-    else:
-        # Initialize TrackMan fields as None
-        for rec in expanded:
-            rec["avg_ev_wood_adj"] = None
-            rec["avg_velo"] = None
 
     # Set has_mlb_debut flag from WAR data
     for rec in expanded:

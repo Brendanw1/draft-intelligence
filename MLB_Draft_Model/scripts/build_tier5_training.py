@@ -14,13 +14,11 @@ The overlap population is therefore 2021-2023:
   * ``split == "heldout"`` -> draft_year in (2022, 2023) (right-censored)
   * draft_year >= 2024     -> excluded (inference-only)
 
-TrackMan features are joined only when a person_id crosswalk exists; TrackMan
-uses internal 5-11 digit ids (not 6-digit MLBAM person_ids), so no join occurs
-and TrackMan fields are emitted as ``null`` (never 0.0).
+Inputs are public only (MLB Stats API, FanGraphs, MiLB); no TrackMan data.
 
 Usage:
     python scripts/build_tier5_training.py [--war PATH] [--expanded PATH] \
-        [--milb-dir PATH] [--trackman PATH] [--out PATH] [--verify]
+        [--milb-dir PATH] [--out PATH] [--verify]
 """
 
 from __future__ import annotations
@@ -48,7 +46,6 @@ BASE = Path(__file__).resolve().parents[1]
 DEFAULT_WAR = BASE / "data" / "war" / "war_ground_truth.json"
 DEFAULT_EXPANDED = BASE / "data" / "training" / "expanded_training_set.json"
 DEFAULT_DRAFT = BASE / "data" / "draft" / "draft_all_picks.json"
-DEFAULT_TRACKMAN = BASE / "data" / "trackman" / "trackman_player_features.json"
 DEFAULT_MILB_DIR = BASE / "data" / "milb"
 DEFAULT_CONF_STATS = BASE / "models" / "artifacts_full" / "conference_stats.json"
 DEFAULT_CONF_STRENGTH = BASE / "models" / "artifacts_full" / "conference_strength.json"
@@ -275,45 +272,13 @@ def assign_round_logit_prior(players, round_rates):
     return players
 
 
-def merge_trackman_features(players, trackman_data):
-    if not trackman_data:
-        for p in players:
-            p["avg_ev_wood_adj"] = None
-            p["avg_velo"] = None
-        return players, 0
-
-    pitchers = trackman_data.get("pitchers", {})
-    hitters = trackman_data.get("hitters", {})
-    joined = 0
-    for p in players:
-        key = str(p.get("person_id"))
-        if p.get("player_type") == "hitter":
-            matched = hitters.get(key)
-            if matched:
-                joined += 1
-                latest = max(matched, key=lambda r: r.get("season", 0) or 0)
-                p["avg_ev_wood_adj"] = latest.get("avg_ev_wood_adj")
-            else:
-                p["avg_ev_wood_adj"] = None
-            p["avg_velo"] = None
-        else:
-            matched = pitchers.get(key)
-            if matched:
-                joined += 1
-                latest = max(matched, key=lambda r: r.get("season", 0) or 0)
-                p["avg_velo"] = latest.get("avg_velo")
-            else:
-                p["avg_velo"] = None
-            p["avg_ev_wood_adj"] = None
-    return players, joined
-
 
 # ---------------------------------------------------------------------------
 # Orchestrator
 # ---------------------------------------------------------------------------
 
 def build_training_set(war_data, expanded_records, draft_records, conf_stats,
-                       conf_strength, trackman_data=None, train_year=TRAIN_YEAR,
+                       conf_strength, train_year=TRAIN_YEAR,
                        heldout_years=HELDOUT_YEARS):
     war_map = load_war_map(war_data)
 
@@ -383,8 +348,6 @@ def build_training_set(war_data, expanded_records, draft_records, conf_stats,
         p["signed_log_war"] = label["signed_log_war"]
         out.append(p)
 
-    out, trackman_joined = merge_trackman_features(out, trackman_data)
-
     n_train = sum(1 for r in out if r["split"] == "train")
     n_heldout = sum(1 for r in out if r["split"] == "heldout")
     meta = {
@@ -403,7 +366,6 @@ def build_training_set(war_data, expanded_records, draft_records, conf_stats,
         "n_two_way_excluded": two_way_excluded,
         "n_below_min_sample": below_min,
         "n_skipped_ip_filter": skipped_ip,
-        "trackman_joined": trackman_joined,
         "hurdle_rate": validate_hurdle_rate(out),
     }
     return out, meta
@@ -486,7 +448,6 @@ def print_verify_report(records, meta):
           f"excluded_inference={meta['n_excluded_inference']} "
           f"two_way_excluded={meta['n_two_way_excluded']} "
           f"below_min_sample={meta['n_below_min_sample']}")
-    print(f"  trackman_joined:         {meta['trackman_joined']}")
     print(f"  windowing note:          {meta['windowing_note']}")
 
 
@@ -500,7 +461,6 @@ def _parse_args(argv=None):
     p.add_argument("--expanded", default=str(DEFAULT_EXPANDED), help="Expanded training-set JSON path")
     p.add_argument("--milb-dir", default=str(DEFAULT_MILB_DIR),
                    help="MiLB data dir (reserved; milb_year1_wOBA excluded by spec)")
-    p.add_argument("--trackman", default=str(DEFAULT_TRACKMAN), help="TrackMan player-features JSON path")
     p.add_argument("--out", default=str(DEFAULT_OUTPUT), help="Output training-set JSON path")
     p.add_argument("--verify", action="store_true", help="Print V1-V4 report to stdout")
     return p.parse_args(argv)
@@ -515,15 +475,8 @@ def main(argv=None):
     conf_stats = load_json(DEFAULT_CONF_STATS)
     conf_strength = load_json(DEFAULT_CONF_STRENGTH)
 
-    trackman_data = None
-    tm_path = Path(args.trackman)
-    if tm_path.exists():
-        trackman_data = load_json(str(tm_path))
-    else:
-        print(f"TrackMan features not found at {tm_path} — emitting null TrackMan fields")
-
     records, meta = build_training_set(
-        war_data, expanded, draft, conf_stats, conf_strength, trackman_data
+        war_data, expanded, draft, conf_stats, conf_strength
     )
 
     out_path = Path(args.out)
@@ -541,7 +494,6 @@ def main(argv=None):
           f"excluded_inference={meta['n_excluded_inference']} "
           f"two_way_excluded={meta['n_two_way_excluded']} "
           f"below_min_sample={meta['n_below_min_sample']}")
-    print(f"  trackman_joined={meta['trackman_joined']}")
 
     if args.verify:
         print_verify_report(records, meta)
