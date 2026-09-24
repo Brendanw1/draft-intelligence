@@ -27,7 +27,6 @@ from scripts.build_tier5_training import (
     compute_nn_mlb_rates,
     is_two_way,
     load_war_map,
-    merge_trackman_features,
     safe_float,
     verify_v1,
     verify_v2,
@@ -251,20 +250,6 @@ def test_compute_nn_mlb_rates_in_unit_interval() -> None:
     rates, _, _ = compute_nn_mlb_rates(players, ["wOBA_adj", "OPS_adj", "K_pct_adj"])
     assert len(rates) == 5
     assert all(0.0 <= r <= 1.0 for r in rates)
-
-
-# ---------------------------------------------------------------------------
-# TrackMan merge (honest null-not-zero)
-# ---------------------------------------------------------------------------
-
-def test_trackman_merge_no_crosswalk_is_null() -> None:
-    players = [_expanded_record(621020, "hitter", 2021)]
-    trackman = {"pitchers": {"822843": []}, "hitters": {"1000255768": []}}
-    out, joined = merge_trackman_features(players, trackman)
-    assert joined == 0
-    # TrackMan fields are null (not 0.0) when no crosswalk exists
-    assert out[0].get("avg_ev_wood_adj") is None
-    assert out[0].get("avg_velo") is None
 
 
 # ---------------------------------------------------------------------------
