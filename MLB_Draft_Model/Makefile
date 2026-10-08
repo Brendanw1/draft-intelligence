@@ -15,15 +15,15 @@ validate:
 
 honesty-report:
 	@echo "=== Generating honesty report ==="
-	-PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/tier5_honesty_report.py || true
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/tier5_honesty_report.py
 
 backtest:
 	@echo "=== Running Tier 5 E2E backtest ==="
-	-PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/backtest_tier5.py --report || true
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/backtest_tier5.py --report
 
 evidence:
 	@echo "=== Generating Tier 5 evidence bundle ==="
-	-PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/tier5_evidence_bundle.py || true
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/tier5_evidence_bundle.py
 
 clean:
 	@echo "=== Cleaning generated artifacts ==="
