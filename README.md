@@ -36,7 +36,7 @@ Three-tier pipeline: **XGBoost regressor** (Tier 1 → projected draft pick) →
 - **Three-tier architecture**: Separates "when will you be drafted?" (Tier 1 regressor), "will you go in the top 10 rounds?" (Tier 2 classifier), and "if drafted, what's your arrival probability?" (Tier 3 prior-offset). These are different questions requiring different architectures.
 - **Top-10-round target**: Tier 2 predicts top-10-round draft status (pick ≤315), not generic "MLB probability." The top-10-round cutoff is where draft value crystallizes — players drafted after round 10 have dramatically lower signing rates and career ceilings. Calibrated via Platt scaling with reliability diagram verification.
 - **Conference adjustment**: Raw stats (wOBA, ERA, etc.) are multiplied by the inverse of `conf_strength` — a continuous score based on empirical draft rates per conference. SEC production (2.98× draft rate) isn't compared at face value to SWAC production (0.09×).
-- **Full-population training**: Tier 2 includes 56,910 undrafted players as true negatives with biometrically imputed height/weight/BMI. Most draft models skip this — the model learns what *doesn't* get drafted, not just who does.
+- **Full-population training**: Tier 2 trains on undrafted players as true negatives (about 44,000 across the current hitter and pitcher training sets), with height, weight and BMI imputed from conference and position distributions. The model learns what *doesn't* get drafted, not just who does. Because most of those negatives are easy to separate, the Tier 2 AUC below overstates how well the model ranks real prospects; the pick-level backtest is the better test.
 - **Platt + Isotonic calibration**: Raw XGBoost probabilities are systematically overconfident (~2.3×). Platt scaling maps them to well-calibrated probabilities; isotonic calibration provides a secondary cross-check.
 - **Prior-offset Tier 3**: Instead of predicting absolute MLB arrival probability from scratch, Tier 3 predicts *deviation* from a round-specific historical baseline. A 5th-rounder projected at 15% arrival is above their round baseline; a 1st-rounder at 15% is below theirs.
 - **Interactive NN comps**: Euclidean nearest-neighbor search across 10 standardized stat dimensions yields 10 comparable draftees per player. An interactive pick-axis dot plot links hovered comps to their draft position with bidirectional row↔dot highlighting.
@@ -79,14 +79,19 @@ The model is tested using a **rolling year-out backtest**: for each holdout year
 | 2026    | 1929    | 118.4     | 146.3     | 144.9    | 53%   | 0.526      |
 | **Avg** | **913** | **119.8** | **143.8** | **144.5**| **53%** | **0.487** |
 
-The model beats the naive mean by **17%** consistently across all five holdout years. The ±110-pick range band achieves a 53% capture rate — matching the backtest estimate. The Spearman rank correlation of ~0.50 confirms meaningful rank ordering. Full breakdown in [`analysis/draft_intelligence_backtest.md`](analysis/draft_intelligence_backtest.md).
+The model beats the naive mean by **17%** consistently across all five holdout years. The ±110-pick range band achieves a 53% capture rate — matching the backtest estimate. The Spearman rank correlation of ~0.50 confirms meaningful rank ordering. Full breakdown in [`analysis/draft_intelligence_backtest.md`](MLB_Draft_Model/analysis/draft_intelligence_backtest.md).
 
-| Tier 2 year-out AUC | 0.97 | 0.97 |
-| Tier 3 AUC (arrival) | 0.79 | 0.79 |
-| Top features | conf_strength, wOBA_adj, K_pct_adj, age | conf_strength, FIP_adj, K-BB%, velo proxy |
-| Calibration | Platt-scaled; reliability diagrams confirm <3% average absolute error | Same |
+### Tier 2 and Tier 3
 
-After the July 2026 data quality audit, biometric features (height, BMI) dropped from artificial dominance (importance 0.71) to realistic proportional weight (~0.05–0.10), allowing conference-adjusted performance stats to carry the predictive signal as intended. All 10,734 prospects now have measured or imputed height and BMI (100% coverage).
+| Metric | Hitters | Pitchers |
+|--------|---------|----------|
+| Tier 2 top-10-round AUC (player-grouped 5-fold CV) | 0.983 | 0.972 |
+| Tier 3 MLB debut given drafted, AUC (CV) | 0.786 | 0.788 |
+| Calibration slope after Platt scaling (1.0 = perfect) | 1.16 | 1.24 |
+
+- Tier 2 has not yet been scored year-out; the AUCs above are cross-validated with every season of a player held out together.
+- Tier 3 is conditional on being drafted, so it is not a population-level arrival rate. It trains on 549 drafted hitters (94 debuts) and 713 pitchers (132 debuts).
+- After the July 2026 data quality audit, height fell from an artificial top split (importance 0.71) to 0.03. Age is now the top feature (0.26 hitters, 0.29 pitchers), which partly reflects draft eligibility rather than talent.
 
 ---
 
@@ -106,9 +111,9 @@ The model's 2026 projections can be compared against actual draft outcomes with 
 | Drafted higher than projected (model undervalued) | 45% |
 | Drafted lower than projected (model overvalued) | 55% |
 
-The prospective MAE of **116.4 picks** validates the ±110 backtest estimate used throughout the UI. The Spearman ρ of 0.56 (p < 0.001) shows meaningful rank ordering. The 96% match rate was achieved by combining person_id joins with fuzzy name+school matching. Full report in [`analysis/2026_draft_accuracy_prospective.md`](analysis/2026_draft_accuracy_prospective.md).
+The prospective MAE of **116.4 picks** validates the ±110 backtest estimate used throughout the UI. The Spearman ρ of 0.56 (p < 0.001) shows meaningful rank ordering. The 96% match rate was achieved by combining person_id joins with fuzzy name+school matching. Full report in [`analysis/2026_draft_accuracy_prospective.md`](MLB_Draft_Model/analysis/2026_draft_accuracy_prospective.md).
 
-Full round-by-round breakdown, biggest misses, best predictions, and unmatched player analysis in the retrospective [`analysis/2026_draft_accuracy.md`](analysis/2026_draft_accuracy.md).
+Full round-by-round breakdown, biggest misses, best predictions, and unmatched player analysis in the retrospective [`analysis/2026_draft_accuracy.md`](MLB_Draft_Model/analysis/2026_draft_accuracy.md).
 
 ---
 
@@ -136,10 +141,23 @@ A comprehensive audit of the data pipeline and all three model tiers identified 
 
 ---
 
+## Tier 5 (expected career WAR): built, not shipped
+
+A two-stage career WAR model was built and held back because it failed its own release gates. Stage 1 is an elastic-net logistic regression for P(WAR > 0); stage 2 is a LightGBM regression on signed log WAR.
+
+| Gate | Hitters | Pitchers |
+|------|---------|----------|
+| Value R² vs. predicting the median (must be ≥ 0) | −0.319 | −0.611 |
+| Hurdle held-out AUC [95% CI] | 0.932 [0.883, 0.971] | 0.692 [0.514, 0.860] |
+
+Why it fails: one usable draft class (2021) with 33 positives in 1,124 players, right-censored careers, and inputs that encode draft slot, so the hitter AUC is mostly the round prior. Full report in [`docs/tier5_honesty_report.md`](MLB_Draft_Model/docs/tier5_honesty_report.md). It stays out of the board until a larger, uncensored cohort passes the gates.
+
+---
+
 ## What I Learned
 
 - **Grouped cross-validation matters**: Multi-year player records leak information if you split randomly. Grouping by player identity before cross-validating gave honest performance estimates.
-- **Calibration is not accuracy**: A model with 0.99 AUC can still be overconfident by 2x at decision thresholds. Platt scaling (not just temperature scaling) was the fix.
+- **Calibration is not accuracy**: A model with 0.97 AUC can still be overconfident by 2x at decision thresholds. Platt scaling (not just temperature scaling) was the fix.
 - **Conference adjustment is non-negotiable**: Without it, the model systematically overrates small-conference production. `conf_strength` as a continuous ratio (not a 4-tier category) was key — it lets the gradient of SEC vs ACC vs A-Sun sort naturally.
 - **Biometric imputation prevents artifact learning**: Zero-imputed missing data lets tree-based models learn "missingness = negative outcome" as a perfect split. Stochastic imputation from conference+position distributions eliminates this artifact while preserving signal.
 - **Prior-offset for rare events**: P(MLB debut | drafted) has a strong baseline by round. Modeling deviation from that baseline (Elastic Net) beat modeling the absolute probability (XGBoost) by 0.05–0.08 AUC.
