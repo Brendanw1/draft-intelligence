@@ -1,0 +1,103 @@
+{
+  "model_type": "tier5_hurdle_hitter",
+  "role": "hitter",
+  "features": [
+    "Age",
+    "conf_strength",
+    "wOBA_adj",
+    "OPS_adj",
+    "BB_pct_adj",
+    "K_pct_adj",
+    "height_inches",
+    "bmi",
+    "round_logit_prior",
+    "nn_mlb_rate"
+  ],
+  "feature_coefficients": [
+    {
+      "feature": "nn_mlb_rate",
+      "coefficient": 1.2114412555251424
+    },
+    {
+      "feature": "round_logit_prior",
+      "coefficient": 0.8386657586535835
+    },
+    {
+      "feature": "Age",
+      "coefficient": -0.4294516616779685
+    },
+    {
+      "feature": "conf_strength",
+      "coefficient": -0.36298701433475006
+    },
+    {
+      "feature": "height_inches",
+      "coefficient": 0.14848895578395543
+    },
+    {
+      "feature": "bmi",
+      "coefficient": 0.05150379168503176
+    },
+    {
+      "feature": "K_pct_adj",
+      "coefficient": -0.02397692762477961
+    },
+    {
+      "feature": "OPS_adj",
+      "coefficient": -0.0002546372964172821
+    },
+    {
+      "feature": "BB_pct_adj",
+      "coefficient": 7.603831805257148e-06
+    },
+    {
+      "feature": "wOBA_adj",
+      "coefficient": 5.35140685293164e-06
+    }
+  ],
+  "n_train": 158,
+  "n_train_pos": 9,
+  "n_heldout": 326,
+  "n_heldout_pos": 9,
+  "l1_ratio": 0.9,
+  "class_weight": "balanced",
+  "cv": {
+    "auc_mean": 0.4965790914066776,
+    "auc_std": 0.15180412069563634,
+    "brier_mean": 0.17341139645192352,
+    "auc_folds": [
+      0.28735632183908044,
+      NaN,
+      NaN,
+      0.5595238095238094,
+      0.6428571428571428
+    ],
+    "brier_folds": [
+      0.2755595246752951,
+      NaN,
+      NaN,
+      0.09677125509993847,
+      0.14790340958053705
+    ],
+    "n_splits": 5
+  },
+  "heldout": {
+    "auc": 0.9323519102698913,
+    "brier": 0.3848162799428498
+  },
+  "bootstrap": {
+    "n_iter": 1000,
+    "n_valid": 1000,
+    "auc": 0.9323519102698913,
+    "low": 0.8829089200949367,
+    "high": 0.9705201367327442
+  },
+  "gate": {
+    "status": "PASS",
+    "auc": 0.9323519102698913,
+    "gate": 0.65
+  },
+  "hurdle_threshold": 2.0,
+  "hurdle_auc_gate": 0.65,
+  "generated_at": "2026-08-21T19:38:15.700191+00:00"
+}

@@ -2,7 +2,7 @@
 
 A **full-stack machine learning pipeline** that projects where 10,000+ NCAA Division I baseball players will be selected in the MLB Draft, estimates their probability of being drafted in the top 10 rounds, and calculates their MLB arrival outlook if drafted. Surfaces similar historical player comps with interactive pick-axis visualization.
 
-Built as a static Next.js 15 application with a Python/XGBoost/Elastic Net backend. No server required — the ML pipeline generates static JSON data that the frontend consumes at build time and serves from Cloudflare R2.
+Built as a static Next.js 15 application with a Python/XGBoost/scikit-learn backend. No server required — the ML pipeline generates static JSON data that the frontend consumes at build time and serves from Cloudflare R2.
 
 ---
 
@@ -23,24 +23,24 @@ This project is that baseline.
 | **Class Retrospectives** | How did past draft classes actually turn out? (2021–2026 with real outcomes) |
 | **Player Dossier** | What's the full picture on this specific player? (projections, percentile bars, multi-season stats, top-10 comparable draftees with interactive pick-axis dot plot, physical profile, tiered model transparency including MLB arrival outlook, model disagreement indicators) |
 | **Model Lab** | Why should anyone believe these predictions? (backtest curves, reliability diagrams, feature importances, known limitations, per-model calibration audits) |
-| **Methodology** | How exactly do the three tiers work, what are the known gaps, and what changed in the latest vintage? |
+| **Methodology** | How exactly does each tier work, what are the known gaps, and what changed in the latest vintage? |
 
 ---
 
 ## Architecture
 
-Three-tier pipeline: **XGBoost regressor** (Tier 1 → projected draft pick) → **XGBoost classifier** with Platt calibration (Tier 2 → top-10-round probability) → **prior-offset Elastic Net** (Tier 3 → MLB arrival probability if drafted). Nearest-neighbor comps provide context. All fed into a static Next.js 15 site with no runtime infrastructure.
+Pipeline on the site: **XGBoost regressor** (Tier 1 → projected draft pick) → **XGBoost classifier** with calibration fit on out-of-fold scores (Tier 2 → top-10-round probability) → **logistic regression with a draft-round logit offset** (Tier 3 → P(MLB debut within 3 seasons) if drafted) → **Nearest-neighbor comps** (Tier 4 → similar historical players). A career-WAR tier (Tier 5) was built and withdrawn after failing its backtest. All fed into a static Next.js 15 site with no runtime infrastructure.
 
 **Key design decisions:**
 
-- **Three-tier architecture**: Separates "when will you be drafted?" (Tier 1 regressor), "will you go in the top 10 rounds?" (Tier 2 classifier), and "if drafted, what's your arrival probability?" (Tier 3 prior-offset). These are different questions requiring different architectures.
-- **Top-10-round target**: Tier 2 predicts top-10-round draft status (pick ≤315), not generic "MLB probability." The top-10-round cutoff is where draft value crystallizes — players drafted after round 10 have dramatically lower signing rates and career ceilings. Calibrated via Platt scaling with reliability diagram verification.
+- **Tiered architecture**: Separates "when will you be drafted?" (Tier 1), "will you go in the top 10 rounds?" (Tier 2), "if drafted, will you debut within 3 seasons?" (Tier 3) and "who are comparable players?" (Tier 4). Each tier answers a distinct question with appropriate modeling.
+- **Top-10-round target**: Tier 2 predicts top-10-round draft status (pick ≤315), not generic "MLB probability." The top-10-round cutoff is where draft value crystallizes — players drafted after round 10 have dramatically lower signing rates and career ceilings. Calibrated on out-of-fold scores and checked on the held-out 2024 class (see below).
 - **Conference adjustment**: Raw stats (wOBA, ERA, etc.) are multiplied by the inverse of `conf_strength` — a continuous score based on empirical draft rates per conference. SEC production (2.98× draft rate) isn't compared at face value to SWAC production (0.09×).
 - **Full-population training**: Tier 2 trains on undrafted players as true negatives (about 44,000 across the current hitter and pitcher training sets), with height, weight and BMI imputed from conference and position distributions. The model learns what *doesn't* get drafted, not just who does. Because most of those negatives are easy to separate, the Tier 2 AUC below overstates how well the model ranks real prospects; the pick-level backtest is the better test.
-- **Platt + Isotonic calibration**: Raw XGBoost probabilities are systematically overconfident (~2.3×). Platt scaling maps them to well-calibrated probabilities; isotonic calibration provides a secondary cross-check.
-- **Prior-offset Tier 3**: Instead of predicting absolute MLB arrival probability from scratch, Tier 3 predicts *deviation* from a round-specific historical baseline. A 5th-rounder projected at 15% arrival is above their round baseline; a 1st-rounder at 15% is below theirs.
+- **Calibration on out-of-fold scores**: Raw XGBoost probabilities are systematically overconfident (~2.3×). The displayed probability is a quantile map fit on player-grouped out-of-fold scores; Platt and isotonic maps, fit on forward-chained out-of-fold scores, are cross-checks.
+- **Prior-offset Tier 3**: Tier 3 predicts *deviation* from the draft round's historical debut rate, passed as a fixed logit offset that is computed out of fold. A 5th-rounder projected at 15% arrival is above their round baseline; a 1st-rounder at 15% is below theirs. Honest result: the college stats add no ranking power beyond the round (see below).
 - **Interactive NN comps**: Euclidean nearest-neighbor search across 10 standardized stat dimensions yields 10 comparable draftees per player. An interactive pick-axis dot plot links hovered comps to their draft position with bidirectional row↔dot highlighting.
-- **Composite score**: Weighted combination of all three tiers: 30% draft position (Tier 1) + 40% calibrated top-10-round probability (Tier 2) + 30% MLB arrival (Tier 3), scaled 0–100.
+- **Composite score**: Weighted combination of all tiers: 30% draft position (Tier 1) + 40% calibrated top-10-round probability (Tier 2) + 30% MLB arrival (Tier 3).
 - **Static export**: Zero runtime infrastructure. No database, no API, no server. The pipeline generates JSON → Next.js builds a static site → deploy anywhere (Vercel, Cloudflare Pages, S3).
 - **Sharded data**: 10,734 player records split into 64 shards + 1 index file. The board loads from the index (9 MB, fast); dossiers fetch single shards lazily.
 - **Precision-instrument design system**: Signal gradient (gray=low, amber=medium, teal=high, blue=elite) encodes uncertainty visually. 4px spacing grid, 6-step type scale, tabular numbers throughout.
@@ -85,12 +85,13 @@ The model beats the naive mean by **17%** consistently across all five holdout y
 
 | Metric | Hitters | Pitchers |
 |--------|---------|----------|
-| Tier 2 top-10-round AUC (player-grouped 5-fold CV) | 0.983 | 0.972 |
-| Tier 3 MLB debut given drafted, AUC (CV) | 0.786 | 0.788 |
-| Calibration slope after Platt scaling (1.0 = perfect) | 1.16 | 1.24 |
+| Tier 2 top-10-round AUC, 2024 class held out (players removed from training) | 0.977 | 0.966 |
+| Tier 2 Brier / ECE on the 2024 class (Platt fit on forward-chained out-of-fold scores) | 0.024 / 2.3% | 0.032 / 3.8% |
+| Tier 3 debut within 3 seasons given drafted, AUC (nested out-of-fold CV) | 0.747 | 0.770 |
+| Tier 3 draft-round rate alone, AUC (same folds) | 0.777 | 0.813 |
 
-- Tier 2 has not yet been scored year-out; the AUCs above are cross-validated with every season of a player held out together.
-- Tier 3 is conditional on being drafted, so it is not a population-level arrival rate. It trains on 549 drafted hitters (94 debuts) and 713 pitchers (132 debuts).
+- Tier 2 numbers come from the 2024 draft class, held out with its players removed from training. The site used to quote in-sample AUCs (0.994 / 0.989); these replace them.
+- Tier 3 is conditional on being drafted, so it is not a population-level arrival rate. The label is a debut by the end of the third season after the draft, so the 2021–2023 classes are equally observed; 2024+ classes are left out. It trains on 549 drafted hitters (77 debuts) and 713 pitchers (83 debuts). **Draft round carries it**: the round rate alone ranks players better than the full model, so read Tier 3 as the round's rate, nudged. The old 0.79 AUC came from a round prior that included each player's own outcome (fixed 2026-10-29).
 - After the July 2026 data quality audit, height fell from an artificial top split (importance 0.71) to 0.03. Age is now the top feature (0.26 hitters, 0.29 pitchers), which partly reflects draft eligibility rather than talent.
 
 ---
@@ -141,16 +142,16 @@ A comprehensive audit of the data pipeline and all three model tiers identified 
 
 ---
 
-## Tier 5 (expected career WAR): built, not shipped
+## Tier 5 (expected career WAR): withdrawn, failed its backtest
 
-A two-stage career WAR model was built and held back because it failed its own release gates. Stage 1 is an elastic-net logistic regression for P(WAR > 0); stage 2 is a LightGBM regression on signed log WAR.
+Tier 5 is off the site (no WAR leaderboard, no WAR card). Scored as P(reach MLB) × E[WAR | reached], out of fold on the 2021 class (the only class with five pro seasons complete), it reached R² +0.027 for hitters and −0.032 for pitchers, no better than predicting the median for pitchers ([`docs/tier5_backtest_report.md`](docs/tier5_backtest_report.md)). The earlier gate numbers below, from the older two-stage build, also failed:
 
 | Gate | Hitters | Pitchers |
 |------|---------|----------|
 | Value R² vs. predicting the median (must be ≥ 0) | −0.319 | −0.611 |
 | Hurdle held-out AUC [95% CI] | 0.932 [0.883, 0.971] | 0.692 [0.514, 0.860] |
 
-Why it fails: one usable draft class (2021) with 33 positives in 1,124 players, right-censored careers, and inputs that encode draft slot, so the hitter AUC is mostly the round prior. Full report in [`docs/tier5_honesty_report.md`](docs/tier5_honesty_report.md). It stays out of the board until a larger, uncensored cohort passes the gates.
+Why it fails: one usable draft class (2021) with 33 positives in 1,124 players, right-censored careers, and inputs that encode draft slot, so the hitter AUC is mostly the round prior. Full report in [`docs/tier5_honesty_report.md`](docs/tier5_honesty_report.md). It stays experimental until a larger, uncensored cohort passes the gates.
 
 ---
 
@@ -160,7 +161,7 @@ Why it fails: one usable draft class (2021) with 33 positives in 1,124 players, 
 - **Calibration is not accuracy**: A model with 0.97 AUC can still be overconfident by 2x at decision thresholds. Platt scaling (not just temperature scaling) was the fix.
 - **Conference adjustment is non-negotiable**: Without it, the model systematically overrates small-conference production. `conf_strength` as a continuous ratio (not a 4-tier category) was key — it lets the gradient of SEC vs ACC vs A-Sun sort naturally.
 - **Biometric imputation prevents artifact learning**: Zero-imputed missing data lets tree-based models learn "missingness = negative outcome" as a perfect split. Stochastic imputation from conference+position distributions eliminates this artifact while preserving signal.
-- **Prior-offset for rare events**: P(MLB debut | drafted) has a strong baseline by round. Modeling deviation from that baseline (Elastic Net) beat modeling the absolute probability (XGBoost) by 0.05–0.08 AUC.
+- **A leaky prior flatters everything**: P(MLB debut | drafted) has a strong baseline by round. Once that baseline was computed out of fold (it had included each player's own outcome), the stats on top of it stopped adding ranking power. Check the prior-only model before crediting the features.
 - **Interactive NN comps**: Euclidean nearest-neighbor search benefits from z-score normalization across diverse stat types (rates, counting, ratios). The pick-axis dot plot makes comps scannable — hover linking between dots and list rows ties spatial position to player identity without cluttering the SVG.
 - **Static site for ML dashboards**: 38 MB of JSON + Next.js static export + CDN = zero-infrastructure deployment that handles 10K-player datasets. No cold starts, no database connection pools, no server costs.
 

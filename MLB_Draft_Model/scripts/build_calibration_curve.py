@@ -268,12 +268,12 @@ def main():
             subsample=0.8, colsample_bytree=0.8, min_child_weight=3,
             reg_alpha=0.1, reg_lambda=1.0,
             scale_pos_weight=(len(y) - y.sum()) / max(y.sum(), 1),
-            random_state=42, n_jobs=-1, verbosity=0,
+            random_state=42, n_jobs=1, verbosity=0,
         )
 
         gkf = GroupKFold(n_splits=5)
         oof_preds = cross_val_predict(model, X, y, cv=gkf.split(X, y, groups),
-                                      method="predict_proba", n_jobs=-1, verbose=1)[:, 1]
+                                      method="predict_proba", n_jobs=2, verbose=1)[:, 1]
         oof_true = y
 
         # Build calibration curve

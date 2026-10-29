@@ -28,7 +28,7 @@ function ArrivalCell({ p, nn }: { p: number | null; nn: number | null }) {
   return (
     <span
       className="inline-flex items-center gap-1.5"
-      title={`Tier 3 arrival probability: ${pct}%.${nn != null ? ` Nearest-neighbor comp rate: ${(nn * 100).toFixed(1)}%.` : ""} Predicts P(MLB debut | drafted) with round-anchored prior.`}
+      title={`Tier 3 arrival probability: ${pct}%.${nn != null ? ` Nearest-neighbor comp rate: ${(nn * 100).toFixed(1)}%.` : ""} Predicts P(MLB debut within 3 seasons | drafted) with round-anchored prior.`}
     >
       <span className={`w-[32px] text-right text-[13px] font-semibold`} style={{ color: `var(--${tier})` }}>
         {(p * 100).toFixed(0)}%
@@ -157,7 +157,7 @@ export function BoardTable({
         <div className="w-[64px] shrink-0"><Th label="Comp" sortKey="composite" title="Composite score 0–100" /></div>
         <div className="w-[168px] shrink-0"><Th label="Proj. Round" sortKey="pick" align="left" title="Projected round band: pick ± backtest error (~110 picks). The tick is the point estimate." /></div>
         <div className="w-[122px] shrink-0"><Th label="Top 10%" sortKey="mlb_p" title="Probability of being drafted in the top 10 rounds (pick ~315). Isotonic-calibrated — the dashed tick is what history supports." /></div>
-        <div className="w-[96px] shrink-0"><Th label="Arrival" sortKey="mlb_arrival" title="Tier 3: P(MLB debut | drafted). Elastic Net with round-anchored prior + nearest-neighbor comp rate." /></div>
+        <div className="w-[96px] shrink-0"><Th label="Arrival" sortKey="mlb_arrival" title="Tier 3: P(MLB debut within 3 seasons | drafted). Logistic regression with the draft-round rate as offset + nearest-neighbor comp rate." /></div>
         <div className="w-[44px] shrink-0"><Th label="Conf" title="Tier 1 confidence from projected pick depth" /></div>
         {statDefs.map((d) => (
           <div key={d.key} className="w-[64px] shrink-0">

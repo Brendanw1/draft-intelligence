@@ -58,17 +58,176 @@
   "n_train": 24016,
   "n_positives": 1356,
   "n_negatives": 22660,
-  "cv_auc_mean": 0.9828892568900727,
-  "cv_auc_std": 0.002947737505601499,
-  "year_out_auc": null,
+  "cv_auc_mean": 0.9508748465942962,
+  "cv_note": "forward-chained, player-grouped OOF AUC (raw scores) on seasons after the first",
+  "calibration": "Platt/isotonic fit on forward-chained player-grouped OOF scores",
+  "holdout": {
+    "test_season": 2024,
+    "n_test": 4710,
+    "n_test_pos": 223,
+    "n_train": 9536,
+    "raw": {
+      "auc": 0.9764541510552158,
+      "brier": 0.03828635811805725,
+      "ece": 0.05794424873633673
+    },
+    "oof_sigmoid": {
+      "auc": 0.9764541510552158,
+      "brier": 0.024156254204006054,
+      "ece": 0.023145169925821843,
+      "reliability": [
+        {
+          "bin": 0,
+          "n": 3930,
+          "pred_mean": 0.0167155096298184,
+          "obs_rate": 0.0015267175572519084
+        },
+        {
+          "bin": 1,
+          "n": 330,
+          "pred_mean": 0.13896938424292962,
+          "obs_rate": 0.05757575757575758
+        },
+        {
+          "bin": 2,
+          "n": 123,
+          "pred_mean": 0.24162880999062336,
+          "obs_rate": 0.13008130081300814
+        },
+        {
+          "bin": 3,
+          "n": 99,
+          "pred_mean": 0.34510901951185374,
+          "obs_rate": 0.3838383838383838
+        },
+        {
+          "bin": 4,
+          "n": 74,
+          "pred_mean": 0.4455000594491386,
+          "obs_rate": 0.44594594594594594
+        },
+        {
+          "bin": 5,
+          "n": 50,
+          "pred_mean": 0.54987810099997,
+          "obs_rate": 0.56
+        },
+        {
+          "bin": 6,
+          "n": 40,
+          "pred_mean": 0.6512066778454646,
+          "obs_rate": 0.65
+        },
+        {
+          "bin": 7,
+          "n": 21,
+          "pred_mean": 0.7515053442405055,
+          "obs_rate": 0.9047619047619048
+        },
+        {
+          "bin": 8,
+          "n": 31,
+          "pred_mean": 0.8475696853346265,
+          "obs_rate": 0.8387096774193549
+        },
+        {
+          "bin": 9,
+          "n": 12,
+          "pred_mean": 0.9310879727343314,
+          "obs_rate": 1.0
+        }
+      ]
+    },
+    "old_method_sigmoid": {
+      "auc": 0.9752878520009474,
+      "brier": 0.03197576242236685,
+      "ece": 0.039323738123598496
+    },
+    "oof_isotonic": {
+      "auc": 0.9757100982309633,
+      "brier": 0.024945849118053837,
+      "ece": 0.02863344523798073,
+      "reliability": [
+        {
+          "bin": 0,
+          "n": 3927,
+          "pred_mean": 0.018802762497657728,
+          "obs_rate": 0.0015278838808250573
+        },
+        {
+          "bin": 1,
+          "n": 399,
+          "pred_mean": 0.1603620738388365,
+          "obs_rate": 0.06015037593984962
+        },
+        {
+          "bin": 2,
+          "n": 100,
+          "pred_mean": 0.29896907216494834,
+          "obs_rate": 0.26
+        },
+        {
+          "bin": 3,
+          "n": 63,
+          "pred_mean": 0.35895249075617214,
+          "obs_rate": 0.4126984126984127
+        },
+        {
+          "bin": 4,
+          "n": 36,
+          "pred_mean": 0.4678405468620633,
+          "obs_rate": 0.5555555555555556
+        },
+        {
+          "bin": 5,
+          "n": 87,
+          "pred_mean": 0.55143172146813,
+          "obs_rate": 0.45977011494252873
+        },
+        {
+          "bin": 6,
+          "n": 55,
+          "pred_mean": 0.6452088452088451,
+          "obs_rate": 0.7818181818181819
+        },
+        {
+          "bin": 8,
+          "n": 13,
+          "pred_mean": 0.8187727366547125,
+          "obs_rate": 0.8461538461538461
+        },
+        {
+          "bin": 9,
+          "n": 30,
+          "pred_mean": 0.9251980988113427,
+          "obs_rate": 0.9
+        }
+      ]
+    },
+    "old_method_isotonic": {
+      "auc": 0.9750055216814695,
+      "brier": 0.0342781970601649,
+      "ece": 0.048724875385479906
+    },
+    "live_artifact_platt_in_sample": {
+      "auc": 0.9968528914122612,
+      "brier": 0.011523585773635487,
+      "ece": 0.017438397963567265
+    },
+    "live_artifact_isotonic_in_sample": {
+      "auc": 0.997395065565595,
+      "brier": 0.01134364394403523,
+      "ece": 0.016806158062687968
+    }
+  },
   "feature_importance": [
     {
       "feature": "Age",
-      "importance": 0.2610640525817871
+      "importance": 0.2610640823841095
     },
     {
       "feature": "wRC",
-      "importance": 0.09556283056735992
+      "importance": 0.09556283801794052
     },
     {
       "feature": "OPS_adj",
@@ -76,11 +235,11 @@
     },
     {
       "feature": "R",
-      "importance": 0.05734500661492348
+      "importance": 0.05734501779079437
     },
     {
       "feature": "conf_strength",
-      "importance": 0.04443277418613434
+      "importance": 0.04443276673555374
     },
     {
       "feature": "height_inches",
@@ -88,51 +247,51 @@
     },
     {
       "feature": "SLG_adj",
-      "importance": 0.026283735409379005
+      "importance": 0.026283737272024155
     },
     {
       "feature": "strength_x_OPS",
-      "importance": 0.024347160011529922
+      "importance": 0.02434716187417507
     },
     {
       "feature": "H",
-      "importance": 0.02218131721019745
+      "importance": 0.022181319072842598
     },
     {
       "feature": "2B",
-      "importance": 0.021210068836808205
+      "importance": 0.021210061386227608
     },
     {
       "feature": "wRC_plus_adj",
-      "importance": 0.018288947641849518
+      "importance": 0.018288951367139816
     },
     {
       "feature": "bmi",
-      "importance": 0.016666589304804802
+      "importance": 0.01666659116744995
     },
     {
       "feature": "wRAA",
-      "importance": 0.015321081504225731
+      "importance": 0.015321082435548306
     },
     {
       "feature": "AB",
-      "importance": 0.012520899996161461
+      "importance": 0.01252090185880661
     },
     {
       "feature": "BB",
-      "importance": 0.012305040843784809
+      "importance": 0.012305039912462234
     },
     {
       "feature": "strength_x_K_pct",
-      "importance": 0.011873368173837662
+      "importance": 0.011873369105160236
     },
     {
       "feature": "PA",
-      "importance": 0.011817943304777145
+      "importance": 0.01181794423609972
     },
     {
       "feature": "SB",
-      "importance": 0.010910563170909882
+      "importance": 0.010910564102232456
     },
     {
       "feature": "K_pct",
@@ -140,19 +299,19 @@
     },
     {
       "feature": "ISO_adj",
-      "importance": 0.010231979191303253
+      "importance": 0.010231978259980679
     },
     {
       "feature": "OPS",
-      "importance": 0.009711191989481449
+      "importance": 0.009711192920804024
     },
     {
       "feature": "K_pct_adj",
-      "importance": 0.00892766285687685
+      "importance": 0.008927663788199425
     },
     {
       "feature": "G",
-      "importance": 0.008695641532540321
+      "importance": 0.008695642463862896
     },
     {
       "feature": "strength_x_SLG",
@@ -160,119 +319,119 @@
     },
     {
       "feature": "strength_x_wOBA",
-      "importance": 0.008679874241352081
+      "importance": 0.008679875172674656
     },
     {
       "feature": "wRC_plus",
-      "importance": 0.008645497262477875
+      "importance": 0.00864549819380045
     },
     {
       "feature": "strength_x_wRC_plus",
-      "importance": 0.008538380265235901
+      "importance": 0.008538383059203625
     },
     {
       "feature": "BB/K",
-      "importance": 0.008342096582055092
+      "importance": 0.008342095650732517
     },
     {
       "feature": "SO",
-      "importance": 0.008263307623565197
+      "importance": 0.008263309486210346
     },
     {
       "feature": "AVG_adj",
-      "importance": 0.0076485807076096535
+      "importance": 0.007648582104593515
     },
     {
       "feature": "wOBA",
-      "importance": 0.00749496603384614
+      "importance": 0.0074949669651687145
     },
     {
       "feature": "1B",
-      "importance": 0.006792800966650248
+      "importance": 0.0067928023636341095
     },
     {
       "feature": "SLG",
-      "importance": 0.0067595732398331165
+      "importance": 0.006759573705494404
     },
     {
       "feature": "BB_pct_adj",
-      "importance": 0.00662739435210824
+      "importance": 0.006627393886446953
     },
     {
       "feature": "wOBA_adj",
-      "importance": 0.006348677910864353
+      "importance": 0.0063486783765256405
     },
     {
       "feature": "strength_x_AVG",
-      "importance": 0.006152323912829161
+      "importance": 0.006152324844151735
     },
     {
       "feature": "HR",
-      "importance": 0.005961078684777021
+      "importance": 0.005961080081760883
     },
     {
       "feature": "HBP",
-      "importance": 0.005767386872321367
+      "importance": 0.005767387337982655
     },
     {
       "feature": "wBsR",
-      "importance": 0.0056756786070764065
+      "importance": 0.005675679072737694
     },
     {
       "feature": "AVG",
-      "importance": 0.005633176304399967
+      "importance": 0.0056331767700612545
     },
     {
       "feature": "Spd",
-      "importance": 0.005497118923813105
+      "importance": 0.005497119389474392
     },
     {
       "feature": "OBP",
-      "importance": 0.00546353729441762
+      "importance": 0.005463539622724056
     },
     {
       "feature": "RBI",
-      "importance": 0.005396134685724974
+      "importance": 0.005396135151386261
     },
     {
       "feature": "CS",
-      "importance": 0.005382954608649015
+      "importance": 0.005382955074310303
     },
     {
       "feature": "BB_pct",
-      "importance": 0.005378518253564835
+      "importance": 0.005378518719226122
     },
     {
       "feature": "ISO",
-      "importance": 0.005182095803320408
+      "importance": 0.005182096268981695
     },
     {
       "feature": "BABIP",
-      "importance": 0.005073034204542637
+      "importance": 0.005073034670203924
     },
     {
       "feature": "strength_x_BB_pct",
-      "importance": 0.005025690421462059
+      "importance": 0.005025690887123346
     },
     {
       "feature": "SH",
-      "importance": 0.004958854056894779
+      "importance": 0.0049588545225560665
     },
     {
       "feature": "strength_x_ISO",
-      "importance": 0.004324619192630053
+      "importance": 0.00432461965829134
     },
     {
       "feature": "SF",
-      "importance": 0.004215230233967304
+      "importance": 0.0042152306996285915
     },
     {
       "feature": "GDP",
-      "importance": 0.0038767093792557716
+      "importance": 0.0038767100777477026
     },
     {
       "feature": "3B",
-      "importance": 0.0036129546351730824
+      "importance": 0.0036129544023424387
     }
   ]
 }

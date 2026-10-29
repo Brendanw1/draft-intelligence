@@ -351,7 +351,7 @@ function AuditInner() {
           Tier 3: MLB Arrival distribution
         </h2>
         <p className="mt-1 text-[12px] text-text-secondary">
-          P(MLB debut | drafted), predicted by an Elastic Net with round-anchored
+          P(MLB debut within 3 seasons | drafted), predicted by an logistic regression with the draft-round rate as offset
           prior and nearest-neighbor comp rates. The distribution is right-skewed —
           most players have low arrival probability, with a long tail of high-likelihood
           prospects.

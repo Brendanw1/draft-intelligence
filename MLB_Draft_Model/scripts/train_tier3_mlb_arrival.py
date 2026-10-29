@@ -1,29 +1,31 @@
 #!/usr/bin/env python3
 """
-train_tier3_mlb_arrival.py — Train Tier 3 model predicting MLB arrival
-for drafted players using Elastic Net + nearest-neighbor MLB rates.
+train_tier3_mlb_arrival.py — Tier 3: P(MLB debut within 3 seasons | drafted).
 
-Two-component ensemble:
-  1) Elastic Net logistic regression on college stats + conf_strength + NN rate
-  2) Nearest-neighbor MLB rate: proportion of 20 most similar drafted
-     players who reached MLB.
+Leak-free since 2026-10-29 (URGENT-FIXES.md #1, #2):
+  * round_logit_prior is a TRUE offset (coefficient fixed at 1), not a feature, and it is computed out of
+    fold: each player's prior comes from the other folds' players, never from his own label.
+  * nn_mlb_rate is rebuilt per fold: neighbours come only from rows that are not being scored.
+  * inputs are standardised before the penalised (L2) logistic fit.
+  * censoring: the label is a fixed horizon (debut by the end of draft_year + 3), so 2021-2023 classes are
+    equally observed; 2024+ draftees are censored and excluded from training, the prior and the NN pool.
 
-This is trained on 2021-2023 drafted players where enough time has passed
-for MLB debuts to occur (right-censoring is minimal).
+Artifacts go to models/artifacts_fixed/ (same filenames infer_2026.py reads); the live
+models/artifacts_full/ is untouched until the owner switches.
 
 Usage:
-    python3 scripts/train_tier3_mlb_arrival.py
+    PYTHONPATH=src python3 scripts/train_tier3_mlb_arrival.py
 """
 import json, pickle, warnings
 from pathlib import Path
 import numpy as np
 from collections import defaultdict
-from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import cross_val_score, GroupKFold
+from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import roc_auc_score, brier_score_loss
-from sklearn.neighbors import NearestNeighbors
-from scipy.spatial.distance import cdist
+
+from mlb_draft_dashboard.leakfree import (
+    OffsetLogit, crossfit_encode, encode, ece, fit_nn, round_rates,
+)
 
 warnings.filterwarnings("ignore")
 
@@ -32,7 +34,10 @@ TRAIN_PATH = BASE / "data" / "training" / "expanded_training_set.json"
 DRAFT_PATH = BASE / "data" / "draft" / "draft_all_picks.json"
 CONF_STATS_PATH = BASE / "models" / "artifacts_full" / "conference_stats.json"
 CONF_STRENGTH_PATH = BASE / "models" / "artifacts_full" / "conference_strength.json"
-OUTPUT_DIR = BASE / "models" / "artifacts_full"
+OUTPUT_DIR = BASE / "models" / "artifacts_fixed"
+HORIZON = 3          # seasons after the draft year
+LAST_SEASON = 2026   # last completed MLB season
+TRAIN_CLASSES = [y for y in (2021, 2022, 2023) if y + HORIZON <= LAST_SEASON]
 
 # Key stats for nearest-neighbor similarity (used for both NN rate and Elastic Net)
 # These are the stats that best capture "profile similarity" across hitters/pitchers
@@ -126,264 +131,105 @@ def get_player_latest(records):
     return result
 
 
-def compute_nn_mlb_rates(players, sim_stats):
-    """For each player, find 20 nearest neighbors and compute MLB debut rate."""
-    n = len(players)
-    print(f"  Building feature matrix ({len(sim_stats)} similarity stats)...")
 
-    # Build feature matrix for similarity
-    X_sim = []
-    for p in players:
-        row = [safe_float(p.get(s, 0)) or 0 for s in sim_stats]
-        X_sim.append(row)
-    X_sim = np.array(X_sim)
+def label_horizon(debut_date, draft_year, horizon=HORIZON):
+    """1 if the debut came by the end of draft_year + horizon, else 0. Never 'unknown' for TRAIN_CLASSES."""
+    if not debut_date or debut_date == "None":
+        return 0
+    return int(int(str(debut_date)[:4]) <= draft_year + horizon)
 
-    # Z-score normalize
-    scaler = StandardScaler()
-    X_sim_norm = scaler.fit_transform(X_sim)
 
-    # Fit NearestNeighbors
-    print(f"  Fitting NearestNeighbors on {n} players...")
-    nn = NearestNeighbors(n_neighbors=min(21, n), metric="euclidean", n_jobs=-1)
-    nn.fit(X_sim_norm)
+def build_xy(pool, en_features, sim_stats):
+    X = np.array([[safe_float(p.get(f)) or 0.0 for f in en_features] for p in pool])
+    S = np.array([[safe_float(p.get(s)) or 0.0 for s in sim_stats] for p in pool])
+    rounds = np.array([p["draft_round"] for p in pool])
+    y = np.array([p["has_mlb_debut"] for p in pool])
+    return X, S, rounds, y
 
-    # For each player, find 20 nearest neighbors and compute MLB rate
-    # Use 21 to exclude self (nearest neighbor is self at distance 0)
-    print(f"  Computing NN MLB rates...")
-    distances, indices = nn.kneighbors(X_sim_norm, n_neighbors=min(21, n))
 
-    nn_mlb_rates = []
-    for i in range(n):
-        # Exclude self (index 0)
-        neighbor_indices = indices[i][1:] if len(indices[i]) > 1 else indices[i]
-        neighbor_rates = [players[j].get("has_mlb_debut", 0) for j in neighbor_indices]
-        nn_mlb_rates.append(np.mean(neighbor_rates) if neighbor_rates else 0.0)
+def with_encodings(X, en_features, prior, rate):
+    X = X.copy()
+    X[:, en_features.index("round_logit_prior")] = prior
+    X[:, en_features.index("nn_mlb_rate")] = rate
+    return X
 
-    return nn_mlb_rates, scaler, nn
+
+def oof_predictions(X, S, rounds, y, en_features, n_splits=5, seed=42):
+    """Outer CV. Train rows get cross-fit encodings inside the fold; test rows are encoded from the train fold."""
+    pred, prior_only = np.zeros(len(y)), np.zeros(len(y))
+    for tr, te in StratifiedKFold(n_splits, shuffle=True, random_state=seed).split(X, y):
+        tr_prior, tr_rate = crossfit_encode(rounds[tr], S[tr], y[tr], seed=seed)
+        te_prior, te_rate = encode(rounds[tr], S[tr], y[tr], rounds[te], S[te])
+        m = OffsetLogit(en_features).fit(with_encodings(X[tr], en_features, tr_prior, tr_rate), y[tr])
+        pred[te] = m.predict_proba(with_encodings(X[te], en_features, te_prior, te_rate))[:, 1]
+        prior_only[te] = 1 / (1 + np.exp(-te_prior))
+    return pred, prior_only
 
 
 def main():
-    print("=" * 60)
-    print("TIER 3: MLB ARRIVAL PREDICTOR")
-    print("Elastic Net + Nearest-Neighbor MLB Rates")
-    print("=" * 60)
-
+    print("TIER 3: MLB ARRIVAL (leak-free offset model)")
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
-    # ── 1. Load training data ──
-    print("\n1. Loading training data...")
     train = load_json(TRAIN_PATH)
     draft = load_json(DRAFT_PATH)
+    debut_idx = {p["person_id"]: p.get("mlb_debut_date") for p in draft if p.get("person_id")}
 
-    # Index draft data by person_id for MLB debut lookup
-    debut_idx = {}
-    for p in draft:
-        pid = p.get("person_id")
-        if pid:
-            debut = p.get("mlb_debut_date")
-            debut_idx[pid] = debut if debut and debut != "None" else None
-
-    print(f"  Training records: {len(train)}")
-    print(f"  Draft records with debut data: {sum(1 for v in debut_idx.values() if v)}")
-
-    # ── 2. Build drafted-player dataset with MLB outcome ──
-    print("\n2. Building drafted-player dataset...")
-    conf_stats = load_json(CONF_STATS_PATH)
-    conf_strength = load_json(CONF_STRENGTH_PATH)
-
-    # Add features to all records first
-    train = add_features(train, conf_stats, conf_strength)
-
-    # Get one record per drafted player (latest season)
+    train = add_features(train, load_json(CONF_STATS_PATH), load_json(CONF_STRENGTH_PATH))
     drafted = [r for r in train if r.get("draft_pick") and r["draft_pick"] > 0]
-    players = get_player_latest(drafted)
-    print(f"  Unique drafted players: {len(players)}")
-
-    # Add MLB debut label
+    players = [p for p in get_player_latest(drafted)
+               if p.get("draft_year") in TRAIN_CLASSES and p.get("person_id") in debut_idx]
     for p in players:
-        pid = p.get("person_id") or hash(p.get("player_name", "")) % (10**10)
-        debut = debut_idx.get(pid)
-        p["has_mlb_debut"] = 1 if debut else 0
-
-    debuted = sum(1 for p in players if p["has_mlb_debut"])
-    print(f"  Reached MLB: {debuted}/{len(players)} ({100*debuted/len(players):.1f}%)")
-
-    # Add draft_round for those who have it
-    for p in players:
-        rnd = p.get("draft_round")
-        if rnd:
-            try:
-                p["draft_round"] = int(float(rnd))
-            except:
-                p["draft_round"] = 20
-        else:
+        p["has_mlb_debut"] = label_horizon(debut_idx[p["person_id"]], p["draft_year"])
+        try:
+            p["draft_round"] = int(float(p.get("draft_round")))
+        except (TypeError, ValueError):
             p["draft_round"] = 20
-
-    # ── 3. Compute round-specific MLB debut rates for prior ──
-    print("\n3. Computing round-specific MLB debut rates (prior)...")
-    round_rates = {}
-    for p in players:
-        rnd = p.get("draft_round", 20)
-        if rnd not in round_rates:
-            round_rates[rnd] = {"total": 0, "debut": 0}
-        round_rates[rnd]["total"] += 1
-        if p["has_mlb_debut"]:
-            round_rates[rnd]["debut"] += 1
-
-    print(f"  {'Round':>6s} {'Debut':>6s} {'Total':>6s} {'Rate':>7s} {'Logit':>7s}")
-    for rnd in sorted(round_rates.keys()):
-        rr = round_rates[rnd]
-        rate = rr["debut"] / max(rr["total"], 1)
-        logit = np.log(max(rate, 0.001) / max(1-rate, 0.001))
-        round_rates[rnd]["rate"] = rate
-        round_rates[rnd]["logit"] = float(logit)
-        print(f"  {rnd:>6d} {rr['debut']:>6d} {rr['total']:>6d} {rate:>6.2%} {logit:>+7.3f}")
-
-    # Apply same filtering: 2021-2023 (all picks, offset handles round)
-    recent = [p for p in players if p.get("draft_year", 0) in (2021, 2022, 2023)]
-    r_debuted = sum(1 for p in recent if p["has_mlb_debut"])
-    print(f"  Players: {len(recent)}")
-    print(f"  Reached MLB: {r_debuted}/{len(recent)} ({100*r_debuted/len(recent):.1f}%)")
+    print(f"  classes {TRAIN_CLASSES}, horizon {HORIZON}: {len(players)} players, "
+          f"{sum(p['has_mlb_debut'] for p in players)} debuts")
 
     results = {}
-    for pt, en_features, sim_stats, label in [
-        ("hitter", HITTER_T3_FEATURES, HITTER_SIM_STATS, "HITTERS"),
-        ("pitcher", PITCHER_T3_FEATURES, PITCHER_SIM_STATS, "PITCHERS"),
-    ]:
-        print(f"\n{'=' * 60}")
-        print(f"{label}")
-        print(f"{'=' * 60}")
+    for pt, en_features, sim_stats in [("hitter", HITTER_T3_FEATURES, HITTER_SIM_STATS),
+                                       ("pitcher", PITCHER_T3_FEATURES, PITCHER_SIM_STATS)]:
+        pool = [p for p in players if p.get("player_type") == pt]
+        X, S, rounds, y = build_xy(pool, en_features, sim_stats)
+        pred, prior_only = oof_predictions(X, S, rounds, y, en_features)
+        cv = {"auc": roc_auc_score(y, pred), "brier": brier_score_loss(y, pred), "ece": ece(y, pred),
+              "prior_only_auc": roc_auc_score(y, prior_only),
+              "prior_only_brier": brier_score_loss(y, prior_only),
+              "base_rate_brier": brier_score_loss(y, np.full(len(y), y.mean()))}
+        print(f"  {pt}: n={len(y)} pos={y.sum()}  OOF AUC={cv['auc']:.4f} Brier={cv['brier']:.4f} "
+              f"ECE={cv['ece']:.4f} | prior-only AUC={cv['prior_only_auc']:.4f} "
+              f"Brier={cv['prior_only_brier']:.4f} | base-rate Brier={cv['base_rate_brier']:.4f}")
 
-        pool = [p for p in recent if p.get("player_type") == pt]
-        # Also include 2024+ players for NN reference pool (they contribute to similarity,
-        # but we only train on 2021-2023)
-        all_pt = [p for p in players if p.get("player_type") == pt]
-
-        # Add round_logit_prior based on empirical rates
-        for p in recent:
-            rnd = p.get("draft_round", 10)
-            rr = round_rates.get(rnd, {"logit": -1.0})
-            p["round_logit_prior"] = rr["logit"]
-
-        print(f"\n  Training set (2021-2023): {len(pool)}")
-        print(f"  Full reference pool: {len(all_pt)}")
-        train_debuted = sum(1 for p in pool if p["has_mlb_debut"])
-        print(f"  Training set debuted: {train_debuted}/{len(pool)} ({100*train_debuted/len(pool):.1f}%)")
-
-        # ── 3a. Compute NN MLB rates from the FULL reference pool ──
-        print(f"\n  Computing nearest-neighbor MLB rates...")
-        nn_rates, nn_scaler, nn_model = compute_nn_mlb_rates(all_pt, sim_stats)
-
-        for i, p in enumerate(all_pt):
-            p["nn_mlb_rate"] = nn_rates[i]
-
-        # Build training X, y from the 2021-2023 subset
-        X_train, y_train = [], []
-        for p in pool:
-            row = [safe_float(p.get(f)) or 0 for f in en_features]
-            X_train.append(row)
-            y_train.append(p["has_mlb_debut"])
-        X_train = np.array(X_train)
-        y_train = np.array(y_train)
-
-        print(f"  Features: {len(en_features)}")
-        print(f"  Positive rate: {100*y_train.mean():.1f}%")
-
-        # ── 3b. Cross-validation ──
-        print(f"\n  ── 5-Fold CV ──")
-        cv_model = LogisticRegression(
-            penalty="elasticnet", solver="saga",
-            C=1.0, l1_ratio=0.3, max_iter=2000, random_state=42, n_jobs=-1,
-        )
-        cv_scores = cross_val_score(cv_model, X_train, y_train, cv=5,
-                                     scoring="roc_auc", n_jobs=-1)
-        print(f"    CV AUC: {np.mean(cv_scores):.4f} ± {np.std(cv_scores):.4f}")
-
-        # Brier score via manual CV
-        from sklearn.model_selection import KFold
-        kf = KFold(n_splits=5, shuffle=True, random_state=42)
-        brier_scores = []
-        for train_idx, test_idx in kf.split(X_train):
-            m = LogisticRegression(
-                penalty="elasticnet", solver="saga",
-                C=1.0, l1_ratio=0.3, max_iter=2000, random_state=42, n_jobs=-1,
-            )
-            m.fit(X_train[train_idx], y_train[train_idx])
-            preds = m.predict_proba(X_train[test_idx])[:, 1]
-            brier_scores.append(brier_score_loss(y_train[test_idx], preds))
-        print(f"    CV Brier: {np.mean(brier_scores):.4f}")
-
-        # ── 3c. Full training ──
-        print(f"\n  ── Final Training ──")
-        final = LogisticRegression(
-            penalty="elasticnet", solver="saga",
-            C=1.0, l1_ratio=0.3, max_iter=2000, random_state=42, n_jobs=-1,
-        )
-        final.fit(X_train, y_train)
-
-        # Feature coefficients
-        coefs = sorted(zip(en_features, final.coef_[0]),
+        # Final model: cross-fit encodings for its own training rows; full-data prior + NN pool for inference.
+        prior, rate = crossfit_encode(rounds, S, y)
+        final = OffsetLogit(en_features).fit(with_encodings(X, en_features, prior, rate), y)
+        rates = round_rates(rounds, y)
+        nn_scaler, nn_model = fit_nn(S, k=21)  # infer_2026 asks for 21 neighbours
+        coefs = sorted(zip([f for f in en_features if f != "round_logit_prior"], final.coef_[0]),
                        key=lambda x: abs(x[1]), reverse=True)
-        print(f"\n  Top coefficients (|β|):")
-        for feat, coef in coefs[:12]:
-            print(f"    {feat:<22s} β={coef:+.6f}")
-
-        # Baseline: just the average
-        baseline_brier = brier_score_loss(y_train, np.ones_like(y_train) * y_train.mean())
-        print(f"\n  Baseline Brier (mean): {baseline_brier:.4f}")
-        print(f"  Model Brier: {np.mean(brier_scores):.4f}")
-        print(f"  Improvement: {baseline_brier - np.mean(brier_scores):.4f}")
-
-        # ── 3d. Save artifacts ──
-        model_path = OUTPUT_DIR / f"tier3_mlb_{pt}.pkl"
-        with open(model_path, "wb") as f:
-            pickle.dump({
-                "model": final,
-                "features": en_features,
-                "round_rates": {int(k): v for k, v in round_rates.items()},
-            }, f)
-        print(f"\\n  Saved model: {model_path}")
-
-        nn_path = OUTPUT_DIR / f"tier3_nn_{pt}.pkl"
-        with open(nn_path, "wb") as f:
-            pickle.dump({
-                "nn": nn_model,
-                "scaler": nn_scaler,
-                "sim_stats": sim_stats,
-                "mlb_debut_labels": [p["has_mlb_debut"] for p in all_pt],
-                "player_names": [p.get("player_name", "") for p in all_pt],
-            }, f)
-        print(f"  Saved NN index: {nn_path}")
-
-        # Save metadata
-        meta = {
-            "model_type": f"tier3_mlb_{pt}",
-            "features": en_features,
-            "feature_coefficients": [{"feature": f, "coefficient": float(c)} for f, c in coefs],
-            "n_train": int(len(y_train)),
-            "n_positives": int(y_train.sum()),
-            "cv_auc_mean": float(np.mean(cv_scores)),
-            "cv_auc_std": float(np.std(cv_scores)),
-            "cv_brier": float(np.mean(brier_scores)),
-            "nn_reference_pool": len(all_pt),
-        }
-        meta_path = OUTPUT_DIR / f"tier3_features_{pt}.json"
-        with open(meta_path, "w") as f:
+        with open(OUTPUT_DIR / f"tier3_mlb_{pt}.pkl", "wb") as f:
+            pickle.dump({"model": final, "features": en_features, "round_rates": rates,
+                         "label": f"debut by draft_year+{HORIZON}", "offset": "round_logit_prior"}, f)
+        with open(OUTPUT_DIR / f"tier3_nn_{pt}.pkl", "wb") as f:
+            pickle.dump({"nn": nn_model, "scaler": nn_scaler, "sim_stats": sim_stats,
+                         "mlb_debut_labels": y.tolist(),
+                         "player_names": [p.get("player_name", "") for p in pool]}, f)
+        meta = {"model_type": f"tier3_mlb_{pt}", "features": en_features,
+                "offset": "round_logit_prior (fixed coefficient 1)",
+                "label": f"MLB debut by end of draft_year+{HORIZON}", "train_classes": TRAIN_CLASSES,
+                "feature_coefficients_standardised": [{"feature": f, "coefficient": float(c)} for f, c in coefs],
+                "n_train": int(len(y)), "n_positives": int(y.sum()),
+                "cv_auc_mean": float(cv["auc"]), "cv_brier": float(cv["brier"]), "cv_ece": float(cv["ece"]),
+                "cv_prior_only_auc": float(cv["prior_only_auc"]),
+                "cv_prior_only_brier": float(cv["prior_only_brier"]),
+                "base_rate_brier": float(cv["base_rate_brier"]),
+                "cv_note": "nested out-of-fold: prior and NN rate never see the scored row's label",
+                "nn_reference_pool": int(len(y))}
+        with open(OUTPUT_DIR / f"tier3_features_{pt}.json", "w") as f:
             json.dump(meta, f, indent=2)
-        print(f"  Saved metadata: {meta_path}")
-
         results[pt] = meta
-
-    # ── Summary ──
-    print(f"\n{'=' * 60}")
-    print("SUMMARY")
-    print(f"{'=' * 60}")
-    print(f"  {'Model':<20s} {'n':>6s} {'Pos':>6s} {'CV AUC':>7s} {'Brier':>7s}")
-    print(f"  {'-'*46}")
-    for pt, m in results.items():
-        print(f"  {pt:<20s} {m['n_train']:>6d} {m['n_positives']:>6d} {m['cv_auc_mean']:.4f} {m['cv_brier']:.4f}")
-
-    print("\nDone.")
+    print(f"  saved to {OUTPUT_DIR}")
+    return results
 
 
 if __name__ == "__main__":

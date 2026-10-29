@@ -12,52 +12,59 @@
     "round_logit_prior",
     "nn_mlb_rate"
   ],
-  "feature_coefficients": [
+  "offset": "round_logit_prior (fixed coefficient 1)",
+  "label": "MLB debut by end of draft_year+3",
+  "train_classes": [
+    2021,
+    2022,
+    2023
+  ],
+  "feature_coefficients_standardised": [
     {
-      "feature": "round_logit_prior",
-      "coefficient": 1.119816428945825
-    },
-    {
-      "feature": "BB_per_nine_adj",
-      "coefficient": -0.1363701622156513
-    },
-    {
-      "feature": "Age",
-      "coefficient": -0.13355036785374821
+      "feature": "height_inches",
+      "coefficient": 0.3435763063633249
     },
     {
       "feature": "bmi",
-      "coefficient": 0.05477612991207866
-    },
-    {
-      "feature": "K_per_nine_adj",
-      "coefficient": 0.052696559718049395
-    },
-    {
-      "feature": "conf_strength",
-      "coefficient": -0.030502906259425446
-    },
-    {
-      "feature": "height_inches",
-      "coefficient": 0.030075558891612827
+      "coefficient": 0.20889198713841983
     },
     {
       "feature": "FIP_adj",
-      "coefficient": 0.011559565296595518
+      "coefficient": -0.20087378822298416
     },
     {
       "feature": "ERA_adj",
-      "coefficient": -0.011548294238074635
+      "coefficient": -0.15534256886642167
+    },
+    {
+      "feature": "K_per_nine_adj",
+      "coefficient": 0.08155231286204594
+    },
+    {
+      "feature": "BB_per_nine_adj",
+      "coefficient": -0.023673117981767213
     },
     {
       "feature": "nn_mlb_rate",
-      "coefficient": 0.0
+      "coefficient": -0.020530203249544077
+    },
+    {
+      "feature": "conf_strength",
+      "coefficient": -0.0065768351838713535
+    },
+    {
+      "feature": "Age",
+      "coefficient": -0.005645753037732519
     }
   ],
   "n_train": 713,
-  "n_positives": 132,
-  "cv_auc_mean": 0.7851315302243684,
-  "cv_auc_std": 0.04005068015334285,
-  "cv_brier": 0.12035620300928769,
-  "nn_reference_pool": 1220
+  "n_positives": 83,
+  "cv_auc_mean": 0.7699177663033084,
+  "cv_brier": 0.09169452409141184,
+  "cv_ece": 0.015266024399658401,
+  "cv_prior_only_auc": 0.8128705297379997,
+  "cv_prior_only_brier": 0.08874022859578495,
+  "base_rate_brier": 0.10285835682348846,
+  "cv_note": "nested out-of-fold: prior and NN rate never see the scored row's label",
+  "nn_reference_pool": 713
 }

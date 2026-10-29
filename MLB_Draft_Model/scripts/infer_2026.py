@@ -236,9 +236,12 @@ def main():
     raw_pitchers = load_json(RAW_PITCHERS_PATH)["data"]
 
     raw_fg_idx = {}
-    for rec in raw_batters + raw_pitchers:
-        key = f"{rec.get('Player', '').strip().lower()}|{rec.get('team_name_abb', '').strip().lower()}"
-        raw_fg_idx[key] = rec
+    # Keyed by player type too: a two-way player has a batting and a pitching row under the same
+    # name and team, and a name|team key let the pitching row overwrite the hitter's stats.
+    for pt, rows in (("hitter", raw_batters), ("pitcher", raw_pitchers)):
+        for rec in rows:
+            key = f"{pt}|{rec.get('Player', '').strip().lower()}|{rec.get('team_name_abb', '').strip().lower()}"
+            raw_fg_idx[key] = rec
 
     print(f"  Enriched records: {len(enriched)}")
     print(f"  Raw FG batters:  {len(raw_batters)}")
@@ -359,7 +362,7 @@ def main():
             # Build lookup key (same as in main loop below)
             name = rec.get("player_name", "")
             team_abb = rec.get("team_abb", "").strip()
-            lookup_key = f"{name.strip().lower()}|{team_abb.strip().lower()}"
+            lookup_key = f"{pt}|{name.strip().lower()}|{team_abb.strip().lower()}"
             raw_fg = raw_fg_idx.get(lookup_key, {})
             conf = rec.get("conference", "")
             season = rec.get("season", 2026)
@@ -393,7 +396,7 @@ def main():
         ptype = rec.get("player_type", "hitter")
         name = rec.get("player_name", "")
         team_abb = rec.get("team_abb", "").strip()
-        lookup_key = f"{name.strip().lower()}|{team_abb.strip().lower()}"
+        lookup_key = f"{ptype}|{name.strip().lower()}|{team_abb.strip().lower()}"
         raw_fg = raw_fg_idx.get(lookup_key, {})
 
         features_t2 = HITTER_FEATURES if ptype == "hitter" else PITCHER_FEATURES
@@ -555,10 +558,12 @@ def main():
         if proj_pick is not None and proj_pick > 0:
             slot_score = max(0, 100 - (proj_pick / 620) * 100)
 
-        # Three-component composite: draft position + MLB probability + MLB arrival
-        # Weights: 30% draft position (Tier 1), 40% MLB prob (Tier 2, calibrated), 30% arrival (Tier 3)
+        # Three-component composite: 30% draft position (Tier 1), 40% top-10-round prob (Tier 2),
+        # 30% arrival (Tier 3). Tier 5 WAR stays out until it passes its release gates
+        # (docs/tier5_honesty_report.md).
         mlb_score = (mlb_p or 0) * 100
         arrival_score = arrival_p * 100
+
         composite = slot_score * 0.30 + mlb_score * 0.40 + arrival_score * 0.30
         rec["composite_score"] = round(composite, 1)
 

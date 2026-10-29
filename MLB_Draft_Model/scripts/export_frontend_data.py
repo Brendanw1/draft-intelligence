@@ -298,6 +298,10 @@ def main():
             with open(platt_path, "rb") as f:
                 calibrators[f"platt_{pt}"] = pickle.load(f)
 
+    # Tier 5 (WAR hurdle + value) is withdrawn: it failed its backtest on the only matured class
+    # (2021, out of fold; docs/tier5_backtest_report.md). Nothing from it is exported.
+    tier5_models = {}
+
     # Load feature metadata from artifacts_full only
     feat_meta = {}
     for fname in ["tier1_features_hitter.json", "tier1_features_pitcher.json",
@@ -420,6 +424,56 @@ def main():
         if mlb_p_raw is not None and mlb_p is not None and abs(mlb_p_raw - mlb_p) > 0.35:
             flags.append("wide_spread")
 
+        # Tier 5 predictions (hurdle + expected WAR)
+        tier5_hurdle_prob = None
+        tier5_expected_war = None
+        tier5_confidence = None
+        if tier5_models:
+            model_key = f"hurdle_{ptype}"
+            if model_key in tier5_models:
+                model = tier5_models[model_key]["model"]
+                features = tier5_models[model_key]["features"]
+                # Build feature vector from enriched record
+                feature_vec = []
+                for feat in features:
+                    val = rec.get(feat)
+                    if val is None:
+                        val = 0.0
+                    feature_vec.append(float(val))
+                # Predict hurdle probability
+                try:
+                    hurdle_prob = model.predict_proba([feature_vec])[0][1]
+                    tier5_hurdle_prob = round(float(hurdle_prob), 4)
+                except Exception:
+                    pass
+
+            model_key = f"value_{ptype}"
+            if model_key in tier5_models:
+                model = tier5_models[model_key]["model"]
+                features = tier5_models[model_key]["features"]
+                # Build feature vector from enriched record
+                feature_vec = []
+                for feat in features:
+                    val = rec.get(feat)
+                    if val is None:
+                        val = 0.0
+                    feature_vec.append(float(val))
+                # Predict expected WAR (signed_log_war, transform back)
+                try:
+                    pred_log_war = model.predict([feature_vec])[0]
+                    # Transform back from signed_log_war to WAR
+                    # signed_log_war = sign(war) * log1p(abs(war))
+                    # war = sign(pred) * (exp(abs(pred)) - 1)
+                    sign = 1 if pred_log_war >= 0 else -1
+                    tier5_expected_war = round(float(sign * (np.exp(abs(pred_log_war)) - 1)), 4)
+                except Exception:
+                    pass
+
+            # Confidence based on gate status
+            if tier5_hurdle_prob is not None:
+                gate_status = tier5_models.get(f"hurdle_{ptype}", {}).get("gate", {}).get("status", "unknown")
+                tier5_confidence = "high" if gate_status == "PASS" else "low"
+
         # Historical bin rate (for "players scored like this" context)
         hist_rate = None
         # We'll compute from calibration data later
@@ -460,6 +514,10 @@ def main():
             "bmi": bmi,
             "draftability_score": draftability,
             "conference_tier": conf_tier,
+            # Tier 5 predictions
+            "tier5_hurdle_prob": tier5_hurdle_prob,
+            "tier5_expected_war": tier5_expected_war,
+            "tier5_confidence": tier5_confidence,
         }
         index_players.append(index_rec)
 
@@ -567,6 +625,10 @@ def main():
             "height_display": fmt_height(height_inches),
             "draftability_score": draftability,
             "conference_tier": conf_tier,
+            # Tier 5 predictions
+            "tier5_hurdle_prob": tier5_hurdle_prob,
+            "tier5_expected_war": tier5_expected_war,
+            "tier5_confidence": tier5_confidence,
         }
 
         # Assign to shard
@@ -914,6 +976,15 @@ def main():
                 "calibration_slope": round(slope, 4) if slope else None,
             }
 
+        # Held-out draft class: Platt fit on forward-chained out-of-fold scores, scored on a class
+        # (and players) the model never trained on (scripts/train_tier2_full.py).
+        ho = meta.get("holdout") or {}
+        ho_m = ho.get("oof_sigmoid") or {}
+        holdout_info = {
+            "test_season": ho["test_season"], "n_test": ho["n_test"], "n_test_pos": ho["n_test_pos"],
+            "auc": round(ho_m["auc"], 4), "brier": round(ho_m["brier"], 4), "ece": round(ho_m["ece"], 4),
+        } if ho_m else None
+
         manifest[artifact_key] = {
             "artifact": f"tier2_predraft_{pt}.json",
             "tier": 2,
@@ -932,6 +1003,7 @@ def main():
             "flagged_features": ["fg_SHO"] if pt == "pitcher" else [],
             "calibration": calibration_info,
             "recalibration": recalibration_info,
+            "holdout": holdout_info,
             "notes": "Full-population model. Height and BMI dominate feature importance — physical projection is the strongest signal for MLB reachability.",
         }
 

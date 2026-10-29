@@ -1,0 +1,103 @@
+{
+  "model_type": "tier5_hurdle_pitcher",
+  "role": "pitcher",
+  "features": [
+    "Age",
+    "conf_strength",
+    "ERA_adj",
+    "FIP_adj",
+    "K_per_nine_adj",
+    "BB_per_nine_adj",
+    "height_inches",
+    "bmi",
+    "round_logit_prior",
+    "nn_mlb_rate"
+  ],
+  "feature_coefficients": [
+    {
+      "feature": "round_logit_prior",
+      "coefficient": 3.7367259934147063
+    },
+    {
+      "feature": "conf_strength",
+      "coefficient": -2.805307949904064
+    },
+    {
+      "feature": "ERA_adj",
+      "coefficient": 1.4116192964101333
+    },
+    {
+      "feature": "K_per_nine_adj",
+      "coefficient": -0.9655528138979219
+    },
+    {
+      "feature": "Age",
+      "coefficient": -0.9053114364040173
+    },
+    {
+      "feature": "nn_mlb_rate",
+      "coefficient": -0.7444123377115027
+    },
+    {
+      "feature": "FIP_adj",
+      "coefficient": 0.4149226169747329
+    },
+    {
+      "feature": "height_inches",
+      "coefficient": 0.3637342885082974
+    },
+    {
+      "feature": "BB_per_nine_adj",
+      "coefficient": -0.31951022470525586
+    },
+    {
+      "feature": "bmi",
+      "coefficient": 0.18124933854291078
+    }
+  ],
+  "n_train": 218,
+  "n_train_pos": 9,
+  "n_heldout": 422,
+  "n_heldout_pos": 6,
+  "l1_ratio": 0.1,
+  "class_weight": "balanced",
+  "cv": {
+    "auc_mean": 0.7457695216487048,
+    "auc_std": 0.18172829949833172,
+    "brier_mean": 0.3270760699781979,
+    "auc_folds": [
+      0.44715447154471544,
+      0.8373983739837397,
+      0.9302325581395349,
+      0.7682926829268292,
+      NaN
+    ],
+    "brier_folds": [
+      0.3115569587536272,
+      0.7080264071043679,
+      0.04769264933987313,
+      0.24102826471492328,
+      NaN
+    ],
+    "n_splits": 5
+  },
+  "heldout": {
+    "auc": 0.6915064102564102,
+    "brier": 0.17139813075178895
+  },
+  "bootstrap": {
+    "n_iter": 1000,
+    "n_valid": 998,
+    "auc": 0.6915064102564102,
+    "low": 0.5143291946540302,
+    "high": 0.8598322510822508
+  },
+  "gate": {
+    "status": "PASS",
+    "auc": 0.6915064102564102,
+    "gate": 0.65
+  },
+  "hurdle_threshold": 2.0,
+  "hurdle_auc_gate": 0.65,
+  "generated_at": "2026-08-21T19:38:15.700925+00:00"
+}

@@ -7,23 +7,30 @@ draft rates. Adds conference-adjusted stats and conf_strength × stat
 interactions so the model learns to properly discount stats from weak
 competition while boosting performance in strong conferences.
 
+Calibration fix (2026-10-29, URGENT-FIXES.md #3): Platt/isotonic are fit on out-of-fold scores from
+time-ordered, player-grouped folds (season s scored by a model fit on earlier seasons, its players removed),
+and the result is scored on a held-out later class (TEST_SEASON). Artifacts go to models/artifacts_fixed/.
+
 Usage:
-  python3 scripts/train_tier2_full.py
+  PYTHONPATH=src python3 scripts/train_tier2_full.py
 """
 import json, pickle, warnings
 from pathlib import Path
 import numpy as np
-from sklearn.model_selection import GroupKFold
 from sklearn.metrics import roc_auc_score, brier_score_loss
 from sklearn.calibration import CalibratedClassifierCV
 import xgboost as xgb
+
+from mlb_draft_dashboard.leakfree import OOFCalibrated, ece, reliability
 
 warnings.filterwarnings("ignore")
 
 BASE = Path(__file__).resolve().parents[1]
 POSITIVES_PATH = BASE / "data" / "training" / "expanded_training_set.json"
 NEGATIVES_PATH = BASE / "data" / "training" / "tier2_negatives.json"
-OUTPUT_DIR = BASE / "models" / "artifacts_full"
+OUTPUT_DIR = BASE / "models" / "artifacts_fixed"   # live artifacts_full untouched until the owner switches
+LIVE_DIR = BASE / "models" / "artifacts_full"
+TEST_SEASON = 2024  # latest season whose draft outcomes are in the training data
 CONF_STATS_PATH = BASE / "models" / "artifacts_full" / "conference_stats.json"
 CONF_STRENGTH_PATH = BASE / "models" / "artifacts_full" / "conference_strength.json"
 MIN_CELL_N = 5
@@ -149,7 +156,7 @@ def add_features(records, conf_stats, conf_strength):
 
 
 def prepare_classification(records, feature_cols, threshold=315):
-    X, y, groups = [], [], []
+    X, y, groups, seasons = [], [], [], []
     for r in records:
         draft_pick = safe_float(r.get("draft_pick"))
         is_undrafted = r.get("is_undrafted_verified", False)
@@ -172,10 +179,11 @@ def prepare_classification(records, feature_cols, threshold=315):
         y.append(y_val)
         pid = r.get("person_id")
         if pid is None:
-            pid = hash(r.get("player_name", "")) % (10**10)
-        groups.append(pid)
+            pid = "name:" + r.get("player_name", "")
+        groups.append(str(pid))
+        seasons.append(int(r.get("season") or 0))
 
-    return np.array(X), np.array(y), np.array(groups)
+    return np.array(X), np.array(y), np.array(groups), np.array(seasons)
 
 
 def print_feature_importance(features, importances, top_n=20):
@@ -192,121 +200,87 @@ def print_feature_importance(features, importances, top_n=20):
         print(f"    {feat:<26s} {imp:.4f}{marker}")
 
 
-def train_model(X, y, groups, features, label, OUTPUT_DIR, pt):
-    """Train, calibrate, and save a single model."""
-    # ── Player-grouped CV ──
-    print(f"\n  ── Player-Grouped 5-Fold CV ──")
-    gkf = GroupKFold(n_splits=5)
-    cv_auc = []
-    fold = 0
-    for train_idx, test_idx in gkf.split(X, y, groups):
-        fold += 1
-        X_tr, X_te = X[train_idx], X[test_idx]
-        y_tr, y_te = y[train_idx], y[test_idx]
-
-        model_cv = xgb.XGBClassifier(
-            n_estimators=500, max_depth=4, learning_rate=0.05,
-            subsample=0.8, colsample_bytree=0.8, min_child_weight=3,
-            reg_alpha=0.1, reg_lambda=1.0,
-            scale_pos_weight=(len(y_tr) - y_tr.sum()) / max(y_tr.sum(), 1),
-            random_state=42, n_jobs=-1, verbosity=0,
-        )
-        model_cv.fit(X_tr, y_tr, eval_set=[(X_te, y_te)], verbose=False)
-        y_prob = model_cv.predict_proba(X_te)[:, 1]
-        try:
-            auc = roc_auc_score(y_te, y_prob)
-            brier = brier_score_loss(y_te, y_prob)
-            cv_auc.append(auc)
-            print(f"    Fold {fold}: AUC={auc:.4f}  Brier={brier:.4f}")
-        except ValueError:
-            print(f"    Fold {fold}: AUC=FAIL")
-
-    cv_auc_mean = np.mean(cv_auc) if cv_auc else 0
-    cv_auc_std = np.std(cv_auc) if cv_auc else 0
-    print(f"\n    CV Mean: AUC={cv_auc_mean:.4f} ± {cv_auc_std:.4f}")
-
-    # ── Year-out validation ──
-    print(f"\n  ── Year-Out Validation ──")
-    # We need to know which records are in which years
-    # Use the original records list that maps 1:1 with X rows
-    # But we don't have it here — re-filter from the full feature set
-    # This is handled in main() below instead
-    auc_yr = None
-
-    # ── Full training ──
-    print(f"\n  ── Final Training ──")
-    base = xgb.XGBClassifier(
+def make_xgb(y_tr):
+    return xgb.XGBClassifier(
         n_estimators=500, max_depth=4, learning_rate=0.05,
         subsample=0.8, colsample_bytree=0.8, min_child_weight=3,
         reg_alpha=0.1, reg_lambda=1.0,
-        scale_pos_weight=(len(y) - y.sum()) / max(y.sum(), 1),
-        random_state=42, n_jobs=-1, verbosity=0,
+        scale_pos_weight=(len(y_tr) - y_tr.sum()) / max(y_tr.sum(), 1),
+        random_state=42, n_jobs=2, verbosity=0,
     )
-    base.fit(X, y)
 
+
+def forward_oof(X, y, groups, seasons, score_seasons):
+    """Time-ordered, player-grouped OOF scores: season s is scored by a model fit on earlier seasons,
+    with every player who appears in season s removed from that model's training rows."""
+    idx, scores = [], []
+    for s in score_seasons:
+        te = np.where(seasons == s)[0]
+        tr = np.where((seasons < s) & ~np.isin(groups, groups[te]))[0]
+        if len(te) == 0 or len(np.unique(y[tr])) < 2:
+            continue
+        idx.append(te)
+        scores.append(make_xgb(y[tr]).fit(X[tr], y[tr]).predict_proba(X[te])[:, 1])
+    return np.concatenate(idx), np.concatenate(scores)
+
+
+def score(y, p):
+    return {"auc": float(roc_auc_score(y, p)), "brier": float(brier_score_loss(y, p)), "ece": ece(y, p)}
+
+
+def holdout_eval(X, y, groups, seasons, test_season, old_calibrators=None):
+    """Fit everything on seasons before test_season (test players removed) and score test_season."""
+    te = np.where(seasons == test_season)[0]
+    tr = np.where((seasons < test_season) & ~np.isin(groups, groups[te]))[0]
+    base = make_xgb(y[tr]).fit(X[tr], y[tr])
+    raw = base.predict_proba(X[te])[:, 1]
+    oof_i, oof_s = forward_oof(X[tr], y[tr], groups[tr], seasons[tr],
+                               [s for s in np.unique(seasons[tr]) if s > seasons[tr].min()])
+    out = {"test_season": int(test_season), "n_test": int(len(te)), "n_test_pos": int(y[te].sum()),
+           "n_train": int(len(tr)), "raw": score(y[te], raw)}
+    for method in ("sigmoid", "isotonic"):
+        cal = OOFCalibrated(base, method, oof_s, y[tr][oof_i]).calibrate(raw)
+        out[f"oof_{method}"] = score(y[te], cal)
+        out[f"oof_{method}"]["reliability"] = reliability(y[te], cal)
+        # Old method on the same split: CalibratedClassifierCV, stratified (not grouped, not time) folds
+        old = CalibratedClassifierCV(make_xgb(y[tr]), method=method, cv=5).fit(X[tr], y[tr])
+        out[f"old_method_{method}"] = score(y[te], old.predict_proba(X[te])[:, 1])
+    if old_calibrators:  # live artifacts were fit on ALL rows, test season included: in-sample
+        for name, cal in old_calibrators.items():
+            out[f"live_artifact_{name}_in_sample"] = score(y[te], cal.predict_proba(X[te])[:, 1])
+    return out
+
+
+def train_model(X, y, groups, seasons, features, OUTPUT_DIR, pt, old_calibrators=None):
+    """Honest holdout on a later class, then the shipped model: base on all rows + OOF calibrators."""
+    hold = holdout_eval(X, y, groups, seasons, TEST_SEASON, old_calibrators)
+    for k, v in hold.items():
+        if isinstance(v, dict):
+            print(f"    {k:<34s} AUC={v['auc']:.4f} Brier={v['brier']:.4f} ECE={v['ece']:.4f}")
+
+    oof_i, oof_s = forward_oof(X, y, groups, seasons, [s for s in np.unique(seasons) if s > seasons.min()])
+    base = make_xgb(y).fit(X, y)
     print_feature_importance(features, base.feature_importances_)
+    base.save_model(str(OUTPUT_DIR / f"tier2_full_{pt}.json"))
+    for name, method in (("platt", "sigmoid"), ("isotonic", "isotonic")):
+        with open(OUTPUT_DIR / f"calibrator_{name}_{pt}.pkl", "wb") as f:
+            pickle.dump(OOFCalibrated(base, method, oof_s, y[oof_i]), f)
 
-    # ── Calibration ──
-    # Platt (sigmoid) — tends to saturate for high-confidence predictions
-    platt = CalibratedClassifierCV(
-        xgb.XGBClassifier(
-            n_estimators=500, max_depth=4, learning_rate=0.05,
-            subsample=0.8, colsample_bytree=0.8, min_child_weight=3,
-            reg_alpha=0.1, reg_lambda=1.0,
-            scale_pos_weight=(len(y) - y.sum()) / max(y.sum(), 1),
-            random_state=42, n_jobs=-1, verbosity=0,
-        ),
-        method="sigmoid", cv=5,
-    )
-    platt.fit(X, y)
-
-    # Isotonic — no saturation ceiling, handles the elite tail properly
-    isotonic = CalibratedClassifierCV(
-        xgb.XGBClassifier(
-            n_estimators=500, max_depth=4, learning_rate=0.05,
-            subsample=0.8, colsample_bytree=0.8, min_child_weight=3,
-            reg_alpha=0.1, reg_lambda=1.0,
-            scale_pos_weight=(len(y) - y.sum()) / max(y.sum(), 1),
-            random_state=42, n_jobs=-1, verbosity=0,
-        ),
-        method="isotonic", cv=5,
-    )
-    isotonic.fit(X, y)
-
-    # ── Save ──
-    model_path = OUTPUT_DIR / f"tier2_full_{pt}.json"
-    base.save_model(str(model_path))
-    print(f"\n  Model: {model_path}")
-
-    with open(OUTPUT_DIR / f"calibrator_platt_{pt}.pkl", "wb") as f:
-        pickle.dump(platt, f)
-    print(f"  Calibrator (platt): saved")
-
-    with open(OUTPUT_DIR / f"calibrator_isotonic_{pt}.pkl", "wb") as f:
-        pickle.dump(isotonic, f)
-    print(f"  Calibrator (isotonic): saved")
-
-    # Feature metadata
-    feat_imp = sorted(zip(features, base.feature_importances_),
-                      key=lambda x: x[1], reverse=True)
+    feat_imp = sorted(zip(features, base.feature_importances_), key=lambda x: x[1], reverse=True)
     meta = {
         "model_type": f"tier2_full_{pt}",
         "features": features,
         "n_train": int(len(y)),
         "n_positives": int(y.sum()),
         "n_negatives": int(len(y) - y.sum()),
-        "cv_auc_mean": float(cv_auc_mean),
-        "cv_auc_std": float(cv_auc_std),
-        "year_out_auc": float(auc_yr) if auc_yr else None,
-        "feature_importance": [
-            {"feature": f, "importance": float(i)} for f, i in feat_imp
-        ],
+        "cv_auc_mean": score(y[oof_i], oof_s)["auc"],
+        "cv_note": "forward-chained, player-grouped OOF AUC (raw scores) on seasons after the first",
+        "calibration": "Platt/isotonic fit on forward-chained player-grouped OOF scores",
+        "holdout": hold,
+        "feature_importance": [{"feature": f, "importance": float(i)} for f, i in feat_imp],
     }
-    meta_path = OUTPUT_DIR / f"tier2_full_features_{pt}.json"
-    with open(meta_path, "w") as f:
+    with open(OUTPUT_DIR / f"tier2_full_features_{pt}.json", "w") as f:
         json.dump(meta, f, indent=2)
-    print(f"  Metadata: {meta_path}")
-
     return meta
 
 
@@ -352,12 +326,16 @@ def main():
         print(f"  Negatives: {len(neg_records):,}")
         print(f"  Total: {len(all_records):,}")
 
-        X, y, groups = prepare_classification(all_records, features, threshold=315)
+        X, y, groups, seasons = prepare_classification(all_records, features, threshold=315)
         print(f"  Training samples: {len(y):,}")
         print(f"  Features: {len(features)}")
         print(f"  Positive rate: {100 * y.sum() / len(y):.1f}%")
 
-        meta = train_model(X, y, groups, features, label, OUTPUT_DIR, pt)
+        old = {}
+        for name in ("platt", "isotonic"):
+            with open(LIVE_DIR / f"calibrator_{name}_{pt}.pkl", "rb") as f:
+                old[name] = pickle.load(f)
+        meta = train_model(X, y, groups, seasons, features, OUTPUT_DIR, pt, old)
         results[f"tier2_full_{pt}"] = meta
 
     # ── Summary ──

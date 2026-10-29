@@ -51,12 +51,11 @@ const USE_DONT: Record<
   },
   "tier2-predraft-pitcher": {
     use: [
-      "Screening — cross-validated AUC 0.77 supports coarse ranking",
+      "Ranking pitchers by probability of a top-10-round draft — AUC 0.966 on the held-out 2024 class",
       "The extremes: sub-10% and 80%+ scores were historically honest",
     ],
     dont: [
       "Trusting absolute probabilities between 20–60% — historically ~0–9% were drafted in the top 10 rounds",
-      "Evaluating on the single-positive test set — use the CV number",
       "Using on any pitcher with < 20 IP",
     ],
   },
@@ -166,11 +165,19 @@ export function ModelCardView({ artifactKey }: { artifactKey: string }) {
                   {fmtPct(m.calibration.mean_actual)}
                 </span>{" "}
                 (ECE {m.calibration.ece.toFixed(2)}). Every probability on this site
-                is Platt-calibrated
-                {m.recalibration &&
-                  ` — post-calibration the mean drops to ${fmtPct(m.recalibration.mean_platt_val)}, next to the actual ${fmtPct(m.recalibration.mean_actual_val)}`}
-                .
+                is calibrated (quantile map fit on out-of-fold scores).
               </p>
+              {m.holdout && (
+                <p className="mt-2">
+                  Held out on the {m.holdout.test_season} class ({m.holdout.n_test.toLocaleString()}{" "}
+                  players, {m.holdout.n_test_pos} drafted in the top 10 rounds; none seen in
+                  training): AUC{" "}
+                  <span className="font-semibold text-ink">{m.holdout.auc.toFixed(3)}</span>,
+                  Brier {m.holdout.brier.toFixed(3)}, ECE{" "}
+                  <span className="font-semibold text-ink">{fmtPct(m.holdout.ece)}</span> with a
+                  Platt map fit on forward-chained out-of-fold scores.
+                </p>
+              )}
               {m.notes && <p className="mt-2 font-medium text-flag">{m.notes}</p>}
             </div>
           </div>

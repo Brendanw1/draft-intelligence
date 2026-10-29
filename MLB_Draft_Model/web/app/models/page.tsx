@@ -25,7 +25,7 @@ export default function ModelsPage() {
       </h1>
       <p className="mt-1 max-w-[640px] text-[13px] leading-relaxed text-ink-2">
         Four production artifacts. Tier 1 predicts where the industry drafts a
-        stat profile; Tier 2 predicts whether the profile actually reaches MLB.
+        stat profile; Tier 2 predicts whether it goes in the top 10 rounds.
         Every number on this site traces back to one of these cards.
       </p>
 
@@ -36,7 +36,7 @@ export default function ModelsPage() {
             ["FanGraphs D1 stats", "2021–2026, joined via xMLBAMID"],
             ["Tier 1 — draft position", "XGBoost regression → projected pick"],
             ["Tier 2 — MLB outcome", "pre-draft classifier, fed the projected pick"],
-            ["Calibration", "Platt / isotonic — fixes 2.3× overconfidence"],
+            ["Calibration", "fit on out-of-fold scores — fixes 2.3× overconfidence"],
             ["2026 projections", "10,734 players scored"],
           ].map(([title, sub], i, arr) => (
             <div key={title} className="flex items-center gap-2">
@@ -100,6 +100,13 @@ export default function ModelsPage() {
                       <span className="text-ink-3">pre-calibration</span>
                     </span>
                   )}
+                  {m.holdout && (
+                    <span>
+                      <span className="text-ink-3">{m.holdout.test_season} holdout AUC</span>{" "}
+                      <span className="font-semibold">{m.holdout.auc.toFixed(3)}</span>{" "}
+                      <span className="text-ink-3">ECE {fmtPct(m.holdout.ece)}</span>
+                    </span>
+                  )}
                   {m.base_rate != null && (
                     <span>
                       <span className="text-ink-3">base rate</span>{" "}
@@ -112,6 +119,26 @@ export default function ModelsPage() {
           })}
         </div>
       )}
+
+      <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 text-[12px] leading-relaxed text-ink-2">
+        <div className="rounded border border-rule bg-paper-raised p-4">
+          <div className="text-[14px] font-semibold text-ink">Tier 3 — MLB arrival</div>
+          <p className="mt-1">
+            P(MLB debut within 3 seasons | drafted), trained on the 2021–2023 classes.
+            Cross-validated AUC 0.75 hitters / 0.77 pitchers. Draft round carries most of it:
+            the round&apos;s historical rate alone scores 0.78 / 0.81, so the college stats add
+            no ranking power. Read it as the round rate, nudged.
+          </p>
+        </div>
+        <div className="rounded border border-rule bg-paper-raised p-4">
+          <div className="text-[14px] font-semibold text-flag">Tier 5 — career WAR (withdrawn)</div>
+          <p className="mt-1">
+            Withdrawn: failed its backtest. Out of fold on the 2021 class (the only one with
+            five pro seasons), R² was +0.03 for hitters and −0.03 for pitchers, no better than
+            predicting the median. No WAR numbers are shown anywhere on the site.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
