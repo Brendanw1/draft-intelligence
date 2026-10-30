@@ -127,12 +127,11 @@ print()
 # 6. Go/No-Go Decision
 print('[6] GO/NO-GO DECISION')
 print('-' * 70)
-kill_criteria_met = False
-for key, data in artifacts.items():
-    r2 = data.get('gate_r2', -999)
-    if isinstance(r2, (int, float)) and r2 >= 0.0:
-        kill_criteria_met = True
-        break
+# GO needs EVERY value model at R² >= 0 and a backtest that did not fail (was: any one artifact passing)
+value_r2 = [d.get('gate_r2') for k, d in artifacts.items() if k.startswith('value_')]
+backtest_failed = backtest_report.exists() and 'Kill criteria FAILED' in backtest_report.read_text()
+kill_criteria_met = (len(value_r2) == 2 and all(isinstance(r2, (int, float)) and r2 >= 0.0 for r2 in value_r2)
+                     and not backtest_failed)
 
 if kill_criteria_met:
     print('  Decision: GO — Kill criteria met (R² ≥ 0.0)')

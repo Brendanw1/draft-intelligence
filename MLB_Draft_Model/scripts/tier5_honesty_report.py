@@ -28,6 +28,11 @@ DEFAULT_VALUE_HITTER = BASE / "models" / "artifacts_full" / "tier5_value_hitter_
 DEFAULT_VALUE_PITCHER = BASE / "models" / "artifacts_full" / "tier5_value_pitcher_features.json"
 
 KILL_AUC_GATE = 0.60
+
+
+def _num(v, spec: str) -> str:
+    """Format a metric, or 'N/A' when the artifact lacks it (missing key or non-numeric)."""
+    return format(v, spec) if isinstance(v, (int, float)) else "N/A"
 KILL_R2_GATE = 0.0
 
 
@@ -114,9 +119,9 @@ def generate_report(training_path, output_path):
         lines.append("")
         lines.append(f"| Metric | Value |")
         lines.append(f"|--------|-------|")
-        lines.append(f"| Heldout AUC | {hurdle_hitter.get('heldout', {}).get('auc', 'N/A'):.4f} |")
-        lines.append(f"| Heldout Brier | {hurdle_hitter.get('heldout', {}).get('brier', 'N/A'):.4f} |")
-        lines.append(f"| Bootstrap 95% CI | [{hurdle_hitter.get('bootstrap', {}).get('low', 'N/A'):.3f}, {hurdle_hitter.get('bootstrap', {}).get('high', 'N/A'):.3f}] |")
+        lines.append(f"| Heldout AUC | {_num(hurdle_hitter.get('heldout', {}).get('auc', 'N/A'), '.4f')} |")
+        lines.append(f"| Heldout Brier | {_num(hurdle_hitter.get('heldout', {}).get('brier', 'N/A'), '.4f')} |")
+        lines.append(f"| Bootstrap 95% CI | [{_num(hurdle_hitter.get('bootstrap', {}).get('low', 'N/A'), '.3f')}, {_num(hurdle_hitter.get('bootstrap', {}).get('high', 'N/A'), '.3f')}] |")
         lines.append(f"| Gate (AUC ≥ {KILL_AUC_GATE}) | {'PASS' if hurdle_hitter.get('gate', {}).get('status') == 'PASS' else 'WARN'} |")
         lines.append("")
 
@@ -125,9 +130,9 @@ def generate_report(training_path, output_path):
         lines.append("")
         lines.append(f"| Metric | Value |")
         lines.append(f"|--------|-------|")
-        lines.append(f"| Heldout AUC | {hurdle_pitcher.get('heldout', {}).get('auc', 'N/A'):.4f} |")
-        lines.append(f"| Heldout Brier | {hurdle_pitcher.get('heldout', {}).get('brier', 'N/A'):.4f} |")
-        lines.append(f"| Bootstrap 95% CI | [{hurdle_pitcher.get('bootstrap', {}).get('low', 'N/A'):.3f}, {hurdle_pitcher.get('bootstrap', {}).get('high', 'N/A'):.3f}] |")
+        lines.append(f"| Heldout AUC | {_num(hurdle_pitcher.get('heldout', {}).get('auc', 'N/A'), '.4f')} |")
+        lines.append(f"| Heldout Brier | {_num(hurdle_pitcher.get('heldout', {}).get('brier', 'N/A'), '.4f')} |")
+        lines.append(f"| Bootstrap 95% CI | [{_num(hurdle_pitcher.get('bootstrap', {}).get('low', 'N/A'), '.3f')}, {_num(hurdle_pitcher.get('bootstrap', {}).get('high', 'N/A'), '.3f')}] |")
         lines.append(f"| Gate (AUC ≥ {KILL_AUC_GATE}) | {'PASS' if hurdle_pitcher.get('gate', {}).get('status') == 'PASS' else 'WARN'} |")
         lines.append("")
 
@@ -143,11 +148,11 @@ def generate_report(training_path, output_path):
         lines.append("")
         lines.append(f"| Metric | Value |")
         lines.append(f"|--------|-------|")
-        lines.append(f"| Heldout RMSE | {value_hitter.get('heldout', {}).get('rmse', 'N/A'):.4f} |")
-        lines.append(f"| Heldout MAE | {value_hitter.get('heldout', {}).get('mae', 'N/A'):.4f} |")
-        lines.append(f"| Heldout R² | {value_hitter.get('heldout', {}).get('r2', 'N/A'):.4f} |")
-        lines.append(f"| Bootstrap 95% CI | [{value_hitter.get('bootstrap', {}).get('low', 'N/A'):.3f}, {value_hitter.get('bootstrap', {}).get('high', 'N/A'):.3f}] |")
-        lines.append(f"| Baseline (median) RMSE | {value_hitter.get('baseline_median', {}).get('rmse', 'N/A'):.4f} |")
+        lines.append(f"| Heldout RMSE | {_num(value_hitter.get('heldout', {}).get('rmse', 'N/A'), '.4f')} |")
+        lines.append(f"| Heldout MAE | {_num(value_hitter.get('heldout', {}).get('mae', 'N/A'), '.4f')} |")
+        lines.append(f"| Heldout R² | {_num(value_hitter.get('heldout', {}).get('r2', 'N/A'), '.4f')} |")
+        lines.append(f"| Bootstrap 95% CI | [{_num(value_hitter.get('bootstrap', {}).get('low', 'N/A'), '.3f')}, {_num(value_hitter.get('bootstrap', {}).get('high', 'N/A'), '.3f')}] |")
+        lines.append(f"| Baseline (median) RMSE | {_num(value_hitter.get('baseline', {}).get('rmse', 'N/A'), '.4f')} |")
         lines.append(f"| Gate (R² ≥ {KILL_R2_GATE}) | {'PASS' if value_hitter.get('gate', {}).get('status') == 'PASS' else 'WARN'} |")
         lines.append("")
 
@@ -156,11 +161,11 @@ def generate_report(training_path, output_path):
         lines.append("")
         lines.append(f"| Metric | Value |")
         lines.append(f"|--------|-------|")
-        lines.append(f"| Heldout RMSE | {value_pitcher.get('heldout', {}).get('rmse', 'N/A'):.4f} |")
-        lines.append(f"| Heldout MAE | {value_pitcher.get('heldout', {}).get('mae', 'N/A'):.4f} |")
-        lines.append(f"| Heldout R² | {value_pitcher.get('heldout', {}).get('r2', 'N/A'):.4f} |")
-        lines.append(f"| Bootstrap 95% CI | [{value_pitcher.get('bootstrap', {}).get('low', 'N/A'):.3f}, {value_pitcher.get('bootstrap', {}).get('high', 'N/A'):.3f}] |")
-        lines.append(f"| Baseline (median) RMSE | {value_pitcher.get('baseline_median', {}).get('rmse', 'N/A'):.4f} |")
+        lines.append(f"| Heldout RMSE | {_num(value_pitcher.get('heldout', {}).get('rmse', 'N/A'), '.4f')} |")
+        lines.append(f"| Heldout MAE | {_num(value_pitcher.get('heldout', {}).get('mae', 'N/A'), '.4f')} |")
+        lines.append(f"| Heldout R² | {_num(value_pitcher.get('heldout', {}).get('r2', 'N/A'), '.4f')} |")
+        lines.append(f"| Bootstrap 95% CI | [{_num(value_pitcher.get('bootstrap', {}).get('low', 'N/A'), '.3f')}, {_num(value_pitcher.get('bootstrap', {}).get('high', 'N/A'), '.3f')}] |")
+        lines.append(f"| Baseline (median) RMSE | {_num(value_pitcher.get('baseline', {}).get('rmse', 'N/A'), '.4f')} |")
         lines.append(f"| Gate (R² ≥ {KILL_R2_GATE}) | {'PASS' if value_pitcher.get('gate', {}).get('status') == 'PASS' else 'WARN'} |")
         lines.append("")
 
@@ -213,7 +218,7 @@ def generate_report(training_path, output_path):
     print(f"Wrote {output_path}")
     if kill_triggered:
         print("WARNING: Kill criteria triggered — model not ready for production")
-        return 1
+        return 0  # warn, never crash (AGENTS.md); the report itself records the kill
     return 0
 
 

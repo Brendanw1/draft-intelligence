@@ -1,6 +1,6 @@
 # Tier 5 WAR Value — Honesty Report
 
-**Generated:** 2026-08-21 21:53 UTC
+**Generated:** 2026-10-30 04:06 UTC
 
 ---
 
@@ -49,22 +49,22 @@ Predicts signed_log_war (sign(war) * log1p(|war|))
 
 | Metric | Value |
 |--------|-------|
-| Heldout RMSE | 0.3840 |
-| Heldout MAE | 0.2224 |
-| Heldout R² | -0.3194 |
-| Bootstrap 95% CI | [0.324, 0.443] |
-| Baseline (median) RMSE | 0.3392 |
-| Gate (R² ≥ 0.0) | WARN |
+| Heldout RMSE | 0.8136 |
+| Heldout MAE | 0.6894 |
+| Heldout R² | 0.0774 |
+| Bootstrap 95% CI | [0.716, 0.917] |
+| Baseline (median) RMSE | 0.8715 |
+| Gate (R² ≥ 0.0) | PASS |
 
 ### Pitchers
 
 | Metric | Value |
 |--------|-------|
-| Heldout RMSE | 0.3063 |
-| Heldout MAE | 0.1680 |
-| Heldout R² | -0.6114 |
-| Bootstrap 95% CI | [0.253, 0.359] |
-| Baseline (median) RMSE | 0.2433 |
+| Heldout RMSE | 0.7507 |
+| Heldout MAE | 0.5643 |
+| Heldout R² | -0.1142 |
+| Bootstrap 95% CI | [0.619, 0.873] |
+| Baseline (median) RMSE | 0.7567 |
 | Gate (R² ≥ 0.0) | WARN |
 
 ---
@@ -77,8 +77,7 @@ Predicts signed_log_war (sign(war) * log1p(|war|))
 
 Kill criteria triggered:
 
-  * hitter value R² -0.3194 < 0.0
-  * pitcher value R² -0.6114 < 0.0
+  * pitcher value R² -0.1142 < 0.0
 
 The model performs worse than a naive baseline (predicting the median WAR for all players). Do not deploy until these issues are resolved.
 
