@@ -34,9 +34,9 @@ TRAIN_PATH = BASE / "data" / "training" / "expanded_training_set.json"
 DRAFT_PATH = BASE / "data" / "draft" / "draft_all_picks.json"
 CONF_STATS_PATH = BASE / "models" / "artifacts_full" / "conference_stats.json"
 CONF_STRENGTH_PATH = BASE / "models" / "artifacts_full" / "conference_strength.json"
-OUTPUT_DIR = BASE / "models" / "artifacts_fixed"
+OUTPUT_DIR = BASE / "models" / "artifacts_full"
 HORIZON = 3          # seasons after the draft year
-LAST_SEASON = 2026   # last completed MLB season
+LAST_SEASON = 2025   # last MLB season with complete debut data: draft_all_picks.json was scraped 2026-07-14, so 2026 is partial
 TRAIN_CLASSES = [y for y in (2021, 2022, 2023) if y + HORIZON <= LAST_SEASON]
 
 # Key stats for nearest-neighbor similarity (used for both NN rate and Elastic Net)

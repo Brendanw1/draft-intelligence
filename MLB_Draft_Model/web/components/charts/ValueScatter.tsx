@@ -275,7 +275,7 @@ export function ValueScatter({
           <div className="mt-1 flex items-center justify-between text-[12px]">
             <GradeChip grade={hover.grade} small />
             <span>
-              pick ~{Math.round(hover.proj_pick!)} · MLB {fmtPct(hover.mlb_p)}
+              pick ~{Math.round(hover.proj_pick!)} if drafted · top-315 {fmtPct(hover.mlb_p)}
             </span>
           </div>
           <div className="mt-1 text-[10px] text-ink-3">click to open dossier</div>

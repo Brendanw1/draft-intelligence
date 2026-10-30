@@ -94,8 +94,9 @@ def normalize_team(name):
 
 def main():
     parser = argparse.ArgumentParser(description="Build Tier 2 negative examples")
-    parser.add_argument("--train-until", type=int, default=2025,
-                        help="Max season year to include (e.g. 2025 to exclude 2026 negatives). Default 2025.")
+    parser.add_argument("--train-until", type=int, default=2026,
+                        help="Max season to include. Default 2026; train_tier2_full.py drops seasons whose "
+                             "fixed-horizon label is not yet observed.")
     args = parser.parse_args()
 
     print("=" * 60)
@@ -251,19 +252,8 @@ def main():
             if drafted:
                 pos_count += 1
             else:
-                # Verified undrafted — but only use draft-eligible players as negatives.
-                # Skipping underclassmen (Age < 20) prevents the model from learning
-                # "young = undrafted" as an artificial shortcut. Undrafted underclassmen
-                # are easy negatives that inflate probability estimates for eligible 2026 prospects.
-                age = r.get("Age")
-                if age is not None:
-                    try:
-                        age_val = float(age)
-                        if age_val < 20:
-                            uncertain += 1
-                            continue
-                    except (ValueError, TypeError):
-                        pass
+                # Every undrafted row is kept, freshmen included (audit 2026-10-29): positives keep their
+                # Age<20 seasons too, so dropping them from this class only made "young" mean "drafted".
                 # Verified undrafted
                 neg_count += 1
 

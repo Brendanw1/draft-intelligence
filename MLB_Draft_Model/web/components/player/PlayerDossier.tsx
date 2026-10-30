@@ -22,7 +22,7 @@ function VerdictRow({ p }: { p: DetailPlayer }) {
     <div className="grid grid-cols-3 divide-x divide-rule border-y border-rule">
       <div className="px-4 py-3">
         <div className="text-[10px] font-semibold uppercase tracking-[0.13em] text-ink-3">
-          Projected
+          Projected pick if drafted
         </div>
         <div className="text-[24px] font-semibold leading-tight">
           {p.proj_pick != null
@@ -30,7 +30,7 @@ function VerdictRow({ p }: { p: DetailPlayer }) {
             : NO_DATA}
         </div>
         <div className="text-[11px] text-ink-2">
-          {roundBand != null ? `${roundBand} range ±~110 picks` : "no round estimate"}
+          {roundBand != null ? `${roundBand} range ±~117 picks` : "no round estimate"}
         </div>
         {/* band on a R1–R20 axis */}
         {p.pick_band && p.proj_pick != null && (
@@ -89,7 +89,7 @@ function VerdictRow({ p }: { p: DetailPlayer }) {
         </div>
         <div className="mt-1 text-[11px] text-ink-2">
           composite {fmtNum(p.composite, 1)}{" "}
-          <span className="text-ink-3">(30% slot · 40% top-10 · 30% arrival)</span>
+          <span className="text-ink-3">(30% slot · 40% top-315 · 30% arrival)</span>
         </div>
       </div>
     </div>
@@ -115,11 +115,11 @@ function TrustPanel({ p }: { p: DetailPlayer }) {
             <Link href={`/models/fg-draft-${t}/`} className="text-maroon underline">
               fg_draft_{t}
             </Link>{" "}
-            (draft position),{" "}
+            (draft position if drafted),{" "}
             <Link href={`/models/tier2-predraft-${t}/`} className="text-maroon underline">
               tier2_predraft_{t}
             </Link>{" "}
-            (top-10-round probability, Platt-calibrated), and Tier 3 logistic regression (MLB arrival, round-anchored).
+            (top-315 probability within three drafts, Platt-calibrated), and Tier 3 logistic regression (MLB arrival, round-anchored).
             Inputs are FanGraphs D1 stats normalized by conference strength — no
             scouting, defense, or medical signal.
           </p>
@@ -287,19 +287,19 @@ export function PlayerDossier({
                 <span className="font-semibold text-caution">Model check:</span>
                 {p.mlb_p > 0.50 && p.mlb_arrival < 0.10 ? (
                   <span className="text-text-secondary">
-                    Tier 2 is bullish ({fmtPct(p.mlb_p)} top-10%) but Tier 3 is cautious
+                    Tier 2 is bullish ({fmtPct(p.mlb_p)} top-315) but Tier 3 is cautious
                     ({fmtPct(p.mlb_arrival)} arrival). The Tier 2 historical rate is{" "}
                     {p.hist_rate != null ? fmtPct(p.hist_rate) : "unknown"} — check the model card.
                   </span>
                 ) : p.mlb_p < 0.15 && p.mlb_arrival > 0.10 ? (
                   <span className="text-text-secondary">
-                    Tier 2 sees low top-10 odds ({fmtPct(p.mlb_p)}) but Tier 3 suggests
+                    Tier 2 sees low top-315 odds ({fmtPct(p.mlb_p)}) but Tier 3 suggests
                     above-average arrival potential ({fmtPct(p.mlb_arrival)}) if drafted.
                     Worth a closer scouting look.
                   </span>
                 ) : p.mlb_p > 0.50 && p.mlb_arrival > 0.15 ? (
                   <span className="text-text-secondary">
-                    Both models agree: strong top-10 probability ({fmtPct(p.mlb_p)}) and
+                    Both models agree: strong top-315 probability ({fmtPct(p.mlb_p)}) and
                     above-average arrival outlook ({fmtPct(p.mlb_arrival)}).
                   </span>
                 ) : (

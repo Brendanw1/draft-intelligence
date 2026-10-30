@@ -40,7 +40,7 @@ def test_2_nn_rate_per_fold_and_censoring():
     assert max(t3.TRAIN_CLASSES) + t3.HORIZON <= t3.LAST_SEASON
 
 
-def test_3_tier2_calibration_folds_are_time_ordered_and_player_grouped(monkeypatch):
+def test_3_tier2_calibration_folds_are_player_grouped(monkeypatch):
     seen = []
 
     class Rec:
@@ -51,15 +51,28 @@ def test_3_tier2_calibration_folds_are_time_ordered_and_player_grouped(monkeypat
             seen.append((set(self.rows), set(X[:, 0]))); return np.c_[1 - X[:, 1], X[:, 1]]
 
     monkeypatch.setattr(t2, "make_xgb", lambda y: Rec())
-    seasons = np.repeat([2021, 2022, 2023], 20)
     groups = np.array([f"p{i % 25}" for i in range(60)])  # players recur across seasons
     X = np.c_[np.arange(60), rng.random(60)]
-    y = rng.integers(0, 2, 60)
-    t2.forward_oof(X, y, groups, seasons, [2022, 2023])
+    t2.grouped_oof(X, rng.integers(0, 2, 60), groups)
     for train_rows, test_rows in seen:
         tr, te = np.array(sorted(train_rows), int), np.array(sorted(test_rows), int)
-        assert seasons[tr].max() < seasons[te].min()
         assert not set(groups[tr]) & set(groups[te])
+
+
+def test_3b_tier2_label_is_fixed_horizon_and_holdout_is_embargoed():
+    picks = {1: [(2023, 40)], 2: [(2024, 400)], 3: [(2021, 500), (2024, 100)]}
+    assert t2.horizon_label(2021, 1, picks) == 1      # drafted two drafts later: inside the window
+    assert t2.horizon_label(2020, 1, picks) == 0      # three drafts later: outside
+    assert t2.horizon_label(2022, 2, picks) == 0      # drafted, but past pick 315
+    assert t2.horizon_label(2022, 3, picks) == 1      # re-drafted: every pick counts
+    assert t2.horizon_label(2022, None, picks) == 0   # verified undrafted
+    seasons = np.array([2021, 2022, 2023, 2024])
+    tr, te = t2.holdout_split(seasons, 2024)
+    assert (seasons[tr] + t2.HORIZON < 2024).all() and (seasons[te] == 2024).all()
+    assert t2.LAST_LABELLED + t2.HORIZON <= t2.LAST_DRAFT
+    # Recorded mostly for drafted players only: never a Tier 2 input.
+    for f in ("Age", "height_inches", "bmi"):
+        assert f not in t2.T2_HITTER_FEATURES and f not in t2.T2_PITCHER_FEATURES
 
 
 def test_4_backtest_uses_matured_classes_and_keeps_missing_war_missing():

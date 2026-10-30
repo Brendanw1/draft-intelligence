@@ -31,6 +31,27 @@ Shared code: `src/mlb_draft_dashboard/leakfree.py` (pickled classes, so run infe
    Tier 3 AUC 0.75 / 0.77, label "within 3 seasons", and say it does not beat draft round alone; Tier 5 off (gate fails).
 6. Deploy (`scripts/upload_r2.sh`, Vercel).
 
+## Split audit fixes (2026-10-29, evening)
+
+From the split audit (Draft Tier 1/2/3 rows). Re-trained, re-inferred and re-exported; not pushed, not uploaded.
+
+| tier | fix | before → after |
+|---|---|---|
+| 2 | Same eligibility for both classes (freshmen kept); Age dropped (FanGraphs has it for all drafted, <half of undrafted) | see below |
+| 2 | Height/BMI dropped: drafted = measured whole inches, undrafted = random imputed (87% non-integer); board ran 2-3x hot | found while fixing; not in the audit |
+| 2 | Label = pick ≤ 315 within this season's draft or the next two; seasons 2021-2024 only; 2026 draftees back in | positive rate by season 6.7 / 6.5 / 6.4 / 6.2% (was 7.6 → 2.6%) |
+| 2 | No player-based row drops; holdout trains on seasons with labels complete before the test draft (2021 for 2024) | |
+| 2 | Site `mlb_p` = OOF Platt (the scored calibrator), not the quantile curve | board sum 1,696 → 714 over 3 drafts (~238/yr) |
+| 2 | conf_strength fit on training rows only (`leakfree.conf_strength_table`) | |
+| 2 | 2024 class AUC / ECE (re-read) | 0.977 / 0.966, 2.3% / 3.8% → 0.857 / 0.843, 1.4% / 0.6% |
+| 1 | Forward-by-draft-year MAE, conf_strength refit before each test draft; `proj_pick` labelled "if drafted" | ~110 (random split: 111.0 / 107.8) → 117.4 / 115.2 |
+| 3 | `LAST_SEASON = 2025` (debuts pulled 2026-07-14): classes 2021-22 | AUC 0.75 / 0.77 → 0.70 / 0.75 (round alone 0.72 / 0.77) |
+
+Holdout honesty: the 2024 Tier 2 class has been read on several specs, twice today (first read today, before the height
+fix: 0.950 / 0.941). Treat 0.857 / 0.843 as post hoc. The next clean read is the 2025 class after the 2027 draft.
+Not done: Tier 4 comp display fixes (audit row "suspect"); `calibration_curve_*` / `calibration_lookup_*` and
+`calibrate_probs.py` are no longer read by the export and describe the old model.
+
 ## Original list
 
 | # | file | bug | fix |

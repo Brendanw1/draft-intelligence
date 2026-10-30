@@ -147,3 +147,26 @@ def reliability(y, p, n_bins=10):
 def ece(y, p, n_bins=10):
     rows = reliability(y, p, n_bins)
     return float(sum(r["n"] * abs(r["pred_mean"] - r["obs_rate"]) for r in rows) / len(y))
+
+
+# ── conference strength (target-encoded) ────────────────────────────────────
+
+def conf_strength_table(conferences, y, min_n=10):
+    """Per-conference positive rate / pooled rate, from the rows passed in only (fit on training seasons).
+
+    Same dict shape as models/artifacts_full/conference_strength.json; conferences with < min_n rows are left
+    out and read as 1.0 by every consumer.
+    """
+    conferences, y = np.asarray(conferences, dtype=object), np.asarray(y, dtype=float)
+    keep = np.array([bool(c) for c in conferences])
+    base = y[keep].mean() if keep.any() else 0.0
+    out = {}
+    for c in np.unique(conferences[keep]):
+        sel = conferences == c
+        if sel.sum() < min_n:
+            continue
+        rate = y[sel].mean()
+        out[str(c)] = {"strength": round(float(rate / base) if base > 0 else 1.0, 4),
+                       "draft_rate": round(float(rate), 4), "global_rate": round(float(base), 4),
+                       "total": int(sel.sum()), "drafted": int(y[sel].sum())}
+    return out

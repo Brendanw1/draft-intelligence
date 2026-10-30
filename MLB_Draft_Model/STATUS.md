@@ -8,9 +8,9 @@
 |-----------|--------|--------|
 | MLB Draft API scraper | ✅ Live | 9,300+ picks (2015–2026), 100% person_id coverage |
 | FanGraphs D1 stat pipeline | ✅ Live | 10,734 players (2021–2026), hitters + pitchers |
-| Tier 1 — Round Regressor (XGBoost) | ✅ Live | Predicts pick number, outputs round band + confidence |
-| Tier 2 — Top-10-round probability (XGBoost + OOF calibration) | ✅ Live | Full-population classifier; 2024 class held out: AUC 0.977 / 0.966, ECE 2.3% / 3.8% (hitters / pitchers) |
-| Tier 3 — MLB Arrival (logistic regression, round-rate logit offset) | ✅ Live | P(debut within 3 seasons \| drafted); nested CV AUC 0.75 / 0.77, below the round rate alone (0.78 / 0.81): draft round carries it |
+| Tier 1 — Round Regressor (XGBoost) | ✅ Live | Projected pick if drafted (trained on draftees); forward MAE 117 / 115 (2024-25) |
+| Tier 2 — P(pick ≤ 315 within 3 drafts) (XGBoost + OOF Platt) | ✅ Live (rebuilt 2026-10-29) | Full-population classifier; 2024 class re-read: AUC 0.857 / 0.843, ECE 1.4% / 0.6% (hitters / pitchers); board sums to 714 picks over 3 drafts |
+| Tier 3 — MLB Arrival (logistic regression, round-rate logit offset) | ✅ Live | P(debut within 3 seasons \| drafted); 2021-22 classes, nested CV AUC 0.70 / 0.75, below the round rate alone (0.72 / 0.77): draft round carries it |
 | Tier 4 — Comp Database (MiLB-enriched) | ✅ Live | 1,524 comp pool, 2021–2024 only, with peak level + MLB flags |
 | Tier 5 — WAR Value | ⛔ Withdrawn 2026-10-29 | Failed its backtest: 2021 class out of fold, R² +0.03 hitters / −0.03 pitchers (docs/tier5_backtest_report.md). Not exported. |
 | Conference adjustment (conf_strength) | ✅ Live | Continuous draft-rate ratio, replaces old 4-tier category |
@@ -35,15 +35,15 @@
 | Fix applied | `pythonpath = ["src"]` added to `[tool.pytest.ini_options]`. The `mlb_draft_dashboard` package was never moved — it is at `src/mlb_draft_dashboard` and declared in `pyproject.toml`; it was simply not on the import path. No `pip install -e .` needed. |
 | Removed | `tests/test_bootstrap_team_mapping.py` — shelled out to `scripts/bootstrap_team_mapping.py`, which does not exist in this repo (it lives in the parent `vt_baseball/scripts/`). `build_team_crosswalk.py` is not a replacement: no CLI args, reads JSON rosters rather than a SQLite `VTData` table, and is currently untested. |
 
-## Key Metrics (leak fixes of 2026-10-29; see URGENT-FIXES.md)
+## Key Metrics (split-audit fixes of 2026-10-29; see URGENT-FIXES.md and README)
 
 | Metric | Value |
 |--------|-------|
-| Tier 1 backtest MAE | ~110 picks |
-| Tier 2 AUC (hitters), 2024 holdout | 0.977 |
-| Tier 2 AUC (pitchers), 2024 holdout | 0.966 |
-| Tier 3 AUC (debut within 3 seasons), nested CV | 0.75 hitters / 0.77 pitchers (round rate alone: 0.78 / 0.81) |
-| Tier 2 ECE, 2024 holdout (OOF Platt) | 2.3% hitters / 3.8% pitchers |
+| Tier 1 MAE, forward by draft year (2024 / 2025) | 120.7 / 114.2 hitters, 113.2 / 117.2 pitchers (if drafted) |
+| Tier 2 AUC (hitters), 2024 class re-read | 0.857 |
+| Tier 2 AUC (pitchers), 2024 class re-read | 0.843 |
+| Tier 3 AUC (debut within 3 seasons), nested CV, 2021-22 classes | 0.70 hitters / 0.75 pitchers (round rate alone: 0.72 / 0.77) |
+| Tier 2 ECE, 2024 class re-read (OOF Platt) | 1.4% hitters / 0.6% pitchers |
 | Comp database | 1,524 records, 0 bad entries (all 2021–2024) |
 
 ## Data Assets (in git)

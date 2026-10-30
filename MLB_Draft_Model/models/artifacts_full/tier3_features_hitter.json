@@ -16,55 +16,54 @@
   "label": "MLB debut by end of draft_year+3",
   "train_classes": [
     2021,
-    2022,
-    2023
+    2022
   ],
   "feature_coefficients_standardised": [
     {
       "feature": "K_pct_adj",
-      "coefficient": -0.49922423371383473
+      "coefficient": -0.42767336839531755
     },
     {
       "feature": "Age",
-      "coefficient": -0.30686852204864473
+      "coefficient": -0.4127372889732114
     },
     {
       "feature": "bmi",
-      "coefficient": 0.2592015703109126
-    },
-    {
-      "feature": "BB_pct_adj",
-      "coefficient": 0.25891305954943455
+      "coefficient": 0.291951119408919
     },
     {
       "feature": "conf_strength",
-      "coefficient": -0.18456998570415856
+      "coefficient": -0.27687025788206615
     },
     {
-      "feature": "nn_mlb_rate",
-      "coefficient": -0.11306376570059648
-    },
-    {
-      "feature": "OPS_adj",
-      "coefficient": -0.0941841888514514
-    },
-    {
-      "feature": "wOBA_adj",
-      "coefficient": 0.04953989494143202
+      "feature": "BB_pct_adj",
+      "coefficient": 0.26759331920230656
     },
     {
       "feature": "height_inches",
-      "coefficient": 0.013623741233882575
+      "coefficient": 0.07416063536597335
+    },
+    {
+      "feature": "OPS_adj",
+      "coefficient": -0.0454570502449974
+    },
+    {
+      "feature": "wOBA_adj",
+      "coefficient": -0.044846155789792126
+    },
+    {
+      "feature": "nn_mlb_rate",
+      "coefficient": 0.014784587828863046
     }
   ],
-  "n_train": 549,
-  "n_positives": 77,
-  "cv_auc_mean": 0.7466156724631301,
-  "cv_brier": 0.10308271189577022,
-  "cv_ece": 0.03296675934978353,
-  "cv_prior_only_auc": 0.7771984371560643,
-  "cv_prior_only_brier": 0.10344149089013985,
-  "base_rate_brier": 0.12058354152773215,
+  "n_train": 360,
+  "n_positives": 55,
+  "cv_auc_mean": 0.6974664679582713,
+  "cv_brier": 0.11857222712736086,
+  "cv_ece": 0.04559652916902797,
+  "cv_prior_only_auc": 0.7230998509687034,
+  "cv_prior_only_brier": 0.11882610115577479,
+  "base_rate_brier": 0.12943672839506173,
   "cv_note": "nested out-of-fold: prior and NN rate never see the scored row's label",
-  "nn_reference_pool": 549
+  "nn_reference_pool": 360
 }

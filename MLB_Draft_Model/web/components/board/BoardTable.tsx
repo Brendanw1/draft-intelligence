@@ -156,7 +156,7 @@ export function BoardTable({
         <div className="w-[62px] shrink-0"><Th label="Grade" align="left" title="Composite percentile tier within qualified same-type players: elite top 1%, high next 4%, medium next 15%" /></div>
         <div className="w-[64px] shrink-0"><Th label="Comp" sortKey="composite" title="Composite score 0–100" /></div>
         <div className="w-[168px] shrink-0"><Th label="Proj. Round" sortKey="pick" align="left" title="Projected round band: pick ± backtest error (~110 picks). The tick is the point estimate." /></div>
-        <div className="w-[122px] shrink-0"><Th label="Top 10%" sortKey="mlb_p" title="Probability of being drafted in the top 10 rounds (pick ~315). Isotonic-calibrated — the dashed tick is what history supports." /></div>
+        <div className="w-[122px] shrink-0"><Th label="Top 315" sortKey="mlb_p" title="Probability of being drafted at pick 315 or better (about 10 rounds) in this season's draft or the next two. Platt-calibrated on out-of-fold scores." /></div>
         <div className="w-[96px] shrink-0"><Th label="Arrival" sortKey="mlb_arrival" title="Tier 3: P(MLB debut within 3 seasons | drafted). Logistic regression with the draft-round rate as offset + nearest-neighbor comp rate." /></div>
         <div className="w-[44px] shrink-0"><Th label="Conf" title="Tier 1 confidence from projected pick depth" /></div>
         {statDefs.map((d) => (

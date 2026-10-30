@@ -21,8 +21,9 @@ const USE_DONT: Record<
       "Flagging profiles the market will likely value (discipline + power volume)",
     ],
     dont: [
-      "Ordering the top of a draft board — top-100 overlap in backtests is poor",
-      "Reading the point estimate as a slot: error is ±~110 picks",
+      "Ordering the top of a draft board — the forward error is ±~117 picks",
+      "Reading the point estimate as a slot: forward backtest error is ±~117 picks",
+      "Reading it as a draft likelihood: it is the pick if drafted (trained on draftees only)",
       "Comparing across conferences as if production were level-adjusted (it isn't)",
     ],
   },
@@ -32,30 +33,32 @@ const USE_DONT: Record<
       "Screening for profiles that fit early-round market preferences",
     ],
     dont: [
-      "Ordering the top of the board (top-100 overlap ~0 in backtests)",
+      "Ordering the top of the board — the forward error is ±~115 picks",
       "Trusting fg_SHO-driven bumps — shutouts are a sparse, flagged signal",
       "Using it on relievers with < 20 IP",
+      "Reading it as a draft likelihood: it is the pick if drafted (trained on draftees only)",
     ],
   },
   "tier2-predraft-hitter": {
     use: [
-      "Ranking hitters by probability of top-10-round draft — recall 0.80",
-      "Finding late-round profiles whose outcome odds resemble early picks",
-      "Reading the calibrated (Platt) number with its historical bin rate",
+      "Ranking hitters by probability of a top-315 pick within three drafts — AUC 0.857 on the 2024 class (re-read)",
+      "Reading the calibrated (Platt) number: on the 2024 class predicted and actual rates agree within 1.5 points",
     ],
     dont: [
-      "Reading raw model output — it runs ~2.3× overconfident",
-      "Treating a high % as a guarantee: precision is 0.27 because the base rate is 12%",
+      "Reading raw model output — it is not calibrated",
+      "Treating a high % as a guarantee: the base rate is about 6% of D1 seasons",
       "Applying to HS or JUCO players — never in the training population",
+      "Comparing a freshman with a junior: no age or class year in the model, and the window is three drafts for both",
     ],
   },
   "tier2-predraft-pitcher": {
     use: [
-      "Ranking pitchers by probability of a top-10-round draft — AUC 0.966 on the held-out 2024 class",
-      "The extremes: sub-10% and 80%+ scores were historically honest",
+      "Ranking pitchers by probability of a top-315 pick within three drafts — AUC 0.843 on the 2024 class (re-read)",
+      "Reading the calibrated (Platt) number: on the 2024 class predicted and actual rates agree within 1 point",
     ],
     dont: [
-      "Trusting absolute probabilities between 20–60% — historically ~0–9% were drafted in the top 10 rounds",
+      "Reading raw model output — it is not calibrated",
+      "Comparing a freshman with a junior: no age or class year in the model",
       "Using on any pitcher with < 20 IP",
     ],
   },
@@ -109,7 +112,7 @@ export function ModelCardView({ artifactKey }: { artifactKey: string }) {
               <>
                 {" "}
                 <span className="text-ink-3">
-                  ({m.n_positive} reached MLB — {fmtPct(m.base_rate ?? null)} base rate)
+                  ({m.n_positive} positive — {fmtPct(m.base_rate ?? null)} base rate)
                 </span>
               </>
             )}
@@ -130,8 +133,8 @@ export function ModelCardView({ artifactKey }: { artifactKey: string }) {
             <BacktestBars rows={m.backtest} />
             <div className="max-w-[360px] text-[13px] leading-relaxed text-ink-2">
               <p>
-                Leave-future-out backtest: train on years before the holdout, score
-                the holdout class. The model beats the naive baseline by{" "}
+                Forward backtest by draft year: fit on earlier classes, score the
+                next one. The model beats predicting the average pick by{" "}
                 <span className="font-semibold text-ink">
                   {Math.round(
                     m.backtest.reduce((a, b) => a + (b.baseline_mae - b.mae), 0) /
@@ -139,14 +142,10 @@ export function ModelCardView({ artifactKey }: { artifactKey: string }) {
                   )}{" "}
                   picks
                 </span>{" "}
-                on average, and ordering correlation improved every year as training
-                data grew.
-              </p>
-              <p className="mt-2">
-                It is <span className="font-semibold text-ink">poor at naming the exact
-                top 100</span> (overlap{" "}
-                {m.backtest.map((b) => `${Math.round(b.top100_overlap)}%`).join(", ")}{" "}
-                by year). Use it for tiers, not slots.
+                on average (MAE{" "}
+                {m.backtest.map((b) => `${Math.round(b.mae)} in ${b.test_year}`).join(", ")}).
+                It is trained on drafted players only, so it is the pick if drafted.
+                Use it for tiers, not slots.
               </p>
             </div>
           </div>
@@ -156,7 +155,7 @@ export function ModelCardView({ artifactKey }: { artifactKey: string }) {
             <ReliabilityDiagram bins={m.calibration.bins} />
             <div className="max-w-[360px] text-[13px] leading-relaxed text-ink-2">
               <p>
-                Raw output ran hot: mean prediction{" "}
+                On the held-out class the calibrated mean prediction is{" "}
                 <span className="font-semibold text-ink">
                   {fmtPct(m.calibration.mean_pred)}
                 </span>{" "}
@@ -164,18 +163,19 @@ export function ModelCardView({ artifactKey }: { artifactKey: string }) {
                 <span className="font-semibold text-ink">
                   {fmtPct(m.calibration.mean_actual)}
                 </span>{" "}
-                (ECE {m.calibration.ece.toFixed(2)}). Every probability on this site
-                is calibrated (quantile map fit on out-of-fold scores).
+                (ECE {m.calibration.ece.toFixed(3)}). Every probability on this site
+                is Platt-calibrated on out-of-fold scores.
               </p>
               {m.holdout && (
                 <p className="mt-2">
                   Held out on the {m.holdout.test_season} class ({m.holdout.n_test.toLocaleString()}{" "}
-                  players, {m.holdout.n_test_pos} drafted in the top 10 rounds; none seen in
-                  training): AUC{" "}
+                  player-seasons, {m.holdout.n_test_pos} drafted in the top 315 within three drafts;
+                  model fit only on seasons whose labels were complete before that draft): AUC{" "}
                   <span className="font-semibold text-ink">{m.holdout.auc.toFixed(3)}</span>,
                   Brier {m.holdout.brier.toFixed(3)}, ECE{" "}
                   <span className="font-semibold text-ink">{fmtPct(m.holdout.ece)}</span> with a
-                  Platt map fit on forward-chained out-of-fold scores.
+                  Platt map fit on out-of-fold scores. A re-read: this class was read on earlier
+                  versions of the model. The next clean read is the 2025 class after the 2027 draft.
                 </p>
               )}
               {m.notes && <p className="mt-2 font-medium text-flag">{m.notes}</p>}

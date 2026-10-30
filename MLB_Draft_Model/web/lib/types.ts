@@ -75,7 +75,7 @@ export const BacktestRowSchema = z.object({
   r2: z.number(),
   baseline_r2: z.number(),
   spearman_rho: z.number(),
-  top100_overlap: z.number(),
+  top100_overlap: z.number().nullable(),
 });
 export type BacktestRow = z.infer<typeof BacktestRowSchema>;
 

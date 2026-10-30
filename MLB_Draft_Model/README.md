@@ -1,6 +1,6 @@
 # MLB Draft Intelligence — Prediction & Scouting Dashboard
 
-A **full-stack machine learning pipeline** that projects where 10,000+ NCAA Division I baseball players will be selected in the MLB Draft, estimates their probability of being drafted in the top 10 rounds, and calculates their MLB arrival outlook if drafted. Surfaces similar historical player comps with interactive pick-axis visualization.
+A **full-stack machine learning pipeline** that projects where 10,000+ NCAA Division I baseball players will be selected in the MLB Draft, estimates their probability of being drafted in the top 315 picks (about 10 rounds) within three drafts, and calculates their MLB arrival outlook if drafted. Surfaces similar historical player comps with interactive pick-axis visualization.
 
 Built as a static Next.js 15 application with a Python/XGBoost/scikit-learn backend. No server required — the ML pipeline generates static JSON data that the frontend consumes at build time and serves from Cloudflare R2.
 
@@ -19,7 +19,7 @@ This project is that baseline.
 | Page | What it answers |
 |------|----------------|
 | **Board** | Who matters in the 2026 class? (10,734 players, sortable/filterable by grade tier, position, conference, draft round band) |
-| **Value** | Where will the market misprice talent? (projected pick vs calibrated top-10-round probability) |
+| **Value** | Where will the market misprice talent? (projected pick if drafted vs calibrated top-315 probability) |
 | **Class Retrospectives** | How did past draft classes actually turn out? (2021–2026 with real outcomes) |
 | **Player Dossier** | What's the full picture on this specific player? (projections, percentile bars, multi-season stats, top-10 comparable draftees with interactive pick-axis dot plot, physical profile, tiered model transparency including MLB arrival outlook, model disagreement indicators) |
 | **Model Lab** | Why should anyone believe these predictions? (backtest curves, reliability diagrams, feature importances, known limitations, per-model calibration audits) |
@@ -29,18 +29,18 @@ This project is that baseline.
 
 ## Architecture
 
-Pipeline on the site: **XGBoost regressor** (Tier 1 → projected draft pick) → **XGBoost classifier** with calibration fit on out-of-fold scores (Tier 2 → top-10-round probability) → **logistic regression with a draft-round logit offset** (Tier 3 → P(MLB debut within 3 seasons) if drafted) → **Nearest-neighbor comps** (Tier 4 → similar historical players). A career-WAR tier (Tier 5) was built and withdrawn after failing its backtest. All fed into a static Next.js 15 site with no runtime infrastructure.
+Pipeline on the site: **XGBoost regressor** (Tier 1 → projected draft pick, if drafted) → **XGBoost classifier** with Platt calibration fit on out-of-fold scores (Tier 2 → P(pick ≤ 315 within three drafts)) → **logistic regression with a draft-round logit offset** (Tier 3 → P(MLB debut within 3 seasons) if drafted) → **Nearest-neighbor comps** (Tier 4 → similar historical players). A career-WAR tier (Tier 5) was built and withdrawn after failing its backtest. All fed into a static Next.js 15 site with no runtime infrastructure.
 
 **Key design decisions:**
 
-- **Tiered architecture**: Separates "when will you be drafted?" (Tier 1), "will you go in the top 10 rounds?" (Tier 2), "if drafted, will you debut within 3 seasons?" (Tier 3) and "who are comparable players?" (Tier 4). Each tier answers a distinct question with appropriate modeling.
-- **Top-10-round target**: Tier 2 predicts top-10-round draft status (pick ≤315), not generic "MLB probability." The top-10-round cutoff is where draft value crystallizes — players drafted after round 10 have dramatically lower signing rates and career ceilings. Calibrated on out-of-fold scores and checked on the held-out 2024 class (see below).
+- **Tiered architecture**: Separates "when will you be drafted?" (Tier 1), "will you go in the top 315 within three drafts?" (Tier 2), "if drafted, will you debut within 3 seasons?" (Tier 3) and "who are comparable players?" (Tier 4). Each tier answers a distinct question with appropriate modeling.
+- **Top-315 target, fixed horizon**: Tier 2 predicts a pick of 315 or better (about 10 rounds) in this season's draft or the next two, not generic "MLB probability." The fixed window means every training season is equally observed. Calibrated on out-of-fold scores and checked on the 2024 class (see below).
 - **Conference adjustment**: Raw stats (wOBA, ERA, etc.) are multiplied by the inverse of `conf_strength` — a continuous score based on empirical draft rates per conference. SEC production (2.98× draft rate) isn't compared at face value to SWAC production (0.09×).
-- **Full-population training**: Tier 2 trains on undrafted players as true negatives (about 44,000 across the current hitter and pitcher training sets), with height, weight and BMI imputed from conference and position distributions. The model learns what *doesn't* get drafted, not just who does. Because most of those negatives are easy to separate, the Tier 2 AUC below overstates how well the model ranks real prospects; the pick-level backtest is the better test.
+- **Full-population training**: Tier 2 trains on every D1 season with a FanGraphs line, 2021–2024, drafted or not, freshmen included (41,725 player-seasons). Age, height and BMI are left out because the sources record them far more completely for drafted players than for undrafted ones. Most negatives are easy to separate, so the AUC below still flatters the ranking of real prospects.
 - **Calibration on out-of-fold scores**: Raw XGBoost probabilities are systematically overconfident (~2.3×). The displayed probability is a quantile map fit on player-grouped out-of-fold scores; Platt and isotonic maps, fit on forward-chained out-of-fold scores, are cross-checks.
 - **Prior-offset Tier 3**: Tier 3 predicts *deviation* from the draft round's historical debut rate, passed as a fixed logit offset that is computed out of fold. A 5th-rounder projected at 15% arrival is above their round baseline; a 1st-rounder at 15% is below theirs. Honest result: the college stats add no ranking power beyond the round (see below).
 - **Interactive NN comps**: Euclidean nearest-neighbor search across 10 standardized stat dimensions yields 10 comparable draftees per player. An interactive pick-axis dot plot links hovered comps to their draft position with bidirectional row↔dot highlighting.
-- **Composite score**: Weighted combination of all tiers: 30% draft position (Tier 1) + 40% calibrated top-10-round probability (Tier 2) + 30% MLB arrival (Tier 3).
+- **Composite score**: Weighted combination of all tiers: 30% draft position (Tier 1) + 40% calibrated top-315 probability (Tier 2) + 30% MLB arrival (Tier 3).
 - **Static export**: Zero runtime infrastructure. No database, no API, no server. The pipeline generates JSON → Next.js builds a static site → deploy anywhere (Vercel, Cloudflare Pages, S3).
 - **Sharded data**: 10,734 player records split into 64 shards + 1 index file. The board loads from the index (9 MB, fast); dossiers fetch single shards lazily.
 - **Precision-instrument design system**: Signal gradient (gray=low, amber=medium, teal=high, blue=elite) encodes uncertainty visually. 4px spacing grid, 6-step type scale, tabular numbers throughout.
@@ -85,14 +85,34 @@ The model beats the naive mean by **17%** consistently across all five holdout y
 
 | Metric | Hitters | Pitchers |
 |--------|---------|----------|
-| Tier 2 top-10-round AUC, 2024 class held out (players removed from training) | 0.977 | 0.966 |
-| Tier 2 Brier / ECE on the 2024 class (Platt fit on forward-chained out-of-fold scores) | 0.024 / 2.3% | 0.032 / 3.8% |
-| Tier 3 debut within 3 seasons given drafted, AUC (nested out-of-fold CV) | 0.747 | 0.770 |
-| Tier 3 draft-round rate alone, AUC (same folds) | 0.777 | 0.813 |
+| Tier 1 projected pick (if drafted), MAE forward by draft year: 2024 / 2025 | 120.7 / 114.2 | 113.2 / 117.2 |
+| Tier 1 baseline (predict the training mean pick), MAE 2024 / 2025 | 145.3 / 145.1 | 139.2 / 137.7 |
+| Tier 2 top-315-within-3-drafts AUC, 2024 class (re-read) | 0.857 | 0.843 |
+| Tier 2 Brier / ECE on the 2024 class (Platt on player-grouped out-of-fold scores) | 0.044 / 1.4% | 0.049 / 0.6% |
+| Tier 3 debut within 3 seasons given drafted, AUC (nested out-of-fold CV, 2021–22 classes) | 0.698 | 0.747 |
+| Tier 3 draft-round rate alone, AUC (same folds) | 0.723 | 0.774 |
 
-- Tier 2 numbers come from the 2024 draft class, held out with its players removed from training. The site used to quote in-sample AUCs (0.994 / 0.989); these replace them.
-- Tier 3 is conditional on being drafted, so it is not a population-level arrival rate. The label is a debut by the end of the third season after the draft, so the 2021–2023 classes are equally observed; 2024+ classes are left out. It trains on 549 drafted hitters (77 debuts) and 713 pitchers (83 debuts). **Draft round carries it**: the round rate alone ranks players better than the full model, so read Tier 3 as the round's rate, nudged. The old 0.79 AUC came from a round prior that included each player's own outcome (fixed 2026-10-29).
-- After the July 2026 data quality audit, height fell from an artificial top split (importance 0.71) to 0.03. Age is now the top feature (0.26 hitters, 0.29 pitchers), which partly reflects draft eligibility rather than talent.
+- **Tier 2 was rebuilt on 2026-10-29** after a split audit. The old 0.977 / 0.966 came mostly from shortcuts in how the
+  training set was built, not from the stats: (1) negatives with Age < 20 were dropped while drafted players kept their
+  freshman seasons, and FanGraphs has Age for every drafted player but for under half of the undrafted, so "young" or
+  "no age" told the model the answer; (2) drafted players carry measured whole-inch heights from the draft record while
+  undrafted rows carried random imputed heights (87% non-integer), so "whole-inch height" told it too, and on the 2026
+  board, where every height is a roster whole inch, the probabilities ran 2-3x hot; (3) the label was "eventually
+  drafted in the top 315", so recent seasons were censored; (4) test players' earlier rows were dropped from training;
+  (5) the site showed a quantile curve that was never scored out of sample; (6) conf_strength used every season's draft
+  outcomes. Now: the label is a fixed horizon (pick ≤ 315 in this season's draft or the next two), seasons 2021–2024
+  only (the ones whose three drafts have happened), freshmen kept in both classes, no Age / height / BMI, conf_strength
+  refit on each fit's training rows, and the site shows the Platt output that was scored.
+- **The 2024 number is a re-read, not a clean holdout.** The 2024 class was read on several earlier specs, and twice on
+  2026-10-29 (once before the height shortcut was found: AUC 0.950 / 0.941). The holdout model trains only on 2021
+  seasons, the only ones whose labels were complete before the 2024 draft. The next clean read is the 2025 class after
+  the 2027 draft.
+- **Board check:** the board's `mlb_p` sums to 714 expected top-315 picks over three drafts (about 238 a year; roughly
+  250 four-year college players go in the top 315 each year). It summed to 1,696 before. Freshmen in the board's top 100:
+  15 before, 3 now; players with no Age in FanGraphs: 0 before (mean `mlb_p` 0.000), 2 now (mean 0.029).
+- Tier 1 is trained on drafted players only, so `proj_pick` is the pick **if drafted**. Its MAE is now reported forward by
+  draft year with conf_strength refit on labels complete before that draft; the old ~110 came from a random 80/20 split.
+- Tier 3 is conditional on being drafted, so it is not a population-level arrival rate. The label is a debut by the end of the third season after the draft. Debut dates were pulled on 2026-07-14, so 2026 counts as incomplete and only the 2021–2022 classes train (360 hitters, 55 debuts; 473 pitchers, 64 debuts). **Draft round carries it**: the round rate alone ranks players better than the full model, so read Tier 3 as the round's rate, nudged.
 
 ---
 

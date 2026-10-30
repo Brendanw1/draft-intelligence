@@ -258,6 +258,8 @@ def main():
             model = xgb.XGBClassifier()
             model.load_model(str(tier2_path))
             models[f"tier2_{pt}"] = model
+            # Feature list comes from the trained model's metadata (Age left Tier 2 on 2026-10-29).
+            models[f"tier2_features_{pt}"] = load_json(model_dir / f"tier2_full_features_{pt}.json")["features"]
             print(f"  Tier 2 {pt}: loaded from {tier2_path.name}")
 
         for cal_type in ["platt", "isotonic"]:
@@ -399,7 +401,7 @@ def main():
         lookup_key = f"{ptype}|{name.strip().lower()}|{team_abb.strip().lower()}"
         raw_fg = raw_fg_idx.get(lookup_key, {})
 
-        features_t2 = HITTER_FEATURES if ptype == "hitter" else PITCHER_FEATURES
+        features_t2 = models.get(f"tier2_features_{ptype}") or (HITTER_FEATURES if ptype == "hitter" else PITCHER_FEATURES)
         features_t1 = HITTER_FEATURES_T1 if ptype == "hitter" else PITCHER_FEATURES_T1
 
         # Tier 2 feature vector
@@ -430,7 +432,7 @@ def main():
             else:
                 rec["mlb_prob_platt"] = round(float(raw_prob), 4)
 
-            # Isotonic calibration (preferred — no ceiling)
+            # Isotonic calibration (cross-check; the site shows Platt)
             cal_iso_key = f"cal_isotonic_{ptype}"
             if cal_iso_key in models:
                 iso_prob = models[cal_iso_key].predict_proba(X_t2)[0, 1]
@@ -547,9 +549,8 @@ def main():
     print("\nComputing composites and grades...")
     for rec in enriched:
         proj_pick = safe_float(rec.get("projected_pick"))
-        # Use calibrated probabilities (isotonic preferred — no ceiling, preserves elite tail)
-        mlb_p = (safe_float(rec.get("mlb_prob_isotonic"))
-                 or safe_float(rec.get("mlb_prob_platt"))
+        # Platt: the calibrator scored on the held-out class (and the site's mlb_p)
+        mlb_p = (safe_float(rec.get("mlb_prob_platt"))
                  or safe_float(rec.get("mlb_probability"))
                  or 0)
         arrival_p = safe_float(rec.get("mlb_arrival_prob")) or 0

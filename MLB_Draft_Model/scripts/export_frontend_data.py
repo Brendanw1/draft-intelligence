@@ -304,13 +304,15 @@ def main():
 
     # Load feature metadata from artifacts_full only
     feat_meta = {}
-    for fname in ["tier1_features_hitter.json", "tier1_features_pitcher.json",
+    for fname in ["fg_features_hitter.json", "fg_features_pitcher.json",   # the Tier 1 model infer_2026 loads
                    "tier2_full_features_hitter.json", "tier2_full_features_pitcher.json"]:
         fpath = artifacts_full_dir / fname
         if fpath.exists():
             feat_meta[fname.replace(".json", "")] = load_json(fpath)
 
     print(f"  Feature metadata files: {list(feat_meta.keys())}")
+    # Pick band = +/- forward-by-draft-year MAE of Tier 1 (train_fg_model.py)
+    pick_band_mae = {pt: round(feat_meta[f"fg_features_{pt}"]["mae_forward"], 1) for pt in ("hitter", "pitcher")}
 
     # Draft data for class years
     draft_all: list[dict] = load_json(BASE / "data" / "draft" / "draft_all_picks.json")
@@ -391,12 +393,12 @@ def main():
         # Model outputs
         proj_pick = safe_float(rec.get("projected_pick"))
         proj_round = safe_float(rec.get("projected_round"))
-        # FIXED: mlb_p uses PAVA-smoothed quantile calibration (most accurate at tails)
-        # Field naming: mlb_p = calibrated display, mlb_p_raw = raw XGBoost, mlb_p_iso = Platt (conservative)
+        # mlb_p = Platt fit on player-grouped OOF scores: the calibrator scored on the held-out 2024 class
+        # (train_tier2_full.py). The old quantile curve (calibrate_probs.py) was never scored out of sample.
         mlb_p_raw = safe_float(rec.get("mlb_probability"))           # raw XGBoost (uncalibrated)
-        mlb_p = safe_float(rec.get("mlb_prob_calibrated"))           # PAVA quantile-calibrated (preferred — best tail behavior)
-        mlb_p_iso = safe_float(rec.get("mlb_prob_platt"))            # Platt-calibrated (conservative sigmoid)
-        mlb_p_cal = safe_float(rec.get("mlb_prob_calibrated"))  # quantile calibration (optional)
+        mlb_p = safe_float(rec.get("mlb_prob_platt"))
+        mlb_p_iso = safe_float(rec.get("mlb_prob_isotonic"))         # isotonic cross-check
+        mlb_p_cal = None
         mlb_arrival = safe_float(rec.get("mlb_arrival_prob"))
         nn_mlb_rate = safe_float(rec.get("nn_mlb_rate"))
         composite = safe_float(rec.get("composite_score"))
@@ -406,7 +408,7 @@ def main():
         # Pick band: ±MAE from projection
         pick_band = None
         if proj_pick is not None:
-            mae = 108.6 if ptype == "hitter" else 111.6
+            mae = pick_band_mae[ptype]
             pick_band = [max(1, int(proj_pick - mae)), min(620, int(proj_pick + mae))]
 
         # Sample
@@ -813,28 +815,18 @@ def main():
     # Tier 1: FG draft position models
     for pt in ["hitter", "pitcher"]:
         artifact_key = f"fg-draft-{pt}"
-        feat_file = f"tier1_features_{pt}"
+        feat_file = f"fg_features_{pt}"
         meta = feat_meta.get(feat_file, {})
 
         label = "Hitters" if pt == "hitter" else "Pitchers"
 
-        # Load backtest data from model training records
-        # For now, use the existing manifest values from the feature metadata
-        backtest_rows = []
-        if meta:
-            backtest_rows.append({
-                "test_year": 2024,
-                "type": pt,
-                "n_train": meta.get("n_train", 0),
-                "n_test": 0,
-                "features": meta.get("n_features", 0),
-                "mae": meta.get("mae_test", 110),
-                "baseline_mae": meta.get("mae_test", 140) * 1.3 if meta.get("mae_test") else 140,
-                "r2": meta.get("r2_test", 0),
-                "baseline_r2": -0.01,
-                "spearman_rho": 0.45,
-                "top100_overlap": 10,
-            })
+        # Forward by draft year: fit on years < Y, scored on Y (train_fg_model.py)
+        backtest_rows = [{
+            "test_year": r["test_year"], "type": pt, "n_train": r["n_train"], "n_test": r["n_test"],
+            "features": meta.get("n_features", 0), "mae": round(r["mae"], 1),
+            "baseline_mae": round(r["baseline_mae"], 1), "r2": round(r["r2"], 3), "baseline_r2": 0.0,
+            "spearman_rho": round(r["spearman_rho"], 3), "top100_overlap": None,
+        } for r in meta.get("forward_backtest", [])]
 
         importance = []
         for feat in meta.get("feature_importance", []):
@@ -848,7 +840,7 @@ def main():
             "tier": 1,
             "type": pt,
             "display_name": f"Draft Position Model — {label}",
-            "target": "MLB draft pick number (regression, 1–~620)",
+            "target": "Projected pick if drafted (regression on drafted players only, 1–~620)",
             "algorithm": "XGBoost regressor",
             "training_population": f"D1 college {label.lower()} drafted 2021–2025 with FanGraphs season stats",
             "n_train": meta.get("n_train", 0),
@@ -859,7 +851,8 @@ def main():
             "flagged_features": [],
             "calibration": None,
             "recalibration": None,
-            "notes": None,
+            "notes": "Trained on drafted players only, so the projection is the pick if he is drafted. "
+                     "Backtest is forward by draft year (fit on earlier classes).",
         }
 
     # Tier 2: Pre-draft MLB outcome (full population)
@@ -885,104 +878,25 @@ def main():
         n_positive = meta.get("n_reached_mlb", meta.get("n_positives", 0))
         base_rate = n_positive / n_train if n_train > 0 else None
 
-        # Extract calibration data from calibrator pickles
-        calibration_info = None
-        recalibration_info = None
-        try:
-            cal_key = f"platt_{pt}"
-            if cal_key in calibrators:
-                cal = calibrators[cal_key]
-                # Create calibration bins from the calibrator
-                # We'll use the meta data instead
-                pass
-        except Exception:
-            pass
-
-        # Build calibration info from real calibration_lookup data
-        cal_lookup_path = artifacts_full_dir / f"calibration_lookup_{pt}.json"
-        cal_curve_path = artifacts_full_dir / f"calibration_curve_{pt}.json"
-        if cal_lookup_path.exists():
-            cal_lookup = load_json(cal_lookup_path)
-            cal_curve_data = load_json(cal_curve_path) if cal_curve_path.exists() else None
-
-            raw_centers = cal_lookup["raw_centers"]
-            calibrated = cal_lookup["calibrated"]
-            n_total = cal_lookup.get("n", 0) or cal_curve_data.get("n_total", 0) if cal_curve_data else 0
-
-            # Compute metrics from the 100-bin curve
-            if cal_curve_data:
-                bins_data = cal_curve_data["bins"]
-                raw_vals = [b["raw_mean"] for b in bins_data]
-                emp_vals = [b["empirical_rate"] for b in bins_data]
-                ece = float(np.mean(np.abs(np.array(raw_vals) - np.array(emp_vals))))
-                mean_pred = float(np.mean(raw_vals))
-                mean_actual = float(np.mean(emp_vals))
-                slope = cal_curve_data["calibration_slope"]
-            else:
-                raw_arr = np.array(raw_centers)
-                cal_arr = np.array(calibrated)
-                ece = float(np.mean(np.abs(raw_arr - cal_arr)))
-                mean_pred = float(np.mean(raw_centers))
-                mean_actual = float(np.mean(calibrated))
-                slope = None
-
-            # Build 10 decile bins for frontend display
-            n_bins = len(raw_centers)
-            if n_bins >= 10:
-                bin_edges = np.linspace(0, n_bins, 11, dtype=int).tolist()
-                display_bins = []
-                for i in range(10):
-                    start, end = bin_edges[i], bin_edges[i + 1]
-                    if end > n_bins:
-                        end = n_bins
-                    if start >= end:
-                        continue
-                    slice_raw = raw_centers[start:end]
-                    slice_cal = calibrated[start:end]
-                    pct_min = int(min(slice_raw) * 100)
-                    pct_max = int(max(slice_raw) * 100)
-                    display_bins.append({
-                        "bin": f"{pct_min}–{pct_max}%",
-                        "count": int(end - start),
-                        "pred_mean": round(float(np.mean(slice_raw)), 4),
-                        "actual_rate": round(float(np.mean(slice_cal)), 4),
-                    })
-            else:
-                display_bins = []
-
-            calibration_info = {
-                "type": "Quantile calibration (PAVA-smoothed)",
-                "n": int(n_total) if n_total else 0,
-                "ece": round(ece, 4),
-                "mean_pred": round(mean_pred, 4),
-                "mean_actual": round(mean_actual, 4),
-                "bias": round(mean_pred - mean_actual, 4) if mean_pred and mean_actual else None,
-                "bins": display_bins,
-            }
-
-            recalibration_info = {
-                "type": "Quantile calibration (PAVA-smoothed, trained via cross-val)",
-                "n_train": int(n_total) if n_total else 0,
-                "n_val": int(n_total * 0.2) if n_total else 0,
-                "mlb_rate_train": round(n_positive / n_train, 4) if n_train else 0,
-                "mlb_rate_val": round(mean_actual, 4) if mean_actual else 0,
-                "brier_raw": round(np.mean((np.array(raw_centers) - np.array(calibrated)) ** 2), 4) if (raw_centers and calibrated) else None,
-                "brier_platt": round(ece, 4) if ece else None,
-                "brier_iso": round(ece, 4) if ece else None,
-                "mean_raw_val": round(mean_pred, 4) if mean_pred else 0,
-                "mean_platt_val": round(mean_actual, 4) if mean_actual else 0,
-                "mean_iso_val": round(mean_actual, 4) if mean_actual else 0,
-                "mean_actual_val": round(mean_actual, 4) if mean_actual else 0,
-                "calibration_slope": round(slope, 4) if slope else None,
-            }
-
-        # Held-out draft class: Platt fit on forward-chained out-of-fold scores, scored on a class
-        # (and players) the model never trained on (scripts/train_tier2_full.py).
+        # Calibration shown = Platt fit on player-grouped OOF scores, scored on the held-out class
+        # (train_tier2_full.py). Reliability bins are from that held-out class, not from training rows.
         ho = meta.get("holdout") or {}
         ho_m = ho.get("oof_sigmoid") or {}
+        calibration_info = {
+            "type": "Platt on out-of-fold scores, held-out class",
+            "n": ho["n_test"], "ece": round(ho_m["ece"], 4),
+            "mean_pred": round(ho_m["mean_pred"], 4), "mean_actual": round(ho_m["obs_rate"], 4),
+            "bias": round(ho_m["mean_pred"] - ho_m["obs_rate"], 4),
+            "bins": [{"bin": f"{b['bin'] * 10}–{b['bin'] * 10 + 10}%", "count": b["n"],
+                      "pred_mean": round(b["pred_mean"], 4), "actual_rate": round(b["obs_rate"], 4)}
+                     for b in ho_m["reliability"]],
+        } if ho_m else None
+        recalibration_info = None
         holdout_info = {
             "test_season": ho["test_season"], "n_test": ho["n_test"], "n_test_pos": ho["n_test_pos"],
             "auc": round(ho_m["auc"], 4), "brier": round(ho_m["brier"], 4), "ece": round(ho_m["ece"], 4),
+            "raw_auc": round(ho["raw"]["auc"], 4), "train_seasons": ho.get("train_seasons"),
+            "read": ho.get("read"),
         } if ho_m else None
 
         manifest[artifact_key] = {
@@ -990,9 +904,9 @@ def main():
             "tier": 2,
             "type": pt,
             "display_name": f"MLB Outcome Model — {label}",
-            "target": "Probability of being drafted in top 10 rounds (pick ~315, Platt-calibrated)",
+            "target": "Probability of being drafted at pick 315 or better (about 10 rounds) in this season's draft or the next two (Platt-calibrated)",
             "algorithm": "XGBoost classifier + Platt scaling",
-            "training_population": f"All D1 {label.lower()} with FanGraphs stats 2021–2026, including undrafted players as negative class",
+            "training_population": f"All D1 {label.lower()} seasons with FanGraphs stats 2021–{max(meta.get('train_seasons') or [2024])} (seasons whose three-draft window is complete), drafted and undrafted, freshmen included",
             "n_train": n_train,
             "n_positive": n_positive,
             "base_rate": base_rate,
@@ -1004,7 +918,9 @@ def main():
             "calibration": calibration_info,
             "recalibration": recalibration_info,
             "holdout": holdout_info,
-            "notes": "Full-population model. Height and BMI dominate feature importance — physical projection is the strongest signal for MLB reachability.",
+            "notes": ("Age is not a feature: FanGraphs lists it for every drafted player but for under half of the "
+                      "undrafted, so it recorded the outcome. The 2024 class has been read on earlier specs too, so this "
+                      "is a re-read; the next clean read is the 2025 class after the 2027 draft."),
         }
 
     # Build peak level mapping from MiLB data
@@ -1094,7 +1010,7 @@ def main():
         "hitters": hitters_count,
         "pitchers": pitchers_count,
         "grades": grade_counts,
-        "pick_band_mae": {"hitter": 108.6, "pitcher": 111.6},
+        "pick_band_mae": pick_band_mae,
         "backtest_year": 2024,
         "min_sample": {"pa": 50, "ip": 20},
         "class_years": [2021, 2022, 2023, 2024, 2025, 2026],

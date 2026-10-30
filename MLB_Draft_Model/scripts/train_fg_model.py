@@ -9,19 +9,27 @@ new features (height, BMI, conference_strength, conference-adjusted stats).
 Trains separate models for hitters and pitchers.
 Saves model artifacts and feature importance.
 
+Evaluation (audit 2026-10-29): forward by draft year. For each test year Y the model is fit on draft years < Y,
+and conf_strength is refit on Tier 2 rows whose label was complete before draft Y (season <= Y - 3), so no
+draft-Y outcome enters the features. The old random 80/20 split is gone. The model is trained on drafted players
+only, so `proj_pick` reads "projected pick if drafted".
+
 Usage:
   python3 scripts/train_fg_model.py [--output-dir models/artifacts]
   python3 scripts/train_fg_model.py --output-dir models/artifacts_full
 """
 
-import json, sys, os, warnings
+import argparse, json, sys, os, warnings
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import xgboost as xgb
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import train_tier2_full as t2  # noqa: E402  (labelled rows for a point-in-time conf_strength)
+from mlb_draft_dashboard.leakfree import conf_strength_table  # noqa: E402
 
 warnings.filterwarnings("ignore")
 
@@ -237,6 +245,35 @@ def prepare_data(records, player_type, feature_cols, conf_stats=None, conf_stren
     return X, y, player_names, player_ids
 
 
+FORWARD_YEARS = (2024, 2025)
+
+
+def make_reg():
+    return xgb.XGBRegressor(n_estimators=500, max_depth=6, learning_rate=0.05, subsample=0.8,
+                            colsample_bytree=0.8, min_child_weight=3, reg_alpha=0.1, reg_lambda=1.0,
+                            random_state=42, n_jobs=4, verbosity=0)
+
+
+def forward_backtest(data, pt, features, conf_stats, t2_rows, years=FORWARD_YEARS):
+    """Train on draft years < Y, score draft year Y; conf_strength from labels complete before draft Y."""
+    y2, _, s2, c2 = t2.arrays(t2_rows)
+    out = []
+    for Y in years:
+        sel = s2 <= Y - t2.HORIZON - 1
+        strength = conf_strength_table(c2[sel], y2[sel])
+        tr = [r for r in data if r.get("draft_year") < Y]
+        te = [r for r in data if r.get("draft_year") == Y]
+        Xtr, ytr, _, _ = prepare_data(tr, pt, features, conf_stats, strength)
+        Xte, yte, _, _ = prepare_data(te, pt, features, conf_stats, strength)
+        pred = make_reg().fit(Xtr, ytr).predict(Xte)
+        out.append({"test_year": Y, "n_train": int(len(ytr)), "n_test": int(len(yte)),
+                    "mae": float(mean_absolute_error(yte, pred)),
+                    "baseline_mae": float(mean_absolute_error(yte, np.full(len(yte), ytr.mean()))),
+                    "r2": float(r2_score(yte, pred)),
+                    "spearman_rho": float(pd.Series(pred).corr(pd.Series(yte), method="spearman"))})
+    return out
+
+
 def compute_bmi_from_weight_height(weight_lbs, height_inches):
     if not weight_lbs or not height_inches or weight_lbs <= 0 or height_inches <= 0:
         return None
@@ -269,6 +306,7 @@ def main():
     data = load_json(DATA_PATH)
     # Also filter out 2026 (already done if we ran filter_training_no2026.py)
     data = [r for r in data if r.get("draft_year") != 2026]
+    t2_rows, _ = t2.load_all()
     hitters = [r for r in data if r.get("player_type") == "hitter"]
     pitchers = [r for r in data if r.get("player_type") == "pitcher"]
     print(f"  Hitters: {len(hitters)}")
@@ -296,83 +334,18 @@ def main():
             print(f"  SKIP: Too few samples ({len(y)})")
             continue
 
-        # Split
-        X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=0.2, random_state=42
-        )
+        # Forward-by-draft-year backtest (replaces the random 80/20 split)
+        bt = forward_backtest(data, pt, features, conf_stats, t2_rows)
+        for row in bt:
+            print(f"    {row['test_year']}: MAE {row['mae']:.1f} (train-mean baseline {row['baseline_mae']:.1f}) "
+                  f"R2 {row['r2']:.3f} n_test {row['n_test']}")
+        mae = float(np.mean([r["mae"] for r in bt]))
+        r2 = float(np.mean([r["r2"] for r in bt]))
 
-        # Train XGBoost
-        print("\n  Training XGBoost regressor...")
-        model = xgb.XGBRegressor(
-            n_estimators=500,
-            max_depth=6,
-            learning_rate=0.05,
-            subsample=0.8,
-            colsample_bytree=0.8,
-            min_child_weight=3,
-            reg_alpha=0.1,
-            reg_lambda=1.0,
-            random_state=42,
-            n_jobs=-1,
-            verbosity=0,
-        )
-
-        model.fit(
-            X_train, y_train,
-            eval_set=[(X_test, y_test)],
-            verbose=False,
-        )
-
-        # Evaluate
-        y_pred = model.predict(X_test)
-        r2 = r2_score(y_test, y_pred)
-        rmse = np.sqrt(mean_squared_error(y_test, y_pred))
-        mae = mean_absolute_error(y_test, y_pred)
-
-        print(f"\n  Performance:")
-        print(f"    Test R²:  {r2:.4f}")
-        print(f"    Test RMSE: {rmse:.1f} picks")
-        print(f"    Test MAE:  {mae:.1f} picks")
-
-        # Feature importance
-        importance = model.feature_importances_
-        feat_imp = sorted(
-            zip(features, importance),
-            key=lambda x: x[1],
-            reverse=True,
-        )
-        print(f"\n  Top 10 Feature Importances:")
-        for feat, imp in feat_imp[:10]:
-            print(f"    {feat:<20s} {imp:.4f}")
-
-        # Cross-validation
-        cv_scores = cross_val_score(
-            model, X, y, cv=5,
-            scoring="r2",
-        )
-        print(f"\n  5-Fold CV R²: {cv_scores.mean():.4f} ± {cv_scores.std():.4f}")
-
-        # Full retrain
-        print("\n  Retraining on full dataset...")
-        model_full = xgb.XGBRegressor(
-            n_estimators=500,
-            max_depth=6,
-            learning_rate=0.05,
-            subsample=0.8,
-            colsample_bytree=0.8,
-            min_child_weight=3,
-            reg_alpha=0.1,
-            reg_lambda=1.0,
-            random_state=42,
-            n_jobs=-1,
-            verbosity=0,
-        )
-        model_full.fit(X, y)
-
-        # Save model
+        model_full = make_reg().fit(X, y)
         model_path = output_dir / f"fg_draft_{pt}.json"
         model_full.save_model(str(model_path))
-        print(f"  Model saved: {model_path}")
+        feat_imp = sorted(zip(features, model_full.feature_importances_), key=lambda x: x[1], reverse=True)
 
         # Feature metadata
         features_path = output_dir / f"fg_features_{pt}.json"
@@ -382,11 +355,11 @@ def main():
                 "features": features,
                 "n_train": int(len(y)),
                 "n_features": int(len(features)),
-                "r2_test": float(r2),
-                "rmse_test": float(rmse),
-                "mae_test": float(mae),
-                "cv_r2_mean": float(cv_scores.mean()),
-                "cv_r2_std": float(cv_scores.std()),
+                "target": "draft pick number, drafted players only: proj_pick reads 'if drafted'",
+                "mae_forward": mae,
+                "r2_forward": r2,
+                "forward_backtest": bt,
+                "eval_note": "forward by draft year: fit on years < Y, conf_strength from labels complete before Y",
                 "feature_importance": [
                     {"feature": feat, "importance": float(imp)}
                     for feat, imp in feat_imp
@@ -394,22 +367,15 @@ def main():
             }, f, indent=2)
         print(f"  Features saved: {features_path}")
 
-        results[pt] = {
-            "r2": float(r2),
-            "rmse": float(rmse),
-            "mae": float(mae),
-            "cv_r2_mean": float(cv_scores.mean()),
-            "n_train": int(len(y)),
-        }
+        results[pt] = {"r2": r2, "mae": mae, "n_train": int(len(y))}
 
     # Summary
     print(f"\n{'=' * 60}")
     print("TIER 1 TRAINING COMPLETE")
     print(f"{'=' * 60}")
     for pt, res in results.items():
-        print(f"  {pt.upper()}: R²={res['r2']:.4f}  RMSE={res['rmse']:.1f}  MAE={res['mae']:.1f}  n={res['n_train']}")
+        print(f"  {pt.upper()}: forward MAE={res['mae']:.1f}  R²={res['r2']:.4f}  n={res['n_train']}")
 
 
 if __name__ == "__main__":
-    import argparse
     main()

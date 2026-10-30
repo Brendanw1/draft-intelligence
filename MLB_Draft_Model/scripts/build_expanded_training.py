@@ -126,8 +126,9 @@ def normalize_name(name):
 
 def main():
     parser = argparse.ArgumentParser(description="Build expanded training set")
-    parser.add_argument("--train-until", type=int, default=2025,
-                        help="Max draft year to include (e.g. 2025 to exclude 2026 outcomes). Default 2025.")
+    parser.add_argument("--train-until", type=int, default=2026,
+                        help="Max draft year to include. Default 2026: Tier 2 needs the 2026 draftees under its "
+                             "fixed-horizon label; Tier 3 keeps only matured classes itself.")
     args = parser.parse_args()
 
     print("=" * 60)

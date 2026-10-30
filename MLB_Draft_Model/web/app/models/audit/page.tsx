@@ -261,11 +261,11 @@ function AuditInner() {
             warn: true,
           },
           {
-            label: "Tier 2 overconfidence",
+            label: "Tier 2 calibration error",
             value: tier2H?.calibration?.ece
               ? `${tier2H.calibration.ece.toFixed(2)} ECE`
               : "…",
-            sub: "raw model ~2.3× too confident",
+            sub: "Platt, held-out 2024 class; raw model ~2× hot",
             warn: true,
           },
           {
@@ -397,7 +397,7 @@ function AuditInner() {
             <span className="font-semibold text-text-primary">Calibration ladders:</span>{" "}
             Points above the diagonal mean the model was underconfident (actual rate
             exceeded prediction). Below means overconfident. Pre-correction, Tier 2
-            runs ~2.3× hot.
+            runs about 2× hot (1.6–2.1× on the 2024 class).
           </li>
           <li>
             <span className="font-semibold text-text-primary">Disagreement scatter:</span>{" "}

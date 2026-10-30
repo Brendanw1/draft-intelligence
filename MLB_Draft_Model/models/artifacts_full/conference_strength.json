@@ -1,292 +1,205 @@
 {
-  "America East": {
-    "strength": 0.2804,
-    "draft_rate": 0.0297,
-    "global_rate": 0.1059,
-    "total": 1179,
-    "drafted": 35,
-    "avg_pick": 288.4,
-    "med_pick": 290.0,
-    "avg_bonus": 169444.0
-  },
-  "OVC": {
-    "strength": 0.1981,
-    "draft_rate": 0.021,
-    "global_rate": 0.1059,
-    "total": 1478,
-    "drafted": 31,
-    "avg_pick": 339.1,
-    "med_pick": 305.0,
-    "avg_bonus": 229274.0
-  },
-  "MAC": {
-    "strength": 0.5653,
-    "draft_rate": 0.0598,
-    "global_rate": 0.1059,
-    "total": 1504,
-    "drafted": 90,
-    "avg_pick": 363.7,
-    "med_pick": 417.0,
-    "avg_bonus": 213669.0
-  },
-  "Horizon": {
-    "strength": 0.4481,
-    "draft_rate": 0.0474,
-    "global_rate": 0.1059,
-    "total": 801,
-    "drafted": 38,
-    "avg_pick": 376.1,
-    "med_pick": 360.0,
-    "avg_bonus": 173429.0
-  },
-  "CUSA": {
-    "strength": 1.0501,
-    "draft_rate": 0.1112,
-    "global_rate": 0.1059,
-    "total": 2204,
-    "drafted": 245,
-    "avg_pick": 289.0,
-    "med_pick": 280.0,
-    "avg_bonus": 437070.0
-  },
-  "Big West": {
-    "strength": 1.3198,
-    "draft_rate": 0.1397,
-    "global_rate": 0.1059,
-    "total": 1861,
-    "drafted": 260,
-    "avg_pick": 316.0,
-    "med_pick": 308.0,
-    "avg_bonus": 546673.0
-  },
-  "Sun Belt": {
-    "strength": 0.9307,
-    "draft_rate": 0.0985,
-    "global_rate": 0.1059,
-    "total": 2446,
-    "drafted": 241,
-    "avg_pick": 314.3,
-    "med_pick": 294.0,
-    "avg_bonus": 435020.0
-  },
-  "CAA": {
-    "strength": 0.8,
-    "draft_rate": 0.0847,
-    "global_rate": 0.1059,
-    "total": 1724,
-    "drafted": 146,
-    "avg_pick": 302.3,
-    "med_pick": 271.0,
-    "avg_bonus": 329194.0
-  },
-  "Big East": {
-    "strength": 0.4384,
-    "draft_rate": 0.0464,
-    "global_rate": 0.1059,
-    "total": 948,
-    "drafted": 44,
-    "avg_pick": 337.3,
-    "med_pick": 363.0,
-    "avg_bonus": 189610.0
-  },
-  "NEC": {
-    "strength": 0.2089,
-    "draft_rate": 0.0221,
-    "global_rate": 0.1059,
-    "total": 1718,
-    "drafted": 38,
-    "avg_pick": 410.1,
-    "med_pick": 422.0,
-    "avg_bonus": 244350.0
-  },
-  "SEC": {
-    "strength": 3.0766,
-    "draft_rate": 0.3257,
-    "global_rate": 0.1059,
-    "total": 3095,
-    "drafted": 1008,
-    "avg_pick": 250.8,
-    "med_pick": 232.5,
-    "avg_bonus": 807858.0
-  },
-  "Summit League": {
-    "strength": 0.4152,
-    "draft_rate": 0.044,
-    "global_rate": 0.1059,
-    "total": 910,
-    "drafted": 40,
-    "avg_pick": 369.2,
-    "med_pick": 388.0,
-    "avg_bonus": 249539.0
-  },
-  "Atlantic 10": {
-    "strength": 0.6768,
-    "draft_rate": 0.0716,
-    "global_rate": 0.1059,
-    "total": 1312,
-    "drafted": 94,
-    "avg_pick": 337.8,
-    "med_pick": 362.0,
-    "avg_bonus": 201851.0
-  },
-  "Mountain West": {
-    "strength": 1.1672,
-    "draft_rate": 0.1236,
-    "global_rate": 0.1059,
-    "total": 1384,
-    "drafted": 171,
-    "avg_pick": 310.4,
-    "med_pick": 292.0,
-    "avg_bonus": 490407.0
-  },
-  "American": {
-    "strength": 1.2357,
-    "draft_rate": 0.1308,
-    "global_rate": 0.1059,
-    "total": 1399,
-    "drafted": 183,
-    "avg_pick": 307.1,
-    "med_pick": 296.0,
-    "avg_bonus": 455096.0
-  },
-  "MVC": {
-    "strength": 0.7756,
-    "draft_rate": 0.0821,
-    "global_rate": 0.1059,
-    "total": 1352,
-    "drafted": 111,
-    "avg_pick": 327.3,
-    "med_pick": 311.0,
-    "avg_bonus": 190030.0
-  },
-  "WCC": {
-    "strength": 0.888,
-    "draft_rate": 0.094,
-    "global_rate": 0.1059,
-    "total": 1234,
-    "drafted": 116,
-    "avg_pick": 324.9,
-    "med_pick": 310.0,
-    "avg_bonus": 314496.0
-  },
-  "Big Ten": {
-    "strength": 1.5401,
-    "draft_rate": 0.163,
-    "global_rate": 0.1059,
-    "total": 2662,
-    "drafted": 434,
-    "avg_pick": 287.5,
-    "med_pick": 276.0,
-    "avg_bonus": 449547.0
-  },
   "ACC": {
-    "strength": 2.4117,
-    "draft_rate": 0.2553,
-    "global_rate": 0.1059,
-    "total": 2687,
-    "drafted": 686,
-    "avg_pick": 254.4,
-    "med_pick": 226.0,
-    "avg_bonus": 721607.0
-  },
-  "SoCon": {
-    "strength": 0.5842,
-    "draft_rate": 0.0618,
-    "global_rate": 0.1059,
-    "total": 954,
-    "drafted": 59,
-    "avg_pick": 380.4,
-    "med_pick": 389.0,
-    "avg_bonus": 142754.0
-  },
-  "Ivy League": {
-    "strength": 0.5201,
-    "draft_rate": 0.0551,
-    "global_rate": 0.1059,
-    "total": 890,
-    "drafted": 49,
-    "avg_pick": 316.7,
-    "med_pick": 265.0,
-    "avg_bonus": 152054.0
-  },
-  "Big 12": {
-    "strength": 2.3852,
-    "draft_rate": 0.2525,
-    "global_rate": 0.1059,
-    "total": 1798,
-    "drafted": 454,
-    "avg_pick": 282.8,
-    "med_pick": 264.0,
-    "avg_bonus": 503910.0
-  },
-  "MAAC": {
-    "strength": 0.1556,
-    "draft_rate": 0.0165,
-    "global_rate": 0.1059,
-    "total": 2185,
-    "drafted": 36,
-    "avg_pick": 342.8,
-    "med_pick": 310.0,
-    "avg_bonus": 341006.0
-  },
-  "WAC": {
-    "strength": 0.4495,
-    "draft_rate": 0.0476,
-    "global_rate": 0.1059,
-    "total": 1261,
-    "drafted": 60,
-    "avg_pick": 362.9,
-    "med_pick": 384.0,
-    "avg_bonus": 186039.0
+    "strength": 2.6225,
+    "draft_rate": 0.169,
+    "global_rate": 0.0644,
+    "total": 2556,
+    "drafted": 432
   },
   "ASUN": {
-    "strength": 0.672,
-    "draft_rate": 0.0711,
-    "global_rate": 0.1059,
-    "total": 1701,
-    "drafted": 121,
-    "avg_pick": 355.7,
-    "med_pick": 409.0,
-    "avg_bonus": 310902.0
+    "strength": 0.4821,
+    "draft_rate": 0.0311,
+    "global_rate": 0.0644,
+    "total": 1416,
+    "drafted": 44
   },
-  "Southland": {
-    "strength": 0.3505,
-    "draft_rate": 0.0371,
-    "global_rate": 0.1059,
-    "total": 2264,
-    "drafted": 84,
-    "avg_pick": 360.1,
-    "med_pick": 353.0,
-    "avg_bonus": 156037.0
+  "America East": {
+    "strength": 0.2668,
+    "draft_rate": 0.0172,
+    "global_rate": 0.0644,
+    "total": 1047,
+    "drafted": 18
+  },
+  "American": {
+    "strength": 1.1269,
+    "draft_rate": 0.0726,
+    "global_rate": 0.0644,
+    "total": 1253,
+    "drafted": 91
+  },
+  "Atlantic 10": {
+    "strength": 0.5235,
+    "draft_rate": 0.0337,
+    "global_rate": 0.0644,
+    "total": 1156,
+    "drafted": 39
+  },
+  "Big 12": {
+    "strength": 2.3315,
+    "draft_rate": 0.1503,
+    "global_rate": 0.0644,
+    "total": 1697,
+    "drafted": 255
+  },
+  "Big East": {
+    "strength": 0.3236,
+    "draft_rate": 0.0209,
+    "global_rate": 0.0644,
+    "total": 863,
+    "drafted": 18
   },
   "Big South": {
-    "strength": 0.359,
-    "draft_rate": 0.038,
-    "global_rate": 0.1059,
-    "total": 1263,
-    "drafted": 48,
-    "avg_pick": 304.5,
-    "med_pick": 276.0,
-    "avg_bonus": 232158.0
+    "strength": 0.346,
+    "draft_rate": 0.0223,
+    "global_rate": 0.0644,
+    "total": 1121,
+    "drafted": 25
+  },
+  "Big Ten": {
+    "strength": 1.5441,
+    "draft_rate": 0.0995,
+    "global_rate": 0.0644,
+    "total": 2462,
+    "drafted": 245
+  },
+  "Big West": {
+    "strength": 1.2269,
+    "draft_rate": 0.0791,
+    "global_rate": 0.0644,
+    "total": 1682,
+    "drafted": 133
+  },
+  "CAA": {
+    "strength": 0.7562,
+    "draft_rate": 0.0487,
+    "global_rate": 0.0644,
+    "total": 1539,
+    "drafted": 75
+  },
+  "CUSA": {
+    "strength": 1.1003,
+    "draft_rate": 0.0709,
+    "global_rate": 0.0644,
+    "total": 1932,
+    "drafted": 137
+  },
+  "Horizon": {
+    "strength": 0.3139,
+    "draft_rate": 0.0202,
+    "global_rate": 0.0644,
+    "total": 692,
+    "drafted": 14
+  },
+  "Ivy League": {
+    "strength": 0.4523,
+    "draft_rate": 0.0292,
+    "global_rate": 0.0644,
+    "total": 789,
+    "drafted": 23
+  },
+  "MAAC": {
+    "strength": 0.2121,
+    "draft_rate": 0.0137,
+    "global_rate": 0.0644,
+    "total": 1902,
+    "drafted": 26
+  },
+  "MAC": {
+    "strength": 0.3894,
+    "draft_rate": 0.0251,
+    "global_rate": 0.0644,
+    "total": 1315,
+    "drafted": 33
+  },
+  "MVC": {
+    "strength": 0.7196,
+    "draft_rate": 0.0464,
+    "global_rate": 0.0644,
+    "total": 1186,
+    "drafted": 55
+  },
+  "Mountain West": {
+    "strength": 1.1154,
+    "draft_rate": 0.0719,
+    "global_rate": 0.0644,
+    "total": 1252,
+    "drafted": 90
+  },
+  "NEC": {
+    "strength": 0.1081,
+    "draft_rate": 0.007,
+    "global_rate": 0.0644,
+    "total": 1435,
+    "drafted": 10
+  },
+  "OVC": {
+    "strength": 0.2067,
+    "draft_rate": 0.0133,
+    "global_rate": 0.0644,
+    "total": 1201,
+    "drafted": 16
   },
   "Patriot": {
-    "strength": 0.3292,
-    "draft_rate": 0.0348,
-    "global_rate": 0.1059,
-    "total": 947,
-    "drafted": 33,
-    "avg_pick": 288.0,
-    "med_pick": 242.0,
-    "avg_bonus": 250400.0
+    "strength": 0.4069,
+    "draft_rate": 0.0262,
+    "global_rate": 0.0644,
+    "total": 839,
+    "drafted": 22
+  },
+  "SEC": {
+    "strength": 3.2583,
+    "draft_rate": 0.21,
+    "global_rate": 0.0644,
+    "total": 2862,
+    "drafted": 601
   },
   "SWAC": {
-    "strength": 0.0936,
-    "draft_rate": 0.0099,
-    "global_rate": 0.1059,
-    "total": 1816,
-    "drafted": 18,
-    "avg_pick": 431.3,
-    "med_pick": 463.0,
-    "avg_bonus": 96222.0
+    "strength": 0.0622,
+    "draft_rate": 0.004,
+    "global_rate": 0.0644,
+    "total": 1496,
+    "drafted": 6
+  },
+  "SoCon": {
+    "strength": 0.3807,
+    "draft_rate": 0.0245,
+    "global_rate": 0.0644,
+    "total": 856,
+    "drafted": 21
+  },
+  "Southland": {
+    "strength": 0.2751,
+    "draft_rate": 0.0177,
+    "global_rate": 0.0644,
+    "total": 1918,
+    "drafted": 34
+  },
+  "Summit League": {
+    "strength": 0.3824,
+    "draft_rate": 0.0246,
+    "global_rate": 0.0644,
+    "total": 771,
+    "drafted": 19
+  },
+  "Sun Belt": {
+    "strength": 0.8664,
+    "draft_rate": 0.0558,
+    "global_rate": 0.0644,
+    "total": 2167,
+    "drafted": 121
+  },
+  "WAC": {
+    "strength": 0.267,
+    "draft_rate": 0.0172,
+    "global_rate": 0.0644,
+    "total": 1104,
+    "drafted": 19
+  },
+  "WCC": {
+    "strength": 0.8443,
+    "draft_rate": 0.0544,
+    "global_rate": 0.0644,
+    "total": 1121,
+    "drafted": 61
   }
 }

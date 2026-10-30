@@ -142,7 +142,7 @@ Our TrackMan data only covers ~2024–2026. For a robust model, we need college 
                           │  (draft pick)        │
                           │                      │
                           │  Tier 2: XGBoost     │  ✅ Live
-                          │  (top-10 prob)       │
+                          │  (top-315 prob)      │
                           │                      │
                           │  Tier 3: Elastic Net │  ✅ Live
                           │  (MLB arrival)       │
@@ -173,21 +173,21 @@ Predict draft pick number / round from college performance metrics.
 |-----------|--------|--------|
 | Target | `pick_number` (regression) | ✅ Live |
 | Algorithm | XGBoost Regressor | ✅ Live |
-| Validation | Rolling year-out backtest | ✅ MAE ~110 picks |
+| Validation | Forward by draft year (fit on years < Y) | ✅ MAE 117 / 115 (2024-25), if drafted |
 | Features | 53 features (conf_strength + adj stats) | ✅ Live |
 | Performance | MAE 119.8, Spearman ρ 0.487 | ✅ Live |
 
 ### Tier 2: MLB Probability Model ✅ LIVE
 
-Predict top-10-round draft probability.
+Predict P(pick ≤ 315 in this season's draft or the next two). Rebuilt 2026-10-29: fixed-horizon label, no Age/height/BMI, conf_strength fit on training rows, Platt on player-grouped OOF scores.
 
 | Component | Choice | Status |
 |-----------|--------|--------|
-| Target | Top-10-round (pick ≤315) | ✅ Live |
+| Target | Pick ≤ 315 within 3 drafts (seasons 2021-2024 labelled) | ✅ Live |
 | Algorithm | XGBoost + Platt calibration | ✅ Live |
-| Training | Full population (56,910 negatives) | ✅ Live |
-| Performance | AUC 0.97 (hitters/pitchers) | ✅ Live |
-| Calibration | <3% avg absolute error | ✅ Live |
+| Training | Every D1 season, drafted or not, freshmen included (41,725 rows) | ✅ Live |
+| Performance | AUC 0.857 / 0.843 on the 2024 class (re-read; next clean read 2025 after the 2027 draft) | ✅ Live |
+| Calibration | ECE 1.4% / 0.6% on the 2024 class; board sums to 714 picks over 3 drafts | ✅ Live |
 
 ### Tier 3: MLB Arrival Model ✅ LIVE
 

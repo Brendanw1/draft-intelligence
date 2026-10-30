@@ -25,7 +25,7 @@ export default function ModelsPage() {
       </h1>
       <p className="mt-1 max-w-[640px] text-[13px] leading-relaxed text-ink-2">
         Four production artifacts. Tier 1 predicts where the industry drafts a
-        stat profile; Tier 2 predicts whether it goes in the top 10 rounds.
+        stat profile if it is drafted; Tier 2 predicts whether it goes in the top 315 picks within three drafts.
         Every number on this site traces back to one of these cards.
       </p>
 
@@ -35,8 +35,8 @@ export default function ModelsPage() {
           {[
             ["FanGraphs D1 stats", "2021–2026, joined via xMLBAMID"],
             ["Tier 1 — draft position", "XGBoost regression → projected pick"],
-            ["Tier 2 — MLB outcome", "pre-draft classifier, fed the projected pick"],
-            ["Calibration", "fit on out-of-fold scores — fixes 2.3× overconfidence"],
+            ["Tier 2 — top-315 pick", "classifier on every D1 season, drafted or not"],
+            ["Calibration", "Platt on out-of-fold scores — raw runs ~2× hot"],
             ["2026 projections", "10,734 players scored"],
           ].map(([title, sub], i, arr) => (
             <div key={title} className="flex items-center gap-2">

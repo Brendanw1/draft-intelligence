@@ -32,7 +32,13 @@ Two-tier XGBoost draft projection system for college baseball players, trained o
 
 ## Tier 2: MLB Probability Model
 
-**Task**: Predict probability of being drafted in top 10 rounds (binary classification).
+**Task**: Predict P(drafted at pick ≤ 315 in this season's draft or the next two) (binary classification).
+
+> **Current spec (2026-10-29, supersedes the tables below):** every D1 season 2021-2024 with a FanGraphs line,
+> drafted or not, freshmen included; fixed-horizon label; no Age, height or BMI (recorded far more completely for
+> drafted players); conf_strength refit on each fit's training rows; Platt fit on player-grouped out-of-fold scores.
+> 2024 class (re-read; model trained on 2021 seasons only): AUC 0.857 / 0.843, ECE 1.4% / 0.6%. Tier 1 is trained on
+> draftees only (projected pick if drafted); forward MAE by draft year 117 / 115. See README "Model Performance".
 
 **Algorithm**: XGBoost Classifier + Platt (sigmoid) / Isotonic calibration  
 - 500 trees, max depth 4  

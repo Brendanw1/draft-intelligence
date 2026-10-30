@@ -23,12 +23,12 @@ export function StatTiles({ filtered }: { filtered: IndexPlayer[] }) {
     {
       label: "Pick error (backtest)",
       value: meta ? `±${Math.round(Math.max(...Object.values(meta.pick_band_mae)))}` : "…",
-      sub: meta ? `picks, ${meta.backtest_year} holdout — read rounds, not slots` : undefined,
+      sub: meta ? "picks, forward backtest 2024–25, if drafted — read rounds, not slots" : undefined,
       warn: true,
     },
     {
       label: "Raw model bias",
-      value: meta ? "2.3×" : "…",
+      value: meta ? "~2×" : "…",
       sub: "overconfident pre-calibration — site shows calibrated %",
       warn: true,
     },

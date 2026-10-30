@@ -7,22 +7,24 @@ const GLOSSARY: [string, string][] = [
   ["BB% / K%", "Walks and strikeouts per plate appearance. The Tier 1 hitter model leans hard on plate discipline — this matches how teams actually draft."],
   ["FIP", "Fielding-independent pitching — what a pitcher's ERA 'should' be from strikeouts, walks, and homers alone. Our FIP uses an MLB constant, so compare pitchers to each other, not to a magic number."],
   ["K-BB%", "Strikeout rate minus walk rate — the fastest single read on a pitcher's dominance."],
-  ["Platt calibration", "A learned correction that maps the model's raw score to an honest probability. The primary calibration is PAVA-smoothed quantile (100-bin empirical mapping); Platt and isotonic are also computed as cross-checks in dossiers. Raw scores ran ~2.3× hot; every probability on this site is calibrated. Held out on the 2024 class (out-of-fold Platt): AUC 0.977 hitters / 0.966 pitchers, ECE 2.3% / 3.8%."],
-  ["Isotonic calibration", "A second, non-linear correction shown in dossiers as a cross-check. When Platt and isotonic agree, trust the number more."],
+  ["Platt calibration", "A learned correction that maps the model's raw score to an honest probability, fit on out-of-fold scores (no player in both the fitting and the scored rows). It is the number shown everywhere on this site. On the 2024 class, with the model trained only on seasons whose labels were complete before the 2024 draft: AUC 0.857 hitters / 0.843 pitchers, ECE 1.4% / 0.6%. The 2024 class had been read on earlier versions of the model, so this is a re-read; the next clean read is the 2025 class after the 2027 draft. The board's probabilities add up to about 714 top-315 picks over three drafts, about 238 a year, against roughly 250 four-year college players taken in the top 315 each year."],
+  ["Tier 2 / Top-315 probability", "P(drafted at pick 315 or better, about 10 rounds, in this season's draft or the next two). Every D1 season with a FanGraphs line is a training row, drafted or not, freshmen included, for the seasons 2021–2024 whose three drafts have all happened. Age, height and BMI are not inputs: the sources record them for drafted players far more completely than for undrafted ones, so they told the model the answer (fixed 2026-10-29)."],
+  ["Isotonic calibration", "A second, non-linear correction fit on the same out-of-fold scores, kept as a cross-check. When Platt and isotonic agree, trust the number more."],
   ["ECE", "Expected calibration error — the average gap between what the model predicted and what actually happened, before correction."],
-  ["Composite score", "Three-component blend: 30% projected draft slot value (Tier 1) + 40% calibrated top-10-round probability (Tier 2) + 30% Tier 3 MLB arrival probability. Scaled 0–100. It is an opinion, not an output of any single model."],
+  ["Composite score", "Three-component blend: 30% projected draft slot value (Tier 1) + 40% calibrated top-315 probability (Tier 2) + 30% Tier 3 MLB arrival probability. Scaled 0–100. It is an opinion, not an output of any single model."],
   ["Tier 5 / WAR Value", "Withdrawn: failed its backtest. A career-WAR model (P(reach MLB) × expected WAR if reached) was scored out of fold on the 2021 class, the only class with five pro seasons complete. It did not beat predicting the median for pitchers (R² −0.03) and barely did for hitters (R² +0.03). No WAR numbers appear on this site."],
   ["Value grade", "Composite percentile within qualified players of the same type: elite = top 1%, high = 95th–99th, medium = 80th–95th, low = the rest. Percentile tiers, because calibrated probabilities compress absolute scores."],
+  ["Tier 1 / Projected pick", "Where a drafted player with this stat line would go: the pick if drafted. It is trained on drafted players only, so it says nothing about whether he is drafted (that is Tier 2). Backtested forward by draft year (fit on earlier classes): mean absolute error 117 picks hitters / 115 pitchers on the 2024 and 2025 classes, against about 140 for predicting the average pick."],
   ["Spearman ρ", "Rank correlation between projected and actual draft order in backtests. ~0.5 means the model orders players meaningfully but far from perfectly."],
-  ["Tier 3 / MLB Arrival", "Predicts P(MLB debut within 3 seasons | drafted): an L2 logistic regression on standardised stats, with the draft round's historical debut rate as a fixed logit offset and a nearest-neighbor comp rate. Trained on the 2021–2023 classes. Draft round carries most of it: in cross-validation the round rate alone ranks players better (AUC 0.78 hitters, 0.81 pitchers) than the full model (0.75, 0.77)."],
-  ["Conf_strength", "Continuous conference strength score: empirical draft rate ratio (conference draft rate / global draft rate). Replaces the old 4-tier categorical conference tiers. SEC = 2.98×, SWAC = 0.09×."],
+  ["Tier 3 / MLB Arrival", "Predicts P(MLB debut within 3 seasons | drafted): an L2 logistic regression on standardised stats, with the draft round's historical debut rate as a fixed logit offset and a nearest-neighbor comp rate. Trained on the 2021–2022 classes, the ones with three complete MLB seasons in the data (debut dates were pulled in July 2026, so 2026 counts as incomplete). Draft round carries most of it: in cross-validation the round rate alone ranks players better (AUC 0.72 hitters, 0.77 pitchers) than the full model (0.70, 0.75)."],
+  ["Conf_strength", "Continuous conference strength score: the conference's rate of top-315 picks within three drafts divided by the D1 rate, from the training seasons only (2021–2024 on the site; each backtest refits it on its own training seasons). SEC = 3.26×, SWAC = 0.06×."],
   ["Conference-adjusted stats", "Raw stats (wOBA, ERA, etc.) are adjusted by subtracting the conference-average stat (e.g. wOBA_adj = wOBA − SEC_avg_wOBA). Separate strength×stat interaction features let the model learn non-linear conference effects. Together this prevents overrating small-conference production and underrating elite-conference production."],
 ];
 
 const LIMITS: [string, string][] = [
-  ["Conference adjustment is approximate", "Conference strength is based on empirical draft rates (2021–2025), which is a reasonable proxy but not a direct measure of conference quality. A few small conferences (DI Independent) have high draft rates due to individual programs, not overall strength."],
+  ["Conference adjustment is approximate", "Conference strength is based on empirical draft rates (seasons 2021–2024), which is a reasonable proxy but not a direct measure of conference quality. A few small conferences (DI Independent) have high draft rates due to individual programs, not overall strength."],
   ["Tier 3 is mostly draft round", "Tier 3 (MLB arrival) is trained on 2021–2023 draftees, each with three full seasons to debut. Its college stats add no ranking power beyond the draft round: read it as the round's historical rate, nudged. Small 2026 samples can push it around."],
-  ["No class year", "A sophomore hitting .350 and a senior hitting .350 look identical to the model. Age partially covers this, but eligibility timing does not exist in the features."],
+  ["No class year or age", "A sophomore hitting .350 and a senior hitting .350 look identical to Tier 2. Age was removed because FanGraphs has it for every drafted player but for under half of the undrafted. A freshman's probability covers his next three drafts, of which he is eligible for at most one."],
 ];
 
 export default function MethodologyPage() {
@@ -49,9 +51,9 @@ export default function MethodologyPage() {
           ERA_adj) and a continuous conference strength score (conf_strength)
           normalize for competitive level — small-conference production is
           now discounted proportionally. A regression model learns where drafted
-          stat profiles went; its projected pick feeds a second classification
-          model trained on top-10-round draft depth (pick ≤315). Raw
-          probabilities are corrected with PAVA-smoothed quantile calibration (100-bin empirical mapping from raw score to historical rate). Platt and isotonic calibrations are also computed as cross-checks in individual player dossiers. A third tier, a
+          stat profiles went (the projected pick, if drafted); a second classification
+          model, trained on every D1 season, predicts a pick of 315 or better within three drafts. Raw
+          probabilities are corrected with Platt scaling fit on out-of-fold scores, the calibration scored on the held-out 2024 class. A third tier, a
           logistic regression offset by the draft round's historical rate, predicts P(MLB debut within 3 seasons | drafted).
           A career-WAR tier (Tier 5) was built and withdrawn after it failed its backtest; it is not on the site.
           Every 2026 D1 player with a FanGraphs line — all 10,734 — gets scored.
@@ -73,11 +75,6 @@ export default function MethodologyPage() {
             <span className="font-semibold text-ink">Calibrated percentages, always.</span>{" "}
             When you see “raw model: 84%” next to “21%”, the 84% is what the model
             wanted to say and the 21% is what history supports.
-          </li>
-          <li>
-            <span className="font-semibold text-ink">The dashed tick is the receipts.</span>{' '}
-            On probability bars it marks how often players with that raw score
-            were actually drafted in the top 10 rounds.
           </li>
           <li>
             <span className="font-semibold text-ink">Grades are tiers, not ranks.</span>{" "}
