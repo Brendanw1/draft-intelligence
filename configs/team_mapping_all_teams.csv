@@ -160,7 +160,7 @@ LOY_LIO,Loyola Marymount,WCC
 LSU_TIG,LSU,SEC
 MAI_BLA,Maine,America East
 MAN_JAS,Manhattan,MAAC
-MAR_HAW,Maryland Eastern Shore,Northeast
+MAR_HAW,Maryland Eastern Shore,NEC
 MAR_RED,Marist,MAAC
 MAR_TER,Maryland,Big Ten
 MAR_THU,Marshall,Sun Belt
@@ -181,7 +181,7 @@ MIS_ST.,Missouri State,MVC
 MIZ_TIG,Missouri,SEC
 MON_HAW,Monmouth,CAA
 MOR_EAG,Morehead State,OVC
-MOY_MOY,Le Moyne,Northeast
+MOY_MOY,Le Moyne,NEC
 MSM_MTN,Mount St. Mary's,MAAC
 MSU_BDG,Mississippi State,SEC
 MT,Memphis,American
@@ -262,7 +262,7 @@ SET_PIR,Seton Hall,Big East
 SEW_TIG,Sewanee,SAA
 SIE_SAI,Siena,MAAC
 SIM_UNI,SIUE,OVC
-SIU_SAL,Southern Illinois,Missouri Valley
+SIU_SAL,Southern Illinois,MVC
 SLU_BILL,Saint Louis,Atlantic 10
 SMU_SAI,SMU,ACC
 SOU_COU,SIU Edwardsville,OVC
@@ -282,7 +282,7 @@ STE_LUM,Stephen F. Austin,Southland
 STJ_HAW,Saint Joseph's,Atlantic 10
 STJ_RED,St. John's,Big East
 STM_GAE,Saint Mary's,WCC
-STO_COL,Stonehill,Northeast
+STO_COL,Stonehill,NEC
 TAR_TEX,Tarleton State,WAC
 TCU_HFG,TCU,Big 12
 TEN_TEC,Tennessee Tech,OVC
@@ -311,7 +311,7 @@ UMASS_RIV,UMass Lowell,America East
 UMA_AMH,UMass,Atlantic 10
 UMBC_RET,UMBC,America East
 UNC_SEA,UNC Wilmington,CAA
-UNC_SPA,UNC Greensboro,Southern
+UNC_SPA,UNC Greensboro,SoCon
 UNI_BRI,Northern Iowa,MVC
 UNI_THE2,Union (TN),GSC
 UNI_WES,West Georgia,ASUN
@@ -331,7 +331,7 @@ VAN_COM,Vanderbilt,SEC
 VCU_RAM,VCU,Atlantic 10
 VIL_WIL,Villanova,Big East
 VIR_CAV,Virginia,ACC
-VIR_KEY,VMI,Southern
+VIR_KEY,VMI,SoCon
 VIR_TEC,Virginia Tech,ACC
 WAG_SEA,Wagner,NEC
 WAK_DEA,Wake Forest,ACC
@@ -340,7 +340,7 @@ WAS_COU,Washington State,Pac-12
 WAS_EDA,Washington,Big Ten
 WAS_HUS,Washington,Big Ten
 WAS_UNI,Washington State,Pac-12
-WCC,Western Carolina,Southern
+WCC,Western Carolina,SoCon
 WES_CHE5,West Chester,PSAC
 WES_GEO4,West Georgia,ASUN
 WES_HIL,Western Kentucky,CUSA
