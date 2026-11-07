@@ -104,14 +104,14 @@ FRE_BUL,Fresno State,Mountain West
 FRE_PAC,Fresno Pacific,PacWest
 GAR_RUN,Gardner-Webb,Big South
 GEO_BUL,Georgia,SEC
-GEO_COL,Georgia State,Sun Belt
+GEO_COL,George Washington,Atlantic 10
 GEO_EAG,Georgia Southern,Sun Belt
 GEO_HOY,Georgetown,Big East
 GEO_PAN,Georgia State,Sun Belt
 GEO_PAT,George Mason,Atlantic 10
 GIT_YEL,Georgia Tech,ACC
 GON_BUL,Gonzaga,WCC
-GRA_CAN,Grand Canyon,WAC
+GRA_CAN,Grand Canyon,Mountain West
 GRA_TIG,Grambling,SWAC
 HAR_CRI,Harvard,Ivy
 HAW_WAR,Hawaii,Big West
@@ -139,7 +139,7 @@ KAN_WIL,Kansas State,Big 12
 KEN_OWL,Kennesaw State,CUSA
 KEN_STA1,Kentucky State,SIAC
 KEN_WIL,Kentucky,SEC
-KS_GF,Kentucky State,SIAC
+KS_GF,Kent State,MAC
 LAF_LEP,Lafayette,Patriot
 LAM_CAR,Lamar,Southland
 LAS_EXS,La Salle,Atlantic 10
@@ -148,9 +148,9 @@ LIB_FLA,Liberty,CUSA
 LIN_UNI,Lindenwood,OVC
 LIP_BIS,Lipscomb,ASUN
 LIT_TRO,Little Rock,OVC
-LON_DIR,Longwood,Big South
+LON_DIR,Long Beach State,Big West
 LON_ISL22,LIU,NEC
-LON_LAN,Long Beach State,Big West
+LON_LAN,Longwood,Big South
 LOR_DUH,Loras,ARC
 LOU_BUL,Louisiana Tech,CUSA
 LOU_CAJ,Louisiana,Sun Belt
@@ -166,8 +166,8 @@ MAR_TER,Maryland,Big Ten
 MAR_THU,Marshall,Sun Belt
 MCN_COW,McNeese,Southland
 MER_BEA,Mercer,SoCon
-MER_COL1,Mercyhurst,PSAC
-MER_UNI,Merrimack,MAAC
+MER_COL1,Merrimack,MAAC
+MER_UNI,Mercyhurst,NEC
 MEX_LOB,New Mexico,Mountain West
 MIA_HUR,Miami,ACC
 MIA_RED,Miami (OH),MAC
@@ -175,9 +175,9 @@ MIC_SPA,Michigan State,Big Ten
 MIC_WOL,Michigan,Big Ten
 MIN_GOL,Minnesota,Big Ten
 MIN_GOP,Minnesota,Big Ten
-MIS_BEA,Ole Miss,SEC
+MIS_BEA,Missouri State,CUSA
 MIS_DEL,Mississippi Valley State,SWAC
-MIS_ST.,Missouri State,MVC
+MIS_ST.,Missouri-St. Louis,GLVC
 MIZ_TIG,Missouri,SEC
 MON_HAW,Monmouth,CAA
 MOR_EAG,Morehead State,OVC
@@ -247,8 +247,8 @@ RUT_SCA,Rutgers,Big Ten
 SAC_HOR,Sacramento State,WAC
 SAC_PIO,Sacred Heart,MAAC
 SAL_JAG,South Alabama,Sun Belt
-SAM_BEA,Samford,SoCon
-SAM_BUL,Sam Houston,CUSA
+SAM_BEA,Sam Houston,CUSA
+SAM_BUL,Samford,SoCon
 SAN_AZT,San Diego State,Mountain West
 SAN_BRO,Santa Clara,WCC
 SAN_DON,San Francisco,WCC
@@ -256,7 +256,7 @@ SAN_GAU,UC Santa Barbara,Big West
 SAN_SPA,San Jose State,Mountain West
 SAN_TOR,San Diego,WCC
 SBU_SEA,Stony Brook,CAA
-SEA_RED,Seattle,WAC
+SEA_RED,Seattle,WCC
 SEA_UNI,Seattle,WAC
 SET_PIR,Seton Hall,Big East
 SEW_TIG,Sewanee,SAA
@@ -266,14 +266,14 @@ SIU_SAL,Southern Illinois,MVC
 SLU_BILL,Saint Louis,Atlantic 10
 SMU_SAI,SMU,ACC
 SOU_COU,SIU Edwardsville,OVC
-SOU_GAM,South Carolina Upstate,Big South
+SOU_GAM,South Carolina,SEC
 SOU_GOL,Southern Miss,Sun Belt
 SOU_IND16,Southern Indiana,OVC
-SOU_JAC,Southern,SWAC
+SOU_JAC,South Dakota State,Summit
 SOU_JAG,South Alabama,Sun Belt
 SOU_LIO,Southeastern Louisiana,Southland
 SOU_RED,Southeast Missouri State,OVC
-SOU_TRO,South Carolina Upstate,Big South
+SOU_TRO,USC,Big Ten
 SPU_PEA,Saint Peter's,MAAC
 STA_CAR,Stanford,ACC
 STB_BON,St. Bonaventure,Atlantic 10
@@ -318,7 +318,7 @@ UNI_WES,West Georgia,ASUN
 UNI_WIS,Wisconsin,Big Ten
 UNL_REB,UNLV,Mountain West
 UNO_MAV,Omaha,Summit
-USC_UPS,USC,Big Ten
+USC_UPS,South Carolina Upstate,Big South
 USF_BUL,South Florida,American
 UTA_UTE,Utah,Big 12
 UTA_WOL,Utah Valley,WAC
