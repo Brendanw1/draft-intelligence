@@ -7,7 +7,7 @@ ALA_CRI,Alabama,SEC
 ALA_HOR,Alabama State,SWAC
 ALA_LIO,North Alabama,ASUN
 ALB_GRE,Albany,America East
-ALB_LIO,Albany,America East
+ALB_LIO,Albright,MAC Commonwealth
 ALC_BRA,Alcorn State,SWAC
 APP_MOU,Appalachian State,Sun Belt
 ARI_SUN,Arizona State,Big 12
@@ -23,7 +23,7 @@ AUG_COL,Augustana,NSIC
 AUS_GOV,Austin Peay,ASUN
 AZU_PAC,Azusa Pacific,PacWest
 BAL_CAR,Ball State,MAC
-BAL_UNI,Ball State,MAC
+BAL_UNI,Baldwin Wallace,OAC
 BAY_BEA,Baylor,Big 12
 BEL_BRU,Belmont,MVC
 BEL_KNI,Bellarmine,ASUN
@@ -45,27 +45,27 @@ CAL_HIG,UC Riverside,Big West
 CAL_LAN,California Baptist,WAC
 CAL_MAT,Cal State Northridge,Big West
 CAL_MUS,Cal Poly,Big West
-CAL_STA,California,ACC
+CAL_STA,Cal State San Bernardino,CCAA
 CAL_STA7,Cal State San Bernardino,CCAA
 CAM_CAM,Campbell,CAA
 CAM_CAM2,Campbell,CAA
 CAN_GRI,Canisius,MAAC
-CCU_BLD,Coastal Carolina,Sun Belt
+CCU_BLD,Central Connecticut,NEC
 CED_UNI,Cedarville,GMAC
 CEN_BEA,Central Arkansas,ASUN
-CEN_COL,Central Connecticut,NEC
+CEN_COL,Centre,SAA
 CEN_MIC,Central Michigan,MAC
 CHA_BUC,Charleston Southern,Big South
 CHA_FOR,Charlotte,American
 CIN_BEA,Cincinnati,Big 12
 CIT_BUL,The Citadel,SoCon
 CLE_TIG,Clemson,ACC
-CLE_UNI,Cleveland State,Horizon
+CLE_UNI,Cleary,WHAC
 CMU_MAV,Colorado Mesa,RMAC
 COA_CHA,Coastal Carolina,Sun Belt
 COL_CHA,College of Charleston,CAA
 COL_LION,Columbia,Ivy
-COL_STA2,Colorado State,Mountain West
+COL_STA2,CSU Pueblo,RMAC
 COP_STA,Coppin State,MEAC
 COR_BRE,Cornell,Ivy
 CRE_BLU,Creighton,Big East
@@ -73,13 +73,13 @@ CSD_TRI,UC San Diego,Big West
 CSU_BAK,Cal State Bakersfield,Big West
 DAL_PAT,Dallas Baptist,CUSA
 DAR_GRE,Dartmouth,Ivy
-DAV_UNI,Davidson,Atlantic 10
+DAV_UNI,Davenport,GLIAC
 DAV_WIL,Davidson,Atlantic 10
 DAY_FLY,Dayton,Atlantic 10
 DEL_BLU,Delaware,CUSA
 DEL_HOR,Delaware State,MEAC
-DIL_UNI,Dillard,GCAC
-DIL_UNI1,Dillard,GCAC
+DIL_UNI,Dillard,HBCUAC
+DIL_UNI1,Dillard,HBCUAC
 DIX_STE,Utah Tech,WAC
 DUK_BLU,Duke,ACC
 ECU_PIR,East Carolina,American
@@ -98,7 +98,7 @@ FLA_GAT,Florida,SEC
 FLO_PAN,FIU,CUSA
 FLO_RAT,Florida A&M,SWAC
 FLO_SEM,Florida State,ACC
-FOR_MAS,Fordham,Atlantic 10
+FOR_MAS,Purdue Fort Wayne,Horizon
 FOR_RAM,Fordham,Atlantic 10
 FRE_BUL,Fresno State,Mountain West
 FRE_PAC,Fresno Pacific,PacWest
@@ -155,7 +155,7 @@ LOR_DUH,Loras,ARC
 LOU_BUL,Louisiana Tech,CUSA
 LOU_CAJ,Louisiana,Sun Belt
 LOU_CAR,Louisville,ACC
-LOU_CHR,Loyola Chicago,Atlantic 10
+LOU_CHR,Louisiana Christian,RRAC
 LOY_LIO,Loyola Marymount,WCC
 LSU_TIG,LSU,SEC
 MAI_BLA,Maine,America East
@@ -207,12 +207,12 @@ NOR_BIS,North Dakota State,Summit
 NOR_CAT,Northwestern,Big Ten
 NOR_DEM,Northwestern State,Southland
 NOR_HUS,Northeastern,CAA
-NOR_PAR,Norfolk State,MEAC
+NOR_PAR,North Park,CCIW
 NOR_SPA,Norfolk State,MEAC
 NOR_TAR,North Carolina,ACC
 NOR_WOL,NC State,ACC
 NOT_IRI,Notre Dame,ACC
-OAK_CIT,Oakland,Horizon
+OAK_CIT,Oakland City,River States
 OAK_GOL,Oakland,Horizon
 OHI_BOB,Ohio,MAC
 OKL_COW,Oklahoma State,Big 12
@@ -257,20 +257,20 @@ SAN_SPA,San Jose State,Mountain West
 SAN_TOR,San Diego,WCC
 SBU_SEA,Stony Brook,CAA
 SEA_RED,Seattle,WCC
-SEA_UNI,Seattle,WAC
+SEA_UNI,Seattle,WCC
 SET_PIR,Seton Hall,Big East
 SEW_TIG,Sewanee,SAA
 SIE_SAI,Siena,MAAC
-SIM_UNI,SIUE,OVC
+SIM_UNI,Simpson (Calif.),Continental Athletic
 SIU_SAL,Southern Illinois,MVC
 SLU_BILL,Saint Louis,Atlantic 10
-SMU_SAI,SMU,ACC
+SMU_SAI,Saint Martin's,GNAC
 SOU_COU,SIU Edwardsville,OVC
 SOU_GAM,South Carolina,SEC
 SOU_GOL,Southern Miss,Sun Belt
 SOU_IND16,Southern Indiana,OVC
 SOU_JAC,South Dakota State,Summit
-SOU_JAG,South Alabama,Sun Belt
+SOU_JAG,Southern University,SWAC
 SOU_LIO,Southeastern Louisiana,Southland
 SOU_RED,Southeast Missouri State,OVC
 SOU_TRO,USC,Big Ten
@@ -312,10 +312,10 @@ UMA_AMH,UMass,Atlantic 10
 UMBC_RET,UMBC,America East
 UNC_SEA,UNC Wilmington,CAA
 UNC_SPA,UNC Greensboro,SoCon
-UNI_BRI,Northern Iowa,MVC
+UNI_BRI,British Columbia,Cascade
 UNI_THE2,Union (TN),GSC
 UNI_WES,West Georgia,ASUN
-UNI_WIS,Wisconsin,Big Ten
+UNI_WIS,UW-Platteville,WIAC
 UNL_REB,UNLV,Mountain West
 UNO_MAV,Omaha,Summit
 USC_UPS,South Carolina Upstate,Big South
@@ -339,13 +339,13 @@ WAR_COL,Warren Wilson,C2C
 WAS_COU,Washington State,Pac-12
 WAS_EDA,Washington,Big Ten
 WAS_HUS,Washington,Big Ten
-WAS_UNI,Washington State,Pac-12
+WAS_UNI,Washburn,MIAA
 WCC,Western Carolina,SoCon
 WES_CHE5,West Chester,PSAC
 WES_GEO4,West Georgia,ASUN
 WES_HIL,Western Kentucky,CUSA
 WES_MOU,West Virginia,Big 12
-WES_UNI,West Virginia,Big 12
+WES_UNI,Westcliff,Continental Athletic
 WES_VIR4,West Virginia State,MEC
 WIC_SHO,Wichita State,American
 WIN_EAG,Winthrop,Big South
@@ -355,7 +355,7 @@ WM_TRI,William & Mary,CAA
 WOF_TER,Wofford,SoCon
 WOU_WOL,Western Oregon,GNAC
 WRI_RAI,Wright State,Horizon
-XAV_LOU,Xavier,Big East
+XAV_LOU,Xavier (La.),HBCUAC
 XAV_MUS,Xavier,Big East
 YAL_BUL,Yale,Ivy
 YSU_PEN,Youngstown State,Horizon
